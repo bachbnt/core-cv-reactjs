@@ -19,12 +19,6 @@ const Slider = (props: Props) => {
 
   return (
     <Box className={classes.slider} component='nav'>
-      <Avatar
-        className={classes.avatar}
-        src='https://thuthuatnhanh.com/wp-content/uploads/2018/07/anh-avatar-dep.jpg'
-        alt='Bach Bui'
-      />
-      <Divider />
       <List>
         {items.map((item, key) => (
           <ListItem button key={key} component={Link} to={item.path}>

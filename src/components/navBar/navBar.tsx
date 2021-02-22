@@ -48,7 +48,6 @@ const NavBar = () => {
       <Box component='nav'>
         <AppBar className={classes.appBar} position='static'>
           <Toolbar>
-            <Typography variant='h5'>Portfolio App</Typography>
             <IconButton className={classes.hamburger} onClick={toggleDrawer}>
               <Menu style={{ color: 'white' }} />
             </IconButton>

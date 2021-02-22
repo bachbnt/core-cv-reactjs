@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import Props from './types';
-import { Typography, Paper } from '@material-ui/core';
+import { Box, Typography, Paper } from '@material-ui/core';
 import {
   Timeline,
   TimelineItem,
@@ -16,15 +16,15 @@ const WorkExperience = (props: Props) => {
   const { items } = props;
 
   return (
-    <>
-      <Typography className={classes.time} variant='h4' align='center'>
+    <Box className={classes.container}>
+      <Typography className={classes.title} variant='h3' align='center'>
         Work Experience
       </Typography>
       <Timeline align='alternate'>
         {items.map((item, index) => (
           <TimelineItem>
             <TimelineOppositeContent>
-              <Typography className={classes.time} variant='h5'>
+              <Typography className={classes.text} variant='h5'>
                 {item.time}
               </Typography>
             </TimelineOppositeContent>
@@ -44,7 +44,7 @@ const WorkExperience = (props: Props) => {
           </TimelineItem>
         ))}
       </Timeline>
-    </>
+    </Box>
   );
 };
 

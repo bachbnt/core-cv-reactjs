@@ -11,12 +11,11 @@ const styles = () => ({
   '@global': {
     body: {
       backgroundImage:
-        "url('https://www.geeklawblog.com/wp-content/uploads/sites/528/2018/12/liprofile-656x369.png')",
+        "url('https://www.krenerbookkeeping.com/wp-content/uploads/2018/07/computer-blue-opacity-background.jpg')",
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
       backgroundSize: 'cover',
       backgroundAttachment: 'fixed',
-      height: '100%',
     },
   },
 });

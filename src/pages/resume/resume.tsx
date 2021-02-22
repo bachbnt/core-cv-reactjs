@@ -1,6 +1,6 @@
 import useStyles from './styles';
-import NavBar from '../../components/navBar/navBar';
 import { Box } from '@material-ui/core';
+import NavBar from '../../components/navBar/navBar';
 import Education from '../../components/education/education';
 import WorkExperience from '../../components/workExperience/workExperience';
 
@@ -8,19 +8,14 @@ const Resume = () => {
   const classes = useStyles();
   const items1 = [
     {
-      time: '2020-Present',
+      time: 'Sep 2016 - Sep 2020',
       degree: 'Bachelor',
-      school: 'HCMUS',
+      school: 'UNIVERSITY OF SCIENCE ',
     },
     {
-      time: '2020-Present',
-      degree: 'Bachelor',
-      school: 'HCMUS',
-    },
-    {
-      time: '2020-Present',
-      degree: 'Bachelor',
-      school: 'HCMUS',
+      time: 'Dec 2020 - Dec 2022',
+      degree: 'Master',
+      school: 'UNIVERSITY OF SCIENCE ',
     },
   ];
   const items2 = [
@@ -69,13 +64,11 @@ const Resume = () => {
   ];
 
   return (
-    <>
+    <Box className={classes.container}>
       <NavBar />
-      <Box component='div'>
-        <Education items={items1} />
-        <WorkExperience items={items2} />
-      </Box>
-    </>
+      <Education items={items1} />
+      <WorkExperience items={items2} />
+    </Box>
   );
 };
 

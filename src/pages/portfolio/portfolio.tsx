@@ -1,4 +1,5 @@
 import useStyles from './styles';
+import { Box } from '@material-ui/core';
 import NavBar from '../../components/navBar/navBar';
 import Project from '../../components/project/project';
 
@@ -57,10 +58,10 @@ const Portfolio = () => {
   ];
 
   return (
-    <>
+    <Box className={classes.container}>
       <NavBar />
       <Project items={items} />
-    </>
+    </Box>
   );
 };
 

@@ -1,9 +1,18 @@
 import { makeStyles } from '@material-ui/core';
+import { color } from '../../shared/color';
 
 export default makeStyles((theme) => ({
-  container: {},
-  paper: {
-    padding: '6px 16px',
+  container: {
+    margin: '3rem auto 3rem',
   },
-  time: {},
+  paper: {
+    padding: '16px 24px',
+  },
+  title: {
+    color: color.primary,
+    fontWeight: 'bold',
+  },
+  text: {
+    color: color.white,
+  },
 }));
