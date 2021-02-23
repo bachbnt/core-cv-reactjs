@@ -1,3 +1,8 @@
+export interface IntroItem {
+  name: string;
+  job: string;
+  description: string;
+}
 export default interface Props {
-  data: any;
+  item: IntroItem;
 }

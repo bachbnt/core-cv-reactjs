@@ -1,3 +1,7 @@
+export interface ProfileItem {
+  avatar: string;
+  description: string;
+}
 export default interface Props {
-  data: any;
+  item: ProfileItem;
 }

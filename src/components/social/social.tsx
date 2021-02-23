@@ -1,7 +1,6 @@
 import useStyles from './styles';
 import Props from './types';
 import { Box, Button, Grid, Typography } from '@material-ui/core';
-import { Facebook, GitHub, Web } from '@material-ui/icons';
 
 const Social = (props: Props) => {
   const classes = useStyles();
@@ -26,7 +25,7 @@ const Social = (props: Props) => {
               onClick={() => {
                 handleClick(item.path);
               }}>
-              <Facebook className={classes.iconButton} />
+              <item.icon className={classes.iconButton} />
               <Typography className={classes.textButton} variant='h5'>
                 {item.text}
               </Typography>

@@ -5,11 +5,9 @@ import {
   Grid,
   Card,
   CardActionArea,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,
-  Button,
 } from '@material-ui/core';
 
 const Project = (props: Props) => {
@@ -36,14 +34,9 @@ const Project = (props: Props) => {
                   <Typography gutterBottom variant='h5'>
                     {item.name}
                   </Typography>
-                  <Typography variant='body2'>{item.desc}</Typography>
+                  <Typography variant='body2'>{item.description}</Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions>
-                <Button size='small' color='primary'>
-                  More
-                </Button>
-              </CardActions>
             </Card>
           </Grid>
         ))}

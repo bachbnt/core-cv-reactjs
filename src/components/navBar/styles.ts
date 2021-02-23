@@ -1,24 +1,30 @@
 import { makeStyles } from '@material-ui/core';
+import { color } from '../../shared/color';
 
 export default makeStyles((theme) => ({
   appBar: {
-    background: '#222',
+    background: color.black,
   },
-  hamburger: {
+  hamburgerButton: {
+    display: 'inline',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
     position: 'absolute',
     right: 0,
   },
-  buttonBar: {
+  hamburgerIcon: {
+    color: color.white,
+  },
+  actionBar: {
+    display: 'inline',
     [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
     position: 'absolute',
     right: 0,
   },
-  button: {
+  actionButton: {
     fontWeight: 'bold',
   },
 }));

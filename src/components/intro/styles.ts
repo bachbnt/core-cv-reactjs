@@ -3,12 +3,15 @@ import { color } from '../../shared/color';
 
 export default makeStyles((theme) => ({
   container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '5rem',
-    [theme.breakpoints.down('xs')]: {
-      padding: '2rem',
+    padding: '2rem',
+    [theme.breakpoints.up('sm')]: {
+      padding: '3rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '5rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '10rem',
     },
   },
   infoContainer: {
@@ -24,28 +27,18 @@ export default makeStyles((theme) => ({
     color: color.primary,
     marginTop: '1rem',
   },
-  quoteText: {
+  descriptionText: {
     textAlign: 'justify',
     color: color.white,
     marginTop: '3rem',
   },
   buttonContainer: {
-    display: 'flex',
     marginTop: '3rem',
-    [theme.breakpoints.down('xs')]: {
-      flexDirection: 'column',
-    },
   },
   aboutButton: {
     backgroundColor: color.primary,
     color: color.white,
-    [theme.breakpoints.up('xs')]: {
-      marginRight: '1rem',
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: '1rem',
-      width: '100%',
-    },
+    marginRight: '1rem',
   },
   contactButton: {
     color: color.primary,

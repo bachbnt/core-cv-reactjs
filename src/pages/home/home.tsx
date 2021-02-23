@@ -2,22 +2,21 @@ import useStyles from './styles';
 import { Box } from '@material-ui/core';
 import NavBar from '../../components/navBar/navBar';
 import Intro from '../../components/intro/intro';
+import { IntroItem } from '../../components/intro/types';
 
 const Home = () => {
   const classes = useStyles();
-  const data = {
+  const item: IntroItem = {
     name: 'Bach Bui',
     job: 'React Developer',
-    quote:
+    description:
       'Voici une première petite séquence de rédaction sur la description dpersonnages célèbres quon peut facilement proposer dès le CE2 ainsi que des productions délèves réalisés grâce au...',
-    image:
-      'https://thuthuatnhanh.com/wp-content/uploads/2018/07/anh-avatar-dep.jpg',
   };
 
   return (
     <Box className={classes.container}>
       <NavBar />
-      <Intro data={data} />
+      <Intro item={item} />
     </Box>
   );
 };

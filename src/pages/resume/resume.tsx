@@ -2,11 +2,13 @@ import useStyles from './styles';
 import { Box } from '@material-ui/core';
 import NavBar from '../../components/navBar/navBar';
 import Education from '../../components/education/education';
-import WorkExperience from '../../components/workExperience/workExperience';
+import Experience from '../../components/experience/experience';
+import { EducationItem } from '../../components/education/types';
+import { ExperienceItem } from '../../components/experience/types';
 
 const Resume = () => {
   const classes = useStyles();
-  const items1 = [
+  const items1: EducationItem[] = [
     {
       time: 'Sep 2016 - Sep 2020',
       degree: 'Bachelor',
@@ -18,47 +20,26 @@ const Resume = () => {
       school: 'UNIVERSITY OF SCIENCE ',
     },
   ];
-  const items2 = [
+  const items2: ExperienceItem[] = [
     {
       time: '2020-Present',
       job: 'Developer',
       company: 'DevBlock',
-      desc:
+      description:
         'Description Description Description Description Description Description Description Description Description Description',
     },
     {
       time: '2020-Present',
       job: 'Developer',
       company: 'DevBlock',
-      desc:
+      description:
         'Description Description Description Description Description Description Description Description Description Description',
     },
     {
       time: '2020-Present',
       job: 'Developer',
       company: 'DevBlock',
-      desc:
-        'Description Description Description Description Description Description Description Description Description Description',
-    },
-    {
-      time: '2020-Present',
-      job: 'Developer',
-      company: 'DevBlock',
-      desc:
-        'Description Description Description Description Description Description Description Description Description Description',
-    },
-    {
-      time: '2020-Present',
-      job: 'Developer',
-      company: 'DevBlock',
-      desc:
-        'Description Description Description Description Description Description Description Description Description Description',
-    },
-    {
-      time: '2020-Present',
-      job: 'Developer',
-      company: 'DevBlock',
-      desc:
+      description:
         'Description Description Description Description Description Description Description Description Description Description',
     },
   ];
@@ -67,7 +48,7 @@ const Resume = () => {
     <Box className={classes.container}>
       <NavBar />
       <Education items={items1} />
-      <WorkExperience items={items2} />
+      <Experience items={items2} />
     </Box>
   );
 };

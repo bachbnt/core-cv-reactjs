@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 
 const Intro = (props: Props) => {
   const classes = useStyles();
-  const { data } = props;
+  const { item } = props;
 
   return (
     <Box className={classes.container}>
       <Box className={classes.infoContainer}>
         <Typography className={classes.nameText} variant='h1'>
-          {data.name}
+          {item.name}
         </Typography>
         <Typography className={classes.jobText} variant='h3'>
-          {data.job}
+          {item.job}
         </Typography>
-        <Typography className={classes.quoteText} variant='h5'>
-          {data.quote}
+        <Typography className={classes.descriptionText} variant='h5'>
+          {item.description}
         </Typography>
         <Box className={classes.buttonContainer}>
           <Button

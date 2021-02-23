@@ -3,36 +3,43 @@ import { color } from '../../shared/color';
 
 export default makeStyles((theme) => ({
   container: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: '5rem',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '2rem',
+    [theme.breakpoints.up('sm')]: {
+      padding: '3rem',
     },
-    [theme.breakpoints.down('xs')]: {
-      padding: '2rem',
+    [theme.breakpoints.up('md')]: {
+      padding: '5rem',
+      flexDirection: 'row',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '10rem',
     },
   },
   avatar: {
-    width: theme.spacing(54),
-    height: theme.spacing(54),
-    [theme.breakpoints.down('xs')]: {
-      width: theme.spacing(36),
-      height: theme.spacing(36),
+    width: theme.spacing(36),
+    height: theme.spacing(36),
+    [theme.breakpoints.up('lg')]: {
+      width: theme.spacing(54),
+      height: theme.spacing(54),
     },
   },
   info: {
     textAlign: 'justify',
     color: color.white,
+    marginTop: '2rem',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: '3rem',
-    },
-    [theme.breakpoints.down('sm')]: {
       marginTop: '3rem',
-      marginLeft: 0,
+    },
+    [theme.breakpoints.up('md')]: {
+      marginTop: 0,
+      marginLeft: '5rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      marginTop: 0,
+      marginLeft: '5rem',
     },
   },
 }));

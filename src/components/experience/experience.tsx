@@ -11,7 +11,7 @@ import {
   TimelineDot,
 } from '@material-ui/lab/';
 
-const WorkExperience = (props: Props) => {
+const Experience = (props: Props) => {
   const classes = useStyles();
   const { items } = props;
 
@@ -38,7 +38,7 @@ const WorkExperience = (props: Props) => {
                   {item.company.toUpperCase()}
                 </Typography>
                 <Typography variant='h6'>{item.job}</Typography>
-                <Typography>{item.desc}</Typography>
+                <Typography>{item.description}</Typography>
               </Paper>
             </TimelineContent>
           </TimelineItem>
@@ -48,4 +48,4 @@ const WorkExperience = (props: Props) => {
   );
 };
 
-export default WorkExperience;
+export default Experience;

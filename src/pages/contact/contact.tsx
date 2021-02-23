@@ -3,10 +3,11 @@ import { Box } from '@material-ui/core';
 import NavBar from '../../components/navBar/navBar';
 import Social from '../../components/social/social';
 import { Facebook, GitHub, Mail, Smartphone } from '@material-ui/icons';
+import { SocialItem } from '../../components/social/types';
 
 const Contact = () => {
   const classes = useStyles();
-  const items = [
+  const items: SocialItem[] = [
     {
       text: '/tonbach18598',
       icon: Facebook,
@@ -18,14 +19,14 @@ const Contact = () => {
       path: 'https://github.com/tonbach18598',
     },
     {
-      text: 'tonbach18598',
+      text: 'tonbach18598@gmail.com',
       icon: Mail,
-      path: 'https://www.facebook.com/',
+      path: 'mailto:tonbach18598@gmail.com',
     },
     {
       text: '0384560623',
       icon: Smartphone,
-      path: '0384560623',
+      path: 'tel:0384560623',
     },
   ];
 

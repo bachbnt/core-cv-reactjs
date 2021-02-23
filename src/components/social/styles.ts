@@ -3,15 +3,15 @@ import { color } from '../../shared/color';
 
 export default makeStyles((theme) => ({
   container: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '5rem',
-    [theme.breakpoints.down('xs')]: {
-      padding: '1rem',
+    padding: '2rem',
+    [theme.breakpoints.up('sm')]: {
+      padding: '3rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: '5rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '10rem',
     },
   },
   list: {
