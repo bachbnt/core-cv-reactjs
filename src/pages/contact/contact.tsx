@@ -9,12 +9,12 @@ const Contact = () => {
   const classes = useStyles();
   const items: SocialItem[] = [
     {
-      text: '/tonbach18598',
+      text: 'tonbach18598',
       icon: Facebook,
       path: 'https://www.facebook.com/tonbach18598/',
     },
     {
-      text: '/tonbach18598',
+      text: 'tonbach18598',
       icon: GitHub,
       path: 'https://github.com/tonbach18598',
     },

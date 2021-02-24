@@ -7,6 +7,7 @@ import {
   IconButton,
   Button,
   Drawer,
+  Typography,
 } from '@material-ui/core';
 import {
   Home,
@@ -58,23 +59,27 @@ const NavBar = () => {
   return (
     <>
       <Box component='nav'>
-        <AppBar className={classes.appBar} position='static'>
+        <AppBar
+          className={classes.appBar}
+          color='transparent'
+          position='static'>
           <Toolbar>
-            <IconButton
-              className={classes.hamburgerButton}
-              onClick={toggleDrawer}>
-              <Menu className={classes.hamburgerIcon} />
-            </IconButton>
             <Box className={classes.actionBar}>
               {items.map((item) => (
                 <Button
                   className={classes.actionButton}
-                  color='inherit'
                   component={Link}
                   {...({ to: item.path } as any)}>
-                  {item.text}
+                  <Typography className={classes.actionButton}>
+                    {item.text}
+                  </Typography>
                 </Button>
               ))}
+            </Box>
+            <Box className={classes.hamburgerButton}>
+              <IconButton onClick={toggleDrawer}>
+                <Menu className={classes.hamburgerIcon} />
+              </IconButton>
             </Box>
             <Drawer open={open} onClose={toggleDrawer} anchor='right'>
               {<DrawerMenu items={items} />}

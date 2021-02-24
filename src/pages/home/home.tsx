@@ -8,7 +8,7 @@ const Home = () => {
   const classes = useStyles();
   const item: IntroItem = {
     name: 'Bach Bui',
-    job: 'React Developer',
+    job: 'Developer',
     description:
       'Voici une première petite séquence de rédaction sur la description dpersonnages célèbres quon peut facilement proposer dès le CE2 ainsi que des productions délèves réalisés grâce au...',
   };

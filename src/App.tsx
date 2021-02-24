@@ -57,4 +57,4 @@ const App = () => {
   );
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles, { index: 1 })(App);
