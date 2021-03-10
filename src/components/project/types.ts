@@ -1,6 +1,6 @@
 export interface ProjectItem {
   name: string;
-  image: string;
+  cover: string;
   description: string;
 }
 export default interface Props {

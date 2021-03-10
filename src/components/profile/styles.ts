@@ -31,6 +31,7 @@ export default makeStyles(
       textAlign: 'justify',
       color: color.white,
       marginTop: '2rem',
+      marginBottom: '1rem',
       [theme.breakpoints.up('sm')]: {
         marginTop: '3rem',
       },
@@ -42,6 +43,9 @@ export default makeStyles(
         marginTop: 0,
         marginLeft: '5rem',
       },
+    },
+    list: {
+      marginTop: '1rem',
     },
   }),
   { index: 1 }

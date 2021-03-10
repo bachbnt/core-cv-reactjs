@@ -25,7 +25,7 @@ const Project = (props: Props) => {
           <Grid item>
             <Card className={classes.card}>
               <CardActionArea>
-                <CardMedia component='img' image={item.image} />
+                <CardMedia component='img' image={item.cover} />
                 <CardContent>
                   <Typography gutterBottom variant='h5'>
                     {item.name}

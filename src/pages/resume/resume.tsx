@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import { Box } from '@material-ui/core';
-import NavBar from '../../components/navBar/navBar';
+import Navbar from '../../components/navbar/navbar';
 import Education from '../../components/education/education';
 import Experience from '../../components/experience/experience';
 import { EducationItem } from '../../components/education/types';
@@ -11,34 +11,34 @@ const Resume = () => {
   const items1: EducationItem[] = [
     {
       time: 'Sep 2016 - Sep 2020',
-      degree: 'Bachelor',
-      school: 'UNIVERSITY OF SCIENCE ',
+      degree: 'Bachelor of Physics',
+      school: 'University of Science',
     },
     {
       time: 'Dec 2020 - Dec 2022',
-      degree: 'Master',
-      school: 'UNIVERSITY OF SCIENCE ',
+      degree: 'Master of Physics Engineering',
+      school: 'University of Science',
     },
   ];
   const items2: ExperienceItem[] = [
     {
-      time: '2020-Present',
-      job: 'Developer',
-      company: 'DevBlock',
+      time: 'Oct 2019 - Feb 2020',
+      job: 'Flutter Developer',
+      company: 'Pika Tech and Analytics',
       description:
         'Description Description Description Description Description Description Description Description Description Description',
     },
     {
-      time: '2020-Present',
-      job: 'Developer',
-      company: 'DevBlock',
+      time: 'Mar 2020 - Present',
+      job: 'Mobile Developer',
+      company: 'DevBlock Vietnam',
       description:
         'Description Description Description Description Description Description Description Description Description Description',
     },
     {
-      time: '2020-Present',
-      job: 'Developer',
-      company: 'DevBlock',
+      time: 'Apr 2020 - Present',
+      job: 'Flutter Developer',
+      company: 'Freelancer',
       description:
         'Description Description Description Description Description Description Description Description Description Description',
     },
@@ -46,9 +46,9 @@ const Resume = () => {
 
   return (
     <Box className={classes.container}>
-      <NavBar />
-      <Education items={items1} />
-      <Experience items={items2} />
+      <Navbar />
+      <Education items={items1.reverse()} />
+      <Experience items={items2.reverse()} />
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import { Box } from '@material-ui/core';
-import NavBar from '../../components/navBar/navBar';
+import Navbar from '../../components/navbar/navbar';
 import Project from '../../components/project/project';
 import { ProjectItem } from '../../components/project/types';
 
@@ -8,50 +8,36 @@ const Portfolio = () => {
   const classes = useStyles();
   const items: ProjectItem[] = [
     {
-      name: 'Project 1',
-      image:
+      name: "Bach's Portfolio",
+      cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
     {
-      name: 'Project 1',
-      image:
+      name: 'Yoga Lasyn',
+      cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
     {
-      name: 'Project 1',
-      image:
+      name: 'Weather',
+      cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
     {
-      name: 'Project 1',
-      image:
+      name: 'PC Dashboard',
+      cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
     {
-      name: 'Project 1',
-      image:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
-      description:
-        ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
-    },
-    {
-      name: 'Project 1',
-      image:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
-      description:
-        ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
-    },
-    {
-      name: 'Project 1',
-      image:
+      name: 'Beli Coffee',
+      cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
@@ -60,7 +46,7 @@ const Portfolio = () => {
 
   return (
     <Box className={classes.container}>
-      <NavBar />
+      <Navbar />
       <Project items={items} />
     </Box>
   );

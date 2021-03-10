@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import { Box } from '@material-ui/core';
-import NavBar from '../../components/navBar/navBar';
+import Navbar from '../../components/navbar/navbar';
 import Intro from '../../components/intro/intro';
 import { IntroItem } from '../../components/intro/types';
 
@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <Box className={classes.container}>
-      <NavBar />
+      <Navbar />
       <Intro item={item} />
     </Box>
   );

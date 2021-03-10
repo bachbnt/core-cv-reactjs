@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import { Box } from '@material-ui/core';
-import NavBar from '../../components/navBar/navBar';
+import Navbar from '../../components/navbar/navbar';
 import Social from '../../components/social/social';
 import { Facebook, GitHub, Mail, Smartphone } from '@material-ui/icons';
 import { SocialItem } from '../../components/social/types';
@@ -9,19 +9,19 @@ const Contact = () => {
   const classes = useStyles();
   const items: SocialItem[] = [
     {
-      text: 'tonbach18598',
+      text: 'bachbnt',
       icon: Facebook,
-      path: 'https://www.facebook.com/tonbach18598/',
+      path: 'https://www.facebook.com/bachbnt',
     },
     {
-      text: 'tonbach18598',
+      text: 'bachbnt',
       icon: GitHub,
-      path: 'https://github.com/tonbach18598',
+      path: 'https://github.com/bachbnt',
     },
     {
-      text: 'tonbach18598@gmail.com',
+      text: 'bachbnt@gmail.com',
       icon: Mail,
-      path: 'mailto:tonbach18598@gmail.com',
+      path: 'mailto:bachbnt@gmail.com',
     },
     {
       text: '0384560623',
@@ -32,7 +32,7 @@ const Contact = () => {
 
   return (
     <Box className={classes.container}>
-      <NavBar />
+      <Navbar />
       <Social items={items} />
     </Box>
   );

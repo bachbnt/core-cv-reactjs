@@ -6,7 +6,6 @@ import {
   Toolbar,
   IconButton,
   Button,
-  Drawer,
   Typography,
 } from '@material-ui/core';
 import {
@@ -17,11 +16,12 @@ import {
   Contacts,
   Menu,
 } from '@material-ui/icons';
-import DrawerMenu from '../drawerMenu/drawerMenu';
+import Drawer from '../drawer/drawer';
 import { Link } from 'react-router-dom';
+import { DrawerItem } from '../drawer/types';
 
-const NavBar = () => {
-  const items = [
+const Navbar = () => {
+  const items: DrawerItem[] = [
     {
       text: 'Home',
       icon: Home,
@@ -81,9 +81,7 @@ const NavBar = () => {
                 <Menu className={classes.hamburgerIcon} />
               </IconButton>
             </Box>
-            <Drawer open={open} onClose={toggleDrawer} anchor='right'>
-              {<DrawerMenu items={items} />}
-            </Drawer>
+            <Drawer open={open} onClose={toggleDrawer} items={items} />
           </Toolbar>
         </AppBar>
       </Box>
@@ -91,4 +89,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;
