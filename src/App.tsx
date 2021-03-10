@@ -12,7 +12,7 @@ const styles = () => ({
   '@global': {
     body: {
       backgroundImage:
-        "url('https://www.krenerbookkeeping.com/wp-content/uploads/2018/07/computer-blue-opacity-background.jpg')",
+        "url('https://cutewallpaper.org/21/hd-website-backgrounds/4k-Webpage-Background-Hd-Website-Backgrounds-Teriz-.jpg')",
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
       backgroundSize: 'cover',
