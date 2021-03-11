@@ -10,7 +10,7 @@ const Portfolio = () => {
   const items: ProjectItem[] = [
     {
       name: "Bach's Portfolio",
-      tech: 'React JS',
+      tech: 'ReactJS',
       cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
       description:

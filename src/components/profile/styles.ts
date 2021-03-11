@@ -7,16 +7,16 @@ export default makeStyles(
       alignItems: 'center',
       display: 'flex',
       flexDirection: 'column',
-      padding: '2rem',
+      margin: '2rem 2rem 0 2rem',
       [theme.breakpoints.up('sm')]: {
-        padding: '3rem',
+        margin: '3rem 3rem 0 3rem',
       },
       [theme.breakpoints.up('md')]: {
-        padding: '5rem',
+        margin: '5rem 5rem 0 5rem',
         flexDirection: 'row',
       },
       [theme.breakpoints.up('lg')]: {
-        padding: '10rem',
+        margin: '10rem 10rem 0 10rem ',
       },
     },
     avatar: {
@@ -31,7 +31,6 @@ export default makeStyles(
       textAlign: 'justify',
       color: color.white,
       marginTop: '2rem',
-      marginBottom: '1rem',
       [theme.breakpoints.up('sm')]: {
         marginTop: '3rem',
       },
@@ -41,11 +40,8 @@ export default makeStyles(
       },
       [theme.breakpoints.up('lg')]: {
         marginTop: 0,
-        marginLeft: '5rem',
+        marginLeft: '7rem',
       },
-    },
-    list: {
-      marginTop: '1rem',
     },
   }),
   { index: 1 }

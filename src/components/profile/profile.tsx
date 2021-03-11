@@ -1,5 +1,5 @@
 import useStyles from './styles';
-import { Box, Avatar, Typography, List } from '@material-ui/core';
+import { Box, Avatar, Typography, List, SvgIcon } from '@material-ui/core';
 import Props from './types';
 
 const Profile = (props: Props) => {
@@ -10,12 +10,7 @@ const Profile = (props: Props) => {
     <Box className={classes.container}>
       <Avatar className={classes.avatar} src={item.avatar} />
       <Box className={classes.info}>
-        <Typography variant='h5'>{item.description}</Typography>
-        <List className={classes.list}>
-          {item.skills.map((item) => (
-            <Typography variant='h5'>{`- ${item}`}</Typography>
-          ))}
-        </List>
+        <Typography variant='h6'>{item.description}</Typography>
       </Box>
     </Box>
   );
