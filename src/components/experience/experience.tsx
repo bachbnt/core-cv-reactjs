@@ -24,7 +24,7 @@ const Experience = (props: Props) => {
         {items.map((item, index) => (
           <TimelineItem>
             <TimelineOppositeContent>
-              <Typography className={classes.text} variant='h5'>
+              <Typography className={classes.text} variant='h6'>
                 {item.time}
               </Typography>
             </TimelineOppositeContent>
