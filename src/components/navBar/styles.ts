@@ -23,8 +23,12 @@ export default makeStyles(
       position: 'absolute',
       right: 0,
     },
-    actionButton: {
+    unselectedActionButton: {
       color: color.white,
+      fontWeight: 'bold',
+    },
+    selectedActionButton: {
+      color: color.primary,
       fontWeight: 'bold',
     },
   }),

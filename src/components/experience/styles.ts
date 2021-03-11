@@ -16,6 +16,10 @@ export default makeStyles(
     text: {
       color: color.white,
     },
+    subtitle: {
+      color: color.black,
+      fontWeight: 'bold',
+    },
   }),
   { index: 1 }
 );

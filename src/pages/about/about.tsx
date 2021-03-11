@@ -3,6 +3,7 @@ import { Box } from '@material-ui/core';
 import Navbar from '../../components/navbar/navbar';
 import Profile from '../../components/profile/profile';
 import { ProfileItem } from '../../components/profile/types';
+import { routeData } from '../../routes/routeData';
 
 const About = () => {
   const classes = useStyles();
@@ -16,7 +17,7 @@ const About = () => {
 
   return (
     <Box className={classes.container}>
-      <Navbar />
+      <Navbar currentRoute={routeData.about} />
       <Profile item={item} />
     </Box>
   );

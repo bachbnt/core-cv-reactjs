@@ -8,49 +8,16 @@ import {
   Button,
   Typography,
 } from '@material-ui/core';
-import {
-  Home,
-  Info,
-  Assignment,
-  Web,
-  Contacts,
-  Menu,
-} from '@material-ui/icons';
+import { Menu } from '@material-ui/icons';
 import Drawer from '../drawer/drawer';
 import { Link } from 'react-router-dom';
-import { DrawerItem } from '../drawer/types';
+import { routeData } from '../../routes/routeData';
+import { Props } from './types';
 
-const Navbar = () => {
-  const items: DrawerItem[] = [
-    {
-      text: 'Home',
-      icon: Home,
-      path: '/',
-    },
-    {
-      text: 'About',
-      icon: Info,
-      path: '/about',
-    },
-    {
-      text: 'Resume',
-      icon: Assignment,
-      path: '/resume',
-    },
-    {
-      text: 'Portfolio',
-      icon: Web,
-      path: '/portfolio',
-    },
-    {
-      text: 'Contact',
-      icon: Contacts,
-      path: '/contact',
-    },
-  ];
-
+const Navbar = (props: Props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const { currentRoute } = props;
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -65,13 +32,22 @@ const Navbar = () => {
           position='static'>
           <Toolbar>
             <Box className={classes.actionBar}>
-              {items.map((item) => (
+              {Object.values(routeData).map((route) => (
                 <Button
-                  className={classes.actionButton}
+                  className={
+                    route.name === currentRoute.name
+                      ? classes.selectedActionButton
+                      : classes.unselectedActionButton
+                  }
                   component={Link}
-                  {...({ to: item.path } as any)}>
-                  <Typography className={classes.actionButton}>
-                    {item.text}
+                  {...({ to: route.path } as any)}>
+                  <Typography
+                    className={
+                      route.name === currentRoute.name
+                        ? classes.selectedActionButton
+                        : classes.unselectedActionButton
+                    }>
+                    {route.title}
                   </Typography>
                 </Button>
               ))}
@@ -81,7 +57,11 @@ const Navbar = () => {
                 <Menu className={classes.hamburgerIcon} />
               </IconButton>
             </Box>
-            <Drawer open={open} onClose={toggleDrawer} items={items} />
+            <Drawer
+              open={open}
+              onClose={toggleDrawer}
+              currentRoute={currentRoute}
+            />
           </Toolbar>
         </AppBar>
       </Box>

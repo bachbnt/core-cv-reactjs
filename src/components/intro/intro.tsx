@@ -2,6 +2,7 @@ import useStyles from './styles';
 import Props from './types';
 import { Box, Typography, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { routeData } from '../../routes/routeData';
 
 const Intro = (props: Props) => {
   const classes = useStyles();
@@ -21,21 +22,21 @@ const Intro = (props: Props) => {
         </Typography>
         <Box className={classes.buttonContainer}>
           <Button
-            className={classes.aboutButton}
+            classes={{ root: classes.aboutButton }}
             color='inherit'
             size='large'
             component={Link}
-            {...({ to: '/about' } as any)}>
-            About Me
+            {...({ to: routeData.about.path } as any)}>
+            {routeData.about.name} Me
           </Button>
           <Button
-            className={classes.contactButton}
+            classes={{ root: classes.contactButton }}
             variant='outlined'
             color='inherit'
             size='large'
             component={Link}
-            {...({ to: '/contact' } as any)}>
-            Contact Me
+            {...({ to: routeData.contact.path } as any)}>
+            {routeData.contact.name} Me
           </Button>
         </Box>
       </Box>

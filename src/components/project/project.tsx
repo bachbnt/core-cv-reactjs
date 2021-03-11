@@ -27,8 +27,11 @@ const Project = (props: Props) => {
               <CardActionArea>
                 <CardMedia component='img' image={item.cover} />
                 <CardContent>
-                  <Typography gutterBottom variant='h5'>
+                  <Typography className={classes.title} variant='h5'>
                     {item.name}
+                  </Typography>
+                  <Typography className={classes.subtitle} variant='subtitle1'>
+                    {item.tech}
                   </Typography>
                   <Typography variant='body2'>{item.description}</Typography>
                 </CardContent>

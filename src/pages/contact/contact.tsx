@@ -4,6 +4,7 @@ import Navbar from '../../components/navbar/navbar';
 import Social from '../../components/social/social';
 import { Facebook, GitHub, Mail, Smartphone } from '@material-ui/icons';
 import { SocialItem } from '../../components/social/types';
+import { routeData } from '../../routes/routeData';
 
 const Contact = () => {
   const classes = useStyles();
@@ -32,7 +33,7 @@ const Contact = () => {
 
   return (
     <Box className={classes.container}>
-      <Navbar />
+      <Navbar currentRoute={routeData.contact} />
       <Social items={items} />
     </Box>
   );

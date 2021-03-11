@@ -14,9 +14,32 @@ export default makeStyles(
       width: theme.spacing(13),
       height: theme.spacing(13),
     },
-    tile: {
+    unselectedTitle: {
+      color: color.white,
+      fontWeight: 'bold',
+    },
+    unselectedIcon: {
       color: color.white,
     },
+    selectedTitle: {
+      color: color.primary,
+      fontWeight: 'bold',
+    },
+    selectedIcon: {
+      color: color.primary,
+    },
+    root: {
+      '&$selected': {
+        backgroundColor: color.white,
+        '&:hover': {
+          backgroundColor: color.black,
+        },
+      },
+      '&:hover': {
+        backgroundColor: color.black,
+      },
+    },
+    selected: {},
   }),
   { index: 1 }
 );

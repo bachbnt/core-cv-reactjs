@@ -40,9 +40,16 @@ export default makeStyles(
       backgroundColor: color.primary,
       color: color.white,
       marginRight: '1rem',
+      '&:hover': {
+        backgroundColor: color.black,
+      },
     },
+    selected: {},
     contactButton: {
       color: color.primary,
+      '&:hover': {
+        backgroundColor: color.black,
+      },
     },
   }),
   { index: 1 }

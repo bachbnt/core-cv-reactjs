@@ -34,10 +34,12 @@ const Education = (props: Props) => {
             </TimelineSeparator>
             <TimelineContent>
               <Paper elevation={3} className={classes.paper}>
-                <Typography variant='h5'>
+                <Typography className={classes.title} variant='h5'>
                   {item.school.toUpperCase()}
                 </Typography>
-                <Typography variant='h6'>{item.degree}</Typography>
+                <Typography className={classes.subtitle} variant='subtitle1'>
+                  {item.degree}
+                </Typography>
               </Paper>
             </TimelineContent>
           </TimelineItem>

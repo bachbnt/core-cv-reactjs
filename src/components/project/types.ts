@@ -1,5 +1,6 @@
 export interface ProjectItem {
   name: string;
+  tech: string;
   cover: string;
   description: string;
 }

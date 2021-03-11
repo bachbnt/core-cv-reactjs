@@ -34,11 +34,13 @@ const Experience = (props: Props) => {
             </TimelineSeparator>
             <TimelineContent>
               <Paper elevation={3} className={classes.paper}>
-                <Typography variant='h5'>
+                <Typography className={classes.title} variant='h5'>
                   {item.company.toUpperCase()}
                 </Typography>
-                <Typography variant='h6'>{item.job}</Typography>
-                <Typography>{item.description}</Typography>
+                <Typography className={classes.subtitle} variant='subtitle1'>
+                  {item.job}
+                </Typography>
+                <Typography variant='body2'>{item.description} </Typography>
               </Paper>
             </TimelineContent>
           </TimelineItem>

@@ -5,6 +5,7 @@ import Education from '../../components/education/education';
 import Experience from '../../components/experience/experience';
 import { EducationItem } from '../../components/education/types';
 import { ExperienceItem } from '../../components/experience/types';
+import { routeData } from '../../routes/routeData';
 
 const Resume = () => {
   const classes = useStyles();
@@ -16,7 +17,7 @@ const Resume = () => {
     },
     {
       time: 'Dec 2020 - Dec 2022',
-      degree: 'Master of Physics Engineering',
+      degree: 'Master of Engineering Physics ',
       school: 'University of Science',
     },
   ];
@@ -46,7 +47,7 @@ const Resume = () => {
 
   return (
     <Box className={classes.container}>
-      <Navbar />
+      <Navbar currentRoute={routeData.resume} />
       <Education items={items1.reverse()} />
       <Experience items={items2.reverse()} />
     </Box>
