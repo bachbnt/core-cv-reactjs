@@ -8,7 +8,7 @@ const styles = () => ({
   '@global': {
     body: {
       backgroundImage:
-        "url('https://cutewallpaper.org/21/hd-website-backgrounds/4k-Webpage-Background-Hd-Website-Backgrounds-Teriz-.jpg')",
+        "url('https://cdn.filtergrade.com/wp-content/uploads/2019/12/28151408/40-Black-Wood-Background-Textures-8.png')",
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
       backgroundSize: 'cover',

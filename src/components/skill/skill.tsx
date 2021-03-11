@@ -17,7 +17,7 @@ const Skill = (props: Props) => {
           <Grid item>
             <Box className={classes.row}>
               <item.icon className={classes.icon} />
-              <Typography className={classes.text} variant='h6'>
+              <Typography className={classes.text} variant='h5'>
                 {item.name}
               </Typography>
             </Box>

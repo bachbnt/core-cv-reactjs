@@ -25,7 +25,7 @@ const Portfolio = () => {
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
     {
-      name: 'Weather',
+      name: 'Weather Live',
       tech: 'Flutter',
       cover:
         'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
