@@ -8,11 +8,11 @@ import {
   Button,
   Typography,
 } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
 import Drawer from '../drawer/drawer';
 import { Link } from 'react-router-dom';
 import { routeData } from '../../routes/routeData';
 import { Props } from './types';
+import { MdMenu } from 'react-icons/md';
 
 const Navbar = (props: Props) => {
   const classes = useStyles();
@@ -54,7 +54,7 @@ const Navbar = (props: Props) => {
             </Box>
             <Box className={classes.hamburgerButton}>
               <IconButton onClick={toggleDrawer}>
-                <Menu className={classes.hamburgerIcon} />
+                <MdMenu className={classes.hamburgerIcon} />
               </IconButton>
             </Box>
             <Drawer

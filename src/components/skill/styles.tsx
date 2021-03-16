@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { color } from '../../shared/color';
+import { color } from '../../commons/color';
 
 export default makeStyles((theme) => ({
   container: {

@@ -1,9 +1,8 @@
-import { SvgIconTypeMap } from '@material-ui/core';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
+import { IconType } from 'react-icons/lib';
 
 export interface Route {
   title: string;
-  icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  icon: IconType;
   component: () => JSX.Element;
   name: string;
   path: string;

@@ -1,6 +1,6 @@
 import useStyles from './styles';
 import Props from './types';
-import { Box, Button, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 
 const Skill = (props: Props) => {
   const classes = useStyles();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider, withStyles } from '@material-ui/core';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import theme from './shared/theme';
+import theme from './commons/theme';
 import { routeData } from './routes/routeData';
 
 const styles = () => ({

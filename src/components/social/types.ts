@@ -1,9 +1,8 @@
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
+import { IconType } from 'react-icons';
 
 export interface SocialItem {
   text: string;
-  icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  icon: IconType;
   path: string;
 }
 

@@ -12,7 +12,7 @@ const Portfolio = () => {
       name: "Bach's Portfolio",
       tech: 'ReactJS',
       cover:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
+        'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
@@ -20,7 +20,7 @@ const Portfolio = () => {
       name: 'Yoga Lasyn',
       tech: 'Flutter',
       cover:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
+        'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
@@ -28,7 +28,7 @@ const Portfolio = () => {
       name: 'Weather Live',
       tech: 'Flutter',
       cover:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
+        'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
@@ -36,7 +36,7 @@ const Portfolio = () => {
       name: 'P&C Dashboard',
       tech: 'React Native',
       cover:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
+        'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
@@ -44,7 +44,7 @@ const Portfolio = () => {
       name: 'Beli Coffee',
       tech: 'Android',
       cover:
-        'https://blog.taskpigeon.co/wp-content/uploads/2018/07/8-Online-Course-Providers-To-Train-Upskill-Your-Employees.jpg',
+        'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
       description:
         ' Description  Description  Description  Description  Description  Description  Description  Description  Description  Description ',
     },
