@@ -23,25 +23,16 @@ const Resume = () => {
   ];
   const items2: ExperienceItem[] = [
     {
-      time: 'Oct 2019 - Feb 2020',
-      job: 'Flutter Developer',
-      company: 'Pika Tech and Analytics',
-      description:
-        'Description Description Description Description Description Description Description Description Description Description',
-    },
-    {
       time: 'Mar 2020 - Present',
       job: 'Mobile Developer',
       company: 'DevBlock Vietnam',
-      description:
-        'Description Description Description Description Description Description Description Description Description Description',
+      description: 'Developing mobile applications',
     },
     {
       time: 'Apr 2020 - Present',
       job: 'Flutter Developer',
       company: 'Freelancer',
-      description:
-        'Description Description Description Description Description Description Description Description Description Description',
+      description: 'Developing mobile applications',
     },
   ];
 

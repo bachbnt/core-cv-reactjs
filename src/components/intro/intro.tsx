@@ -14,7 +14,7 @@ const Intro = (props: Props) => {
         <Typography className={classes.nameText} variant='h1'>
           {item.name}
         </Typography>
-        <Typography className={classes.jobText} variant='h3'>
+        <Typography className={classes.jobText} variant='h4'>
           {item.job}
         </Typography>
         <Typography className={classes.descriptionText} variant='h5'>
