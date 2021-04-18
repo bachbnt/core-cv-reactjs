@@ -8,5 +8,5 @@ export interface Project {
 
 export interface ProjectDetail {
   image: string;
-  description: string;
+  description?: string;
 }

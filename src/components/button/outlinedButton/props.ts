@@ -1,3 +1,3 @@
-import { ButtonProps } from '@material-ui/core';
+import { Props as ButtonProps } from '../props';
 
 export type Props = {} & ButtonProps;

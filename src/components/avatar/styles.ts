@@ -1,13 +1,10 @@
 import { createStyles, makeStyles } from '@material-ui/core';
-import { Color } from '../../styles/color';
 
 export default makeStyles((theme) =>
   createStyles({
     root: {
-      color: Color.white,
-    },
-    selected: {
-      color: Color.primary,
+      width: theme.spacing(36),
+      height: theme.spacing(36),
     },
   })
 );

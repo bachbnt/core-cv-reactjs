@@ -10,6 +10,7 @@ export interface User {
   job: string;
   summary: string;
   avatar: string;
+  cover: string;
   description: string;
   cv: string;
   universities: University[];

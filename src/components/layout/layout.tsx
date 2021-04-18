@@ -2,11 +2,14 @@ import { Box } from '@material-ui/core';
 import { UIPage } from '../../models/ui';
 import { RouteName } from '../../routes/routeName';
 import { RoutePath } from '../../routes/routePath';
+import Footer from '../footer/footer';
+import Header from '../header/header';
 import { Props } from './props';
 import useStyles from './styles';
 
 const Layout = (props: Props) => {
   const classes = useStyles();
+  const { children } = props;
 
   const items: UIPage[] = [
     {
@@ -35,7 +38,13 @@ const Layout = (props: Props) => {
     },
   ];
 
-  return <Box></Box>;
+  return (
+    <Box className={classes.container}>
+      <Header items={items} />
+      {children}
+      <Footer />
+    </Box>
+  );
 };
 
 export default Layout;

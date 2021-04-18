@@ -9,3 +9,10 @@ export interface UITimeline {
   content?: string;
   time: string;
 }
+
+export interface UICard {
+  title: string;
+  subtitle: string;
+  content?: string;
+  image: string;
+}

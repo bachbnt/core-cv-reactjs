@@ -6,36 +6,36 @@ export const routes: RouteProps[] = [
   {
     name: RouteName.HOME,
     path: RoutePath.HOME,
-    component: 'home',
+    component: RouteName.HOME,
   },
   {
     name: RouteName.ME,
     path: RoutePath.ME,
-    component: 'me',
+    component: RouteName.ME,
   },
   {
     name: RouteName.RESUME,
     path: RoutePath.RESUME,
-    component: 'resume',
+    component: RouteName.RESUME,
   },
   {
     name: RouteName.PROJECT,
     path: RoutePath.PROJECT,
-    component: 'project',
+    component: RouteName.PROJECT,
   },
   {
     name: RouteName.SERVICE,
     path: RoutePath.SERVICE,
-    component: 'service',
+    component: RouteName.SERVICE,
   },
   {
     name: RouteName.CONTACT,
     path: RoutePath.CONTACT,
-    component: 'contact',
+    component: RouteName.CONTACT,
   },
   {
     name: RouteName.ERROR,
     path: RoutePath.ERROR,
-    component: 'error',
+    component: RouteName.ERROR,
   },
 ];

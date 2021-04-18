@@ -1,6 +1,6 @@
 export interface Company {
   name: string;
   position: string;
-  description: string;
+  description?: string;
   time: string;
 }

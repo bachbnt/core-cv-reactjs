@@ -1,11 +1,17 @@
-import { Button as MaterialButton } from '@material-ui/core';
+import { Button as MuiButton } from '@material-ui/core';
 import { Props } from './props';
 import useStyles from './styles';
 
 const Button = (props: Props) => {
   const classes = useStyles();
+  const { selected = false, ...others } = props;
 
-  return <MaterialButton classes={{ root: classes.root }} {...props} />;
+  return (
+    <MuiButton
+      classes={{ root: selected ? classes.selected : classes.root }}
+      {...others}
+    />
+  );
 };
 
 export default Button;

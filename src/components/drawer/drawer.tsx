@@ -1,4 +1,5 @@
 import {
+  Box,
   Drawer as MaterialDrawer,
   List,
   ListItem,
@@ -10,33 +11,35 @@ import useStyles from './styles';
 
 const Drawer = (props: Props) => {
   const classes = useStyles();
-  const { open, onClose, pages } = props;
+  const { open, onClose, items } = props;
   const history = useHistory();
   const location = useLocation();
 
   const onPageClick = (path: string) => {
     history.push(path);
   };
-  const isCurrentPath = (path: string) => {
-    return location.pathname === path;
-  };
 
   return (
-    <MaterialDrawer open={open} onClose={onClose} anchor='right'>
-      <List>
-        {pages.map((page) => (
+    <MaterialDrawer
+      classes={{ paper: classes.paper }}
+      open={open}
+      color='inherit'
+      onClose={onClose}
+      anchor='right'>
+      <List className={classes.list}>
+        {items.map((item) => (
           <ListItem
             classes={{
-              root: classes.root,
-              selected: classes.selected,
+              root: classes.listItem,
+              selected: classes.selectedListItem,
             }}
-            key={page.name}
+            key={item.name}
             button
-            selected={isCurrentPath(page.path)}
+            selected={location.pathname === item.path}
             onClick={() => {
-              onPageClick(page.path);
+              onPageClick(item.path);
             }}>
-            <ListItemText classes={{}} primary={page.name}></ListItemText>
+            <ListItemText classes={{}} primary={item.name}></ListItemText>
           </ListItem>
         ))}
       </List>

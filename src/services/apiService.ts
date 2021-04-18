@@ -91,9 +91,12 @@ class ApiService {
     const user = {
       username: 'Bach Bui',
       job: 'Fullstack Developer',
-      summary: 'none',
+      summary:
+        "Hello, World! I'm a programmer and have a passion for cross-platform programming ...",
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
-      description: 'none',
+      cover: 'https://avatars.githubusercontent.com/u/51219305?v=4',
+      description:
+        'My background is the Master in Engineering Physics. Because of the passion for coding, I decided to chose Software Engineer as my profession. With knowledge and skills of technology, I want to become a Project Manager in the future.',
       cv: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       universities: universities,
       companies: companies,

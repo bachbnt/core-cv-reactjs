@@ -11,6 +11,7 @@ const BaseRoute = (props: RouteProps) => {
 
   return (
     <Route
+      key={name}
       exact={exact}
       path={path}
       render={() => (

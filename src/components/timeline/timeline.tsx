@@ -1,6 +1,6 @@
 import { Typography, Paper } from '@material-ui/core';
 import {
-  Timeline as MaterialTimeline,
+  Timeline as MuiTimeline,
   TimelineItem,
   TimelineSeparator,
   TimelineConnector,
@@ -16,7 +16,7 @@ const Timeline = (props: Props) => {
   const { items } = props;
 
   return (
-    <MaterialTimeline align='alternate'>
+    <MuiTimeline align='alternate'>
       {items.map((item, index) => (
         <TimelineItem>
           <TimelineOppositeContent>
@@ -35,7 +35,7 @@ const Timeline = (props: Props) => {
           </TimelineContent>
         </TimelineItem>
       ))}
-    </MaterialTimeline>
+    </MuiTimeline>
   );
 };
 

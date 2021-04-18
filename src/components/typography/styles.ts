@@ -6,8 +6,5 @@ export default makeStyles((theme) =>
     root: {
       color: Color.white,
     },
-    selected: {
-      color: Color.primary,
-    },
   })
 );
