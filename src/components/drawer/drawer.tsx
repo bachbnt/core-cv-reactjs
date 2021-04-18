@@ -1,59 +1,46 @@
-import useStyles from './styles';
-import Props from './types';
 import {
-  Drawer as BaseDrawer,
-  Box,
+  Drawer as MaterialDrawer,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import { routeData } from '../../routes/routeData';
+import { useHistory, useLocation } from 'react-router';
+import { Props } from './props';
+import useStyles from './styles';
 
 const Drawer = (props: Props) => {
-  const { open, onClose, currentRoute } = props;
   const classes = useStyles();
+  const { open, onClose, pages } = props;
+  const history = useHistory();
+  const location = useLocation();
+
+  const onPageClick = (path: string) => {
+    history.push(path);
+  };
+  const isCurrentPath = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
-    <BaseDrawer open={open} onClose={onClose} anchor='right'>
-      <Box className={classes.drawer} component='nav'>
-        <List>
-          {Object.values(routeData).map((route, index) => (
-            <ListItem
-              selected={currentRoute.name === route.name}
-              classes={{
-                root: classes.root,
-                selected: classes.selected,
-              }}
-              button
-              key={index}
-              component={Link}
-              to={route.path}>
-              <ListItemIcon>
-                {
-                  <route.icon
-                    className={
-                      currentRoute.name === route.name
-                        ? classes.selectedIcon
-                        : classes.unselectedIcon
-                    }
-                  />
-                }
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary:
-                    currentRoute.name === route.name
-                      ? classes.selectedTitle
-                      : classes.unselectedTitle,
-                }}
-                primary={route.title}></ListItemText>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-    </BaseDrawer>
+    <MaterialDrawer open={open} onClose={onClose} anchor='right'>
+      <List>
+        {pages.map((page) => (
+          <ListItem
+            classes={{
+              root: classes.root,
+              selected: classes.selected,
+            }}
+            key={page.name}
+            button
+            selected={isCurrentPath(page.path)}
+            onClick={() => {
+              onPageClick(page.path);
+            }}>
+            <ListItemText classes={{}} primary={page.name}></ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    </MaterialDrawer>
   );
 };
 

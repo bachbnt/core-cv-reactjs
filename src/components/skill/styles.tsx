@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { color } from '../../commons/color';
+import { Color } from '../../styles/color';
 
 export default makeStyles((theme) => ({
   container: {
@@ -24,11 +24,11 @@ export default makeStyles((theme) => ({
     margin: '2rem',
   },
   text: {
-    color: color.white,
+    color: Color.white,
     fontWeight: 'bold',
   },
   icon: {
-    color: color.white,
+    color: Color.white,
     fontSize: 36,
     marginRight: '1rem',
   },

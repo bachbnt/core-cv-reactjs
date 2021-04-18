@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { color } from '../../commons/color';
+import { Color } from '../../styles/color';
 
 export default makeStyles(
   (theme) => ({
@@ -21,34 +21,34 @@ export default makeStyles(
       zIndex: 2,
     },
     nameText: {
-      color: color.primary,
+      color: Color.primary,
       fontWeight: 'bold',
     },
     jobText: {
-      color: color.primary,
+      color: Color.primary,
       marginTop: '1rem',
     },
     descriptionText: {
       textAlign: 'justify',
-      color: color.white,
+      color: Color.white,
       marginTop: '3rem',
     },
     buttonContainer: {
       marginTop: '3rem',
     },
     aboutButton: {
-      backgroundColor: color.primary,
-      color: color.white,
+      backgroundColor: Color.primary,
+      color: Color.white,
       marginRight: '1rem',
       '&:hover': {
-        backgroundColor: color.black,
+        backgroundColor: Color.black,
       },
     },
     selected: {},
     contactButton: {
-      color: color.primary,
+      color: Color.primary,
       '&:hover': {
-        backgroundColor: color.black,
+        backgroundColor: Color.black,
       },
     },
   }),

@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { color } from '../../commons/color';
+import { Color } from '../../styles/color';
 
 export default makeStyles(
   (theme) => ({
@@ -29,7 +29,7 @@ export default makeStyles(
     },
     info: {
       textAlign: 'justify',
-      color: color.white,
+      color: Color.white,
       marginTop: '2rem',
       [theme.breakpoints.up('sm')]: {
         marginTop: '3rem',

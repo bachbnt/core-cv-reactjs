@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { color } from '../../commons/color';
+import { Color } from '../../styles/color';
 
 export default makeStyles(
   (theme) => ({
@@ -10,14 +10,14 @@ export default makeStyles(
       padding: '16px 24px',
     },
     title: {
-      color: color.primary,
+      color: Color.primary,
       fontWeight: 'bold',
     },
     text: {
-      color: color.white,
+      color: Color.white,
     },
     subtitle: {
-      color: color.black,
+      color: Color.black,
       fontWeight: 'bold',
     },
   }),

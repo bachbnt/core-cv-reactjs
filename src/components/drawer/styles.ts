@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core';
-import { color } from '../../commons/color';
+import { Color } from '../../styles/color';
 
 export default makeStyles(
   (theme) => ({
     drawer: {
       width: 300,
-      background: color.primary,
+      background: Color.primary,
       height: '100%',
     },
     avatar: {
@@ -15,30 +15,30 @@ export default makeStyles(
       height: theme.spacing(13),
     },
     unselectedTitle: {
-      color: color.white,
+      color: Color.white,
       fontWeight: 'bold',
     },
     unselectedIcon: {
-      color: color.white,
+      color: Color.white,
       fontSize: 24,
     },
     selectedTitle: {
-      color: color.primary,
+      color: Color.primary,
       fontWeight: 'bold',
     },
     selectedIcon: {
-      color: color.primary,
+      color: Color.primary,
       fontSize: 24,
     },
     root: {
       '&$selected': {
-        backgroundColor: color.white,
+        backgroundColor: Color.white,
         '&:hover': {
-          backgroundColor: color.black,
+          backgroundColor: Color.black,
         },
       },
       '&:hover': {
-        backgroundColor: color.black,
+        backgroundColor: Color.black,
       },
     },
     selected: {},
