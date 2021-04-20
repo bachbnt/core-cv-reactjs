@@ -109,14 +109,14 @@ class ApiService {
         url: 'https://www.google.com/maps/place/Ho+Chi+Minh+City/',
       },
       {
-        name: 'bachbnt@gmail.com',
-        type: 'Email',
-        url: 'mailto:bachbnt@gmail.com',
-      },
-      {
         name: '(+84) 384560623',
         type: 'Phone',
         url: 'tel:0384560623',
+      },
+      {
+        name: 'bachbnt@gmail.com',
+        type: 'Email',
+        url: 'mailto:bachbnt@gmail.com',
       },
     ];
     const socials = [
