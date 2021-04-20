@@ -144,7 +144,7 @@ class ApiService {
       cover:
         'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.6435-9/149434787_1703323786507046_4478961594770359721_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=MxIvDfl0wOYAX9RMJDw&_nc_ht=scontent.fsgn5-7.fna&oh=7896823b7f5a494026295044182a742d&oe=60A64314',
       description:
-        'My background is the Master in Engineering Physics. Because of the passion for coding, I decided to chose Software Engineer as my profession. With knowledge and experience of technology, I want to become a Project Manager in the future.',
+        'My background is the Master in Engineering Physics. Because of the passion for programming, I chose Software Engineer as my profession. With knowledge and experience of technologies, I want to become a Project Manager in the future.',
       cv: 'https://www.topcv.vn/xem-cv/a20f691bdb835120d5500ce765ed8e54',
       universities: universities,
       companies: companies,
