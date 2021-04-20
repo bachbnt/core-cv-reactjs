@@ -18,14 +18,22 @@ const Resume = () => {
   return (
     <Layout>
       <Grid className={clsx(classes.container)} container>
-        <Typography className={clsx(classes.typography)} variant='h4'>
-          {t(i18nKey.education)}
-        </Typography>
+        <Box mb={2}>
+          <Typography
+            classes={{ root: classes.primary }}
+            className={clsx(classes.typography)}
+            variant='h4'>
+            {t(i18nKey.education)}
+          </Typography>
+        </Box>
         <Grid container>
           <Timeline items={user?.universities!} />
         </Grid>
-        <Box mt={6}>
-          <Typography className={clsx(classes.typography)} variant='h4'>
+        <Box mt={6} mb={2}>
+          <Typography
+            classes={{ root: classes.primary }}
+            className={clsx(classes.typography)}
+            variant='h4'>
             {t(i18nKey.experience)}
           </Typography>
         </Box>

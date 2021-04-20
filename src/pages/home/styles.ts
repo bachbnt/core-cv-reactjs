@@ -27,6 +27,7 @@ export default makeStyles(
       paddingRight: theme.spacing(4),
       [theme.breakpoints.up('md')]: {
         display: 'block',
+        marginTop: 0,
         paddingLeft: 0,
         paddingRight: 0,
       },

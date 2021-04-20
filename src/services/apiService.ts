@@ -33,117 +33,126 @@ class ApiService {
     const technologies = [
       {
         name: 'Flutter',
+        url: 'https://flutter.dev/',
       },
       {
         name: 'ReactJS',
+        url: 'https://reactjs.org/',
       },
       {
         name: 'React Native',
+        url: 'https://reactnative.dev/',
       },
       {
         name: 'NodeJS',
+        url: 'https://nodejs.org/',
       },
     ];
     const projects = [
       {
         name: "Bach's CV",
-        technology: 'ReactJS',
-        cover:
-          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
+        technology: 'ReactJS, Firebase',
         summary: 'Personal website',
       },
       {
         name: 'Yoga Lasyn',
-        technology: 'Flutter',
-        cover:
-          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
+        technology: 'Flutter, Firebase',
         summary: ' Yoga video watching application',
       },
       {
-        name: "Bach's CV",
-        technology: 'ReactJS',
-        cover:
-          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
-        summary: 'Personal website',
-      },
-      {
-        name: 'Yoga Lasyn',
+        name: 'Weather Live',
         technology: 'Flutter',
-        cover:
-          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
-        summary:
-          ' Yoga video watching application dfdsafdsfsd asdfasdfsdfsdfsd asdfsadfsdfds adsfsadfdfasdf dfd',
+        summary: 'Weather forecast application',
       },
       {
-        name: "Bach's CV",
-        technology: 'ReactJS',
-        cover:
-          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
-        summary: 'Personal website',
+        name: 'P&C Dashboard',
+        technology: 'React Native',
+        summary: 'Internal social network application',
       },
       {
-        name: 'Yoga Lasyn',
-        technology: 'Flutter',
+        name: 'Beli Coffee',
+        technology: 'Android, NodeJS, MongoDB',
         cover:
           'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
-        summary: ' Yoga video watching application',
+        summary: 'Coffee ordering application',
       },
     ];
     const services = [
       {
         name: 'App Development',
         description:
-          'fdsafdsaf fdfsdfds fdsfdsaafsduifd sifdsufbdfb vdsvdvdvvvvadva vsdvsdvdsvsv vdasvsvdvads vdsdasvv sadvds vdsv vsvdv sdvs vdvvd vsd vsvvd',
+          'Developing Android and iOS applications using Flutter or React Native. Be able to work with Native applications with Kotlin and Swift.',
       },
       {
         name: 'Web Development',
         description:
-          'fdsafdsaf fdfsdf dsfdsfdsaafsd uifdsifdsufbdfbvd svdvdvvvvadvav sdvsdvds vsvvdasvsvd vadsvdsdasv',
+          'Developing website using Flutter or ReactJS. Be able to use HTML and CSS.',
       },
       {
-        name: 'App Development',
+        name: 'Open Source',
         description:
-          'fdsa fdsaff dfsdfdsfdsfd saafsduifdsif dsufbdfbvdsvdvdvvv vadvavsdvsdv dsvs vvdas vsvd vads vdsda sv',
+          'Working as open source contributor on GitHub with some forks on various projects by other developers',
       },
       {
-        name: 'Web Development',
-        description:
-          'fdsafdsa ffdfs dfdsfds fdsaafs duif dsifdsu fbdfbv dsvdvdvv vvad vavsdvsdv dsvsvvd asvsvdvads vdsd asv',
+        name: 'Programming Teaching',
+        description: 'Teaching online programming to students',
+      },
+      {
+        name: 'Blog Writing',
+        description: 'Writing technical blogs on my personal website',
       },
     ];
     const contacts = [
       {
+        name: 'Ho Chi Minh City, Vietnam',
+        type: 'Address',
+        url: 'https://www.google.com/maps/place/Ho+Chi+Minh+City/',
+      },
+      {
         name: 'bachbnt@gmail.com',
+        type: 'Email',
         url: 'mailto:bachbnt@gmail.com',
       },
       {
-        name: '0384560623',
+        name: '(+84) 384560623',
+        type: 'Phone',
         url: 'tel:0384560623',
       },
+    ];
+    const socials = [
       {
         name: 'bachbnt',
+        type: 'Facebook',
         url: 'https://www.facebook.com/bachbnt',
       },
       {
         name: 'bachbnt',
-        url: 'https://github.com/bachbnt',
+        type: 'GitHub',
+        url: 'https://github.com/bachbnt/',
+      },
+      {
+        name: 'bachbnt',
+        type: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/bachbnt/',
       },
     ];
     const user = {
       username: 'Bach Bui',
-      job: 'React Developer',
+      job: 'Hybrid Developer',
       summary: 'Welcome to my website!',
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
-      cover: 'https://avatars.githubusercontent.com/u/51219305?v=4',
+      cover:
+        'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.6435-9/149434787_1703323786507046_4478961594770359721_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=MxIvDfl0wOYAX9RMJDw&_nc_ht=scontent.fsgn5-7.fna&oh=7896823b7f5a494026295044182a742d&oe=60A64314',
       description:
-        'My background is the Master in Engineering Physics. Because of the passion for coding, I decided to chose Software Engineer as my profession. With knowledge and skills of technology, I want to become a Project Manager in the future.',
-      cv: 'https://avatars.githubusercontent.com/u/51219305?v=4',
+        'My background is the Master in Engineering Physics. Because of the passion for coding, I decided to chose Software Engineer as my profession. With knowledge and experience of technology, I want to become a Project Manager in the future.',
+      cv: 'https://www.topcv.vn/xem-cv/a20f691bdb835120d5500ce765ed8e54',
       universities: universities,
       companies: companies,
       technologies: technologies,
       projects: projects,
       services: services,
       contacts: contacts,
+      socials: socials,
     };
     return {
       status: 200,

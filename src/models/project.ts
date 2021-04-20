@@ -2,7 +2,7 @@ export interface Project {
   name: string;
   technology: string;
   summary: string;
-  cover: string;
+  cover?: string;
   details?: ProjectDetail[];
 }
 

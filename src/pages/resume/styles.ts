@@ -15,6 +15,9 @@ export default makeStyles(
       textAlign: 'center',
       fontWeight: 'bold',
     },
+    primary: {
+      color: Color.primary,
+    },
   }),
   { index: 1 }
 );

@@ -37,7 +37,9 @@ const Header = (props: Props) => {
   };
 
   const onCVClick = () => {
-    window.open(user?.cv);
+    if (user?.cv) {
+      window.open(user?.cv);
+    }
   };
 
   const onHamburgerClick = () => {

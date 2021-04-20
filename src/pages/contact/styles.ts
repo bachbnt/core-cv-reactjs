@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core';
+import { Color } from '../../themes/color';
 
 export default makeStyles(
   (theme: Theme) => ({
@@ -7,6 +8,11 @@ export default makeStyles(
       height: '100%',
       justifyContent: 'center',
       alignItems: 'center',
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
+    },
+    primary: {
+      color: Color.primary,
     },
   }),
   { index: 1 }

@@ -6,12 +6,10 @@ export default makeStyles(
     createStyles({
       root: {
         color: Color.white,
-        backgroundColor: Color.primary,
         '&:hover': {
           backgroundColor: Color.secondary,
         },
       },
-      selected: {},
     }),
   { index: 1 }
 );

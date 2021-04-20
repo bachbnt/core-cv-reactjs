@@ -1,16 +1,18 @@
-import { createStyles, makeStyles } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import { Color } from '../../themes/color';
 
-export default makeStyles((theme) =>
-  createStyles({
-    root: {
-      color: Color.white,
-      '&:hover': {
-        color: Color.secondary,
+export default makeStyles(
+  (theme: Theme) =>
+    createStyles({
+      root: {
+        color: Color.white,
+        '&:hover': {
+          color: Color.secondary,
+        },
       },
-    },
-    selected: {
-      color: Color.primary,
-    },
-  })
+      selected: {
+        color: Color.primary,
+      },
+    }),
+  { index: 1 }
 );

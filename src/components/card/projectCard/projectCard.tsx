@@ -6,6 +6,7 @@ import {
   CardMedia,
 } from '@material-ui/core';
 import clsx from 'clsx';
+import { Image } from '../../../constants/image';
 import Typography from '../../typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
@@ -19,10 +20,14 @@ const ProjectCard = (props: Props) => {
       classes={{ root: classes.root }}
       className={clsx(classes.background)}>
       <CardActionArea>
-        <CardMedia component='img' image={item.cover} />
+        <CardMedia
+          component='img'
+          image={item.cover ? item.cover : Image.COMING_SOON}
+        />
         <CardContent>
           <Typography
-            className={clsx(classes.primary, classes.bold)}
+            classes={{ root: classes.primary }}
+            className={clsx(classes.bold)}
             variant='h6'>
             {item.name}
           </Typography>

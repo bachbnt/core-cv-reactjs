@@ -1,8 +1,8 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 import { Color } from '../../themes/color';
 
 export default makeStyles(
-  (theme) => ({
+  (theme: Theme) => ({
     paper: {
       background: Color.grey,
     },

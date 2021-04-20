@@ -22,7 +22,7 @@ const Timeline = (props: Props) => {
       {items.reverse().map((item, index) => (
         <TimelineItem>
           <TimelineOppositeContent>
-            <Typography variant='h6'>{item.time}</Typography>
+            <Typography variant='subtitle1'>{item.time}</Typography>
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot></TimelineDot>
@@ -31,7 +31,8 @@ const Timeline = (props: Props) => {
           <TimelineContent>
             <Paper className={clsx(classes.background)} elevation={3}>
               <Typography
-                className={clsx(classes.primary, classes.bold)}
+                classes={{ root: classes.primary }}
+                className={clsx(classes.bold)}
                 variant='h6'>
                 {item.name.toUpperCase()}
               </Typography>

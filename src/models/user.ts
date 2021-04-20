@@ -18,4 +18,5 @@ export interface User {
   projects: Project[];
   services: Service[];
   contacts: Contact[];
+  socials: Contact[];
 }
