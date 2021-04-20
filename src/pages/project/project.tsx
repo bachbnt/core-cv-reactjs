@@ -1,6 +1,6 @@
-import { Box, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import Card from '../../components/card/card';
+import ProjectCard from '../../components/card/projectCard/projectCard';
 import Layout from '../../components/layout/layout';
 import { RootState } from '../../redux/rootState';
 import { UserState } from '../../redux/user/userState';
@@ -15,7 +15,7 @@ const Project = () => {
       <Grid className={classes.container} container spacing={4}>
         {user?.projects.map((item) => (
           <Grid item>
-            <Card item={item} />
+            <ProjectCard item={item} />
           </Grid>
         ))}
       </Grid>

@@ -1,12 +1,15 @@
 import { Box } from '@material-ui/core';
-import Layout from '../../components/layout/layout';
-import Typography from '../../components/typography/typography';
+import { Image } from '../../constants/image';
 import useStyles from './styles';
 
 const Error = () => {
   const classes = useStyles();
 
-  return <Typography>ERROR</Typography>;
+  return (
+    <Box className={classes.container}>
+      <img className={classes.img} src={Image.ERROR} alt='error' />
+    </Box>
+  );
 };
 
 export default Error;

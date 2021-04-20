@@ -1,10 +1,13 @@
 import { createStyles, makeStyles } from '@material-ui/core';
-import { Color } from '../../themes/color';
+import { Color } from '../../../themes/color';
 
 export default makeStyles((theme) =>
   createStyles({
+    root: {
+      maxWidth: 350,
+      height: '100%',
+    },
     background: {
-      padding: '12px 24px 12px 24px',
       backgroundColor: Color.grey,
       '&:hover': {
         backgroundColor: Color.black,
@@ -12,9 +15,6 @@ export default makeStyles((theme) =>
     },
     primary: {
       color: Color.primary,
-    },
-    secondary: {
-      color: Color.secondary,
     },
     bold: {
       fontWeight: 'bold',

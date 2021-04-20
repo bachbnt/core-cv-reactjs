@@ -71,7 +71,8 @@ class ApiService {
         technology: 'Flutter',
         cover:
           'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
-        summary: ' Yoga video watching application',
+        summary:
+          ' Yoga video watching application dfdsafdsfsd asdfasdfsdfsdfsd asdfsadfsdfds adsfsadfdfasdf dfd',
       },
       {
         name: "Bach's CV",
@@ -91,11 +92,23 @@ class ApiService {
     const services = [
       {
         name: 'App Development',
-        description: '',
+        description:
+          'fdsafdsaf fdfsdfds fdsfdsaafsduifd sifdsufbdfb vdsvdvdvvvvadva vsdvsdvdsvsv vdasvsvdvads vdsdasvv sadvds vdsv vsvdv sdvs vdvvd vsd vsvvd',
       },
       {
         name: 'Web Development',
-        description: '',
+        description:
+          'fdsafdsaf fdfsdf dsfdsfdsaafsd uifdsifdsufbdfbvd svdvdvvvvadvav sdvsdvds vsvvdasvsvd vadsvdsdasv',
+      },
+      {
+        name: 'App Development',
+        description:
+          'fdsa fdsaff dfsdfdsfdsfd saafsduifdsif dsufbdfbvdsvdvdvvv vadvavsdvsdv dsvs vvdas vsvd vads vdsda sv',
+      },
+      {
+        name: 'Web Development',
+        description:
+          'fdsafdsa ffdfs dfdsfds fdsaafs duif dsifdsu fbdfbv dsvdvdvv vvad vavsdvsdv dsvsvvd asvsvdvads vdsd asv',
       },
     ];
     const contacts = [
@@ -119,7 +132,7 @@ class ApiService {
     const user = {
       username: 'Bach Bui',
       job: 'React Developer',
-      summary: 'Hello, World! Welcome to my website!',
+      summary: 'Welcome to my website!',
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       cover: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       description:

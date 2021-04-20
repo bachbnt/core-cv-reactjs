@@ -1,11 +1,12 @@
-import { createStyles, makeStyles } from '@material-ui/core';
-import { Color } from '../../styles/color';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
-export default makeStyles((theme) =>
+export default makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      height: 48,
-      backgroundColor: Color.primary,
+      height: theme.spacing(6),
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   })
 );

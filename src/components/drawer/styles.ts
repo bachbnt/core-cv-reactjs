@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { Color } from '../../styles/color';
+import { Color } from '../../themes/color';
 
 export default makeStyles(
   (theme) => ({
@@ -7,7 +7,7 @@ export default makeStyles(
       background: Color.grey,
     },
     list: {
-      width: 350,
+      width: 200,
     },
     listItem: {
       color: Color.white,

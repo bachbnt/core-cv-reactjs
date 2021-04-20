@@ -1,11 +1,11 @@
 import {
-  Box,
   Drawer as MaterialDrawer,
   List,
   ListItem,
   ListItemText,
 } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { routes } from '../../routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
@@ -15,6 +15,7 @@ const Drawer = (props: Props) => {
   const { open, onClose } = props;
   const history = useHistory();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const onPageClick = (path: string) => {
     if (location.pathname !== path) {
@@ -42,7 +43,7 @@ const Drawer = (props: Props) => {
             onClick={() => {
               onPageClick(route.path);
             }}>
-            <ListItemText classes={{}} primary={route.name}></ListItemText>
+            <ListItemText classes={{}} primary={t(route.name)}></ListItemText>
           </ListItem>
         ))}
       </List>

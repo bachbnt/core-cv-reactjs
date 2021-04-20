@@ -1,36 +1,37 @@
 import {
+  Box,
   Card as MuiCard,
   CardActionArea,
   CardContent,
-  CardMedia,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import Typography from '../typography/typography';
+import Typography from '../../typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 
-const Card = (props: Props) => {
+const ServiceCard = (props: Props) => {
   const classes = useStyles();
   const { item } = props;
-
+  console.log(item);
   return (
     <MuiCard classes={{ root: classes.root }} className={classes.background}>
       <CardActionArea>
-        <CardMedia component='img' image={item.cover} />
         <CardContent>
           <Typography
             className={clsx(classes.primary, classes.bold)}
-            variant='h5'>
+            variant='h6'
+            align='center'>
             {item.name}
           </Typography>
-          <Typography className={classes.bold} variant='subtitle1'>
-            {item.technology}
-          </Typography>
-          <Typography variant='body2'>{item.summary}</Typography>
+          <Box mt={2}>
+            <Typography variant='body2' align='justify'>
+              {item.description}
+            </Typography>
+          </Box>
         </CardContent>
       </CardActionArea>
     </MuiCard>
   );
 };
 
-export default Card;
+export default ServiceCard;
