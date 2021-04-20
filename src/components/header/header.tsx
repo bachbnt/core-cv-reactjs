@@ -20,6 +20,7 @@ import OutlinedButton from '../button/outlinedButton/outlinedButton';
 import { i18nKey } from '../../locales/i18n';
 import { RootState } from '../../redux/rootState';
 import { UserState } from '../../redux/user/userState';
+import { Image } from '../../constants/image';
 
 const Header = (props: Props) => {
   const classes = useStyles();
@@ -46,33 +47,36 @@ const Header = (props: Props) => {
   return (
     <AppBar color='transparent' position='static'>
       <Toolbar className={clsx(classes.toolbar)}>
-        <OutlinedButton className={clsx(classes.cv)} onClick={onCVClick}>
-          <Typography className={clsx(classes.bold)}>
-            {t(i18nKey.download_cv)}
-          </Typography>
-        </OutlinedButton>
-        <Box className={clsx(classes.desktop)}>
-          {routes.map((route) => (
-            <Button
-              selected={location.pathname === route.path}
-              onClick={() => {
-                onPageClick(route.path);
-              }}>
-              <Typography className={clsx(classes.bold)}>
-                {t(route.name)}
-              </Typography>
-            </Button>
-          ))}
-        </Box>
-        <Box className={clsx(classes.mobile)}>
-          <Fragment>
-            <IconButton
-              className={clsx(classes.hamburger)}
-              onClick={onHamburgerClick}>
-              <MdMenu />
-            </IconButton>
-            <Drawer open={open} onClose={onHamburgerClick} />
-          </Fragment>
+        <img src={Image.LOGO} alt='logo' width={36} height={36} />
+        <Box className={classes.row}>
+          <OutlinedButton className={clsx(classes.cv)} onClick={onCVClick}>
+            <Typography className={clsx(classes.bold)}>
+              {t(i18nKey.download_cv)}
+            </Typography>
+          </OutlinedButton>
+          <Box className={clsx(classes.desktop)}>
+            {routes.map((route) => (
+              <Button
+                selected={location.pathname === route.path}
+                onClick={() => {
+                  onPageClick(route.path);
+                }}>
+                <Typography className={clsx(classes.bold)}>
+                  {t(route.name)}
+                </Typography>
+              </Button>
+            ))}
+          </Box>
+          <Box className={clsx(classes.mobile)}>
+            <Fragment>
+              <IconButton
+                className={clsx(classes.hamburger)}
+                onClick={onHamburgerClick}>
+                <MdMenu />
+              </IconButton>
+              <Drawer open={open} onClose={onHamburgerClick} />
+            </Fragment>
+          </Box>
         </Box>
       </Toolbar>
     </AppBar>

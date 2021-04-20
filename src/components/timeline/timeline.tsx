@@ -1,4 +1,4 @@
-import { Paper } from '@material-ui/core';
+import { Box, Paper } from '@material-ui/core';
 import {
   Timeline as MuiTimeline,
   TimelineItem,
@@ -29,16 +29,20 @@ const Timeline = (props: Props) => {
             {index !== items.length - 1 && <TimelineConnector />}
           </TimelineSeparator>
           <TimelineContent>
-            <Paper className={classes.background} elevation={3}>
+            <Paper className={clsx(classes.background)} elevation={3}>
               <Typography
                 className={clsx(classes.primary, classes.bold)}
                 variant='h6'>
                 {item.name.toUpperCase()}
               </Typography>
-              <Typography className={classes.bold} variant='subtitle1'>
+              <Typography className={clsx(classes.bold)} variant='subtitle1'>
                 {item.specialty}
               </Typography>
-              <Typography variant='body2'>{item.description} </Typography>
+              {item.description && (
+                <Box mt={2}>
+                  <Typography variant='body2'>{item.description} </Typography>
+                </Box>
+              )}
             </Paper>
           </TimelineContent>
         </TimelineItem>

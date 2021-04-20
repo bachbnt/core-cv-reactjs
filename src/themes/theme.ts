@@ -3,7 +3,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 const styles = responsiveFontSizes(
   createMuiTheme({
     typography: {
-      fontFamily: 'Roboto',
+      fontFamily: 'Source Code Pro',
     },
   })
 );
@@ -18,12 +18,12 @@ const theme = {
           WebkitFontSmoothing: 'auto',
         },
         body: {
-          backgroundImage:
-            "url('https://cdn.filtergrade.com/wp-content/uploads/2019/12/28151408/40-Black-Wood-Background-Textures-8.png')",
+          backgroundImage: "url('background.webp')",
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed',
+          fontFamily: 'SourceSerifPro',
         },
         '*::-webkit-scrollbar': {
           width: '8px',

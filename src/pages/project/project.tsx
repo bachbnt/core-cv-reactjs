@@ -1,5 +1,6 @@
 import { Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 import ProjectCard from '../../components/card/projectCard/projectCard';
 import Layout from '../../components/layout/layout';
 import { RootState } from '../../redux/rootState';
@@ -12,7 +13,7 @@ const Project = () => {
 
   return (
     <Layout>
-      <Grid className={classes.container} container spacing={4}>
+      <Grid className={clsx(classes.container)} container spacing={4}>
         {user?.projects.map((item) => (
           <Grid item>
             <ProjectCard item={item} />

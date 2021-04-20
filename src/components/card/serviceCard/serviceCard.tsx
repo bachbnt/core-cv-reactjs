@@ -14,7 +14,9 @@ const ServiceCard = (props: Props) => {
   const { item } = props;
   console.log(item);
   return (
-    <MuiCard classes={{ root: classes.root }} className={classes.background}>
+    <MuiCard
+      classes={{ root: classes.root }}
+      className={clsx(classes.background)}>
       <CardActionArea>
         <CardContent>
           <Typography

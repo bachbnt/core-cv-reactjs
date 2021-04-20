@@ -1,4 +1,5 @@
 import { Box } from '@material-ui/core';
+import clsx from 'clsx';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import { Props } from './props';
@@ -9,9 +10,9 @@ const Layout = (props: Props) => {
   const { children } = props;
 
   return (
-    <Box className={classes.container}>
+    <Box className={clsx(classes.container)}>
       <Header />
-      <Box className={classes.content}>{children}</Box>
+      <Box className={clsx(classes.content)}>{children}</Box>
       <Footer />
     </Box>
   );

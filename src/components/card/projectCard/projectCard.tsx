@@ -15,7 +15,9 @@ const ProjectCard = (props: Props) => {
   const { item } = props;
 
   return (
-    <MuiCard classes={{ root: classes.root }} className={classes.background}>
+    <MuiCard
+      classes={{ root: classes.root }}
+      className={clsx(classes.background)}>
       <CardActionArea>
         <CardMedia component='img' image={item.cover} />
         <CardContent>
@@ -24,7 +26,7 @@ const ProjectCard = (props: Props) => {
             variant='h6'>
             {item.name}
           </Typography>
-          <Typography className={classes.bold} variant='subtitle2'>
+          <Typography className={clsx(classes.bold)} variant='subtitle2'>
             {item.technology}
           </Typography>
           <Box mt={2}>

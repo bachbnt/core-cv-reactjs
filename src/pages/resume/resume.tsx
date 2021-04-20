@@ -1,6 +1,7 @@
 import { Box, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 import Layout from '../../components/layout/layout';
 import Timeline from '../../components/timeline/timeline';
 import Typography from '../../components/typography/typography';
@@ -16,15 +17,15 @@ const Resume = () => {
 
   return (
     <Layout>
-      <Grid className={classes.container} container>
-        <Typography className={classes.typography} variant='h4'>
+      <Grid className={clsx(classes.container)} container>
+        <Typography className={clsx(classes.typography)} variant='h4'>
           {t(i18nKey.education)}
         </Typography>
         <Grid container>
           <Timeline items={user?.universities!} />
         </Grid>
         <Box mt={6}>
-          <Typography className={classes.typography} variant='h4'>
+          <Typography className={clsx(classes.typography)} variant='h4'>
             {t(i18nKey.experience)}
           </Typography>
         </Box>

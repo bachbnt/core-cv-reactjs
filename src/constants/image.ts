@@ -1,3 +1,4 @@
 export class Image {
-  static readonly ERROR = '404.png';
+  static readonly LOGO = 'logo.png';
+  static readonly ERROR = 'error.png';
 }

@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 import { routes } from '../../routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
@@ -30,7 +31,7 @@ const Drawer = (props: Props) => {
       color='inherit'
       onClose={onClose}
       anchor='right'>
-      <List className={classes.list}>
+      <List className={clsx(classes.list)}>
         {routes.map((route) => (
           <ListItem
             classes={{
@@ -43,7 +44,7 @@ const Drawer = (props: Props) => {
             onClick={() => {
               onPageClick(route.path);
             }}>
-            <ListItemText classes={{}} primary={t(route.name)}></ListItemText>
+            <ListItemText primary={t(route.name)}></ListItemText>
           </ListItem>
         ))}
       </List>

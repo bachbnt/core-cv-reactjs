@@ -36,12 +36,12 @@ const Home = () => {
 
   return (
     <Layout>
-      <Grid className={classes.container} container>
+      <Grid className={clsx(classes.container)} container>
         <Grid container justify='center' alignItems='center' xs={12} md={6}>
           <Avatar src={user?.avatar} />
         </Grid>
-        <Grid className={classes.infoContainer} item xs={12} md={6}>
-          <Typography className={classes.greeting} variant='h6'>
+        <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
+          <Typography className={clsx(classes.greeting)} variant='h6'>
             {user?.summary.toUpperCase()}
           </Typography>
           <Box mt={4}>
@@ -52,14 +52,14 @@ const Home = () => {
             </Typography>
           </Box>
           <Box mb={6}>
-            <Typography className={classes.primary} variant='h4'>
+            <Typography className={clsx(classes.primary)} variant='h4'>
               {user?.job}
             </Typography>
           </Box>
           <Grid container>
             <Grid item xs={6} md={2}>
               <ContainedButton
-                className={classes.leftButton}
+                className={clsx(classes.leftButton)}
                 onClick={onMoreClick}
                 fullWidth>
                 {t(i18nKey.me)}
@@ -67,7 +67,7 @@ const Home = () => {
             </Grid>
             <Grid item xs={6} md={2}>
               <OutlinedButton
-                className={classes.rightButton}
+                className={clsx(classes.rightButton)}
                 onClick={onHireClick}
                 fullWidth>
                 {t(i18nKey.contact)}

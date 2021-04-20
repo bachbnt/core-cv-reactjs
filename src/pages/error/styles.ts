@@ -9,7 +9,6 @@ export default makeStyles(
       justifyContent: 'center',
       alignItems: ' center',
     },
-    img: {},
   }),
   { index: 1 }
 );

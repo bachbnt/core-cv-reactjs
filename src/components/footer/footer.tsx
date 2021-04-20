@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 import { i18nKey } from '../../locales/i18n';
 import { RootState } from '../../redux/rootState';
 import { UserState } from '../../redux/user/userState';
@@ -14,7 +15,7 @@ const Footer = (props: Props) => {
   const user = useSelector<RootState, UserState>((state) => state.UserReducer);
 
   return (
-    <Grid className={classes.container}>
+    <Grid className={clsx(classes.container)}>
       <Typography variant='subtitle2'>
         {t(i18nKey.copyright, {
           year: new Date().getFullYear(),

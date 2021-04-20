@@ -8,7 +8,10 @@ export default makeStyles((theme) =>
       fontWeight: 'bold',
     },
     toolbar: {
-      justifyContent: 'flex-end',
+      justifyContent: 'space-between',
+    },
+    row: {
+      display: 'flex',
     },
     hamburger: {
       color: Color.white,

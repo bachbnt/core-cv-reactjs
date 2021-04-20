@@ -11,9 +11,13 @@ export default makeStyles(
     },
     listItem: {
       color: Color.white,
+      '&:hover': {
+        backgroundColor: Color.secondary,
+      },
     },
     selectedListItem: {
       color: Color.primary,
+      fontWeight: 'bold',
     },
   }),
   { index: 1 }
