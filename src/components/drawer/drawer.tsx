@@ -6,17 +6,20 @@ import {
   ListItemText,
 } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router';
+import { routes } from '../../routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
 
 const Drawer = (props: Props) => {
   const classes = useStyles();
-  const { open, onClose, items } = props;
+  const { open, onClose } = props;
   const history = useHistory();
   const location = useLocation();
 
   const onPageClick = (path: string) => {
-    history.push(path);
+    if (location.pathname !== path) {
+      history.push(path);
+    }
   };
 
   return (
@@ -27,19 +30,19 @@ const Drawer = (props: Props) => {
       onClose={onClose}
       anchor='right'>
       <List className={classes.list}>
-        {items.map((item) => (
+        {routes.map((route) => (
           <ListItem
             classes={{
               root: classes.listItem,
               selected: classes.selectedListItem,
             }}
-            key={item.name}
+            key={route.name}
             button
-            selected={location.pathname === item.path}
+            selected={location.pathname === route.path}
             onClick={() => {
-              onPageClick(item.path);
+              onPageClick(route.path);
             }}>
-            <ListItemText classes={{}} primary={item.name}></ListItemText>
+            <ListItemText classes={{}} primary={route.name}></ListItemText>
           </ListItem>
         ))}
       </List>

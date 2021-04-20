@@ -1,9 +1,5 @@
-import { RouteName } from './routeName';
-import { RoutePath } from './routePath';
+import { Route } from './routes';
 
-export interface RouteProps {
-  name: RouteName;
-  path: RoutePath;
-  component: string;
+export type RouteProps = {
   exact?: boolean;
-}
+} & Route;

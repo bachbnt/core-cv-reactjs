@@ -1,10 +1,12 @@
-import { withStyles } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, withStyles } from '@material-ui/core';
 import { Provider } from 'react-redux';
 import { Switch } from 'react-router';
 import Spinner from './components/spinner/spinner';
 import { store } from './redux/store';
 import BaseRoute from './routes/baseRoute';
+import ErrorRoute from './routes/errorRoute';
 import { routes } from './routes/routes';
+import theme from './styles/theme';
 
 const styles = () => ({
   '@global': {
@@ -16,24 +18,39 @@ const styles = () => ({
       backgroundSize: 'cover',
       backgroundAttachment: 'fixed',
     },
+    '*::-webkit-scrollbar': {
+      width: '8px',
+    },
+    '*::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 8px 8px 8px #222222',
+    },
+    '*::-webkit-scrollbar-thumb': {
+      backgroundColor: '#712218',
+      outline: '2px solid #C03A2B712218',
+    },
   },
 });
 
 const App = () => {
+  console.log(routes);
   return (
-    <Provider store={store}>
-      <Switch>
-        {routes.map((route) => (
-          <BaseRoute
-            name={route.name}
-            path={route.path}
-            component={route.component}
-            exact={route.exact}
-          />
-        ))}
-      </Switch>
-      <Spinner />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Provider store={store}>
+        <Switch>
+          {routes.map((route) => (
+            <BaseRoute
+              name={route.name}
+              path={route.path}
+              component={route.name}
+              exact
+            />
+          ))}
+          <ErrorRoute />
+        </Switch>
+        <Spinner />
+      </Provider>
+    </ThemeProvider>
   );
 };
 

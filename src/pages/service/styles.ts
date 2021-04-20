@@ -1,10 +1,12 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
 export default makeStyles(
-  (theme) => ({
+  (theme: Theme) => ({
     container: {
       width: '100%',
       height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   }),
   { index: 1 }

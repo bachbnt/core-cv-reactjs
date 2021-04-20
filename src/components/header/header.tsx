@@ -1,7 +1,6 @@
 import {
   AppBar,
   Box,
-  Grid,
   IconButton,
   Toolbar,
   Typography,
@@ -14,16 +13,18 @@ import Button from '../button/button';
 import Drawer from '../drawer/drawer';
 import { Props } from './props';
 import useStyles from './styles';
+import { routes } from '../../routes/routes';
 
 const Header = (props: Props) => {
   const classes = useStyles();
-  const { items } = props;
   const history = useHistory();
   const location = useLocation();
   const [open, setOpen] = useState<boolean>(false);
 
   const onPageClick = (path: string) => {
-    history.push(path);
+    if (location.pathname !== path) {
+      history.push(path);
+    }
   };
   const onHamburgerClick = () => {
     setOpen(!open);
@@ -33,14 +34,14 @@ const Header = (props: Props) => {
     <AppBar color='transparent' position='static'>
       <Toolbar className={classes.toolbar}>
         <Box className={classes.desktop}>
-          {items.map((item) => (
+          {routes.map((route) => (
             <Button
-              selected={location.pathname === item.path}
+              selected={location.pathname === route.path}
               onClick={() => {
-                onPageClick(item.path);
+                onPageClick(route.path);
               }}>
               <Typography className={clsx(classes.bold)}>
-                {item.name}
+                {route.name}
               </Typography>
             </Button>
           ))}
@@ -52,11 +53,10 @@ const Header = (props: Props) => {
               onClick={onHamburgerClick}>
               <MdMenu />
             </IconButton>
-            <Drawer open={open} onClose={onHamburgerClick} items={items} />
+            <Drawer open={open} onClose={onHamburgerClick} />
           </Fragment>
         </Box>
       </Toolbar>
-      <Drawer open={open} onClose={onHamburgerClick} items={items} />
     </AppBar>
   );
 };

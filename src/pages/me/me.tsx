@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import Layout from '../../components/layout/layout';
 import useStyles from './styles';
 
@@ -7,7 +7,7 @@ const Me = () => {
 
   return (
     <Layout>
-      <Typography>dasdd</Typography>
+      <Grid className={classes.container} container></Grid>
     </Layout>
   );
 };

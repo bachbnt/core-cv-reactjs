@@ -1,8 +1,13 @@
 import { RouteName } from './routeName';
 import { RoutePath } from './routePath';
-import { RouteProps } from './routeProps';
 
-export const routes: RouteProps[] = [
+export interface Route {
+  name: RouteName;
+  path: RoutePath;
+  component: string;
+}
+
+export const routes: Route[] = [
   {
     name: RouteName.HOME,
     path: RoutePath.HOME,
@@ -32,10 +37,5 @@ export const routes: RouteProps[] = [
     name: RouteName.CONTACT,
     path: RoutePath.CONTACT,
     component: RouteName.CONTACT,
-  },
-  {
-    name: RouteName.ERROR,
-    path: RoutePath.ERROR,
-    component: RouteName.ERROR,
   },
 ];

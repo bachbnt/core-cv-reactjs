@@ -1,19 +1,16 @@
 import { lazy, Suspense, useMemo } from 'react';
-import { RouteProps } from './routeProps';
 import { Route } from 'react-router-dom';
 import Spinner from '../components/spinner/spinner';
+import { RouteName } from './routeName';
 
-const BaseRoute = (props: RouteProps) => {
-  const { name, path, component, exact } = props;
+const ErrorRoute = () => {
   const Component = useMemo(() => {
-    return lazy(() => import(`../pages/${component}`));
-  }, [component]);
+    return lazy(() => import(`../pages/error`));
+  }, []);
 
   return (
     <Route
-      key={name}
-      exact={exact}
-      path={path}
+      key={RouteName.ERROR}
       render={() => (
         <Suspense fallback={<Spinner visible />}>
           <Component />
@@ -23,4 +20,4 @@ const BaseRoute = (props: RouteProps) => {
   );
 };
 
-export default BaseRoute;
+export default ErrorRoute;

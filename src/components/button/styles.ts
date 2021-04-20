@@ -5,6 +5,9 @@ export default makeStyles((theme) =>
   createStyles({
     root: {
       color: Color.white,
+      '&:hover': {
+        color: Color.secondary,
+      },
     },
     selected: {
       color: Color.primary,

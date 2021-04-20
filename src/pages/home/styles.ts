@@ -1,19 +1,28 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 import { Color } from '../../styles/color';
 
 export default makeStyles(
-  (theme) => ({
+  (theme: Theme) => ({
+    container: {
+      width: '100%',
+      height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
     primary: {
       color: Color.primary,
     },
     bold: {
       fontWeight: 'bold',
     },
-    center: {
+    info: {
+      display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'flex-end',
-      alignContent: 'center',
-      backgroundColor: Color.grey,
+      alignItems: 'center',
+      [theme.breakpoints.up('md')]: {
+        display: 'block',
+      },
     },
   }),
   { index: 1 }

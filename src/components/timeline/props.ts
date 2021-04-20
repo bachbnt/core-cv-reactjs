@@ -1,5 +1,5 @@
-import { UITimeline } from '../../models/ui';
+import { Work } from '../../models/work';
 
 export interface Props {
-  items: UITimeline[];
+  items: Work[];
 }

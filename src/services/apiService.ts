@@ -5,13 +5,13 @@ class ApiService {
     const universities = [
       {
         time: 'Sep 2016 - Sep 2020',
-        degree: 'Bachelor of Physics',
+        specialty: 'Bachelor of Physics',
         name: 'University of Science',
         description: '',
       },
       {
         time: 'Dec 2020 - Dec 2022',
-        degree: 'Master of Engineering Physics ',
+        specialty: 'Master of Engineering Physics ',
         name: 'University of Science',
         description: '',
       },
@@ -19,13 +19,13 @@ class ApiService {
     const companies = [
       {
         time: 'Mar 2020 - Present',
-        position: 'Mobile Developer',
+        specialty: 'Mobile Developer',
         name: 'DevBlock Vietnam',
         description: 'Developing mobile applications',
       },
       {
         time: 'Apr 2020 - Present',
-        position: 'Flutter Developer',
+        specialty: 'Flutter Developer',
         name: 'Freelancer',
         description: 'Developing mobile applications',
       },
@@ -45,6 +45,34 @@ class ApiService {
       },
     ];
     const projects = [
+      {
+        name: "Bach's CV",
+        technology: 'ReactJS',
+        cover:
+          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
+        summary: 'Personal website',
+      },
+      {
+        name: 'Yoga Lasyn',
+        technology: 'Flutter',
+        cover:
+          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
+        summary: ' Yoga video watching application',
+      },
+      {
+        name: "Bach's CV",
+        technology: 'ReactJS',
+        cover:
+          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
+        summary: 'Personal website',
+      },
+      {
+        name: 'Yoga Lasyn',
+        technology: 'Flutter',
+        cover:
+          'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
+        summary: ' Yoga video watching application',
+      },
       {
         name: "Bach's CV",
         technology: 'ReactJS',
@@ -90,9 +118,8 @@ class ApiService {
     ];
     const user = {
       username: 'Bach Bui',
-      job: 'Fullstack Developer',
-      summary:
-        "Hello, World! I'm a programmer and have a passion for cross-platform programming ...",
+      job: 'React Developer',
+      summary: 'Hello, World! Welcome to my website!',
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       cover: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       description:

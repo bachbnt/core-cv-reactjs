@@ -1,11 +1,15 @@
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import Layout from '../../components/layout/layout';
 import useStyles from './styles';
 
 const Contact = () => {
   const classes = useStyles();
 
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <Grid className={classes.container} container></Grid>
+    </Layout>
+  );
 };
 
 export default Contact;

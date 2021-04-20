@@ -15,8 +15,8 @@ const Spinner = (props: Props) => {
   }
 
   return (
-    <Backdrop className={classes.backdrop} open={true}>
-      <CircularProgress color='inherit' />
+    <Backdrop classes={{ root: classes.backdrop }} open={true}>
+      <CircularProgress classes={{ root: classes.spinner }} />
     </Backdrop>
   );
 };

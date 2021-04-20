@@ -1,4 +1,4 @@
-import { Typography, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import {
   Timeline as MuiTimeline,
   TimelineItem,
@@ -8,6 +8,8 @@ import {
   TimelineOppositeContent,
   TimelineDot,
 } from '@material-ui/lab/';
+import clsx from 'clsx';
+import Typography from '../typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 
@@ -17,7 +19,7 @@ const Timeline = (props: Props) => {
 
   return (
     <MuiTimeline align='alternate'>
-      {items.map((item, index) => (
+      {items.reverse().map((item, index) => (
         <TimelineItem>
           <TimelineOppositeContent>
             <Typography variant='h6'>{item.time}</Typography>
@@ -27,10 +29,16 @@ const Timeline = (props: Props) => {
             {index !== items.length - 1 && <TimelineConnector />}
           </TimelineSeparator>
           <TimelineContent>
-            <Paper elevation={3}>
-              <Typography variant='h5'>{item.title.toUpperCase()}</Typography>
-              <Typography variant='subtitle1'>{item.subtitle}</Typography>
-              <Typography variant='body2'>{item.content} </Typography>
+            <Paper className={classes.background} elevation={3}>
+              <Typography
+                className={clsx(classes.primary, classes.bold)}
+                variant='h6'>
+                {item.name.toUpperCase()}
+              </Typography>
+              <Typography className={classes.bold} variant='subtitle1'>
+                {item.specialty}
+              </Typography>
+              <Typography variant='body2'>{item.description} </Typography>
             </Paper>
           </TimelineContent>
         </TimelineItem>

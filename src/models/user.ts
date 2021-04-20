@@ -1,9 +1,8 @@
-import { Company } from './company';
+import { Work } from './work';
 import { Contact } from './contact';
 import { Project } from './project';
 import { Service } from './service';
 import { Technology } from './technology';
-import { University } from './university';
 
 export interface User {
   username: string;
@@ -13,8 +12,8 @@ export interface User {
   cover: string;
   description: string;
   cv: string;
-  universities: University[];
-  companies: Company[];
+  universities: Work[];
+  companies: Work[];
   technologies: Technology[];
   projects: Project[];
   services: Service[];

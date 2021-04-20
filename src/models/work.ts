@@ -1,6 +1,6 @@
-export interface Company {
+export interface Work {
   name: string;
-  position: string;
+  specialty: string;
   description?: string;
   time: string;
 }

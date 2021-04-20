@@ -33,18 +33,12 @@ const Home = () => {
 
   return (
     <Layout>
-      <Grid container>
-        <Grid
-          container
-          item
-          justify='center'
-          alignItems='center'
-          md={6}
-          sm={6}
-          xs={12}>
+      <Grid className={classes.container} container>
+        <Grid container justify='center' alignItems='center' xs={12} md={6}>
           <Avatar src={user?.avatar} />
         </Grid>
-        <Grid container item alignItems='center' md={6} sm={6} xs={12}>
+        <Grid className={classes.info} item xs={12} md={6}>
+          <Typography variant='h6'>{user?.summary.toUpperCase()}</Typography>
           <Typography
             className={clsx(classes.primary, classes.bold)}
             variant='h1'>
@@ -53,13 +47,11 @@ const Home = () => {
           <Typography className={classes.primary} variant='h4'>
             {user?.job}
           </Typography>
-          <Typography variant='h6'>{user?.summary}</Typography>
-          <Grid container>
+          <Grid>
             <ContainedButton onClick={onMoreClick}>More</ContainedButton>
             <OutlinedButton onClick={onHireClick}>Hire</OutlinedButton>
           </Grid>
-        </Grid>{' '}
-        ``
+        </Grid>
       </Grid>
     </Layout>
   );

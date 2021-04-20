@@ -3,8 +3,9 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Typography,
 } from '@material-ui/core';
+import clsx from 'clsx';
+import Typography from '../typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 
@@ -13,13 +14,19 @@ const Card = (props: Props) => {
   const { item } = props;
 
   return (
-    <MuiCard classes={{ root: classes.root }}>
+    <MuiCard classes={{ root: classes.root }} className={classes.background}>
       <CardActionArea>
-        <CardMedia image={item.image} />
+        <CardMedia component='img' image={item.cover} />
         <CardContent>
-          <Typography variant='h5'>{item.title}</Typography>
-          <Typography variant='subtitle1'>{item.subtitle}</Typography>
-          <Typography variant='body2'>{item.content}</Typography>
+          <Typography
+            className={clsx(classes.primary, classes.bold)}
+            variant='h5'>
+            {item.name}
+          </Typography>
+          <Typography className={classes.bold} variant='subtitle1'>
+            {item.technology}
+          </Typography>
+          <Typography variant='body2'>{item.summary}</Typography>
         </CardContent>
       </CardActionArea>
     </MuiCard>
