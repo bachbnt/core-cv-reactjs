@@ -22,13 +22,13 @@ export default makeStyles(
       },
       desktop: {
         display: 'flex',
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('sm')]: {
           display: 'none',
         },
       },
       mobile: {
         display: 'none',
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('sm')]: {
           display: 'flex',
         },
       },
