@@ -41,7 +41,7 @@ const Home = () => {
     }
   };
   const onMoreClick = () => {
-    history.push(RoutePath.ME);
+    history.push(RoutePath.ABOUT);
   };
   const onHireClick = () => {
     history.push(RoutePath.CONTACT);
@@ -55,7 +55,7 @@ const Home = () => {
         </Grid>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
           <Typography className={clsx(classes.greeting)} variant='h6'>
-            {user?.summary.toUpperCase()}
+            {t(i18nKey.welcome_to_my_website).toUpperCase()}
           </Typography>
           <Box mt={2}>
             <Typography
@@ -84,20 +84,20 @@ const Home = () => {
             </Grid>
           </Box>
           <Grid container>
-            <Grid item xs={6} md={2}>
+            <Grid item xs={6} md={3}>
               <ContainedButton
                 className={clsx(classes.leftButton)}
                 onClick={onMoreClick}
                 fullWidth>
-                {t(i18nKey.me)}
+                {t(i18nKey.about_me)}
               </ContainedButton>
             </Grid>
-            <Grid item xs={6} md={2}>
+            <Grid item xs={6} md={3}>
               <OutlinedButton
                 className={clsx(classes.rightButton)}
                 onClick={onHireClick}
                 fullWidth>
-                {t(i18nKey.contact)}
+                {t(i18nKey.contact_me)}
               </OutlinedButton>
             </Grid>
           </Grid>

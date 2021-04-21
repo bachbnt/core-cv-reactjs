@@ -7,7 +7,6 @@ import { Technology } from './technology';
 export interface User {
   username: string;
   job: string;
-  summary: string;
   avatar: string;
   cover: string;
   description: string;

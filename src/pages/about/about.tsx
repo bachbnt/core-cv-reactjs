@@ -11,7 +11,7 @@ import { i18nKey } from '../../locales/i18n';
 import { IoCodeSlash } from 'react-icons/io5';
 import Button from '../../components/button/button';
 
-const Me = () => {
+const About = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const user = useSelector<RootState, UserState>((state) => state.UserReducer);
@@ -83,4 +83,4 @@ const Me = () => {
   );
 };
 
-export default Me;
+export default About;

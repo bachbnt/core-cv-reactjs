@@ -15,9 +15,9 @@ export const routes: Route[] = [
     component: RouteName.HOME,
   },
   {
-    name: i18nKey.me,
-    path: RoutePath.ME,
-    component: RouteName.ME,
+    name: i18nKey.about,
+    path: RoutePath.ABOUT,
+    component: RouteName.ABOUT,
   },
   {
     name: i18nKey.resume,

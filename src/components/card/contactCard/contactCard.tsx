@@ -5,13 +5,15 @@ import {
   CardContent,
 } from '@material-ui/core';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import Typography from '../../typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 
 const ContactCard = (props: Props) => {
   const classes = useStyles();
-  const { item, icon } = props;
+  const { item, icon, title } = props;
+  const { t } = useTranslation();
 
   const onCardClick = (url: string) => {
     if (url) {
@@ -32,7 +34,7 @@ const ContactCard = (props: Props) => {
             className={clsx(classes.bold)}
             variant='h6'
             align='center'>
-            {item.type}
+            {t(title)}
           </Typography>
           <Box mt={2}>
             <Typography variant='body2' align='center'>

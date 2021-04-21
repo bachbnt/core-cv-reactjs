@@ -21,6 +21,7 @@ import { i18nKey } from '../../locales/i18n';
 import { RootState } from '../../redux/rootState';
 import { UserState } from '../../redux/user/userState';
 import { Image } from '../../constants/image';
+import { RoutePath } from '../../routes/routePath';
 
 const Header = (props: Props) => {
   const classes = useStyles();
@@ -29,6 +30,10 @@ const Header = (props: Props) => {
   const { t } = useTranslation();
   const user = useSelector<RootState, UserState>((state) => state.UserReducer);
   const [open, setOpen] = useState<boolean>(false);
+
+  const onLogoClick = () => {
+    history.replace(RoutePath.HOME);
+  };
 
   const onPageClick = (path: string) => {
     if (location.pathname !== path) {
@@ -49,11 +54,17 @@ const Header = (props: Props) => {
   return (
     <AppBar color='transparent' position='static'>
       <Toolbar className={clsx(classes.toolbar)}>
-        <img src={Image.LOGO} alt='logo' width={36} height={36} />
+        <img
+          src={Image.LOGO}
+          alt='logo'
+          width={36}
+          height={36}
+          onClick={onLogoClick}
+        />
         <Box className={classes.row}>
           <OutlinedButton className={clsx(classes.cv)} onClick={onCVClick}>
             <Typography className={clsx(classes.bold)}>
-              {t(i18nKey.download_cv)}
+              {t(i18nKey.my_cv)}
             </Typography>
           </OutlinedButton>
           <Box className={clsx(classes.desktop)}>
