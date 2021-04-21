@@ -7,27 +7,25 @@ class ApiService {
         time: 'Sep 2016 - Sep 2020',
         specialty: 'Bachelor of Physics',
         name: 'University of Science',
-        description: '',
       },
       {
         time: 'Dec 2020 - Dec 2022',
         specialty: 'Master of Engineering Physics ',
         name: 'University of Science',
-        description: '',
       },
     ];
     const companies = [
       {
         time: 'Mar 2020 - Present',
-        specialty: 'Mobile Developer',
+        specialty: 'Hybrid/ Frontend Developer',
         name: 'DevBlock Vietnam',
-        description: 'Developing mobile applications',
+        description: 'Developing applications and websites.',
       },
       {
         time: 'Apr 2020 - Present',
-        specialty: 'Flutter Developer',
+        specialty: 'Fullstack Developer',
         name: 'Freelancer',
-        description: 'Developing mobile applications',
+        description: 'Developing applications and websites.',
       },
     ];
     const technologies = [
@@ -60,29 +58,29 @@ class ApiService {
       {
         name: "Bach's Web",
         technology: 'ReactJS, Firebase',
-        summary: 'Personal website',
+        summary: 'Personal website.',
       },
       {
         name: 'Yoga Lasyn',
         technology: 'Flutter, Firebase',
-        summary: ' Yoga video watching application',
+        summary: ' Yoga video watching application.',
       },
       {
         name: 'Weather Live',
         technology: 'Flutter',
-        summary: 'Weather forecast application',
+        summary: 'Weather forecast application.',
       },
       {
         name: 'P&C Dashboard',
         technology: 'React Native',
-        summary: 'Internal social network application',
+        summary: 'Internal social network application.',
       },
       {
         name: 'Beli Coffee',
         technology: 'Android, NodeJS, MongoDB',
         cover:
           'https://www.membergate.com/members/images/3493a.png?cb=20210226073611',
-        summary: 'Coffee ordering application',
+        summary: 'Coffee ordering application.',
       },
     ];
     const services = [
@@ -94,20 +92,20 @@ class ApiService {
       {
         name: 'Web Development',
         description:
-          'Developing website using Flutter or ReactJS. Be able to use HTML and CSS.',
+          'Developing websites using Flutter or ReactJS. Be able to use HTML and CSS.',
       },
       {
         name: 'Open Source',
         description:
-          'Working as an open source contributor on GitHub with some forks on various projects by other developers',
+          'Working as an open source contributor on GitHub with some forks on various projects by other developers.',
       },
       {
         name: 'Programming Teaching',
-        description: 'Teaching online programming to students',
+        description: 'Teaching online programming to students.',
       },
       {
         name: 'Blog Writing',
-        description: 'Writing technical blogs on my personal website',
+        description: 'Writing technical blogs on my personal website.',
       },
     ];
     const contacts = [
@@ -140,7 +138,7 @@ class ApiService {
     ];
     const user = {
       username: 'Bach Bui',
-      job: 'Hybrid Developer',
+      job: 'Fullstack Developer',
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       cover:
         'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.6435-9/149434787_1703323786507046_4478961594770359721_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=MxIvDfl0wOYAX9RMJDw&_nc_ht=scontent.fsgn5-7.fna&oh=7896823b7f5a494026295044182a742d&oe=60A64314',

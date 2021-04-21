@@ -30,6 +30,11 @@ export const routes: Route[] = [
     component: RouteName.PROJECT,
   },
   {
+    name: i18nKey.blog,
+    path: RoutePath.BLOG,
+    component: RouteName.BLOG,
+  },
+  {
     name: i18nKey.service,
     path: RoutePath.SERVICE,
     component: RouteName.SERVICE,

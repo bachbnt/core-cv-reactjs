@@ -3,6 +3,7 @@ const en = {
   about: 'About',
   resume: 'Resume',
   project: 'Project',
+  blog: 'Blog',
   service: 'Service',
   contact: 'Contact',
   my_cv: 'My CV',
@@ -17,7 +18,7 @@ const en = {
   copyright_by: 'Copyright © {{year}} by {{username}}',
   hello_world: 'Hello World!',
   my_name_is_and_i_am_a: 'My name is {{username}} and I am a {{job}}.',
-  i_have_worked_with: 'I have worked with',
+  i_have_worked_with: 'I have worked with:',
 };
 
 export default en;
