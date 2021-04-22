@@ -138,7 +138,7 @@ class ApiService {
     ];
     const user = {
       username: 'Bach Bui',
-      job: 'Fullstack Developer',
+      jobs: ['Fullstack Developer', 'Technical Blogger'],
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
       cover:
         'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.6435-9/149434787_1703323786507046_4478961594770359721_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=MxIvDfl0wOYAX9RMJDw&_nc_ht=scontent.fsgn5-7.fna&oh=7896823b7f5a494026295044182a742d&oe=60A64314',

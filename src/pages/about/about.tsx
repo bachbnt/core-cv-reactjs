@@ -38,7 +38,7 @@ const About = () => {
             variant='h4'>
             {t(i18nKey.my_name_is_and_i_am_a, {
               username: user?.username,
-              job: user?.job,
+              job: user?.jobs[0],
             })}
           </Typography>
           <Box mt={2} mb={4}>

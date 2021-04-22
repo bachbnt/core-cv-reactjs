@@ -1,6 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import { SiFacebook, SiGithub, SiLinkedin } from 'react-icons/si';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
@@ -24,6 +24,7 @@ const Home = () => {
   const { t } = useTranslation();
   const { getData } = useMe();
   const user = useSelector<RootState, UserState>((state) => state.UserReducer);
+  const [index, setIndex] = useState<number>(0);
 
   const socialIcons = [
     <SiFacebook size={32} />,
@@ -34,6 +35,20 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, [getData]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!(index === user!.jobs.length - 1)) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [index, user]);
 
   const onSocialClick = (url: string) => {
     if (url) {
@@ -69,7 +84,7 @@ const Home = () => {
             classes={{ root: classes.primary }}
             className={clsx(classes.primary)}
             variant='h4'>
-            {user?.job}
+            {user?.jobs[index]}
           </Typography>
           <Box mt={1} mb={6}>
             <Grid container>
