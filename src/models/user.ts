@@ -8,7 +8,7 @@ export interface User {
   username: string;
   jobs: string[];
   avatar: string;
-  cover: string;
+  covers: string[];
   description: string;
   cv: string;
   universities: Work[];

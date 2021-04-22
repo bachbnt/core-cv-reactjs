@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +16,21 @@ const About = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const user = useSelector<RootState, UserState>((state) => state.UserReducer);
+  const [index, setIndex] = useState<number>(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!(index === user!.covers.length - 1)) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [index, user]);
 
   const onTechnologyClick = (url: string) => {
     if (url) {
@@ -76,7 +92,11 @@ const About = () => {
           alignItems='center'
           xs={12}
           md={6}>
-          <img className={clsx(classes.img)} src={user?.cover} alt='cover' />
+          <img
+            className={clsx(classes.img)}
+            src={user?.covers[index]}
+            alt='cover'
+          />
         </Grid>
       </Grid>
     </Layout>

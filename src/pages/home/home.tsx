@@ -43,7 +43,7 @@ const Home = () => {
       } else {
         setIndex(0);
       }
-    }, 2000);
+    }, 4000);
 
     return () => {
       clearInterval(interval);

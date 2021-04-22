@@ -140,8 +140,11 @@ class ApiService {
       username: 'Bach Bui',
       jobs: ['Fullstack Developer', 'Technical Blogger'],
       avatar: 'https://avatars.githubusercontent.com/u/51219305?v=4',
-      cover:
+      covers: [
         'https://scontent.fsgn5-7.fna.fbcdn.net/v/t1.6435-9/149434787_1703323786507046_4478961594770359721_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=MxIvDfl0wOYAX9RMJDw&_nc_ht=scontent.fsgn5-7.fna&oh=7896823b7f5a494026295044182a742d&oe=60A64314',
+        'https://scontent.fvca1-2.fna.fbcdn.net/v/t1.6435-9/128065463_1647093865463372_1647521075605416364_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=19026a&_nc_ohc=2Ajb4uBafmEAX_OigrC&_nc_oc=AQlbgvLW-M7Ja3QkXLryPMGx17qhJAzjZl0Ebj4YEW-yDR67FTacLQpLCngeuTEON8A&_nc_ht=scontent.fvca1-2.fna&oh=d5f60c3be27d8f56dddb7fac28910cfe&oe=60A61B4B',
+        'https://scontent.fvca1-2.fna.fbcdn.net/v/t1.6435-9/82250698_1354624784710283_3323354228021264384_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=19026a&_nc_ohc=tSAsQ-XLMwAAX8cga9R&_nc_ht=scontent.fvca1-2.fna&oh=9182053e08642241ed136b673172acd2&oe=60A5FA36',
+      ],
       description:
         'My background is the Master in Engineering Physics. Because of the passion for programming, I chose Software Engineer as my profession. With knowledge and experience of technologies, I want to become a Project Manager in the future.',
       cv: 'https://www.topcv.vn/xem-cv/a20f691bdb835120d5500ce765ed8e54',
