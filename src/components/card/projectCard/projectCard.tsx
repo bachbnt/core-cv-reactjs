@@ -21,6 +21,7 @@ const ProjectCard = (props: Props) => {
       className={clsx(classes.background)}>
       <CardActionArea>
         <CardMedia
+          className={classes.img}
           component='img'
           image={item.cover ? item.cover : Image.COMING_SOON}
         />

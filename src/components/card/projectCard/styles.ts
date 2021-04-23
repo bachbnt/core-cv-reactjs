@@ -8,7 +8,6 @@ export default makeStyles(
         maxWidth: 350,
         minWidth: 300,
         height: '100%',
-        minHeight: 300,
       },
       background: {
         backgroundColor: Color.grey,
@@ -21,6 +20,9 @@ export default makeStyles(
       },
       bold: {
         fontWeight: 'bold',
+      },
+      img: {
+        height: 200,
       },
     }),
   { index: 1 }
