@@ -4,8 +4,8 @@ import { Project } from './project';
 import { Service } from './service';
 import { Technology } from './technology';
 
-export interface User {
-  username: string;
+export interface Me {
+  name: string;
   jobs: string[];
   avatar: string;
   covers: string[];

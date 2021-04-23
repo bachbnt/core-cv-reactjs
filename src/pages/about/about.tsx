@@ -53,7 +53,7 @@ const About = () => {
             className={clsx(classes.primary)}
             variant='h4'>
             {t(i18nKey.my_name_is_and_i_am_a, {
-              username: user?.username,
+              username: user?.name,
               job: user?.jobs[0],
             })}
           </Typography>

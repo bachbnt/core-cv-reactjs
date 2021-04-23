@@ -28,6 +28,8 @@ const Contact = () => {
     },
   ];
 
+  const con = user?.contacts;
+  console.log({ con });
   return (
     <Layout>
       <Grid className={clsx(classes.container)} container spacing={4}>

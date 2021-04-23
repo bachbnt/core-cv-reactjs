@@ -77,7 +77,7 @@ const Home = () => {
               classes={{ root: classes.primary }}
               className={clsx(classes.primary, classes.bold)}
               variant='h1'>
-              {user?.username}
+              {user?.name}
             </Typography>
           </Box>
           <Typography

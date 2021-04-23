@@ -1,23 +1,27 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import { HIDE_SPINNER, SHOW_SPINNER } from '../redux/spinner/spinnerAction';
 import { SET_USER } from '../redux/user/userAction';
 import { RoutePath } from '../routes/routePath';
-import { apiService } from '../services/apiService';
+import { apiService } from '../services/service';
 
 export const useMe = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const getData = useCallback(async () => {
+    dispatch({ type: SHOW_SPINNER });
     const response = await apiService.getMe();
-    if (response.status === 200) {
+    try {
       dispatch({
         type: SET_USER,
-        payload: response.data,
+        payload: response,
       });
-    } else {
+    } catch (error) {
       history.push(RoutePath.ERROR);
+    } finally {
+      dispatch({ type: HIDE_SPINNER });
     }
   }, [dispatch, history]);
 
