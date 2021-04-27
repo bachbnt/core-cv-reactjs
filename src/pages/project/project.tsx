@@ -14,11 +14,14 @@ const Project = () => {
   return (
     <Layout>
       <Grid className={clsx(classes.container)} container spacing={4}>
-        {user?.projects.reverse().map((item) => (
-          <Grid item>
-            <ProjectCard item={item} />
-          </Grid>
-        ))}
+        {user?.projects
+          .slice()
+          .reverse()
+          .map((item) => (
+            <Grid item>
+              <ProjectCard item={item} />
+            </Grid>
+          ))}
       </Grid>
     </Layout>
   );

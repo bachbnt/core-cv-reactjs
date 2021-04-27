@@ -1,5 +1,5 @@
 import { Box, Grid } from '@material-ui/core';
-import { SiFacebook, SiGithub, SiLinkedin } from 'react-icons/si';
+import { SiFacebook, SiGithub, SiLinkedin, SiSkype } from 'react-icons/si';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -30,6 +30,7 @@ const Home = () => {
     <SiFacebook size={32} />,
     <SiGithub size={32} />,
     <SiLinkedin size={32} />,
+    <SiSkype size={32} />,
   ];
 
   useEffect(() => {
