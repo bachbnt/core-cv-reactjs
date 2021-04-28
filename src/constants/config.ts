@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: 'AIzaSyA6rVWr2Bzy_DdUeD4_Pww8Ksmyl3Qejls',
-  authDomain: 'bachbnt-cv.firebaseapp.com',
-  projectId: 'bachbnt-cv',
-  storageBucket: 'bachbnt-cv.appspot.com',
-  messagingSenderId: '692469136745',
-  appId: '1:692469136745:web:fbc7a28cc31c770c5c11f8',
-  measurementId: 'G-L2255Q3BP4',
+  apiKey: 'AIzaSyBdY9qSJ02fnJXIGEUvjrdI_YPXS9aEq1k',
+  authDomain: 'bachbntdev.firebaseapp.com',
+  projectId: 'bachbntdev',
+  storageBucket: 'bachbntdev.appspot.com',
+  messagingSenderId: '712213019462',
+  appId: '1:712213019462:web:5fd31a784c088100f84347',
+  measurementId: 'G-DF9JQV0P31',
 };
