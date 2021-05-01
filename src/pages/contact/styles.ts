@@ -10,9 +10,33 @@ export default makeStyles(
       alignItems: 'center',
       marginTop: theme.spacing(6),
       marginBottom: theme.spacing(6),
+      paddingLeft: theme.spacing(6),
+      paddingRight: theme.spacing(6),
+    },
+    contactContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    messageContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     primary: {
       color: Color.primary,
+    },
+    center: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    card: {
+      width: '100%',
+      backgroundColor: Color.grey,
+      marginTop: theme.spacing(6),
+      [theme.breakpoints.up('md')]: {
+        marginTop: 0,
+      },
     },
   }),
   { index: 1 }

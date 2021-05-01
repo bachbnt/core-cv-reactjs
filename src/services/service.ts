@@ -1,7 +1,8 @@
 import { Me } from '../models/me';
+import { Message } from '../models/message';
 import { firestore } from './firebase';
 
-class ApiService {
+class Service {
   async getMe(): Promise<Me> {
     const raw = await firestore.collection('me').doc('me').get();
     const me: Me = {
@@ -19,9 +20,15 @@ class ApiService {
       contacts: raw.get('contacts'),
       socials: raw.get('socials'),
     };
-    console.log({ me });
     return me;
+  }
+
+  async postMessage(message: Message): Promise<void> {
+    await firestore
+      .collection('messages')
+      .doc(new Date().toString())
+      .set(message);
   }
 }
 
-export const apiService = new ApiService();
+export const service = new Service();

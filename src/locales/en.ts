@@ -19,6 +19,12 @@ const en = {
   hello_world: 'Hello World!',
   my_name_is_and_i_am_a: 'My name is {{username}} and I am a {{job}}.',
   i_have_worked_with: 'I have worked with:',
+  name: 'Name',
+  message: 'Message',
+  send: 'Send',
+  leave_me_a_message: 'Leave me a message',
+  name_is_required: 'Name is required',
+  message_is_required: 'Message is required',
 };
 
 export default en;
