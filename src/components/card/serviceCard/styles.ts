@@ -5,10 +5,8 @@ export default makeStyles(
   (theme: Theme) =>
     createStyles({
       root: {
-        maxWidth: 350,
-        minWidth: 300,
-        height: '100%',
-        minHeight: 200,
+        width: 350,
+        height: 250,
       },
       background: {
         backgroundColor: Color.grey,
