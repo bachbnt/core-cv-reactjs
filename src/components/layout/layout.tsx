@@ -1,7 +1,7 @@
 import { Box } from '@material-ui/core';
 import clsx from 'clsx';
-import Footer from '../footer/footer';
-import Header from '../header/header';
+import Footer from 'src/components/footer/footer';
+import Header from 'src/components/header/header';
 import { Props } from './props';
 import useStyles from './styles';
 

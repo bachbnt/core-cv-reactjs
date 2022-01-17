@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import Typography from '../../typography/typography';
+import Typography from 'src/components/typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 

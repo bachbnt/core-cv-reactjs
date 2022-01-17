@@ -1,7 +1,7 @@
 import { HIDE_SPINNER, SHOW_SPINNER, SpinnerAction } from './spinnerAction';
 import { initialState, SpinnerState } from './spinnerState';
 
-export const SpinnerReducer = (
+export const spinnerReducer = (
   state: SpinnerState = initialState,
   action: SpinnerAction
 ): SpinnerState => {

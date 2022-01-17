@@ -1,27 +1,27 @@
+import { useEffect, useMemo } from 'react';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
 import { MdHome, MdPhone, MdMail } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
-import Layout from '../../components/layout/layout';
-import { RootState } from '../../redux/rootState';
-import { UserState } from '../../redux/user/userState';
-import useStyles from './styles';
-import ContactCard from '../../components/card/contactCard/contactCard';
-import { i18nKey } from '../../locales/i18n';
-import ContainedButton from '../../components/button/containedButton/containedButton';
-import Typography from '../../components/typography/typography';
-import useYupResolver from '../../hooks/useYupResolver';
 import { FormProvider, useForm } from 'react-hook-form';
+import clsx from 'clsx';
+import ContainedButton from 'src/components/button/containedButton/containedButton';
+import ContactCard from 'src/components/card/contactCard/contactCard';
+import Layout from 'src/components/layout/layout';
+import FormTextField from 'src/components/textField/formTextField/formTextField';
+import Typography from 'src/components/typography/typography';
+import { useMessage } from 'src/hooks/useMessage';
+import useYupResolver from 'src/hooks/useYupResolver';
+import { i18nKey } from 'src/locales/i18n';
+import { RootState } from 'src/redux/rootState';
+import { UserState } from 'src/redux/user/userState';
 import { validationSchema, FormValues } from './validation';
-import { useEffect, useMemo } from 'react';
-import FormTextField from '../../components/textField/formTextField/formTextField';
-import { useMessage } from '../../hooks/useMessage';
+import useStyles from './styles';
 
 const Contact = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useSelector<RootState, UserState>((state) => state.UserReducer);
+  const user = useSelector<RootState, UserState>((state) => state.userReducer);
   const { postData } = useMessage();
 
   const contacts = [

@@ -1,7 +1,7 @@
 import { SET_USER, UserAction } from './userAction';
 import { initialState, UserState } from './userState';
 
-export const UserReducer = (
+export const userReducer = (
   state: UserState = initialState,
   action: UserAction
 ): UserState => {

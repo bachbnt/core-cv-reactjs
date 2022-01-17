@@ -9,7 +9,7 @@ import {
   TimelineDot,
 } from '@material-ui/lab/';
 import clsx from 'clsx';
-import Typography from '../typography/typography';
+import Typography from 'src/components/typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 

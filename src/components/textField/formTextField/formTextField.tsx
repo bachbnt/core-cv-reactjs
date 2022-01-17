@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import TextField from '../textField';
+import TextField from 'src/components/textField/textField';
 import { Props } from './props';
 
 const FormTextField = (props: Props) => {

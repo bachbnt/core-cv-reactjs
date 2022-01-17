@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
 import { Switch } from 'react-router';
-import Spinner from './components/spinner/spinner';
-import { store } from './redux/store';
-import BaseRoute from './routes/baseRoute';
-import ErrorRoute from './routes/errorRoute';
-import { routes } from './routes/routes';
+import Spinner from 'src/components/spinner/spinner';
+import { store } from 'src/redux/store';
+import BaseRoute from 'src/routes/baseRoute';
+import ErrorRoute from 'src/routes/errorRoute';
+import { routes } from 'src/routes/routes';
 
 const App = () => {
   return (

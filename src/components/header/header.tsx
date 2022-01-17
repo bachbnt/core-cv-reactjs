@@ -7,28 +7,28 @@ import {
   Typography,
 } from '@material-ui/core';
 import { MdMenu } from 'react-icons/md';
-import { useHistory, useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useHistory, useLocation } from 'react-router';
 import clsx from 'clsx';
-import Button from '../button/button';
-import Drawer from '../drawer/drawer';
+import { Image } from 'src/constants/image';
+import Button from 'src/components/button/button';
+import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
+import Drawer from 'src/components/drawer/drawer';
+import { i18nKey } from 'src/locales/i18n';
+import { RootState } from 'src/redux/rootState';
+import { UserState } from 'src/redux/user/userState';
+import { RoutePath } from 'src/routes/routePath';
+import { routes } from 'src/routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
-import { routes } from '../../routes/routes';
-import OutlinedButton from '../button/outlinedButton/outlinedButton';
-import { i18nKey } from '../../locales/i18n';
-import { RootState } from '../../redux/rootState';
-import { UserState } from '../../redux/user/userState';
-import { Image } from '../../constants/image';
-import { RoutePath } from '../../routes/routePath';
 
 const Header = (props: Props) => {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
   const { t } = useTranslation();
-  const user = useSelector<RootState, UserState>((state) => state.UserReducer);
+  const user = useSelector<RootState, UserState>((state) => state.userReducer);
   const [open, setOpen] = useState<boolean>(false);
 
   const onLogoClick = () => {

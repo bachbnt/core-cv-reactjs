@@ -26,7 +26,7 @@ const theme = {
           fontFamily: 'SourceSerifPro',
         },
         '*::-webkit-scrollbar': {
-          width: '8px',
+          width: '4px',
         },
         '*::-webkit-scrollbar-track': {
           '-webkit-box-shadow': 'inset 8px 8px 8px #222222',

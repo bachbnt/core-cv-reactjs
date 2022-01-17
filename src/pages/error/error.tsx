@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import clsx from 'clsx';
-import { Image } from '../../constants/image';
+import { Image } from 'src/constants/image';
 import useStyles from './styles';
 
 const Error = () => {

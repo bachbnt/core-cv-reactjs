@@ -1,6 +1,6 @@
 import { render } from 'react-dom';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { BrowserRouter } from 'react-router-dom';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import theme from './themes/theme';
 import App from './app';
 

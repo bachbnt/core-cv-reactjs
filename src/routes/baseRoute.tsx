@@ -1,7 +1,7 @@
 import { lazy, Suspense, useMemo } from 'react';
-import { RouteProps } from './routeProps';
 import { Route } from 'react-router-dom';
-import Spinner from '../components/spinner/spinner';
+import Spinner from 'src/components/spinner/spinner';
+import { RouteProps } from './routeProps';
 
 const BaseRoute = (props: RouteProps) => {
   const { name, path, component, exact } = props;

@@ -4,10 +4,10 @@ import {
   ListItem,
   ListItemText,
 } from '@material-ui/core';
-import { useHistory, useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory, useLocation } from 'react-router';
 import clsx from 'clsx';
-import { routes } from '../../routes/routes';
+import { routes } from 'src/routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
 

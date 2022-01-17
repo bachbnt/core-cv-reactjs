@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { messageSchema, nameSchema } from '../../constants/validation';
+import { messageSchema, nameSchema } from 'src/constants/validation';
 
 export interface FormValues {
   name: string;

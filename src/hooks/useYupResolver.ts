@@ -3,7 +3,7 @@ import { ObjectSchema } from 'yup';
 
 const useYupResolver = (validationSchema: ObjectSchema<any>) =>
   useCallback(
-    async (data) => {
+    async (data: any) => {
       try {
         const values = await validationSchema.validate(data, {
           abortEarly: false,
@@ -13,10 +13,10 @@ const useYupResolver = (validationSchema: ObjectSchema<any>) =>
           values,
           errors: {},
         };
-      } catch (errors) {
+      } catch (error: any) {
         return {
           values: {},
-          errors: errors.inner.reduce(
+          errors: error.inner.reduce(
             (allErrors: any, currentError: any) => ({
               ...allErrors,
               [currentError.path]: {

@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { i18nKey } from '../locales/i18n';
+import { i18nKey } from 'src/locales/i18n';
 
 export const nameSchema = yup.string().required(i18nKey.name_is_required);
 

@@ -1,6 +1,6 @@
 import { lazy, Suspense, useMemo } from 'react';
 import { Route } from 'react-router-dom';
-import Spinner from '../components/spinner/spinner';
+import Spinner from 'src/components/spinner/spinner';
 import { RouteName } from './routeName';
 
 const ErrorRoute = () => {

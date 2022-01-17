@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Button from '../button';
+import Button from 'src/components/button/button';
 import { Props } from './props';
 import useStyles from './styles';
 

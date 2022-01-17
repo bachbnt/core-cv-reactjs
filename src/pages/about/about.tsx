@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Box, Grid } from '@material-ui/core';
+import { IoCodeSlash } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import Layout from '../../components/layout/layout';
-import Typography from '../../components/typography/typography';
-import { RootState } from '../../redux/rootState';
-import { UserState } from '../../redux/user/userState';
+import Button from 'src/components/button/button';
+import Layout from 'src/components/layout/layout';
+import Typography from 'src/components/typography/typography';
+import { i18nKey } from 'src/locales/i18n';
+import { RootState } from 'src/redux/rootState';
+import { UserState } from 'src/redux/user/userState';
 import useStyles from './styles';
-import { i18nKey } from '../../locales/i18n';
-import { IoCodeSlash } from 'react-icons/io5';
-import Button from '../../components/button/button';
 
 const About = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useSelector<RootState, UserState>((state) => state.UserReducer);
+  const user = useSelector<RootState, UserState>((state) => state.userReducer);
   const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {

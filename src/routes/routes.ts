@@ -1,4 +1,4 @@
-import { i18nKey } from '../locales/i18n';
+import { i18nKey } from 'src/locales/i18n';
 import { RouteName } from './routeName';
 import { RoutePath } from './routePath';
 
@@ -29,11 +29,11 @@ export const routes: Route[] = [
     path: RoutePath.PROJECT,
     component: RouteName.PROJECT,
   },
-  {
-    name: i18nKey.blog,
-    path: RoutePath.BLOG,
-    component: RouteName.BLOG,
-  },
+  // {
+  //   name: i18nKey.blog,
+  //   path: RoutePath.BLOG,
+  //   component: RouteName.BLOG,
+  // },
   {
     name: i18nKey.service,
     path: RoutePath.SERVICE,

@@ -1,4 +1,4 @@
-import { Me } from '../../models/me';
+import { Me } from 'src/models/me';
 
 export type UserState = Me | null;
 

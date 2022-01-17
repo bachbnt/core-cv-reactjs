@@ -1,4 +1,4 @@
-import { Work } from '../../models/work';
+import { Work } from 'src/models/work';
 
 export interface Props {
   items: Work[];

@@ -6,8 +6,8 @@ import {
   CardMedia,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import { Image } from '../../../constants/image';
-import Typography from '../../typography/typography';
+import { Image } from 'src/constants/image';
+import Typography from 'src/components/typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 

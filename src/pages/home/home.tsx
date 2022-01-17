@@ -1,29 +1,35 @@
-import { Box, Grid } from '@material-ui/core';
-import { SiFacebook, SiGithub, SiLinkedin, SiSkype } from 'react-icons/si';
 import { useEffect, useState } from 'react';
+import { Box, Grid } from '@material-ui/core';
+import {
+  SiFacebook,
+  SiGithub,
+  SiLinkedin,
+  SiSkype,
+  SiZalo,
+} from 'react-icons/si';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import Avatar from '../../components/avatar/avatar';
-import ContainedButton from '../../components/button/containedButton/containedButton';
-import OutlinedButton from '../../components/button/outlinedButton/outlinedButton';
-import IconButton from '../../components/button/iconButton/iconButton';
-import Layout from '../../components/layout/layout';
-import Typography from '../../components/typography/typography';
-import { useMe } from '../../hooks/useMe';
-import { RootState } from '../../redux/rootState';
-import { UserState } from '../../redux/user/userState';
-import { RoutePath } from '../../routes/routePath';
+import Avatar from 'src/components/avatar/avatar';
+import ContainedButton from 'src/components/button/containedButton/containedButton';
+import IconButton from 'src/components/button/iconButton/iconButton';
+import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
+import Layout from 'src/components/layout/layout';
+import Typography from 'src/components/typography/typography';
+import { useMe } from 'src/hooks/useMe';
+import { i18nKey } from 'src/locales/i18n';
+import { RootState } from 'src/redux/rootState';
+import { UserState } from 'src/redux/user/userState';
+import { RoutePath } from 'src/routes/routePath';
 import useStyles from './styles';
-import { i18nKey } from '../../locales/i18n';
 
 const Home = () => {
   const classes = useStyles();
   const history = useHistory();
   const { t } = useTranslation();
   const { getData } = useMe();
-  const user = useSelector<RootState, UserState>((state) => state.UserReducer);
+  const user = useSelector<RootState, UserState>((state) => state.userReducer);
   const [index, setIndex] = useState<number>(0);
 
   const socialIcons = [
@@ -31,6 +37,7 @@ const Home = () => {
     <SiGithub size={32} />,
     <SiLinkedin size={32} />,
     <SiSkype size={32} />,
+    <SiZalo size={32} />,
   ];
 
   useEffect(() => {
