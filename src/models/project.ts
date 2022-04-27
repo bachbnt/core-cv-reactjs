@@ -1,12 +1,12 @@
 export interface Project {
-  name: string;
-  technology: string;
-  summary: string;
   cover: string;
-  details: ProjectDetail[];
-}
-
-export interface ProjectDetail {
-  image: string;
+  coverVisible: boolean;
   description: string;
+  descriptionVisible: boolean;
+  index: number;
+  name: string;
+  nameVisible: boolean;
+  technology: string;
+  technologyVisible: boolean;
+  visible: boolean;
 }

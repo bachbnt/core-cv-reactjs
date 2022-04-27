@@ -1,25 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Box, Grid } from '@material-ui/core';
-import {
-  SiFacebook,
-  SiGithub,
-  SiLinkedin,
-  SiSkype,
-  SiZalo,
-} from 'react-icons/si';
+import { Box, Grid, Tooltip } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
+import _ from 'lodash';
 import Avatar from 'src/components/avatar/avatar';
 import ContainedButton from 'src/components/button/containedButton/containedButton';
-import IconButton from 'src/components/button/iconButton/iconButton';
 import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
+import ContactItem from 'src/components/contactItem/contactItem';
 import Layout from 'src/components/layout/layout';
 import Typography from 'src/components/typography/typography';
-import { useMe } from 'src/hooks/useMe';
+import { useConfig } from 'src/hooks/useConfig';
+import { useUser } from 'src/hooks/useUser';
 import { i18nKey } from 'src/locales/i18n';
+import { ContactType } from 'src/models/contact';
 import { RootState } from 'src/redux/rootState';
+import { ConfigState } from 'src/redux/config/configState';
 import { UserState } from 'src/redux/user/userState';
 import { RoutePath } from 'src/routes/routePath';
 import useStyles from './styles';
@@ -28,53 +25,56 @@ const Home = () => {
   const classes = useStyles();
   const history = useHistory();
   const { t } = useTranslation();
-  const { getData } = useMe();
+  const { getData: getConfig } = useConfig();
+  const { getData: getUser } = useUser();
+  const config = useSelector<RootState, ConfigState>(
+    (state) => state.configReducer
+  );
   const user = useSelector<RootState, UserState>((state) => state.userReducer);
-  const [index, setIndex] = useState<number>(0);
-
-  const socialIcons = [
-    <SiFacebook size={32} />,
-    <SiGithub size={32} />,
-    <SiLinkedin size={32} />,
-    <SiSkype size={32} />,
-    <SiZalo size={32} />,
-  ];
+  const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {
-    getData();
-  }, [getData]);
+    getConfig();
+    getUser();
+  }, [getConfig, getUser]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!(index === user!.jobs.length - 1)) {
-        setIndex(index + 1);
+      if (!(slide === user!.profile.specialties.length - 1)) {
+        setSlide(slide + 1);
       } else {
-        setIndex(0);
+        setSlide(0);
       }
     }, 4000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [index, user]);
+  }, [slide, user]);
 
-  const onSocialClick = (url: string) => {
-    if (url) {
-      window.open(url);
+  const onAboutClick = () => {
+    if (config?.aboutEnable) {
+      history.push(RoutePath.ABOUT);
     }
   };
-  const onMoreClick = () => {
-    history.push(RoutePath.ABOUT);
-  };
-  const onHireClick = () => {
-    history.push(RoutePath.CONTACT);
+  const onContactClick = () => {
+    if (config?.contactEnable) {
+      history.push(RoutePath.CONTACT);
+    }
   };
 
   return (
     <Layout>
       <Grid className={clsx(classes.container)} container>
-        <Grid container justify='center' alignItems='center' xs={12} md={6}>
-          <Avatar src={user?.avatar} />
+        <Grid
+          container
+          item
+          justifyContent='center'
+          alignItems='center'
+          xs={12}
+          md={6}
+        >
+          <Avatar src={user?.profile?.avatar} />
         </Grid>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
           <Typography className={clsx(classes.greeting)} variant='h6'>
@@ -84,42 +84,44 @@ const Home = () => {
             <Typography
               classes={{ root: classes.primary }}
               className={clsx(classes.primary, classes.bold)}
-              variant='h1'>
-              {user?.name}
+              variant='h1'
+            >
+              {user?.profile?.name}
             </Typography>
           </Box>
           <Typography
             classes={{ root: classes.primary }}
             className={clsx(classes.primary)}
-            variant='h4'>
-            {user?.jobs[index]}
+            variant='h4'
+          >
+            {user?.profile?.specialties[slide].name}
           </Typography>
           <Box mt={1} mb={6}>
-            <Grid container>
-              {user?.socials.map((item, index) => (
-                <IconButton
-                  onClick={() => {
-                    onSocialClick(item.url);
-                  }}>
-                  {socialIcons[index]}
-                </IconButton>
+            <Grid container item>
+              {_.sortBy(
+                _.filter(user?.contact, { type: ContactType.SOCIAL }),
+                'index'
+              ).map((item) => (
+                <ContactItem key={item.subtype} item={item}></ContactItem>
               ))}
             </Grid>
           </Box>
-          <Grid container>
+          <Grid container item>
             <Grid item xs={6} md={3}>
               <ContainedButton
                 className={clsx(classes.leftButton)}
-                onClick={onMoreClick}
-                fullWidth>
+                onClick={onAboutClick}
+                fullWidth
+              >
                 {t(i18nKey.about_me)}
               </ContainedButton>
             </Grid>
             <Grid item xs={6} md={3}>
               <OutlinedButton
                 className={clsx(classes.rightButton)}
-                onClick={onHireClick}
-                fullWidth>
+                onClick={onContactClick}
+                fullWidth
+              >
                 {t(i18nKey.contact_me)}
               </OutlinedButton>
             </Grid>

@@ -1,7 +1,8 @@
 import { Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
-import ServiceCard from 'src/components/card/serviceCard/serviceCard';
+import _ from 'lodash';
+import ServiceItem from 'src/components/serviceItem/serviceItem';
 import Layout from 'src/components/layout/layout';
 import { RootState } from 'src/redux/rootState';
 import { UserState } from 'src/redux/user/userState';
@@ -14,9 +15,9 @@ const Service = () => {
   return (
     <Layout>
       <Grid className={clsx(classes.container)} container spacing={4}>
-        {user?.services.map((item) => (
+        {_.sortBy(user?.service, 'index').map((item) => (
           <Grid item>
-            <ServiceCard item={item} />
+            <ServiceItem key={item.name} item={item} />
           </Grid>
         ))}
       </Grid>

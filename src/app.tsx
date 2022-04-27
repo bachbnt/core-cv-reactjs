@@ -12,6 +12,7 @@ const App = () => {
       <Switch>
         {routes.map((route) => (
           <BaseRoute
+            key={route.name}
             name={route.name}
             path={route.path}
             component={route.component}

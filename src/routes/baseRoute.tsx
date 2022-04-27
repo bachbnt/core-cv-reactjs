@@ -6,7 +6,7 @@ import { RouteProps } from './routeProps';
 const BaseRoute = (props: RouteProps) => {
   const { name, path, component, exact } = props;
   const Component = useMemo(() => {
-    return lazy(() => import(`../pages/${component}`));
+    return lazy(() => import(`src/pages/${component}`));
   }, [component]);
 
   return (

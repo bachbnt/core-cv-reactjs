@@ -1,15 +1,15 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
-
-const styles = responsiveFontSizes(
-  createMuiTheme({
-    typography: {
-      fontFamily: 'Source Code Pro',
-    },
-  })
-);
+import { responsiveFontSizes } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
+import { Color } from './color';
 
 const theme = {
-  ...styles,
+  ...responsiveFontSizes(
+    createTheme({
+      typography: {
+        fontFamily: 'Source Code Pro',
+      },
+    })
+  ),
   overrides: {
     MuiCssBaseline: {
       '@global': {
@@ -29,11 +29,11 @@ const theme = {
           width: '4px',
         },
         '*::-webkit-scrollbar-track': {
-          '-webkit-box-shadow': 'inset 8px 8px 8px #222222',
+          '-webkit-box-shadow': `inset 8px 8px 8px ${Color.black}`,
         },
         '*::-webkit-scrollbar-thumb': {
-          backgroundColor: '#712218',
-          outline: '2px solid #C03A2B',
+          backgroundColor: Color.secondary,
+          outline: `2px solid ${Color.primary}`,
         },
       },
     },

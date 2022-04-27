@@ -1,18 +1,19 @@
 import { useEffect, useMemo } from 'react';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
-import { MdHome, MdPhone, MdMail } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { FormProvider, useForm } from 'react-hook-form';
 import clsx from 'clsx';
+import _ from 'lodash';
 import ContainedButton from 'src/components/button/containedButton/containedButton';
-import ContactCard from 'src/components/card/contactCard/contactCard';
+import ContactItem from 'src/components/contactItem/contactItem';
 import Layout from 'src/components/layout/layout';
-import FormTextField from 'src/components/textField/formTextField/formTextField';
+import TextFormField from 'src/components/textField/textFormField/textFormField';
 import Typography from 'src/components/typography/typography';
 import { useMessage } from 'src/hooks/useMessage';
 import useYupResolver from 'src/hooks/useYupResolver';
 import { i18nKey } from 'src/locales/i18n';
+import { ContactType } from 'src/models/contact';
 import { RootState } from 'src/redux/rootState';
 import { UserState } from 'src/redux/user/userState';
 import { validationSchema, FormValues } from './validation';
@@ -23,21 +24,6 @@ const Contact = () => {
   const { t } = useTranslation();
   const user = useSelector<RootState, UserState>((state) => state.userReducer);
   const { postData } = useMessage();
-
-  const contacts = [
-    {
-      icon: <MdHome className={clsx(classes.primary)} size={48} />,
-      title: i18nKey.address,
-    },
-    {
-      icon: <MdPhone className={clsx(classes.primary)} size={48} />,
-      title: i18nKey.phone,
-    },
-    {
-      icon: <MdMail className={clsx(classes.primary)} size={48} />,
-      title: i18nKey.email,
-    },
-  ];
 
   const resolver = useYupResolver(validationSchema);
   const methods = useForm({ resolver });
@@ -64,14 +50,14 @@ const Contact = () => {
           container
           xs={12}
           md={6}
-          spacing={4}>
-          {user?.contacts.map((item, index) => (
-            <Grid item>
-              <ContactCard
-                item={item}
-                icon={contacts[index].icon}
-                title={contacts[index].title}
-              />
+          spacing={4}
+        >
+          {_.sortBy(
+            _.filter(user?.contact, { type: ContactType.CONTACT }),
+            'index'
+          ).map((item) => (
+            <Grid key={item.name} item>
+              <ContactItem item={item} />
             </Grid>
           ))}
         </Grid>
@@ -79,7 +65,8 @@ const Contact = () => {
           className={clsx(classes.messageContainer)}
           container
           xs={12}
-          md={6}>
+          md={6}
+        >
           <Card className={clsx(classes.card)}>
             <CardContent className={clsx(classes.center)}>
               <FormProvider {...methods}>
@@ -87,14 +74,14 @@ const Contact = () => {
                   {t(i18nKey.leave_me_a_message)}
                 </Typography>
                 <Box my={1} />
-                <FormTextField
+                <TextFormField
                   name='name'
                   label={t(i18nKey.name)}
                   multiline
                   rowsMax={2}
                 />
                 <Box my={1} />
-                <FormTextField
+                <TextFormField
                   name='message'
                   label={t(i18nKey.message)}
                   multiline

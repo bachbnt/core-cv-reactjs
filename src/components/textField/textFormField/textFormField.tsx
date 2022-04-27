@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import TextField from 'src/components/textField/textField';
 import { Props } from './props';
 
-const FormTextField = (props: Props) => {
+const TextFormField = (props: Props) => {
   const { name = '' } = props;
   const {
     register,
@@ -32,4 +32,4 @@ const FormTextField = (props: Props) => {
   return <TextField {...binders} {...props} />;
 };
 
-export default FormTextField;
+export default TextFormField;

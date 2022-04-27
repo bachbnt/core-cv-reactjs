@@ -1,10 +1,10 @@
-import { Me } from '../../models/me';
+import { User } from 'src/models/user';
 
 export const SET_USER = 'SET_USER';
 
 export interface SetUserAction {
   type: typeof SET_USER;
-  payload: Me;
+  payload: User;
 }
 
 export type UserAction = SetUserAction;

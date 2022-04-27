@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { IoCodeSlash } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
+import _ from 'lodash';
 import Button from 'src/components/button/button';
 import Layout from 'src/components/layout/layout';
 import Typography from 'src/components/typography/typography';
+import { Skill, SkillType } from 'src/models/skill';
 import { i18nKey } from 'src/locales/i18n';
 import { RootState } from 'src/redux/rootState';
 import { UserState } from 'src/redux/user/userState';
@@ -16,27 +18,48 @@ const About = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const user = useSelector<RootState, UserState>((state) => state.userReducer);
-  const [index, setIndex] = useState<number>(0);
+  const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!(index === user!.covers.length - 1)) {
-        setIndex(index + 1);
+      if (!(slide === user!.profile.covers.length - 1)) {
+        setSlide(slide + 1);
       } else {
-        setIndex(0);
+        setSlide(0);
       }
     }, 4000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [index, user]);
+  }, [slide, user]);
 
-  const onTechnologyClick = (url: string) => {
-    if (url) {
-      window.open(url);
+  const onSkillClick = (item: Skill) => {
+    if (item.enable) {
+      window.open(item.url);
     }
   };
+
+  const renderSkillItem = useCallback(
+    (item: Skill) => {
+      return item.visible ? (
+        <Grid key={item.name} container item xs={6} md={4}>
+          <Button
+            className={clsx(classes.capitalize)}
+            startIcon={<IoCodeSlash className={clsx(classes.primary)} />}
+            onClick={() => {
+              onSkillClick(item);
+            }}
+          >
+            {item.name}
+          </Button>
+        </Grid>
+      ) : (
+        <div key={item.name} />
+      );
+    },
+    [classes]
+  );
 
   return (
     <Layout>
@@ -45,44 +68,39 @@ const About = () => {
           <Typography
             classes={{ root: classes.primary }}
             className={clsx(classes.primary)}
-            variant='h5'>
+            variant='h5'
+          >
             {t(i18nKey.hello_world)}
           </Typography>
           <Typography
             classes={{ root: classes.primary }}
             className={clsx(classes.primary)}
-            variant='h4'>
+            variant='h4'
+          >
             {t(i18nKey.my_name_is_and_i_am_a, {
-              username: user?.name,
-              job: user?.jobs[0],
+              username: user?.profile.name,
+              specialty: user?.profile.specialties[0].name,
             })}
           </Typography>
           <Box mt={2} mb={4}>
             <Typography variant='subtitle1' align='justify'>
-              {user?.description}
+              {user?.profile.summary}
             </Typography>
           </Box>
           <Box mb={2}>
             <Typography
               classes={{ root: classes.primary }}
               className={clsx(classes.primary)}
-              variant='h5'>
+              variant='h5'
+            >
               {t(i18nKey.i_have_worked_with)}
             </Typography>
           </Box>
           <Grid container xs={12}>
-            {user?.technologies.map((item) => (
-              <Grid container item xs={6} md={4}>
-                <Button
-                  className={clsx(classes.capitalize)}
-                  startIcon={<IoCodeSlash className={clsx(classes.primary)} />}
-                  onClick={() => {
-                    onTechnologyClick(item.url);
-                  }}>
-                  {item.name}
-                </Button>
-              </Grid>
-            ))}
+            {_.sortBy(
+              _.filter(user?.skill, { type: SkillType.FRAMEWORK }),
+              'index'
+            ).map((item) => renderSkillItem(item))}
           </Grid>
         </Grid>
         <Grid
@@ -91,10 +109,11 @@ const About = () => {
           justify='center'
           alignItems='center'
           xs={12}
-          md={6}>
+          md={6}
+        >
           <img
             className={clsx(classes.img)}
-            src={user?.covers[index]}
+            src={_.sortBy(user?.profile.covers, 'index')[slide].url}
             alt='cover'
           />
         </Grid>

@@ -30,20 +30,22 @@ const Drawer = (props: Props) => {
       open={open}
       color='inherit'
       onClose={onClose}
-      anchor='right'>
+      anchor='right'
+    >
       <List className={clsx(classes.list)}>
         {routes.map((route) => (
           <ListItem
+            key={route.name}
             classes={{
               root: classes.listItem,
               selected: classes.selectedListItem,
             }}
-            key={route.name}
             button
             selected={location.pathname === route.path}
             onClick={() => {
               onPageClick(route.path);
-            }}>
+            }}
+          >
             <ListItemText primary={t(route.name)}></ListItemText>
           </ListItem>
         ))}

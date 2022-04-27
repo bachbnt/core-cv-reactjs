@@ -18,8 +18,8 @@ const Footer = (props: Props) => {
     <Grid className={clsx(classes.container)}>
       <Typography variant='subtitle2'>
         {t(i18nKey.copyright_by, {
-          year: new Date().getFullYear(),
-          username: user?.name,
+          time: new Date().getFullYear(),
+          username: user?.profile?.name,
         })}
       </Typography>
     </Grid>

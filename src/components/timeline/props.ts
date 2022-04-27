@@ -1,5 +1,7 @@
-import { Work } from 'src/models/work';
+import { Education } from 'src/models/education';
+import { Experience } from 'src/models/experience';
 
 export interface Props {
-  items: Work[];
+  data: Education[] | Experience[];
+  renderItem: (item: Education | Experience) => JSX.Element;
 }

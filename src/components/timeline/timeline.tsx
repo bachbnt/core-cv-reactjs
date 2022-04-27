@@ -1,4 +1,3 @@
-import { Box, Paper } from '@material-ui/core';
 import {
   Timeline as MuiTimeline,
   TimelineItem,
@@ -8,49 +7,35 @@ import {
   TimelineOppositeContent,
   TimelineDot,
 } from '@material-ui/lab/';
-import clsx from 'clsx';
+import _ from 'lodash';
 import Typography from 'src/components/typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
 
 const Timeline = (props: Props) => {
   const classes = useStyles();
-  const { items } = props;
+  const { data, renderItem } = props;
 
   return (
     <MuiTimeline align='alternate'>
-      {items
-        .slice()
-        .reverse()
-        .map((item, index) => (
+      {(_.sortBy(data, 'index').reverse() as any[]).map((item, index) =>
+        item.visible ? (
           <TimelineItem>
             <TimelineOppositeContent>
               <Typography variant='subtitle1'>{item.time}</Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot></TimelineDot>
-              {index !== items.length - 1 && <TimelineConnector />}
+              {index !== _.filter(data, { visible: true }).length - 1 && (
+                <TimelineConnector />
+              )}
             </TimelineSeparator>
-            <TimelineContent>
-              <Paper className={clsx(classes.background)} elevation={3}>
-                <Typography
-                  classes={{ root: classes.primary }}
-                  className={clsx(classes.bold)}
-                  variant='h6'>
-                  {item.name.toUpperCase()}
-                </Typography>
-                <Typography className={clsx(classes.bold)} variant='subtitle1'>
-                  {item.specialty}
-                </Typography>
-                {item.description && (
-                  <Box mt={2}>
-                    <Typography variant='body2'>{item.description} </Typography>
-                  </Box>
-                )}
-              </Paper>
-            </TimelineContent>
+            <TimelineContent>{renderItem(item)}</TimelineContent>
           </TimelineItem>
-        ))}
+        ) : (
+          <div />
+        )
+      )}
     </MuiTimeline>
   );
 };

@@ -1,5 +1,5 @@
-import { Me } from 'src/models/me';
+import { User } from 'src/models/user';
 
-export type UserState = Me | null;
+export type UserState = User | null;
 
 export const initialState: UserState = null;
