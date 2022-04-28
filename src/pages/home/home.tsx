@@ -102,7 +102,15 @@ const Home = () => {
                 _.filter(user?.contact, { type: ContactType.SOCIAL }),
                 'index'
               ).map((item) => (
-                <ContactItem key={item.subtype} item={item}></ContactItem>
+                <Tooltip
+                  key={item.subtype}
+                  classes={{ tooltip: classes.tooltip }}
+                  title={item.nameVisible ? item.name : ''}
+                >
+                  <div>
+                    <ContactItem item={item}></ContactItem>
+                  </div>
+                </Tooltip>
               ))}
             </Grid>
           </Box>

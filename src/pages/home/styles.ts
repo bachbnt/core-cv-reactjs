@@ -44,6 +44,9 @@ export default makeStyles(
     rightButton: {
       marginLeft: theme.spacing(2),
     },
+    tooltip: {
+      backgroundColor: Color.secondary,
+    },
   }),
   { index: 1 }
 );
