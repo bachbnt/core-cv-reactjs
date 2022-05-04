@@ -9,7 +9,7 @@ import { RootState } from './rootState';
 const persistConfig: PersistConfig<any> = {
   key: Constant.APP_NAME,
   storage,
-  whitelist: ['configReducer, userReducer'],
+  whitelist: ['configReducer', 'userReducer'],
 };
 
 const appReducer = combineReducers<RootState>(rootReducer);

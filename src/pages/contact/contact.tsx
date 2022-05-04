@@ -44,19 +44,20 @@ const Contact = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(classes.container)} container xs={12}>
+      <Grid className={clsx(classes.container)} container xs={12} item>
         <Grid
           className={clsx(classes.contactContainer)}
           container
           xs={12}
           md={6}
           spacing={4}
+          item
         >
           {_.sortBy(
             _.filter(user?.contact, { type: ContactType.CONTACT }),
             'index'
           ).map((item) => (
-            <Grid key={item.name} item>
+            <Grid key={`${item.name} ${item.index}`} item>
               <ContactItem item={item} />
             </Grid>
           ))}
@@ -66,6 +67,7 @@ const Contact = () => {
           container
           xs={12}
           md={6}
+          item
         >
           <Card className={clsx(classes.card)}>
             <CardContent className={clsx(classes.center)}>
@@ -78,7 +80,7 @@ const Contact = () => {
                   name='name'
                   label={t(i18nKey.name)}
                   multiline
-                  rowsMax={2}
+                  maxRows={2}
                 />
                 <Box my={1} />
                 <TextFormField

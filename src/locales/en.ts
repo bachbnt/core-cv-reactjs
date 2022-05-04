@@ -14,7 +14,7 @@ const en = {
   address: 'Address',
   phone: 'Phone',
   email: 'Email',
-  welcome_to_my_website: 'Welcome to my website!',
+  welcome_to_my_home: 'Welcome to my home!',
   copyright_by: 'Copyright © {{time}} by {{username}}',
   hello_world: 'Hello World!',
   my_name_is_and_i_am_a: 'My name is {{username}} and I am a {{specialty}}.',

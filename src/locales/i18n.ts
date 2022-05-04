@@ -6,7 +6,8 @@ import en from './en';
 const resources = { en };
 
 i18n.use(initReactI18next).init({
-  debug: false,
+  lng: Constant.DEFAULT_LANGUAGE,
+  keySeparator: false,
   resources: resources,
 });
 

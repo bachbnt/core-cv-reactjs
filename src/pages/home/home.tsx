@@ -78,17 +78,16 @@ const Home = () => {
         </Grid>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
           <Typography className={clsx(classes.greeting)} variant='h6'>
-            {t(i18nKey.welcome_to_my_website).toUpperCase()}
+            {t(i18nKey.welcome_to_my_home).toUpperCase()}
           </Typography>
-          <Box mt={2}>
-            <Typography
-              classes={{ root: classes.primary }}
-              className={clsx(classes.primary, classes.bold)}
-              variant='h1'
-            >
-              {user?.profile?.name}
-            </Typography>
-          </Box>
+          <Box my={2} />
+          <Typography
+            classes={{ root: classes.primary }}
+            className={clsx(classes.primary, classes.bold)}
+            variant='h1'
+          >
+            {user?.profile?.name}
+          </Typography>
           <Typography
             classes={{ root: classes.primary }}
             className={clsx(classes.primary)}
@@ -96,14 +95,14 @@ const Home = () => {
           >
             {user?.profile?.specialties[slide].name}
           </Typography>
-          <Box mt={1} mb={6}>
+          <Box mt={2} mb={6}>
             <Grid container item>
               {_.sortBy(
                 _.filter(user?.contact, { type: ContactType.SOCIAL }),
                 'index'
               ).map((item) => (
                 <Tooltip
-                  key={item.subtype}
+                  key={`${item.name} ${item.index}`}
                   classes={{ tooltip: classes.tooltip }}
                   title={item.nameVisible ? item.name : ''}
                 >

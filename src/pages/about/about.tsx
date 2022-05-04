@@ -43,7 +43,7 @@ const About = () => {
   const renderSkillItem = useCallback(
     (item: Skill) => {
       return item.visible ? (
-        <Grid key={item.name} container item xs={6} md={4}>
+        <Grid key={`${item.name} ${item.index}`} container item xs={6} md={4}>
           <Button
             className={clsx(classes.capitalize)}
             startIcon={<IoCodeSlash className={clsx(classes.primary)} />}
@@ -55,7 +55,7 @@ const About = () => {
           </Button>
         </Grid>
       ) : (
-        <div key={item.name} />
+        <div key={`${item.name} ${item.index}`} />
       );
     },
     [classes]
@@ -96,7 +96,7 @@ const About = () => {
               {t(i18nKey.i_have_worked_with)}
             </Typography>
           </Box>
-          <Grid container xs={12}>
+          <Grid container xs={12} item>
             {_.sortBy(
               _.filter(user?.skill, { type: SkillType.FRAMEWORK }),
               'index'
@@ -106,10 +106,11 @@ const About = () => {
         <Grid
           className={clsx(classes.imgContainer)}
           container
-          justify='center'
+          justifyContent='center'
           alignItems='center'
           xs={12}
           md={6}
+          item
         >
           <img
             className={clsx(classes.img)}

@@ -16,8 +16,8 @@ const Service = () => {
     <Layout>
       <Grid className={clsx(classes.container)} container spacing={4}>
         {_.sortBy(user?.service, 'index').map((item) => (
-          <Grid item>
-            <ServiceItem key={item.name} item={item} />
+          <Grid key={`${item.name} ${item.index}`} item>
+            <ServiceItem item={item} />
           </Grid>
         ))}
       </Grid>

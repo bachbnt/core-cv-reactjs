@@ -18,7 +18,7 @@ const Project = () => {
         {_.sortBy(user?.project, 'index')
           .reverse()
           .map((item) => (
-            <Grid key={item.name} item>
+            <Grid key={`${item.name} ${item.index}`} item>
               <ProjectItem item={item} />
             </Grid>
           ))}

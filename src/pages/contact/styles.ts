@@ -16,6 +16,7 @@ export default makeStyles(
     contactContainer: {
       justifyContent: 'center',
       alignItems: 'center',
+      flexDirection: 'column',
     },
     messageContainer: {
       justifyContent: 'center',
