@@ -34,8 +34,9 @@ export default makeStyles(
         marginTop: 0,
       },
     },
-    capitalize: {
+    skillText: {
       textTransform: 'capitalize',
+      textAlign: 'start',
     },
   }),
   { index: 1 }

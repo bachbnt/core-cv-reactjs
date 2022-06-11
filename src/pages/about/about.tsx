@@ -61,7 +61,7 @@ const About = () => {
       return item.visible ? (
         <Grid key={`${item.name} ${item.index}`} container item xs={6} md={4}>
           <Button
-            className={clsx(classes.capitalize)}
+            className={clsx(classes.skillText)}
             startIcon={renderSkillIcon(item.type)}
             onClick={() => {
               onSkillClick(item);
@@ -118,12 +118,14 @@ const About = () => {
               'index'
             ).map((item) => renderSkillItem(item))}
           </Grid>
+          <Box my={2} />
           <Grid container xs={12} item>
             {_.sortBy(
               _.filter(user?.skill, { type: SkillType.LANGUAGE }),
               'index'
             ).map((item) => renderSkillItem(item))}
           </Grid>
+          <Box my={2} />
           <Grid container xs={12} item>
             {_.sortBy(
               _.filter(user?.skill, { type: SkillType.TOOL }),
