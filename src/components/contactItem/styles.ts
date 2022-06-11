@@ -1,8 +1,8 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) =>
+  (theme: AppTheme) =>
     createStyles({
       root: {
         width: 300,
@@ -10,13 +10,13 @@ export default makeStyles(
       },
       background: {
         alignItems: 'center',
-        backgroundColor: Color.grey,
+        backgroundColor: theme.colors.grey,
         '&:hover': {
-          backgroundColor: Color.black,
+          backgroundColor: theme.colors.black,
         },
       },
       primary: {
-        color: Color.primary,
+        color: theme.colors.primary,
       },
       bold: {
         fontWeight: 'bold',

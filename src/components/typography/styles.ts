@@ -1,11 +1,11 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) =>
+  (theme: AppTheme) =>
     createStyles({
       root: {
-        color: Color.white,
+        color: theme.colors.white,
       },
     }),
   { index: 1 }

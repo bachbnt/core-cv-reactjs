@@ -7,7 +7,7 @@ import { HIDE_SPINNER, SHOW_SPINNER } from 'src/redux/spinner/spinnerAction';
 import { SET_USER } from 'src/redux/user/userAction';
 import { RoutePath } from 'src/routes/routePath';
 import { service } from 'src/services/service';
-import { firestoreDocument } from 'src/constants/config';
+import { firestoreDocument } from 'src/constants/configs';
 
 export const useUser = () => {
   const dispatch = useDispatch();

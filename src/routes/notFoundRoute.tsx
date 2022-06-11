@@ -3,14 +3,14 @@ import { Route } from 'react-router-dom';
 import Spinner from 'src/components/spinner/spinner';
 import { RouteName } from './routeName';
 
-const ErrorRoute = () => {
+const NotFoundRoute = () => {
   const Component = useMemo(() => {
-    return lazy(() => import(`../pages/error`));
+    return lazy(() => import(`src/pages/notFound`));
   }, []);
 
   return (
     <Route
-      key={RouteName.ERROR}
+      key={RouteName.NOT_FOUND}
       render={() => (
         <Suspense fallback={<Spinner visible />}>
           <Component />
@@ -20,4 +20,4 @@ const ErrorRoute = () => {
   );
 };
 
-export default ErrorRoute;
+export default NotFoundRoute;

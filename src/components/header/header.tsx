@@ -12,7 +12,6 @@ import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
-import { Image } from 'src/constants/image';
 import Button from 'src/components/button/button';
 import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
 import Drawer from 'src/components/drawer/drawer';
@@ -24,6 +23,8 @@ import { RoutePath } from 'src/routes/routePath';
 import { routes } from 'src/routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
+import { themes } from 'src/themes/themes';
+import { variables } from 'src/themes/variables';
 
 const Header = (props: Props) => {
   const classes = useStyles();
@@ -63,7 +64,7 @@ const Header = (props: Props) => {
     <AppBar color='transparent' position='static'>
       <Toolbar className={clsx(classes.toolbar)}>
         <img
-          src={Image.LOGO}
+          src={variables.logoUrl}
           alt='logo'
           width={36}
           height={36}

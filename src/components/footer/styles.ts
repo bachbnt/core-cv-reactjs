@@ -1,7 +1,8 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { createStyles, makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) =>
+  (theme: AppTheme) =>
     createStyles({
       container: {
         height: theme.spacing(6),

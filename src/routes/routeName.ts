@@ -6,5 +6,5 @@ export enum RouteName {
   BLOG = 'blog',
   SERVICE = 'service',
   CONTACT = 'contact',
-  ERROR = 'error',
+  NOT_FOUND = 'not-found',
 }

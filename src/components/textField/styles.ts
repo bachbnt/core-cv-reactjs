@@ -1,34 +1,34 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { createStyles, makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
-export default makeStyles((theme: Theme) =>
+export default makeStyles((theme: AppTheme) =>
   createStyles({
     root: {
       '& .MuiInputBase-root': {
-        color: Color.white,
+        color: theme.colors.white,
       },
       '& .MuiFormLabel-root': {
-        color: Color.white,
+        color: theme.colors.white,
         '&.Mui-focused': {
-          color: Color.primary,
+          color: theme.colors.primary,
         },
       },
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
-          borderColor: Color.white,
+          borderColor: theme.colors.white,
           borderWidth: 2,
         },
         '&:hover fieldset': {
-          borderColor: Color.secondary,
+          borderColor: theme.colors.secondary,
           borderWidth: 2,
         },
         '&.Mui-focused fieldset': {
-          borderColor: Color.primary,
+          borderColor: theme.colors.primary,
           borderWidth: 2,
         },
       },
       '& .Mui-error': {
-        color: Color.secondary,
+        color: theme.colors.secondary,
       },
     },
   })

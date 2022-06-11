@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Box, Grid } from '@material-ui/core';
-import { IoCodeSlash } from 'react-icons/io5';
+import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
@@ -40,13 +40,29 @@ const About = () => {
     }
   };
 
+  const renderSkillIcon = useCallback(
+    (type: SkillType) => {
+      switch (type) {
+        case SkillType.FRAMEWORK:
+          return <IoCodeSlash className={clsx(classes.primary)} />;
+        case SkillType.LANGUAGE:
+          return <IoLanguage className={clsx(classes.primary)} />;
+        case SkillType.TOOL:
+          return <IoSettings className={clsx(classes.primary)} />;
+        default:
+          return <div />;
+      }
+    },
+    [classes]
+  );
+
   const renderSkillItem = useCallback(
     (item: Skill) => {
       return item.visible ? (
         <Grid key={`${item.name} ${item.index}`} container item xs={6} md={4}>
           <Button
             className={clsx(classes.capitalize)}
-            startIcon={<IoCodeSlash className={clsx(classes.primary)} />}
+            startIcon={renderSkillIcon(item.type)}
             onClick={() => {
               onSkillClick(item);
             }}
@@ -58,7 +74,7 @@ const About = () => {
         <div key={`${item.name} ${item.index}`} />
       );
     },
-    [classes]
+    [classes, renderSkillIcon]
   );
 
   return (
@@ -87,7 +103,7 @@ const About = () => {
               {user?.profile.summary}
             </Typography>
           </Box>
-          <Box mb={2}>
+          <Box my={2}>
             <Typography
               classes={{ root: classes.primary }}
               className={clsx(classes.primary)}
@@ -99,6 +115,18 @@ const About = () => {
           <Grid container xs={12} item>
             {_.sortBy(
               _.filter(user?.skill, { type: SkillType.FRAMEWORK }),
+              'index'
+            ).map((item) => renderSkillItem(item))}
+          </Grid>
+          <Grid container xs={12} item>
+            {_.sortBy(
+              _.filter(user?.skill, { type: SkillType.LANGUAGE }),
+              'index'
+            ).map((item) => renderSkillItem(item))}
+          </Grid>
+          <Grid container xs={12} item>
+            {_.sortBy(
+              _.filter(user?.skill, { type: SkillType.TOOL }),
               'index'
             ).map((item) => renderSkillItem(item))}
           </Grid>

@@ -1,8 +1,8 @@
-import { makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) => ({
+  (theme: AppTheme) => ({
     container: {
       width: '100%',
       height: '100%',
@@ -23,7 +23,7 @@ export default makeStyles(
       alignItems: 'center',
     },
     primary: {
-      color: Color.primary,
+      color: theme.colors.primary,
     },
     center: {
       display: 'flex',
@@ -33,7 +33,7 @@ export default makeStyles(
     },
     card: {
       width: '100%',
-      backgroundColor: Color.grey,
+      backgroundColor: theme.colors.grey,
       marginTop: theme.spacing(6),
       [theme.breakpoints.up('md')]: {
         marginTop: 0,

@@ -1,16 +1,16 @@
 import { Box } from '@material-ui/core';
 import clsx from 'clsx';
-import { Image } from 'src/constants/image';
+import { variables } from 'src/themes/variables';
 import useStyles from './styles';
 
-const Error = () => {
+const NotFound = () => {
   const classes = useStyles();
 
   return (
     <Box className={clsx(classes.container)}>
-      <img src={Image.ERROR} alt='error' />
+      <img src={variables.error404url} alt='404' />
     </Box>
   );
 };
 
-export default Error;
+export default NotFound;

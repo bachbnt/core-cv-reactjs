@@ -11,4 +11,5 @@ export interface Skill {
 export enum SkillType {
   FRAMEWORK = 'framework',
   LANGUAGE = 'language',
+  TOOL = 'tool',
 }

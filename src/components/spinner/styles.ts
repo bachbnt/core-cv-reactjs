@@ -1,14 +1,14 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { createStyles, makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) =>
+  (theme: AppTheme) =>
     createStyles({
       backdrop: {
         zIndex: 1,
       },
       spinner: {
-        color: Color.primary,
+        color: theme.colors.primary,
       },
     }),
   { index: 1 }

@@ -1,8 +1,8 @@
-import { makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) => ({
+  (theme: AppTheme) => ({
     container: {
       width: '100%',
       height: '100%',
@@ -12,7 +12,7 @@ export default makeStyles(
       marginBottom: theme.spacing(6),
     },
     primary: {
-      color: Color.primary,
+      color: theme.colors.primary,
     },
     bold: {
       fontWeight: 'bold',
@@ -45,7 +45,7 @@ export default makeStyles(
       marginLeft: theme.spacing(2),
     },
     tooltip: {
-      backgroundColor: Color.secondary,
+      backgroundColor: theme.colors.secondary,
     },
   }),
   { index: 1 }

@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { Constant } from 'src/constants/constant';
+import { Constant } from 'src/constants/constants';
 import * as rootReducer from './rootReducer';
 import { RootState } from './rootState';
 

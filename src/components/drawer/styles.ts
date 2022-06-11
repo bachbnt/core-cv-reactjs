@@ -1,22 +1,22 @@
-import { makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) => ({
+  (theme: AppTheme) => ({
     paper: {
-      background: Color.grey,
+      background: theme.colors.grey,
     },
     list: {
       width: 200,
     },
     listItem: {
-      color: Color.white,
+      color: theme.colors.white,
       '&:hover': {
-        backgroundColor: Color.secondary,
+        backgroundColor: theme.colors.secondary,
       },
     },
     selectedListItem: {
-      color: Color.primary,
+      color: theme.colors.primary,
       fontWeight: 'bold',
     },
   }),

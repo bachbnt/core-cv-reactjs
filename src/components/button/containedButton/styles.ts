@@ -1,14 +1,14 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { createStyles, makeStyles } from '@material-ui/core';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) =>
+  (theme: AppTheme) =>
     createStyles({
       root: {
-        color: Color.white,
-        backgroundColor: Color.primary,
+        color: theme.colors.white,
+        backgroundColor: theme.colors.primary,
         '&:hover': {
-          backgroundColor: Color.secondary,
+          backgroundColor: theme.colors.secondary,
         },
       },
       selected: {},

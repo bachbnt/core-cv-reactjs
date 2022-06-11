@@ -1,21 +1,21 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
-import { Color } from 'src/themes/color';
+import { AppTheme } from 'src/themes/themes';
 
 export default makeStyles(
-  (theme: Theme) =>
+  (theme: AppTheme) =>
     createStyles({
       root: {
         width: 350,
         height: 250,
       },
       background: {
-        backgroundColor: Color.grey,
+        backgroundColor: theme.colors.grey,
         '&:hover': {
-          backgroundColor: Color.black,
+          backgroundColor: theme.colors.black,
         },
       },
       primary: {
-        color: Color.primary,
+        color: theme.colors.primary,
       },
       bold: {
         fontWeight: 'bold',
@@ -24,6 +24,11 @@ export default makeStyles(
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+      },
+      description: {
+        display: '-webkit-box',
+        WebkitLineClamp: 4,
+        WebkitBoxOrient: 'vertical',
       },
     }),
   { index: 1 }

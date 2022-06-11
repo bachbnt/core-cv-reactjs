@@ -6,10 +6,10 @@ import {
   CardMedia,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import { Image } from 'src/constants/image';
 import Typography from 'src/components/typography/typography';
 import { Props } from './props';
 import useStyles from './styles';
+import { variables } from 'src/themes/variables';
 
 const ProjectItem = (props: Props) => {
   const classes = useStyles();
@@ -25,7 +25,7 @@ const ProjectItem = (props: Props) => {
           <CardMedia
             className={classes.img}
             component='img'
-            image={item.cover ? item.cover : Image.COMING_SOON}
+            image={item.cover ? item.cover : variables.comingSoonUrl}
           />
         )}
         <CardContent>
@@ -44,8 +44,10 @@ const ProjectItem = (props: Props) => {
             </Typography>
           )}
           {item.descriptionVisible && (
-            <Box mt={2}>
-              <Typography variant='body2'>{item.description}</Typography>
+            <Box mt={2} overflow='hidden'>
+              <Typography className={classes.description} variant='body2'>
+                {item.description}
+              </Typography>
             </Box>
           )}
         </CardContent>

@@ -1,12 +1,14 @@
 import { responsiveFontSizes } from '@material-ui/core';
-import { createTheme } from '@material-ui/core/styles';
-import { Color } from './color';
+import { createTheme, Theme as MUITheme } from '@material-ui/core/styles';
+import { colors, AppColor } from './colors';
+import { AppStyle } from './styles';
+import { variables, AppVariable } from './variables';
 
-const theme = {
+export const themes = {
   ...responsiveFontSizes(
     createTheme({
       typography: {
-        fontFamily: 'Source Code Pro',
+        fontFamily: variables.fontFamily,
       },
     })
   ),
@@ -18,7 +20,7 @@ const theme = {
           WebkitFontSmoothing: 'auto',
         },
         body: {
-          backgroundImage: "url('background.webp')",
+          backgroundImage: `url('${variables.backgroundUrl}')`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
@@ -29,15 +31,19 @@ const theme = {
           width: '4px',
         },
         '*::-webkit-scrollbar-track': {
-          '-webkit-box-shadow': `inset 8px 8px 8px ${Color.black}`,
+          '-webkit-box-shadow': `inset 8px 8px 8px ${colors.black}`,
         },
         '*::-webkit-scrollbar-thumb': {
-          backgroundColor: Color.secondary,
-          outline: `2px solid ${Color.primary}`,
+          backgroundColor: colors.secondary,
+          outline: `2px solid ${colors.primary}`,
         },
       },
     },
   },
 };
 
-export default theme;
+export interface AppTheme extends MUITheme {
+  colors: AppColor;
+  variables: AppVariable;
+  styles: AppStyle;
+}

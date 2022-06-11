@@ -1,18 +1,7 @@
 {
   "short_name": "Bach",
   "name": "Bach Bui",
-  "icons": [
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    },
-    {
-      "src": "error.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
+  "icons": [],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

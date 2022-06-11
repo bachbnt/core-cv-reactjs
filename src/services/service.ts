@@ -1,7 +1,7 @@
 import { parseProfile, Profile } from 'src/models/profile';
 import { Message } from 'src/models/message';
 import { firestore } from './firebase';
-import { firestoreCollection, firestoreDocument } from 'src/constants/config';
+import { firestoreCollection, firestoreDocument } from 'src/constants/configs';
 import { Contact } from 'src/models/contact';
 import { Education } from 'src/models/education';
 import { Experience } from 'src/models/experience';
