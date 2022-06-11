@@ -9,7 +9,7 @@ import {
 import { MdMenu } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useHistory, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
 import Button from 'src/components/button/button';
@@ -28,7 +28,7 @@ import { variables } from 'src/themes/variables';
 
 const Header = (props: Props) => {
   const classes = useStyles();
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
   const config = useSelector<RootState, ConfigState>(
@@ -38,7 +38,7 @@ const Header = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const onLogoClick = () => {
-    history.replace(RoutePath.HOME);
+    navigate(RoutePath.HOME, { replace: true });
   };
 
   const onPageClick = (name: string, path: string) => {
@@ -46,7 +46,7 @@ const Header = (props: Props) => {
       (config as any)[`${_.lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
-      history.push(path);
+      navigate(path);
     }
   };
 

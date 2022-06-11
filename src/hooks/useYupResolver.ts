@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { ObjectSchema } from 'yup';
 
-const useYupResolver = (validationSchema: ObjectSchema<any>) =>
+export const useYupResolver = (validationSchema: ObjectSchema<any>) =>
   useCallback(
     async (data: any) => {
       try {
@@ -31,5 +31,3 @@ const useYupResolver = (validationSchema: ObjectSchema<any>) =>
     },
     [validationSchema]
   );
-
-export default useYupResolver;

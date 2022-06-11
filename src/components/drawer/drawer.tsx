@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useHistory, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
 import { RootState } from 'src/redux/rootState';
@@ -18,7 +18,7 @@ import useStyles from './styles';
 const Drawer = (props: Props) => {
   const classes = useStyles();
   const { open, onClose } = props;
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -31,7 +31,7 @@ const Drawer = (props: Props) => {
       (config as any)[`${_.lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
-      history.push(path);
+      navigate(path);
     }
   };
 

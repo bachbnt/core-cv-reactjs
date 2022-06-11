@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
 import { Config } from 'src/models/config';
 import { SET_CONFIG } from 'src/redux/config/configAction';
 import { HIDE_SPINNER, SHOW_SPINNER } from 'src/redux/spinner/spinnerAction';
@@ -9,7 +8,7 @@ import { service } from 'src/services/service';
 
 export const useConfig = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const navigate = useNavigate();
 
   const getData = useCallback(async () => {
     dispatch({ type: SHOW_SPINNER });
@@ -20,11 +19,11 @@ export const useConfig = () => {
         payload: config,
       });
     } catch (error) {
-      history.push(RoutePath.ERROR);
+      // navigate(RoutePath.ERROR);
     } finally {
       dispatch({ type: HIDE_SPINNER });
     }
-  }, [dispatch, history]);
+  }, [dispatch]);
 
   return {
     getData,

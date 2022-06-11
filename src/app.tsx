@@ -1,15 +1,23 @@
-import { Provider } from 'react-redux';
-import Spinner from 'src/components/spinner/spinner';
-import { store } from 'src/redux/store';
-import MainRouter from 'src/routes/mainRouter';
+import { useCallback, useEffect } from 'react';
+import AppRouter from 'src/routes/appRouter';
+import { useConfig } from './hooks/useConfig';
+import { useUser } from './hooks/useUser';
 
 const App = () => {
-  return (
-    <Provider store={store}>
-      <MainRouter />
-      <Spinner />
-    </Provider>
-  );
+  const { getData: getConfig } = useConfig();
+  const { getData: getUser } = useUser();
+
+  const onInit = useCallback(async () => {
+    await getConfig();
+    await getUser();
+  }, [getConfig, getUser]);
+
+  useEffect(() => {
+    window.addEventListener('load', onInit);
+    return window.removeEventListener('load', onInit);
+  }, [onInit]);
+
+  return <AppRouter />;
 };
 
 export default App;

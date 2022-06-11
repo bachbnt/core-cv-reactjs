@@ -44,4 +44,9 @@ export const routes: Route[] = [
     path: RoutePath.CONTACT,
     component: RouteName.CONTACT,
   },
+  {
+    name: i18nKey.not_found,
+    path: RoutePath.NOT_FOUND,
+    component: RouteName.NOT_FOUND,
+  },
 ];
