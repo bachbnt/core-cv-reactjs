@@ -15,6 +15,7 @@ import _ from 'lodash';
 import Button from 'src/components/button/button';
 import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
 import Drawer from 'src/components/drawer/drawer';
+import { useConfig, useUser } from 'src/hooks';
 import { i18nKey } from 'src/locales/i18n';
 import { RootState } from 'src/redux/rootState';
 import { ConfigState } from 'src/redux/config/configState';
@@ -23,7 +24,6 @@ import { RoutePath } from 'src/routes/routePath';
 import { routes } from 'src/routes/routes';
 import { Props } from './props';
 import useStyles from './styles';
-import { themes } from 'src/themes/themes';
 import { variables } from 'src/themes/variables';
 
 const Header = (props: Props) => {
@@ -31,14 +31,19 @@ const Header = (props: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
+  const { getData: getConfig } = useConfig();
+  const { getData: getUser } = useUser();
+
   const config = useSelector<RootState, ConfigState>(
     (state) => state.configReducer
   );
   const user = useSelector<RootState, UserState>((state) => state.userReducer);
   const [open, setOpen] = useState<boolean>(false);
 
-  const onLogoClick = () => {
+  const onLogoClick = async () => {
     navigate(RoutePath.HOME, { replace: true });
+    await getConfig();
+    await getUser();
   };
 
   const onPageClick = (name: string, path: string) => {

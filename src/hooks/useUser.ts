@@ -40,6 +40,7 @@ export const useUser = () => {
         payload: user,
       });
     } catch (error) {
+      console.log(error);
     } finally {
       dispatch({ type: HIDE_SPINNER });
     }

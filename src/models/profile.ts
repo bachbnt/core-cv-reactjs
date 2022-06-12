@@ -19,11 +19,11 @@ export interface ProfileSpecialty {
 
 export function parseProfile(data: any): Profile {
   return {
-    avatar: data.get('avatar'),
-    covers: data.get('covers'),
-    cv: data.get('cv'),
-    name: data.get('name'),
-    specialties: data.get('specialties'),
-    summary: data.get('summary'),
+    avatar: data['avatar'],
+    covers: data['covers'],
+    cv: data['cv'],
+    name: data['name'],
+    specialties: data['specialties'],
+    summary: data['summary'],
   };
 }

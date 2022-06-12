@@ -3,12 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Config } from 'src/models/config';
 import { SET_CONFIG } from 'src/redux/config/configAction';
 import { HIDE_SPINNER, SHOW_SPINNER } from 'src/redux/spinner/spinnerAction';
-import { RoutePath } from 'src/routes/routePath';
 import { service } from 'src/services/service';
 
 export const useConfig = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const getData = useCallback(async () => {
     dispatch({ type: SHOW_SPINNER });
@@ -19,7 +17,7 @@ export const useConfig = () => {
         payload: config,
       });
     } catch (error) {
-      // navigate(RoutePath.ERROR);
+      console.log(error);
     } finally {
       dispatch({ type: HIDE_SPINNER });
     }
