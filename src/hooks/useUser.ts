@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import _ from 'lodash';
+import { firestoreDocument } from 'src/constants/configs';
 import { User } from 'src/models/user';
 import { setUser } from 'src/redux/userSlice';
-import { show, hide } from 'src/redux/spinnerSlice';
+import { showSpinner, hideSpinner } from 'src/redux/spinnerSlice';
 import { useAppDispatch } from 'src/redux/store';
 import { service } from 'src/services/service';
-import { firestoreDocument } from 'src/constants/configs';
 
 export const useUser = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ export const useUser = () => {
     ];
 
     try {
-      dispatch(show());
+      dispatch(showSpinner());
       const user: User = (
         await Promise.all(
           documents.map((document) => {
@@ -39,7 +39,7 @@ export const useUser = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      dispatch(hide());
+      dispatch(hideSpinner());
     }
   }, [dispatch]);
 

@@ -12,14 +12,14 @@ export const spinnerSlice = createSlice({
   name: 'spinnerSlice',
   initialState,
   reducers: {
-    show: (state: SpinnerState) => {
+    showSpinner: (state: SpinnerState) => {
       state.visible = true;
     },
-    hide: (state: SpinnerState) => {
+    hideSpinner: (state: SpinnerState) => {
       state.visible = false;
     },
   },
 });
 
-export const { show, hide } = spinnerSlice.actions;
+export const { showSpinner, hideSpinner } = spinnerSlice.actions;
 export default spinnerSlice.reducer;
