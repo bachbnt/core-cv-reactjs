@@ -4,14 +4,12 @@ import {
   ListItem,
   ListItemText,
 } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
-import { RootState } from 'src/redux/rootState';
-import { ConfigState } from 'src/redux/config/configState';
 import { routes } from 'src/routes/routes';
+import { useAppSelector } from 'src/redux/store';
 import { Props } from './props';
 import useStyles from './styles';
 
@@ -22,9 +20,7 @@ const Drawer = (props: Props) => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const config = useSelector<RootState, ConfigState>(
-    (state) => state.configReducer
-  );
+  const config = useAppSelector((state) => state.configReducer.config);
 
   const onPageClick = (name: string, path: string) => {
     if (

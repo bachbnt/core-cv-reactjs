@@ -1,22 +1,22 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import _ from 'lodash';
-import { Button, Layout, Typography } from 'src/components';
+import Button from 'src/components/button/button';
+import Layout from 'src/components/layout/layout';
+import Typography from 'src/components/typography/typography';
 import { Skill, SkillType } from 'src/models/skill';
 import { i18nKey } from 'src/locales/i18n';
-import { RootState } from 'src/redux/rootState';
-import { UserState } from 'src/redux/user/userState';
+import { useAppSelector } from 'src/redux/store';
 import useStyles from './styles';
 
 const About = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useSelector<RootState, UserState>((state) => state.userReducer);
-  const [slide, setSlide] = useState<number>(0);
+  const user = useAppSelector((state) => state.userReducer.user);
+  const [slide, setSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {

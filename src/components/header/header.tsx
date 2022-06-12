@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { MdMenu } from 'react-icons/md';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
@@ -15,16 +14,15 @@ import _ from 'lodash';
 import Button from 'src/components/button/button';
 import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
 import Drawer from 'src/components/drawer/drawer';
-import { useConfig, useUser } from 'src/hooks';
+import { useConfig } from 'src/hooks/useConfig';
+import { useUser } from 'src/hooks/useUser';
 import { i18nKey } from 'src/locales/i18n';
-import { RootState } from 'src/redux/rootState';
-import { ConfigState } from 'src/redux/config/configState';
-import { UserState } from 'src/redux/user/userState';
+import { useAppSelector } from 'src/redux/store';
 import { RoutePath } from 'src/routes/routePath';
 import { routes } from 'src/routes/routes';
+import { variables } from 'src/themes/variables';
 import { Props } from './props';
 import useStyles from './styles';
-import { variables } from 'src/themes/variables';
 
 const Header = (props: Props) => {
   const classes = useStyles();
@@ -34,10 +32,9 @@ const Header = (props: Props) => {
   const { getData: getConfig } = useConfig();
   const { getData: getUser } = useUser();
 
-  const config = useSelector<RootState, ConfigState>(
-    (state) => state.configReducer
-  );
-  const user = useSelector<RootState, UserState>((state) => state.userReducer);
+  const config = useAppSelector((state) => state.configReducer.config);
+  const user = useAppSelector((state) => state.userReducer.user);
+
   const [open, setOpen] = useState<boolean>(false);
 
   const onLogoClick = async () => {

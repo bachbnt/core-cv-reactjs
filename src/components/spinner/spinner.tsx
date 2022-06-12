@@ -1,16 +1,12 @@
 import { Backdrop, CircularProgress } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { RootState } from 'src/redux/rootState';
-import { SpinnerState } from 'src/redux/spinner/spinnerState';
+import { useAppSelector } from 'src/redux/store';
 import { Props } from './props';
 import useStyles from './styles';
 
 const Spinner = (props: Props) => {
   const classes = useStyles();
-  const spinner = useSelector<RootState, SpinnerState>(
-    (state) => state.spinnerReducer
-  );
-  if (!props.visible && !spinner.visible) {
+  const visible = useAppSelector((state) => state.spinnerReducer.visible);
+  if (!props.visible && !visible) {
     return null;
   }
 

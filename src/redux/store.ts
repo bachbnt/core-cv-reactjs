@@ -1,10 +1,13 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import { Constant } from 'src/constants/constants';
-import * as rootReducer from './rootReducer';
-import { RootState } from './rootState';
+import configReducer from './configSlice';
+import spinnerReducer from './spinnerSlice';
+import userReducer from './userSlice';
 
 const persistConfig: PersistConfig<any> = {
   key: Constant.APP_NAME,
@@ -12,11 +15,22 @@ const persistConfig: PersistConfig<any> = {
   whitelist: ['configReducer', 'userReducer'],
 };
 
-const appReducer = combineReducers<RootState>(rootReducer);
+const reducers = combineReducers({
+  configReducer: configReducer,
+  spinnerReducer: spinnerReducer,
+  userReducer: userReducer,
+});
+const persistedReducer = persistReducer(persistConfig, reducers);
 
-export const store = createStore(
-  persistReducer(persistConfig, appReducer),
-  applyMiddleware(thunk)
-);
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [thunk, logger],
+});
 
-persistStore(store);
+export const persistor = persistStore(store);
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

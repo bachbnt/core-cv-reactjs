@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Box, Grid, Tooltip } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
@@ -13,20 +12,16 @@ import Layout from 'src/components/layout/layout';
 import Typography from 'src/components/typography/typography';
 import { i18nKey } from 'src/locales/i18n';
 import { ContactType } from 'src/models/contact';
-import { RootState } from 'src/redux/rootState';
-import { ConfigState } from 'src/redux/config/configState';
-import { UserState } from 'src/redux/user/userState';
 import { RoutePath } from 'src/routes/routePath';
+import { useAppSelector } from 'src/redux/store';
 import useStyles from './styles';
 
 const Home = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const config = useSelector<RootState, ConfigState>(
-    (state) => state.configReducer
-  );
-  const user = useSelector<RootState, UserState>((state) => state.userReducer);
+  const config = useAppSelector((state) => state.configReducer.config);
+  const user = useAppSelector((state) => state.userReducer.user);
   const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {

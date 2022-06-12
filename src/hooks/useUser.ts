@@ -1,14 +1,14 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 import _ from 'lodash';
 import { User } from 'src/models/user';
-import { HIDE_SPINNER, SHOW_SPINNER } from 'src/redux/spinner/spinnerAction';
-import { SET_USER } from 'src/redux/user/userAction';
+import { setUser } from 'src/redux/userSlice';
+import { show, hide } from 'src/redux/spinnerSlice';
+import { useAppDispatch } from 'src/redux/store';
 import { service } from 'src/services/service';
 import { firestoreDocument } from 'src/constants/configs';
 
 export const useUser = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const getData = useCallback(async () => {
     const documents = [
@@ -22,7 +22,7 @@ export const useUser = () => {
     ];
 
     try {
-      dispatch({ type: SHOW_SPINNER });
+      dispatch(show());
       const user: User = (
         await Promise.all(
           documents.map((document) => {
@@ -35,14 +35,11 @@ export const useUser = () => {
         total[documents[index]] = value;
         return total;
       }, {});
-      dispatch({
-        type: SET_USER,
-        payload: user,
-      });
+      dispatch(setUser(user));
     } catch (error) {
       console.log(error);
     } finally {
-      dispatch({ type: HIDE_SPINNER });
+      dispatch(hide());
     }
   }, [dispatch]);
 

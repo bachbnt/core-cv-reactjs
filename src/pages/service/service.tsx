@@ -1,16 +1,14 @@
 import { Grid } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import _ from 'lodash';
 import ServiceItem from 'src/components/serviceItem/serviceItem';
 import Layout from 'src/components/layout/layout';
-import { RootState } from 'src/redux/rootState';
-import { UserState } from 'src/redux/user/userState';
 import useStyles from './styles';
+import { useAppSelector } from 'src/redux/store';
 
 const Service = () => {
   const classes = useStyles();
-  const user = useSelector<RootState, UserState>((state) => state.userReducer);
+  const user = useAppSelector((state) => state.userReducer.user);
 
   return (
     <Layout>

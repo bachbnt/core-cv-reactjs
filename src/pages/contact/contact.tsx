@@ -1,6 +1,5 @@
 import { useEffect, useMemo } from 'react';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { FormProvider, useForm } from 'react-hook-form';
 import clsx from 'clsx';
@@ -10,18 +9,18 @@ import ContactItem from 'src/components/contactItem/contactItem';
 import Layout from 'src/components/layout/layout';
 import TextFormField from 'src/components/textField/textFormField/textFormField';
 import Typography from 'src/components/typography/typography';
-import { useMessage, useYupResolver } from 'src/hooks';
+import { useMessage } from 'src/hooks/useMessage';
+import { useYupResolver } from 'src/hooks/useYupResolver';
 import { i18nKey } from 'src/locales/i18n';
 import { ContactType } from 'src/models/contact';
-import { RootState } from 'src/redux/rootState';
-import { UserState } from 'src/redux/user/userState';
+import { useAppSelector } from 'src/redux/store';
 import { validationSchema, FormValues } from './validation';
 import useStyles from './styles';
 
 const Contact = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useSelector<RootState, UserState>((state) => state.userReducer);
+  const user = useAppSelector((state) => state.userReducer.user);
   const { postData } = useMessage();
 
   const resolver = useYupResolver(validationSchema);

@@ -1,5 +1,4 @@
 import { Box, Grid } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import EducationItem from 'src/components/educationItem/educationItem';
@@ -10,14 +9,13 @@ import Typography from 'src/components/typography/typography';
 import { i18nKey } from 'src/locales/i18n';
 import { Education } from 'src/models/education';
 import { Experience } from 'src/models/experience';
-import { RootState } from 'src/redux/rootState';
-import { UserState } from 'src/redux/user/userState';
 import useStyles from './styles';
+import { useAppSelector } from 'src/redux/store';
 
 const Resume = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useSelector<RootState, UserState>((state) => state.userReducer);
+  const user = useAppSelector((state) => state.userReducer.user);
 
   return (
     <Layout>
