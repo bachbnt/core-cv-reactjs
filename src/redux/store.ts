@@ -16,9 +16,9 @@ const persistConfig: PersistConfig<any> = {
 };
 
 const reducers = combineReducers({
-  configReducer: configReducer,
-  spinnerReducer: spinnerReducer,
-  userReducer: userReducer,
+  configReducer,
+  spinnerReducer,
+  userReducer,
 });
 const persistedReducer = persistReducer(persistConfig, reducers);
 const middleware =

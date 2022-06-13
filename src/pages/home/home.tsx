@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import _ from 'lodash';
 import Avatar from 'src/components/avatar/avatar';
-import ContainedButton from 'src/components/button/containedButton/containedButton';
-import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
 import ContactItem from 'src/components/contactItem/contactItem';
 import Layout from 'src/components/layout/layout';
 import Typography from 'src/components/typography/typography';
@@ -15,6 +13,7 @@ import { ContactType } from 'src/models/contact';
 import { RoutePath } from 'src/routes/routePath';
 import { useAppSelector } from 'src/redux/store';
 import useStyles from './styles';
+import Button from 'src/components/button/button';
 
 const Home = () => {
   const classes = useStyles();
@@ -67,18 +66,10 @@ const Home = () => {
             {t(i18nKey.welcome_to_my_home).toUpperCase()}
           </Typography>
           <Box my={2} />
-          <Typography
-            classes={{ root: classes.primary }}
-            className={clsx(classes.primary, classes.bold)}
-            variant='h1'
-          >
+          <Typography color='primary' variant='h1'>
             {user?.profile?.name}
           </Typography>
-          <Typography
-            classes={{ root: classes.primary }}
-            className={clsx(classes.primary)}
-            variant='h4'
-          >
+          <Typography color='primary' variant='h4'>
             {user?.profile?.specialties[slide].name}
           </Typography>
           <Box mt={2} mb={6}>
@@ -89,7 +80,6 @@ const Home = () => {
               ).map((item) => (
                 <Tooltip
                   key={`${item.name} ${item.index}`}
-                  classes={{ tooltip: classes.tooltip }}
                   title={item.nameVisible ? item.name : ''}
                 >
                   <div>
@@ -101,22 +91,23 @@ const Home = () => {
           </Box>
           <Grid container item>
             <Grid item xs={6} md={3}>
-              <ContainedButton
+              <Button
+                variant='contained'
                 className={clsx(classes.leftButton)}
                 onClick={onAboutClick}
                 fullWidth
               >
                 {t(i18nKey.about_me)}
-              </ContainedButton>
+              </Button>
             </Grid>
             <Grid item xs={6} md={3}>
-              <OutlinedButton
+              <Button
                 className={clsx(classes.rightButton)}
                 onClick={onContactClick}
                 fullWidth
               >
                 {t(i18nKey.contact_me)}
-              </OutlinedButton>
+              </Button>
             </Grid>
           </Grid>
         </Grid>

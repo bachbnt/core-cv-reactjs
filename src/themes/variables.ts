@@ -1,11 +1,10 @@
 export const variables = {
-  buttonMinWidth: 120,
+  buttonMinWidth: 64,
 
   headerHeight: 64,
   footerHeight: 48,
 
   fontSize: 14,
-  fontSizeHtml: 16,
   fontSizeHeading1: 30,
   fontSizeHeading2: 24,
   fontSizeHeading3: 20,

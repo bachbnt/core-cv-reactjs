@@ -9,8 +9,8 @@ import Typography from 'src/components/typography/typography';
 import { i18nKey } from 'src/locales/i18n';
 import { Education } from 'src/models/education';
 import { Experience } from 'src/models/experience';
-import useStyles from './styles';
 import { useAppSelector } from 'src/redux/store';
+import useStyles from './styles';
 
 const Resume = () => {
   const classes = useStyles();
@@ -21,11 +21,7 @@ const Resume = () => {
     <Layout>
       <Grid className={clsx(classes.container)} container>
         <Box mb={2}>
-          <Typography
-            classes={{ root: classes.primary }}
-            className={clsx(classes.typography)}
-            variant='h4'
-          >
+          <Typography color='primary' variant='h4'>
             {t(i18nKey.education)}
           </Typography>
         </Box>
@@ -41,11 +37,7 @@ const Resume = () => {
           />
         </Grid>
         <Box mt={6} mb={2}>
-          <Typography
-            classes={{ root: classes.primary }}
-            className={clsx(classes.typography)}
-            variant='h4'
-          >
+          <Typography color='primary' variant='h4'>
             {t(i18nKey.experience)}
           </Typography>
         </Box>

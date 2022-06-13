@@ -38,21 +38,18 @@ const About = () => {
     }
   };
 
-  const renderSkillIcon = useCallback(
-    (type: SkillType) => {
-      switch (type) {
-        case SkillType.FRAMEWORK:
-          return <IoCodeSlash className={clsx(classes.primary)} />;
-        case SkillType.LANGUAGE:
-          return <IoLanguage className={clsx(classes.primary)} />;
-        case SkillType.TOOL:
-          return <IoSettings className={clsx(classes.primary)} />;
-        default:
-          return <div />;
-      }
-    },
-    [classes]
-  );
+  const renderSkillIcon = useCallback((type: SkillType) => {
+    switch (type) {
+      case SkillType.FRAMEWORK:
+        return <IoCodeSlash />;
+      case SkillType.LANGUAGE:
+        return <IoLanguage />;
+      case SkillType.TOOL:
+        return <IoSettings />;
+      default:
+        return <div />;
+    }
+  }, []);
 
   const renderSkillItem = useCallback(
     (item: Skill) => {
@@ -79,18 +76,10 @@ const About = () => {
     <Layout>
       <Grid className={clsx(classes.container)} container>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
-          <Typography
-            classes={{ root: classes.primary }}
-            className={clsx(classes.primary)}
-            variant='h5'
-          >
+          <Typography color='primary' variant='h5'>
             {t(i18nKey.hello_world)}
           </Typography>
-          <Typography
-            classes={{ root: classes.primary }}
-            className={clsx(classes.primary)}
-            variant='h4'
-          >
+          <Typography color='primary' variant='h4'>
             {t(i18nKey.my_name_is_and_i_am_a, {
               username: user?.profile.name,
               specialty: user?.profile.specialties[0].name,
@@ -102,11 +91,7 @@ const About = () => {
             </Typography>
           </Box>
           <Box my={2}>
-            <Typography
-              classes={{ root: classes.primary }}
-              className={clsx(classes.primary)}
-              variant='h5'
-            >
+            <Typography color='primary' variant='h5'>
               {t(i18nKey.i_have_worked_with)}
             </Typography>
           </Box>

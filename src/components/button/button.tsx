@@ -4,14 +4,8 @@ import useStyles from './styles';
 
 const Button = (props: Props) => {
   const classes = useStyles();
-  const { selected = false, ...others } = props;
 
-  return (
-    <MuiButton
-      classes={{ root: selected ? classes.selected : classes.root }}
-      {...others}
-    />
-  );
+  return <MuiButton classes={{ root: classes.root }} {...props} />;
 };
 
 export default Button;

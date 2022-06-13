@@ -7,19 +7,18 @@ import {
 } from '@material-ui/core';
 import clsx from 'clsx';
 import Typography from 'src/components/typography/typography';
+import useThemeStyles from 'src/themes/styles';
+import { variables } from 'src/themes/variables';
 import { Props } from './props';
 import useStyles from './styles';
-import { variables } from 'src/themes/variables';
 
 const ProjectItem = (props: Props) => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const { item } = props;
 
   return item.visible ? (
-    <MuiCard
-      classes={{ root: classes.root }}
-      className={clsx(classes.background)}
-    >
+    <MuiCard className={clsx(classes.card)}>
       <CardActionArea>
         {item.coverVisible && (
           <CardMedia
@@ -30,22 +29,19 @@ const ProjectItem = (props: Props) => {
         )}
         <CardContent>
           {item.nameVisible && (
-            <Typography
-              classes={{ root: classes.primary }}
-              className={clsx(classes.bold)}
-              variant='h6'
-            >
+            <Typography color='primary' variant='h6'>
               {item.name}
             </Typography>
           )}
           {item.technologyVisible && (
-            <Typography className={clsx(classes.bold)} variant='subtitle2'>
-              {item.technology}
-            </Typography>
+            <Typography variant='subtitle2'>{item.technology}</Typography>
           )}
           {item.descriptionVisible && (
             <Box mt={2} overflow='hidden'>
-              <Typography className={classes.description} variant='body2'>
+              <Typography
+                className={themeClasses.cardDescription}
+                variant='body2'
+              >
                 {item.description}
               </Typography>
             </Box>

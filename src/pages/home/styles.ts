@@ -11,12 +11,6 @@ export default makeStyles(
       marginTop: theme.spacing(6),
       marginBottom: theme.spacing(6),
     },
-    primary: {
-      color: theme.colors.primary,
-    },
-    bold: {
-      fontWeight: 'bold',
-    },
     infoContainer: {
       display: 'flex',
       flexDirection: 'column',
@@ -43,9 +37,6 @@ export default makeStyles(
     },
     rightButton: {
       marginLeft: theme.spacing(2),
-    },
-    tooltip: {
-      backgroundColor: theme.colors.secondary,
     },
   }),
   { index: 1 }

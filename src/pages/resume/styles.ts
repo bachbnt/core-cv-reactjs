@@ -11,13 +11,6 @@ export default makeStyles(
       marginTop: theme.spacing(6),
       marginBottom: theme.spacing(6),
     },
-    typography: {
-      textAlign: 'center',
-      fontWeight: 'bold',
-    },
-    primary: {
-      color: theme.colors.primary,
-    },
   }),
   { index: 1 }
 );

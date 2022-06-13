@@ -4,6 +4,7 @@ export const colors = {
   white: '#FFFFFF',
   primary: '#C03A2B',
   secondary: '#712218',
+  transparent: 'transparent',
 };
 
 export type AppColor = typeof colors;

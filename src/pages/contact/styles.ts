@@ -22,9 +22,6 @@ export default makeStyles(
       justifyContent: 'center',
       alignItems: 'center',
     },
-    primary: {
-      color: theme.colors.primary,
-    },
     center: {
       display: 'flex',
       flexDirection: 'column',

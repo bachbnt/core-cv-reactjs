@@ -5,9 +5,6 @@ export default makeStyles(
   (theme: AppTheme) =>
     createStyles({
       root: {},
-      bold: {
-        fontWeight: 'bold',
-      },
       toolbar: {
         justifyContent: 'space-between',
       },
@@ -16,9 +13,6 @@ export default makeStyles(
       },
       hamburger: {
         color: theme.colors.white,
-      },
-      cv: {
-        marginRight: theme.spacing(2),
       },
       desktop: {
         display: 'flex',
@@ -31,6 +25,11 @@ export default makeStyles(
         [theme.breakpoints.down('sm')]: {
           display: 'flex',
         },
+      },
+      button: {
+        marginLeft: theme.spacing(0.5),
+        marginRight: theme.spacing(0.5),
+        zIndex: 10000,
       },
     }),
   { index: 1 }

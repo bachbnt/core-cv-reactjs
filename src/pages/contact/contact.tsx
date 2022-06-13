@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { FormProvider, useForm } from 'react-hook-form';
 import clsx from 'clsx';
 import _ from 'lodash';
-import ContainedButton from 'src/components/button/containedButton/containedButton';
 import ContactItem from 'src/components/contactItem/contactItem';
 import Layout from 'src/components/layout/layout';
 import TextFormField from 'src/components/textField/textFormField/textFormField';
@@ -16,6 +15,7 @@ import { ContactType } from 'src/models/contact';
 import { useAppSelector } from 'src/redux/store';
 import { validationSchema, FormValues } from './validation';
 import useStyles from './styles';
+import Button from 'src/components/button/button';
 
 const Contact = () => {
   const classes = useStyles();
@@ -70,7 +70,7 @@ const Contact = () => {
           <Card className={clsx(classes.card)}>
             <CardContent className={clsx(classes.center)}>
               <FormProvider {...methods}>
-                <Typography classes={{ root: classes.primary }} variant='h6'>
+                <Typography color='primary' variant='h6'>
                   {t(i18nKey.leave_me_a_message)}
                 </Typography>
                 <Box my={1} />
@@ -88,9 +88,9 @@ const Contact = () => {
                   rows={10}
                 />
                 <Box my={2} />
-                <ContainedButton onClick={handleSubmit(onSubmit)}>
+                <Button variant='contained' onClick={handleSubmit(onSubmit)}>
                   {t(i18nKey.send)}
-                </ContainedButton>
+                </Button>
               </FormProvider>
             </CardContent>
           </Card>

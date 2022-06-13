@@ -10,6 +10,42 @@ export const themes = {
       typography: {
         fontFamily: variables.fontFamily,
       },
+      palette: {
+        common: {
+          white: colors.white,
+          black: colors.black,
+        },
+        primary: {
+          main: colors.primary,
+          light: colors.primary,
+          dark: colors.primary,
+        },
+        secondary: {
+          main: colors.secondary,
+          light: colors.secondary,
+          dark: colors.secondary,
+        },
+        error: {
+          main: colors.secondary,
+          light: colors.secondary,
+          dark: colors.secondary,
+        },
+        text: {
+          disabled: colors.grey,
+        },
+      },
+      breakpoints: {
+        values: {
+          xs: 0,
+          sm: 680,
+          md: 960,
+          lg: 1280,
+          xl: 1920,
+        },
+      },
+      shape: {
+        borderRadius: variables.borderRadius,
+      },
     })
   ),
   overrides: {
@@ -37,6 +73,88 @@ export const themes = {
           backgroundColor: colors.secondary,
           outline: `2px solid ${colors.primary}`,
         },
+      },
+    },
+    MuiTypography: {
+      root: {
+        color: colors.white,
+      },
+    },
+    MuiButton: {
+      root: {
+        padding: '6px 8px',
+        borderRadius: variables.borderRadius,
+        lineHeight: variables.lineHeight,
+        color: colors.white,
+        backgroundColor: colors.transparent,
+        textTransform: 'uppercase',
+        minWidth: variables.buttonMinWidth,
+        fontSize: variables.fontSize,
+        '&:hover': {
+          color: colors.secondary,
+        },
+      },
+      text: {
+        color: colors.white,
+        '&:hover': {
+          color: colors.secondary,
+        },
+      },
+      outlined: {
+        borderWidth: 2,
+        borderColor: colors.primary,
+        color: colors.white,
+        '&$disabled': {
+          borderColor: colors.grey,
+          color: colors.white,
+        },
+        '&:hover': {
+          backgroundColor: colors.secondary,
+          color: colors.white,
+        },
+      },
+      contained: {
+        backgroundColor: colors.primary,
+        color: colors.white,
+        '&$disabled': {
+          backgroundColor: colors.grey,
+          color: colors.white,
+        },
+        '&:hover': {
+          backgroundColor: colors.secondary,
+          color: colors.white,
+        },
+      },
+      startIcon: {
+        color: colors.primary,
+      },
+    },
+    MuiIconButton: {
+      root: {
+        color: colors.white,
+        '&:hover': {
+          backgroundColor: colors.secondary,
+        },
+      },
+    },
+    MuiSvgIcon: {
+      root: {
+        color: colors.primary,
+        fontSize: 48,
+      },
+    },
+    MuiCard: {
+      root: {
+        alignItems: 'center',
+        backgroundColor: colors.grey,
+        '&:hover': {
+          backgroundColor: colors.black,
+        },
+      },
+    },
+    MuiTooltip: {
+      tooltip: {
+        backgroundColor: colors.secondary,
       },
     },
   },

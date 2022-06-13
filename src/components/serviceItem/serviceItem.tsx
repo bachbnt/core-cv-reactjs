@@ -6,34 +6,28 @@ import {
 } from '@material-ui/core';
 import clsx from 'clsx';
 import Typography from 'src/components/typography/typography';
+import useThemeStyles from 'src/themes/styles';
 import { Props } from './props';
 import useStyles from './styles';
 
 const ServiceItem = (props: Props) => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const { item } = props;
 
   return item.visible ? (
-    <MuiCard
-      classes={{ root: classes.root }}
-      className={clsx(classes.background, classes.center)}
-    >
+    <MuiCard className={clsx(classes.card, themeClasses.card)}>
       <CardActionArea>
-        <CardContent>
+        <CardContent className={themeClasses.cardContent}>
           {item.nameVisible && (
-            <Typography
-              classes={{ root: classes.primary }}
-              className={clsx(classes.bold)}
-              variant='h6'
-              align='center'
-            >
+            <Typography color='primary' variant='h6' align='center'>
               {item.name}
             </Typography>
           )}
           {item.descriptionVisible && (
             <Box mt={2} overflow='hidden'>
               <Typography
-                className={classes.description}
+                className={themeClasses.cardDescription}
                 variant='body2'
                 align='center'
               >

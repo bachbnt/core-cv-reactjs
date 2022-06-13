@@ -5,7 +5,7 @@ import {
   CardActionArea,
   CardContent,
 } from '@material-ui/core';
-import { MdHome, MdPhone, MdMail } from 'react-icons/md';
+import { Home as HomeIcon, Phone, Mail } from '@material-ui/icons';
 import {
   SiFacebook,
   SiGithub,
@@ -14,16 +14,18 @@ import {
   SiZalo,
 } from 'react-icons/si';
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
 import _ from 'lodash';
-import IconButton from 'src/components/button/iconButton/iconButton';
+import clsx from 'clsx';
+import IconButton from 'src/components/iconButton/iconButton';
 import Typography from 'src/components/typography/typography';
 import { ContactSubtype, ContactType } from 'src/models/contact';
+import useThemeStyles from 'src/themes/styles';
 import { Props } from './props';
 import useStyles from './styles';
 
 const ContactItem = (props: Props) => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const { item } = props;
   const { t } = useTranslation();
 
@@ -36,15 +38,15 @@ const ContactItem = (props: Props) => {
   const renderContactIcon = useMemo(() => {
     switch (item.subtype) {
       case ContactSubtype.ADDRESS:
-        return <MdHome className={clsx(classes.primary)} size={48} />;
+        return <HomeIcon />;
       case ContactSubtype.PHONE:
-        return <MdPhone className={clsx(classes.primary)} size={48} />;
+        return <Phone />;
       case ContactSubtype.EMAIL:
-        return <MdMail className={clsx(classes.primary)} size={48} />;
+        return <Mail />;
       default:
         return <div />;
     }
-  }, [item, classes]);
+  }, [item]);
 
   const renderSocialIcon = useMemo(() => {
     switch (item.subtype) {
@@ -66,19 +68,13 @@ const ContactItem = (props: Props) => {
   const renderContactItem = useMemo(() => {
     return item.visible ? (
       <MuiCard
-        classes={{ root: classes.root }}
-        className={clsx(classes.background)}
+        className={clsx(classes.card, themeClasses.card)}
         onClick={onClick}
       >
         <CardActionArea>
-          <CardContent className={clsx(classes.center)}>
+          <CardContent className={themeClasses.cardContent}>
             {renderContactIcon}
-            <Typography
-              classes={{ root: classes.primary }}
-              className={clsx(classes.bold)}
-              variant='h6'
-              align='center'
-            >
+            <Typography color='primary' variant='h6' align='center'>
               {_.capitalize(t(item.subtype))}
             </Typography>
             <Box mt={2}>
@@ -92,7 +88,7 @@ const ContactItem = (props: Props) => {
     ) : (
       <div />
     );
-  }, [item, classes, renderContactIcon, onClick, t]);
+  }, [item, classes, themeClasses, renderContactIcon, onClick, t]);
 
   const renderSocialItem = useMemo(() => {
     return item.visible ? (

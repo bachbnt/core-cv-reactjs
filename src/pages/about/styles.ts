@@ -19,9 +19,6 @@ export default makeStyles(
         paddingRight: 0,
       },
     },
-    primary: {
-      color: theme.colors.primary,
-    },
     img: {
       width: theme.spacing(30),
       [theme.breakpoints.up('md')]: {

@@ -12,7 +12,6 @@ import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
 import Button from 'src/components/button/button';
-import OutlinedButton from 'src/components/button/outlinedButton/outlinedButton';
 import Drawer from 'src/components/drawer/drawer';
 import { useConfig } from 'src/hooks/useConfig';
 import { useUser } from 'src/hooks/useUser';
@@ -74,25 +73,28 @@ const Header = (props: Props) => {
         />
         <Box className={classes.row}>
           {config?.cvVisible && (
-            <OutlinedButton className={clsx(classes.cv)} onClick={onCVClick}>
-              <Typography className={clsx(classes.bold)}>
-                {t(i18nKey.my_cv)}
-              </Typography>
-            </OutlinedButton>
+            <Button
+              className={classes.button}
+              variant='outlined'
+              onClick={onCVClick}
+            >
+              {t(i18nKey.my_cv)}
+            </Button>
           )}
           <Box className={clsx(classes.desktop)}>
             {routes.map((route) =>
               (config as any)?.[`${_.lowerCase(route.name)}Visible`] ? (
                 <Button
+                  className={classes.button}
+                  variant={
+                    location.pathname === route.path ? 'contained' : 'text'
+                  }
                   key={route.name}
-                  selected={location.pathname === route.path}
                   onClick={() => {
                     onPageClick(route.name, route.path);
                   }}
                 >
-                  <Typography className={clsx(classes.bold)}>
-                    {t(route.name)}
-                  </Typography>
+                  {t(route.name)}
                 </Button>
               ) : (
                 <div key={route.name} />
