@@ -1,5 +1,5 @@
 import { TextField as MuiTextField } from '@material-ui/core';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const TextField = (props: Props) => {

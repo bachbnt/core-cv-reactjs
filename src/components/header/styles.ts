@@ -4,15 +4,8 @@ import { AppTheme } from 'src/themes/themes';
 export default makeStyles(
   (theme: AppTheme) =>
     createStyles({
-      root: {},
-      toolbar: {
-        justifyContent: 'space-between',
-      },
-      row: {
+      container: {
         display: 'flex',
-      },
-      hamburger: {
-        color: theme.colors.white,
       },
       desktop: {
         display: 'flex',
@@ -29,7 +22,9 @@ export default makeStyles(
       button: {
         marginLeft: theme.spacing(0.5),
         marginRight: theme.spacing(0.5),
-        zIndex: 10000,
+      },
+      cvButton: {
+        marginRight: theme.spacing(2),
       },
     }),
   { index: 1 }

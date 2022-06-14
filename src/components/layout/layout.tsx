@@ -1,8 +1,7 @@
 import { Box } from '@material-ui/core';
 import clsx from 'clsx';
-import Footer from 'src/components/footer/footer';
-import Header from 'src/components/header/header';
-import { Props } from './props';
+import { Footer, Header } from 'src/components';
+import Props from './props';
 import useStyles from './styles';
 
 const Layout = (props: Props) => {

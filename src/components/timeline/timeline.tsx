@@ -8,8 +8,8 @@ import {
   TimelineDot,
 } from '@material-ui/lab/';
 import _ from 'lodash';
-import Typography from 'src/components/typography/typography';
-import { Props } from './props';
+import { Typography } from 'src/components';
+import Props from './props';
 import useStyles from './styles';
 
 const Timeline = (props: Props) => {

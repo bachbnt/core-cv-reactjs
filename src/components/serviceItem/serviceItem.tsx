@@ -5,9 +5,9 @@ import {
   CardContent,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import Typography from 'src/components/typography/typography';
+import { Typography } from 'src/components';
 import useThemeStyles from 'src/themes/styles';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const ServiceItem = (props: Props) => {

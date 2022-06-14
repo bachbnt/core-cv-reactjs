@@ -8,5 +8,11 @@ export interface Project {
   nameVisible: boolean;
   technology: string;
   technologyVisible: boolean;
+  type: ProjectType;
   visible: boolean;
+}
+
+export enum ProjectType {
+  COMPANY = 'company',
+  PERSONAL = 'personal',
 }

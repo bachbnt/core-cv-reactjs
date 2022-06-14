@@ -1,3 +1,5 @@
 import { TypographyProps } from '@material-ui/core';
 
-export type Props = {} & TypographyProps;
+type Props = {} & TypographyProps;
+
+export default Props;

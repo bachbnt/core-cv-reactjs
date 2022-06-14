@@ -3,10 +3,10 @@ import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
-import { colors } from './themes/colors';
+import colors from './themes/colors';
 import styles from './themes/styles';
-import { themes } from './themes/themes';
-import { variables } from './themes/variables';
+import themes from './themes/themes';
+import variables from './themes/variables';
 import App from './app';
 
 render(

@@ -4,21 +4,25 @@ import { useTranslation } from 'react-i18next';
 import { FormProvider, useForm } from 'react-hook-form';
 import clsx from 'clsx';
 import _ from 'lodash';
-import ContactItem from 'src/components/contactItem/contactItem';
-import Layout from 'src/components/layout/layout';
-import TextFormField from 'src/components/textField/textFormField/textFormField';
-import Typography from 'src/components/typography/typography';
+import {
+  Button,
+  ContactItem,
+  Layout,
+  TextFormField,
+  Typography,
+} from 'src/components';
 import { useMessage } from 'src/hooks/useMessage';
 import { useYupResolver } from 'src/hooks/useYupResolver';
 import { i18nKey } from 'src/locales/i18n';
 import { ContactType } from 'src/models/contact';
 import { useAppSelector } from 'src/redux/store';
+import useThemeStyles from 'src/themes/styles';
 import { validationSchema, FormValues } from './validation';
 import useStyles from './styles';
-import Button from 'src/components/button/button';
 
 const Contact = () => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const { t } = useTranslation();
   const user = useAppSelector((state) => state.userReducer.user);
   const { postData } = useMessage();
@@ -42,7 +46,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(classes.container)} container xs={12} item>
+      <Grid className={clsx(themeClasses.container)} container xs={12} item>
         <Grid
           className={clsx(classes.contactContainer)}
           container

@@ -1,5 +1,5 @@
 import { IconButton as MuiIconButton } from '@material-ui/core';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const IconButton = (props: Props) => {

@@ -1,1 +1,3 @@
-export interface Props {}
+interface Props {}
+
+export default Props;

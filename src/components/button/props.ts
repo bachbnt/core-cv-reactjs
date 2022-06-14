@@ -1,3 +1,5 @@
 import { ButtonProps } from '@material-ui/core';
 
-export type Props = {} & ButtonProps;
+type Props = {} & ButtonProps;
+
+export default Props;

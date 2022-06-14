@@ -4,16 +4,16 @@ import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import _ from 'lodash';
-import Button from 'src/components/button/button';
-import Layout from 'src/components/layout/layout';
-import Typography from 'src/components/typography/typography';
+import { Button, Layout, Typography } from 'src/components';
 import { Skill, SkillType } from 'src/models/skill';
 import { i18nKey } from 'src/locales/i18n';
 import { useAppSelector } from 'src/redux/store';
+import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
 const About = () => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const { t } = useTranslation();
   const user = useAppSelector((state) => state.userReducer.user);
   const [slide, setSlide] = useState(0);
@@ -74,7 +74,7 @@ const About = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(classes.container)} container>
+      <Grid className={clsx(themeClasses.container)} container>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
           <Typography color='primary' variant='h5'>
             {t(i18nKey.hello_world)}

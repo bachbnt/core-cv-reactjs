@@ -1,26 +1,19 @@
 import { Fragment, useState } from 'react';
-import {
-  AppBar,
-  Box,
-  IconButton,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
 import { MdMenu } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
-import Button from 'src/components/button/button';
-import Drawer from 'src/components/drawer/drawer';
+import { Button, Drawer } from 'src/components';
 import { useConfig } from 'src/hooks/useConfig';
 import { useUser } from 'src/hooks/useUser';
 import { i18nKey } from 'src/locales/i18n';
 import { useAppSelector } from 'src/redux/store';
 import { RoutePath } from 'src/routes/routePath';
 import { routes } from 'src/routes/routes';
-import { variables } from 'src/themes/variables';
-import { Props } from './props';
+import variables from 'src/themes/variables';
+import Props from './props';
 import useStyles from './styles';
 
 const Header = (props: Props) => {
@@ -63,7 +56,7 @@ const Header = (props: Props) => {
 
   return (
     <AppBar color='transparent' position='static'>
-      <Toolbar className={clsx(classes.toolbar)}>
+      <Toolbar>
         <img
           src={variables.logoUrl}
           alt='logo'
@@ -71,10 +64,10 @@ const Header = (props: Props) => {
           height={36}
           onClick={onLogoClick}
         />
-        <Box className={classes.row}>
+        <Box className={clsx(classes.container)}>
           {config?.cvVisible && (
             <Button
-              className={classes.button}
+              className={classes.cvButton}
               variant='outlined'
               onClick={onCVClick}
             >
@@ -103,10 +96,7 @@ const Header = (props: Props) => {
           </Box>
           <Box className={clsx(classes.mobile)}>
             <Fragment>
-              <IconButton
-                className={clsx(classes.hamburger)}
-                onClick={onHamburgerClick}
-              >
+              <IconButton onClick={onHamburgerClick}>
                 <MdMenu />
               </IconButton>
               <Drawer open={open} onClose={onHamburgerClick} />

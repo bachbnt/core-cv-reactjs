@@ -16,11 +16,10 @@ import {
 import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
 import clsx from 'clsx';
-import IconButton from 'src/components/iconButton/iconButton';
-import Typography from 'src/components/typography/typography';
+import { IconButton, Typography } from 'src/components';
 import { ContactSubtype, ContactType } from 'src/models/contact';
 import useThemeStyles from 'src/themes/styles';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const ContactItem = (props: Props) => {

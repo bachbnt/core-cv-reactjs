@@ -26,6 +26,8 @@ const en = {
   leave_me_a_message: 'Leave me a message',
   name_is_required: 'Name is required',
   message_is_required: 'Message is required',
+  company: 'Company',
+  personal: 'Personal',
 };
 
 export default en;

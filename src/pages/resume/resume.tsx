@@ -1,25 +1,29 @@
 import { Box, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import EducationItem from 'src/components/educationItem/educationItem';
-import ExperienceItem from 'src/components/experienceItem/experienceItem';
-import Layout from 'src/components/layout/layout';
-import Timeline from 'src/components/timeline/timeline';
-import Typography from 'src/components/typography/typography';
+import {
+  EducationItem,
+  ExperienceItem,
+  Layout,
+  Timeline,
+  Typography,
+} from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
 import { Education } from 'src/models/education';
 import { Experience } from 'src/models/experience';
 import { useAppSelector } from 'src/redux/store';
+import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
 const Resume = () => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const { t } = useTranslation();
   const user = useAppSelector((state) => state.userReducer.user);
 
   return (
     <Layout>
-      <Grid className={clsx(classes.container)} container>
+      <Grid className={clsx(themeClasses.container)} container>
         <Box mb={2}>
           <Typography color='primary' variant='h4'>
             {t(i18nKey.education)}

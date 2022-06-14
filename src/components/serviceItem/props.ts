@@ -1,6 +1,8 @@
 import { CardProps } from '@material-ui/core';
 import { Service } from 'src/models/service';
 
-export type Props = {
+type Props = {
   item: Service;
 } & CardProps;
+
+export default Props;

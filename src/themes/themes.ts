@@ -1,10 +1,10 @@
 import { responsiveFontSizes } from '@material-ui/core';
 import { createTheme, Theme as MUITheme } from '@material-ui/core/styles';
-import { colors, AppColor } from './colors';
+import colors, { AppColor } from './colors';
 import { AppStyle } from './styles';
-import { variables, AppVariable } from './variables';
+import variables, { AppVariable } from './variables';
 
-export const themes = {
+const themes = {
   ...responsiveFontSizes(
     createTheme({
       typography: {
@@ -157,9 +157,72 @@ export const themes = {
         backgroundColor: colors.secondary,
       },
     },
+    MuiToolbar: {
+      root: {
+        justifyContent: 'space-between',
+      },
+    },
+    MuiDrawer: {
+      paper: {
+        background: colors.grey,
+      },
+    },
+    MuiList: {
+      root: {
+        width: 200,
+      },
+    },
+    MuiListItem: {
+      button: {
+        '&:hover': {
+          backgroundColor: colors.secondary,
+        },
+        '&$selected': {
+          backgroundColor: colors.primary,
+        },
+        '&$selected:hover': {
+          backgroundColor: colors.secondary,
+        },
+      },
+    },
+    MuiInputBase: {
+      root: {
+        color: colors.white,
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        color: colors.white,
+        '&.Mui-focused': {
+          color: colors.primary,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        '& fieldset': {
+          borderColor: colors.white,
+          borderWidth: 2,
+        },
+        '&:hover fieldset': {
+          borderColor: colors.secondary,
+          borderWidth: 2,
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: colors.primary,
+          borderWidth: 2,
+        },
+      },
+    },
+    Mui: {
+      error: {
+        color: colors.secondary,
+      },
+    },
   },
 };
 
+export default themes;
 export interface AppTheme extends MUITheme {
   colors: AppColor;
   variables: AppVariable;

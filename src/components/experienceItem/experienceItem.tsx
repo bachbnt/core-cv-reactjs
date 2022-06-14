@@ -1,6 +1,6 @@
 import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
-import Typography from 'src/components/typography/typography';
-import { Props } from './props';
+import { Typography } from 'src/components';
+import Props from './props';
 import useStyles from './styles';
 
 const ExperienceItem = (props: Props) => {

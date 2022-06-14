@@ -1,7 +1,6 @@
 import { Routes } from 'react-router';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Spinner from 'src/components/spinner/spinner';
-import Wrapper from 'src/components/wrapper/wrapper';
+import { Spinner, Wrapper } from 'src/components';
 import { routes } from './routes';
 
 const AppRouter = () => {

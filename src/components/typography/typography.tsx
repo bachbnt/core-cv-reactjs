@@ -1,5 +1,5 @@
 import { Typography as MuiTypography } from '@material-ui/core';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const Typography = (props: Props) => {

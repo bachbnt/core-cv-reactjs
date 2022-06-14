@@ -1,6 +1,8 @@
 import { CardProps } from '@material-ui/core';
 import { Contact } from 'src/models/contact';
 
-export type Props = {
+type Props = {
   item: Contact;
 } & CardProps;
+
+export default Props;

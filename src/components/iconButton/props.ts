@@ -1,3 +1,5 @@
 import { IconButtonProps } from '@material-ui/core';
 
-export type Props = {} & IconButtonProps;
+type Props = {} & IconButtonProps;
+
+export default Props;

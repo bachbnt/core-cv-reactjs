@@ -4,19 +4,23 @@ import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import _ from 'lodash';
-import Avatar from 'src/components/avatar/avatar';
-import ContactItem from 'src/components/contactItem/contactItem';
-import Layout from 'src/components/layout/layout';
-import Typography from 'src/components/typography/typography';
+import {
+  Avatar,
+  Button,
+  ContactItem,
+  Layout,
+  Typography,
+} from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
 import { ContactType } from 'src/models/contact';
 import { RoutePath } from 'src/routes/routePath';
 import { useAppSelector } from 'src/redux/store';
+import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
-import Button from 'src/components/button/button';
 
 const Home = () => {
   const classes = useStyles();
+  const themeClasses = useThemeStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const config = useAppSelector((state) => state.configReducer.config);
@@ -50,7 +54,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(classes.container)} container>
+      <Grid className={clsx(themeClasses.container)} container>
         <Grid
           container
           item
@@ -102,6 +106,7 @@ const Home = () => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Button
+                variant='outlined'
                 className={clsx(classes.rightButton)}
                 onClick={onContactClick}
                 fullWidth

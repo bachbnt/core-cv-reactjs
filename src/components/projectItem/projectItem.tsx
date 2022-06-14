@@ -6,10 +6,10 @@ import {
   CardMedia,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import Typography from 'src/components/typography/typography';
+import { Typography } from 'src/components';
 import useThemeStyles from 'src/themes/styles';
-import { variables } from 'src/themes/variables';
-import { Props } from './props';
+import variables from 'src/themes/variables';
+import Props from './props';
 import useStyles from './styles';
 
 const ProjectItem = (props: Props) => {

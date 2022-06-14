@@ -10,7 +10,7 @@ import clsx from 'clsx';
 import _ from 'lodash';
 import { routes } from 'src/routes/routes';
 import { useAppSelector } from 'src/redux/store';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const Drawer = (props: Props) => {
@@ -33,21 +33,16 @@ const Drawer = (props: Props) => {
 
   return (
     <MaterialDrawer
-      classes={{ paper: classes.paper }}
       open={open}
       color='inherit'
       onClose={onClose}
       anchor='right'
     >
-      <List className={clsx(classes.list)}>
+      <List>
         {routes.map((route) =>
           (config as any)?.[`${_.lowerCase(route.name)}Visible`] ? (
             <ListItem
               key={route.name}
-              classes={{
-                root: classes.listItem,
-                selected: classes.selectedListItem,
-              }}
               button
               selected={location.pathname === route.path}
               onClick={() => {

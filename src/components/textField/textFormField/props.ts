@@ -1,3 +1,5 @@
 import { TextFieldProps } from '@material-ui/core';
 
-export type Props = { name: string | undefined } & TextFieldProps;
+type Props = { name: string | undefined } & TextFieldProps;
+
+export default Props;

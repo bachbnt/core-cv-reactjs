@@ -1,4 +1,4 @@
-export const variables = {
+const variables = {
   buttonMinWidth: 64,
 
   headerHeight: 64,
@@ -33,4 +33,5 @@ export const variables = {
     'https://raw.githubusercontent.com/bachbnt/assets/main/coming-soon.png',
 };
 
+export default variables;
 export type AppVariable = typeof variables;

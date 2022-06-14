@@ -2,9 +2,9 @@ import { Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { i18nKey } from 'src/locales/i18n';
-import Typography from 'src/components/typography/typography';
+import { Typography } from 'src/components';
 import { useAppSelector } from 'src/redux/store';
-import { Props } from './props';
+import Props from './props';
 import useStyles from './styles';
 
 const Footer = (props: Props) => {

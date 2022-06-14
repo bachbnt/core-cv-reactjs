@@ -1,3 +1,5 @@
-export interface Props {
+interface Props {
   visible?: boolean;
 }
+
+export default Props;
