@@ -1,8 +1,8 @@
-import { responsiveFontSizes } from "@material-ui/core";
-import { createTheme, Theme as MUITheme } from "@material-ui/core/styles";
-import colors, { AppColor } from "./colors";
-import { AppStyle } from "./styles";
-import variables, { AppVariable } from "./variables";
+import { responsiveFontSizes } from '@material-ui/core';
+import { createTheme, Theme as MUITheme } from '@material-ui/core/styles';
+import colors, { AppColor } from './colors';
+import { AppStyle } from './styles';
+import variables, { AppVariable } from './variables';
 
 const themes = {
   ...responsiveFontSizes(
@@ -50,28 +50,28 @@ const themes = {
   ),
   overrides: {
     MuiCssBaseline: {
-      "@global": {
+      '@global': {
         margin: 0,
         html: {
-          WebkitFontSmoothing: "auto",
+          WebkitFontSmoothing: 'auto',
         },
         body: {
           backgroundImage: `url('${variables.backgroundUrl}')`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-          fontFamily: "SourceSerifPro",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+          backgroundAttachment: 'fixed',
+          fontFamily: 'SourceSerifPro',
         },
-        "*::-webkit-scrollbar": {
-          width: "4px",
+        '*::-webkit-scrollbar': {
+          width: '4px',
         },
-        "*::-webkit-scrollbar-track": {
-          "-webkit-box-shadow": `inset 8px 8px 8px ${colors.black}`,
+        '*::-webkit-scrollbar-track': {
+          '-webkit-box-shadow': `inset 4px 4px 4px ${colors.black}`,
         },
-        "*::-webkit-scrollbar-thumb": {
-          backgroundColor: colors.secondary,
-          outline: `2px solid ${colors.primary}`,
+        '*::-webkit-scrollbar-thumb': {
+          backgroundColor: colors.primary,
+          // outline: `2px solid ${colors.primary}`,
         },
       },
     },
@@ -82,21 +82,21 @@ const themes = {
     },
     MuiButton: {
       root: {
-        padding: "6px 8px",
+        padding: '6px 8px',
         borderRadius: variables.borderRadius,
         lineHeight: variables.lineHeight,
         color: colors.white,
         backgroundColor: colors.transparent,
-        textTransform: "uppercase",
+        textTransform: 'uppercase',
         minWidth: variables.buttonMinWidth,
         fontSize: variables.fontSize,
-        "&:hover": {
+        '&:hover': {
           color: colors.secondary,
         },
       },
       text: {
         color: colors.white,
-        "&:hover": {
+        '&:hover': {
           color: colors.secondary,
         },
       },
@@ -104,11 +104,11 @@ const themes = {
         borderWidth: 2,
         borderColor: colors.primary,
         color: colors.white,
-        "&$disabled": {
+        '&$disabled': {
           borderColor: colors.grey,
           color: colors.white,
         },
-        "&:hover": {
+        '&:hover': {
           backgroundColor: colors.secondary,
           color: colors.white,
         },
@@ -116,11 +116,11 @@ const themes = {
       contained: {
         backgroundColor: colors.primary,
         color: colors.white,
-        "&$disabled": {
+        '&$disabled': {
           backgroundColor: colors.grey,
           color: colors.white,
         },
-        "&:hover": {
+        '&:hover': {
           backgroundColor: colors.secondary,
           color: colors.white,
         },
@@ -132,7 +132,7 @@ const themes = {
     MuiIconButton: {
       root: {
         color: colors.white,
-        "&:hover": {
+        '&:hover': {
           backgroundColor: colors.secondary,
         },
       },
@@ -145,9 +145,10 @@ const themes = {
     },
     MuiCard: {
       root: {
-        alignItems: "center",
+        borderRadius: variables.borderRadius,
+        alignItems: 'center',
         backgroundColor: colors.grey,
-        "&:hover": {
+        '&:hover': {
           backgroundColor: colors.black,
         },
       },
@@ -159,7 +160,7 @@ const themes = {
     },
     MuiToolbar: {
       root: {
-        justifyContent: "space-between",
+        justifyContent: 'space-between',
       },
     },
     MuiDrawer: {
@@ -174,27 +175,37 @@ const themes = {
     },
     MuiListItem: {
       button: {
-        "&:hover": {
+        '&:hover': {
           backgroundColor: colors.secondary,
         },
-        "&$selected": {
+        '&$selected': {
           backgroundColor: colors.primary,
         },
-        "&$selected:hover": {
+        '&$selected:hover': {
           backgroundColor: colors.secondary,
         },
       },
     },
     MuiDialog: {
+      root: {
+        borderRadius: variables.borderRadius,
+      },
       paper: {
         backgroundColor: colors.grey,
       },
     },
     MuiDialogContent: {
       root: {
-        padding: "0px 0px 24px 0px",
-        "&:first-child": {
+        padding: '0px 0px 24px 0px',
+        '&:first-child': {
           paddingTop: 0,
+        },
+      },
+    },
+    MuiCardContent: {
+      root: {
+        '&:last-child': {
+          paddingBottom: 0,
         },
       },
     },
