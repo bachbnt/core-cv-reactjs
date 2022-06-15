@@ -185,40 +185,6 @@ const themes = {
         },
       },
     },
-    MuiInputBase: {
-      root: {
-        color: colors.white,
-      },
-    },
-    MuiFormLabel: {
-      root: {
-        color: colors.white,
-        '&.Mui-focused': {
-          color: colors.primary,
-        },
-      },
-    },
-    MuiOutlinedInput: {
-      root: {
-        '& fieldset': {
-          borderColor: colors.white,
-          borderWidth: 2,
-        },
-        '&:hover fieldset': {
-          borderColor: colors.secondary,
-          borderWidth: 2,
-        },
-        '&.Mui-focused fieldset': {
-          borderColor: colors.primary,
-          borderWidth: 2,
-        },
-      },
-    },
-    Mui: {
-      error: {
-        color: colors.secondary,
-      },
-    },
   },
 };
 
