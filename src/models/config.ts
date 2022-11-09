@@ -15,6 +15,8 @@ export interface Config {
   resumeVisible: boolean;
   serviceEnable: boolean;
   serviceVisible: boolean;
+  paymentEnable: boolean;
+  paymentVisible: boolean;
 }
 
 export function parseConfig(data: any): Config {
@@ -35,5 +37,7 @@ export function parseConfig(data: any): Config {
     resumeVisible: data['resumeVisible'],
     serviceEnable: data['serviceEnable'],
     serviceVisible: data['serviceVisible'],
+    paymentEnable: data['paymentEnable'],
+    paymentVisible: data['paymentVisible'],
   };
 }

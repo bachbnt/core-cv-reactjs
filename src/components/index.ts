@@ -8,6 +8,7 @@ import Footer from './footer/footer';
 import Header from './header/header';
 import IconButton from './iconButton/iconButton';
 import Layout from './layout/layout';
+import PaymentItem from './paymentItem/paymentItem';
 import ProjectItem from './projectItem/projectItem';
 import ServiceItem from './serviceItem/serviceItem';
 import Spinner from './spinner/spinner';
@@ -28,6 +29,7 @@ export {
   Header,
   IconButton,
   Layout,
+  PaymentItem,
   ProjectItem,
   ServiceItem,
   Spinner,

@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
 import { Box, Grid, Tooltip } from '@material-ui/core';
-import { useNavigate } from 'react-router';
-import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import _ from 'lodash';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 import {
   Avatar,
   Button,
@@ -13,8 +13,8 @@ import {
 } from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
 import { ContactType } from 'src/models/contact';
-import { RoutePath } from 'src/routes/routePath';
 import { useAppSelector } from 'src/redux/store';
+import { RoutePath } from 'src/routes/routePath';
 import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 

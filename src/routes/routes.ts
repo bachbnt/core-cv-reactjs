@@ -45,6 +45,11 @@ export const routes: Route[] = [
     component: RouteName.CONTACT,
   },
   {
+    name: i18nKey.payment,
+    path: RoutePath.PAYMENT,
+    component: RouteName.PAYMENT,
+  },
+  {
     name: i18nKey.not_found,
     path: RoutePath.NOT_FOUND,
     component: RouteName.NOT_FOUND,

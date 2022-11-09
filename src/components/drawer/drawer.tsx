@@ -4,12 +4,12 @@ import {
   ListItem,
   ListItemText,
 } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
-import { useNavigate, useLocation } from 'react-router';
-import clsx from 'clsx';
 import _ from 'lodash';
-import { routes } from 'src/routes/routes';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router';
+import { Constant } from 'src/constants/constants';
 import { useAppSelector } from 'src/redux/store';
+import { routes } from 'src/routes/routes';
 import Props from './props';
 import useStyles from './styles';
 
@@ -22,13 +22,19 @@ const Drawer = (props: Props) => {
 
   const config = useAppSelector((state) => state.configReducer.config);
 
-  const onPageClick = (name: string, path: string) => {
+  const onPageClick = async (name: string, path: string) => {
+    copy(path);
     if (
       (config as any)[`${_.lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
     }
+  };
+
+  const copy = async (path: string) => {
+    const url = Constant.BASE_URL + path;
+    await navigator.clipboard.writeText(url);
   };
 
   return (

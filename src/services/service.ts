@@ -1,10 +1,11 @@
-import { getDoc, setDoc, doc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { firestoreCollection, firestoreDocument } from 'src/constants/configs';
-import { parseConfig, Config } from 'src/models/config';
+import { Config, parseConfig } from 'src/models/config';
 import { Contact } from 'src/models/contact';
 import { Education } from 'src/models/education';
 import { Experience } from 'src/models/experience';
 import { Message } from 'src/models/message';
+import { Payment } from 'src/models/payment';
 import { parseProfile, Profile } from 'src/models/profile';
 import { Project } from 'src/models/project';
 import { Service as ServiceModel } from 'src/models/service';
@@ -123,6 +124,19 @@ class Service {
 
     const skillList: Skill[] = Object.values(data as {});
     return skillList;
+  }
+
+  async getPayment(): Promise<Payment[]> {
+    const ref = doc(
+      firestore,
+      firestoreCollection.user,
+      firestoreDocument.payment
+    );
+    const snapshot = await getDoc(ref);
+    const data = snapshot.data();
+
+    const paymentList: Payment[] = Object.values(data as {});
+    return paymentList;
   }
 }
 

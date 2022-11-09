@@ -1,6 +1,7 @@
 import { Contact } from './contact';
 import { Education } from './education';
 import { Experience } from './experience';
+import { Payment } from './payment';
 import { Profile } from './profile';
 import { Project } from './project';
 import { Service } from './service';
@@ -14,4 +15,5 @@ export interface User {
   project: Project[];
   service: Service[];
   skill: Skill[];
+  payment: Payment[];
 }

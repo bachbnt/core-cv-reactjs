@@ -24,4 +24,5 @@ export const firestoreDocument = {
   project: 'project',
   service: 'service',
   skill: 'skill',
+  payment: 'payment',
 };

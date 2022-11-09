@@ -1,10 +1,10 @@
-import { useCallback } from 'react';
 import _ from 'lodash';
+import { useCallback } from 'react';
 import { firestoreDocument } from 'src/constants/configs';
 import { User } from 'src/models/user';
-import { setUser } from 'src/redux/userSlice';
-import { showSpinner, hideSpinner } from 'src/redux/spinnerSlice';
+import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
 import { useAppDispatch } from 'src/redux/store';
+import { setUser } from 'src/redux/userSlice';
 import { service } from 'src/services/service';
 
 export const useUser = () => {
@@ -19,6 +19,7 @@ export const useUser = () => {
       firestoreDocument.project,
       firestoreDocument.service,
       firestoreDocument.skill,
+      firestoreDocument.payment,
     ];
 
     try {

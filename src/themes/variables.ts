@@ -25,12 +25,12 @@ const variables = {
   fontFamily: 'Source Code Pro',
 
   backgroundUrl:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/background.webp',
-  logoUrl: 'https://raw.githubusercontent.com/bachbnt/assets/main/logo.png',
+    'https://raw.githubusercontent.com/bachbnt/assets/main/config/background.webp',
+  logoUrl: 'https://raw.githubusercontent.com/bachbnt/assets/main/config/logo.png',
   error404url:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/error-404.png',
+    'https://raw.githubusercontent.com/bachbnt/assets/main/config/error-404.png',
   comingSoonUrl:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/coming-soon.png',
+    'https://raw.githubusercontent.com/bachbnt/assets/main/config/coming-soon.png',
 };
 
 export default variables;

@@ -1,11 +1,12 @@
-import { Fragment, useState } from 'react';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
-import { MdMenu } from 'react-icons/md';
-import { useTranslation } from 'react-i18next';
-import { useNavigate, useLocation } from 'react-router';
 import clsx from 'clsx';
 import _ from 'lodash';
+import { Fragment, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { MdMenu } from 'react-icons/md';
+import { useLocation, useNavigate } from 'react-router';
 import { Button, Drawer } from 'src/components';
+import { Constant } from 'src/constants/constants';
 import { useConfig } from 'src/hooks/useConfig';
 import { useUser } from 'src/hooks/useUser';
 import { i18nKey } from 'src/locales/i18n';
@@ -30,12 +31,14 @@ const Header = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const onLogoClick = async () => {
+    copy(RoutePath.HOME);
     navigate(RoutePath.HOME, { replace: true });
     await getConfig();
     await getUser();
   };
 
-  const onPageClick = (name: string, path: string) => {
+  const onPageClick = async (name: string, path: string) => {
+    copy(path);
     if (
       (config as any)[`${_.lowerCase(name)}Enable`] &&
       location.pathname !== path
@@ -44,9 +47,16 @@ const Header = (props: Props) => {
     }
   };
 
-  const onCVClick = () => {
-    if (user?.profile?.cv) {
-      window.open(user?.profile?.cv);
+  const copy = async (path: string) => {
+    const url = Constant.BASE_URL + path;
+    await navigator.clipboard.writeText(url);
+  };
+
+  const onCVClick = async () => {
+    const url = user?.profile?.cv;
+    if (url) {
+      await navigator.clipboard.writeText(url);
+      window.open(url);
     }
   };
 

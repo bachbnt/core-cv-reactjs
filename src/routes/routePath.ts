@@ -6,5 +6,6 @@ export enum RoutePath {
   BLOG = '/blog',
   SERVICE = '/service',
   CONTACT = '/contact',
+  PAYMENT = '/payment',
   NOT_FOUND = '/*',
 }

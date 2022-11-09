@@ -6,6 +6,7 @@ const en = {
   blog: 'Blog',
   service: 'Service',
   contact: 'Contact',
+  payment: 'Payment',
   not_found: 'Not Found',
   my_cv: 'My CV',
   about_me: 'About me',
