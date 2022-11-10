@@ -23,8 +23,8 @@ const Home = () => {
   const themeClasses = useThemeStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const config = useAppSelector((state) => state.configReducer.config);
-  const user = useAppSelector((state) => state.userReducer.user);
+  const config = useAppSelector((state: any) => state.configReducer.config);
+  const user = useAppSelector((state: any) => state.userReducer.user);
   const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {

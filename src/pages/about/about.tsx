@@ -15,7 +15,7 @@ const About = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
-  const user = useAppSelector((state) => state.userReducer.user);
+  const user = useAppSelector((state: any) => state.userReducer.user);
   const [slide, setSlide] = useState(0);
 
   useEffect(() => {

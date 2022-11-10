@@ -4,7 +4,7 @@ import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { Constant } from 'src/constants/constants';
+import { Constant } from 'src/core/constants';
 import configReducer from './configSlice';
 import spinnerReducer from './spinnerSlice';
 import userReducer from './userSlice';

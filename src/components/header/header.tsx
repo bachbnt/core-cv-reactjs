@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
 import { useLocation, useNavigate } from 'react-router';
 import { Button, Drawer } from 'src/components';
-import { Constant } from 'src/constants/constants';
+import { Constant } from 'src/core/constants';
 import { useConfig } from 'src/hooks/useConfig';
 import { useUser } from 'src/hooks/useUser';
 import { i18nKey } from 'src/locales/i18n';
@@ -25,29 +25,29 @@ const Header = (props: Props) => {
   const { getData: getConfig } = useConfig();
   const { getData: getUser } = useUser();
 
-  const config = useAppSelector((state) => state.configReducer.config);
-  const user = useAppSelector((state) => state.userReducer.user);
+  const config = useAppSelector((state: any) => state.configReducer.config);
+  const user = useAppSelector((state: any) => state.userReducer.user);
 
   const [open, setOpen] = useState<boolean>(false);
 
   const onLogoClick = async () => {
-    copy(RoutePath.HOME);
     navigate(RoutePath.HOME, { replace: true });
     await getConfig();
     await getUser();
   };
 
   const onPageClick = async (name: string, path: string) => {
-    copy(path);
     if (
       (config as any)[`${_.lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
+    } else {
+      copyUrl(path);
     }
   };
 
-  const copy = async (path: string) => {
+  const copyUrl = async (path: string) => {
     const url = Constant.BASE_URL + path;
     await navigator.clipboard.writeText(url);
   };
@@ -55,7 +55,6 @@ const Header = (props: Props) => {
   const onCVClick = async () => {
     const url = user?.profile?.cv;
     if (url) {
-      await navigator.clipboard.writeText(url);
       window.open(url);
     }
   };

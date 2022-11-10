@@ -10,7 +10,7 @@ import useStyles from './styles';
 const Footer = (props: Props) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useAppSelector((state) => state.userReducer.user);
+  const user = useAppSelector((state: any) => state.userReducer.user);
 
   return (
     <Grid className={clsx(classes.container)}>

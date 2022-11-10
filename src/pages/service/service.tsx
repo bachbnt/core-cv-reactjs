@@ -9,7 +9,7 @@ import useStyles from './styles';
 const Service = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const user = useAppSelector((state) => state.userReducer.user);
+  const user = useAppSelector((state: any) => state.userReducer.user);
 
   return (
     <Layout>

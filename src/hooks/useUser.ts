@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { useCallback } from 'react';
-import { firestoreDocument } from 'src/constants/configs';
+import { firestoreDocument } from 'src/core/configs';
 import { User } from 'src/models/user';
 import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
 import { useAppDispatch } from 'src/redux/store';

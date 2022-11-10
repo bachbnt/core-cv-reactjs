@@ -7,7 +7,7 @@ const Spinner = (props: Props) => {
   const { visible = false } = props;
   const classes = useStyles();
   const spinnerVisible = useAppSelector(
-    (state) => state.spinnerReducer.visible
+    (state: any) => state.spinnerReducer.visible
   );
   if (!visible && !spinnerVisible) {
     return null;

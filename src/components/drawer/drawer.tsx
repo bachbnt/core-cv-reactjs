@@ -7,7 +7,7 @@ import {
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
-import { Constant } from 'src/constants/constants';
+import { Constant } from 'src/core/constants';
 import { useAppSelector } from 'src/redux/store';
 import { routes } from 'src/routes/routes';
 import Props from './props';
@@ -20,19 +20,20 @@ const Drawer = (props: Props) => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const config = useAppSelector((state) => state.configReducer.config);
+  const config = useAppSelector((state: any) => state.configReducer.config);
 
   const onPageClick = async (name: string, path: string) => {
-    copy(path);
     if (
       (config as any)[`${_.lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
+    } else {
+      copyUrl(path);
     }
   };
 
-  const copy = async (path: string) => {
+  const copyUrl = async (path: string) => {
     const url = Constant.BASE_URL + path;
     await navigator.clipboard.writeText(url);
   };

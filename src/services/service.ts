@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { firestoreCollection, firestoreDocument } from 'src/constants/configs';
+import { firestoreCollection, firestoreDocument } from 'src/core/configs';
 import { Config, parseConfig } from 'src/models/config';
 import { Contact } from 'src/models/contact';
 import { Education } from 'src/models/education';
