@@ -18,7 +18,9 @@ const PaymentItem = (props: Props) => {
   const { item } = props;
 
   const onCopyClick = async (item: Payment) => {
-    await navigator.clipboard.writeText(`${item.name}\n${item.account}`);
+    await navigator.clipboard.writeText(
+      `${item.name}\n${item.account}\n${item.user}`
+    );
     alert('Copied');
   };
 

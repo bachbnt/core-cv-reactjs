@@ -9,6 +9,8 @@ export interface Payment {
   qrCode: string;
   qrCodeVisible: boolean;
   type: PaymentType;
+  user: string;
+  userVisible: boolean;
   visible: boolean;
 }
 
