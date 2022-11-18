@@ -10,6 +10,7 @@ export interface Profile {
 export interface ProfileCover {
   index: number;
   url: string;
+  visible: boolean;
 }
 
 export interface ProfileSpecialty {

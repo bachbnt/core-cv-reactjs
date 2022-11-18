@@ -1,9 +1,9 @@
-import { useEffect, useMemo } from 'react';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
-import { FormProvider, useForm } from 'react-hook-form';
 import clsx from 'clsx';
 import _ from 'lodash';
+import { useEffect, useMemo } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   ContactItem,
@@ -17,8 +17,8 @@ import { i18nKey } from 'src/locales/i18n';
 import { ContactType } from 'src/models/contact';
 import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
-import { validationSchema, FormValues } from './validation';
 import useStyles from './styles';
+import { FormValues, validationSchema } from './validation';
 
 const Contact = () => {
   const classes = useStyles();
@@ -56,7 +56,10 @@ const Contact = () => {
           item
         >
           {_.sortBy(
-            _.filter(user?.contact, { type: ContactType.CONTACT }),
+            _.filter(user?.contact, {
+              type: ContactType.CONTACT,
+              visible: true,
+            }),
             'index'
           ).map((item) => (
             <Grid key={`${item.name} ${item.index}`} item>

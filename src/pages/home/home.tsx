@@ -79,7 +79,10 @@ const Home = () => {
           <Box mt={2} mb={6}>
             <Grid container item>
               {_.sortBy(
-                _.filter(user?.contact, { type: ContactType.SOCIAL }),
+                _.filter(user?.contact, {
+                  type: ContactType.SOCIAL,
+                  visible: true,
+                }),
                 'index'
               ).map((item) => (
                 <Tooltip

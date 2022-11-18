@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import {
   Box,
-  Card as MuiCard,
+  Card,
   CardActionArea,
   CardContent,
   CardMedia,
@@ -9,6 +8,7 @@ import {
   DialogContent,
 } from '@material-ui/core';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { Typography } from 'src/components';
 import useThemeStyles from 'src/themes/styles';
 import variables from 'src/themes/variables';
@@ -30,7 +30,7 @@ const ProjectItem = (props: Props) => {
 
   return item.visible ? (
     <div>
-      <MuiCard className={clsx(classes.card)} onClick={onOpenDialog}>
+      <Card className={clsx(classes.card)} onClick={onOpenDialog}>
         <CardActionArea>
           {item.coverVisible && (
             <CardMedia
@@ -60,31 +60,29 @@ const ProjectItem = (props: Props) => {
             )}
           </CardContent>
         </CardActionArea>
-      </MuiCard>
+      </Card>
       <Dialog fullWidth maxWidth='md' open={openDialog} onClose={onCloseDialog}>
-        <Box>
-          <DialogContent>
-            {item.coverVisible && (
-              <CardMedia
-                component='img'
-                image={item.cover ? item.cover : variables.comingSoonUrl}
-              />
+        <DialogContent>
+          {item.coverVisible && (
+            <CardMedia
+              component='img'
+              image={item.cover ? item.cover : variables.comingSoonUrl}
+            />
+          )}
+          <CardContent>
+            {item.nameVisible && (
+              <Typography color='primary' variant='h6'>
+                {item.name}
+              </Typography>
             )}
-            <CardContent>
-              {item.nameVisible && (
-                <Typography color='primary' variant='h6'>
-                  {item.name}
-                </Typography>
-              )}
-              {item.technologyVisible && (
-                <Typography variant='subtitle2'>{item.technology}</Typography>
-              )}
-              {item.descriptionVisible && (
-                <Typography variant='body2'>{item.description}</Typography>
-              )}
-            </CardContent>
-          </DialogContent>
-        </Box>
+            {item.technologyVisible && (
+              <Typography variant='subtitle2'>{item.technology}</Typography>
+            )}
+            {item.descriptionVisible && (
+              <Typography variant='body2'>{item.description}</Typography>
+            )}
+          </CardContent>
+        </DialogContent>
       </Dialog>
     </div>
   ) : (

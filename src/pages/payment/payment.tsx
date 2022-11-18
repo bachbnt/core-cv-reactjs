@@ -6,7 +6,6 @@ import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
-
 const Payment = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
@@ -15,11 +14,13 @@ const Payment = () => {
   return (
     <Layout>
       <Grid className={clsx(themeClasses.container)} container spacing={4}>
-        {_.sortBy(user?.payment, 'index').map((item) => (
-          <Grid key={`${item.name} ${item.index}`} item>
-            <PaymentItem item={item} />
-          </Grid>
-        ))}
+        {_.sortBy(_.filter(user?.payment, { visible: true }), 'index').map(
+          (item) => (
+            <Grid key={`${item.name} ${item.index}`} item>
+              <PaymentItem item={item} />
+            </Grid>
+          )
+        )}
       </Grid>
     </Layout>
   );

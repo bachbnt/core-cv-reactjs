@@ -14,11 +14,13 @@ const Service = () => {
   return (
     <Layout>
       <Grid className={clsx(themeClasses.container)} container spacing={4}>
-        {_.sortBy(user?.service, 'index').map((item) => (
-          <Grid key={`${item.name} ${item.index}`} item>
-            <ServiceItem item={item} />
-          </Grid>
-        ))}
+        {_.sortBy(_.filter(user?.service, { visible: true }), 'index').map(
+          (item) => (
+            <Grid key={`${item.name} ${item.index}`} item>
+              <ServiceItem item={item} />
+            </Grid>
+          )
+        )}
       </Grid>
     </Layout>
   );

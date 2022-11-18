@@ -1,4 +1,6 @@
 export interface Experience {
+  image: string;
+  imageVisible: boolean;
   index: number;
   name: string;
   nameVisible: boolean;

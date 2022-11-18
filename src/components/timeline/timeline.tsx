@@ -1,11 +1,11 @@
 import {
   Timeline as MuiTimeline,
-  TimelineItem,
-  TimelineSeparator,
   TimelineConnector,
   TimelineContent,
-  TimelineOppositeContent,
   TimelineDot,
+  TimelineItem,
+  TimelineOppositeContent,
+  TimelineSeparator,
 } from '@material-ui/lab/';
 import _ from 'lodash';
 import { Typography } from 'src/components';
@@ -18,7 +18,9 @@ const Timeline = (props: Props) => {
 
   return (
     <MuiTimeline align='alternate'>
-      {(_.sortBy(data, 'index').reverse() as any[]).map((item, index) =>
+      {(
+        _.sortBy(_.filter(data, { visible: true }), 'index').reverse() as any[]
+      ).map((item, index) =>
         item.visible ? (
           <TimelineItem key={`${item.name} ${item.index}`}>
             <TimelineOppositeContent>

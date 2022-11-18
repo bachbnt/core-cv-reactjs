@@ -1,14 +1,18 @@
 import {
   Box,
-  Card as MuiCard,
+  Card,
   CardActionArea,
   CardContent,
+  CardMedia,
+  Dialog,
 } from '@material-ui/core';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { IoCopy } from 'react-icons/io5';
 import { Button, Typography } from 'src/components';
 import { Payment } from 'src/models/payment';
 import useThemeStyles from 'src/themes/styles';
+import variables from 'src/themes/variables';
 import Props from './props';
 import useStyles from './styles';
 
@@ -16,6 +20,14 @@ const PaymentItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { item } = props;
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const onOpenDialog = () => {
+    setOpenDialog(true);
+  };
+  const onCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   const onCopyClick = async (item: Payment) => {
     await navigator.clipboard.writeText(
@@ -25,39 +37,53 @@ const PaymentItem = (props: Props) => {
   };
 
   return item.visible ? (
-    <MuiCard className={clsx(classes.card, themeClasses.card)}>
-      <CardActionArea>
-        <CardContent className={themeClasses.cardContent}>
-          {item.nameVisible && (
-            <Typography color='primary' variant='h6' align='center'>
-              {item.name}
-            </Typography>
-          )}
-          {item.accountVisible && (
-            <Box
-              mb={2}
-              overflow='hidden'
-              display='flex'
-              flexDirection='row'
-              alignItems='center'
-            >
-              <Button
-                className={themeClasses.cardDescription}
-                startIcon={<IoCopy />}
-                onClick={() => {
-                  onCopyClick(item);
-                }}
+    <div>
+      <Card className={clsx(classes.card, themeClasses.card)}>
+        <CardActionArea>
+          <CardContent className={themeClasses.cardContent}>
+            {item.nameVisible && (
+              <Typography color='primary' variant='h6' align='center'>
+                {item.name}
+              </Typography>
+            )}
+            {item.accountVisible && (
+              <Box
+                overflow='hidden'
+                display='flex'
+                flexDirection='row'
+                alignItems='center'
               >
-                {item.account}
-              </Button>
-            </Box>
-          )}
-          {item.qrCodeVisible && (
-            <img className={clsx(classes.img)} src={item.qrCode} alt='qrcode' />
-          )}
-        </CardContent>
-      </CardActionArea>
-    </MuiCard>
+                <Button
+                  className={themeClasses.cardDescription}
+                  startIcon={<IoCopy />}
+                  onClick={() => {
+                    onCopyClick(item);
+                  }}
+                >
+                  {item.account}
+                </Button>
+              </Box>
+            )}
+            {item.qrCodeVisible && (
+              <img
+                className={clsx(classes.img)}
+                src={item.qrCode}
+                alt='qrcode'
+                onClick={onOpenDialog}
+              />
+            )}
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      <Dialog maxWidth='md' open={openDialog} onClose={onCloseDialog}>
+        {item.qrCodeVisible && (
+          <CardMedia
+            component='img'
+            image={item.qrCode ? item.qrCode : variables.comingSoonUrl}
+          />
+        )}
+      </Dialog>
+    </div>
   ) : (
     <div />
   );

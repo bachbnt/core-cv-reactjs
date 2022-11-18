@@ -25,7 +25,7 @@ const Project = () => {
         </Box>
         <Grid className={clsx(themeClasses.container)} container spacing={4}>
           {_.sortBy(
-            _.filter(user?.project, { type: ProjectType.COMPANY }),
+            _.filter(_.filter(user?.project, { visible: true }), { type: ProjectType.COMPANY }),
             'index'
           )
             .reverse()
@@ -42,7 +42,7 @@ const Project = () => {
         </Box>
         <Grid className={clsx(themeClasses.container)} container spacing={4}>
           {_.sortBy(
-            _.filter(user?.project, { type: ProjectType.PERSONAL }),
+            _.filter(_.filter(user?.project, { visible: true }), { type: ProjectType.PERSONAL }),
             'index'
           )
             .reverse()

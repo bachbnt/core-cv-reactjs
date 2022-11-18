@@ -1,5 +1,12 @@
-import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+} from '@material-ui/core';
 import { Typography } from 'src/components';
+import variables from 'src/themes/variables';
 import Props from './props';
 import useStyles from './styles';
 
@@ -25,6 +32,13 @@ const ExperienceItem = (props: Props) => {
             </Box>
           )}
         </CardContent>
+        {item.imageVisible && (
+          <CardMedia
+            className={classes.img}
+            component='img'
+            image={item.image ? item.image : variables.comingSoonUrl}
+          />
+        )}
       </CardActionArea>
     </Card>
   );

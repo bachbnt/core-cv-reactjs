@@ -1,6 +1,8 @@
 export interface Education {
   degree: string;
   degreeVisible: boolean;
+  image: string;
+  imageVisible: boolean;
   index: number;
   major: string;
   majorVisible: boolean;

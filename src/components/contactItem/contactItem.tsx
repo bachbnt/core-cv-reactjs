@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import {
   Box,
-  Card as MuiCard,
+  Card,
   CardActionArea,
   CardContent,
 } from '@material-ui/core';
@@ -66,7 +66,7 @@ const ContactItem = (props: Props) => {
 
   const renderContactItem = useMemo(() => {
     return item.visible ? (
-      <MuiCard
+      <Card
         className={clsx(classes.card, themeClasses.card)}
         onClick={onClick}
       >
@@ -83,7 +83,7 @@ const ContactItem = (props: Props) => {
             </Box>
           </CardContent>
         </CardActionArea>
-      </MuiCard>
+      </Card>
     ) : (
       <div />
     );

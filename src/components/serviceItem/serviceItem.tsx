@@ -1,6 +1,6 @@
 import {
   Box,
-  Card as MuiCard,
+  Card,
   CardActionArea,
   CardContent,
 } from '@material-ui/core';
@@ -16,7 +16,7 @@ const ServiceItem = (props: Props) => {
   const { item } = props;
 
   return item.visible ? (
-    <MuiCard className={clsx(classes.card, themeClasses.card)}>
+    <Card className={clsx(classes.card, themeClasses.card)}>
       <CardActionArea>
         <CardContent className={themeClasses.cardContent}>
           {item.nameVisible && (
@@ -37,7 +37,7 @@ const ServiceItem = (props: Props) => {
           )}
         </CardContent>
       </CardActionArea>
-    </MuiCard>
+    </Card>
   ) : (
     <div />
   );
