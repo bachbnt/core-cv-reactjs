@@ -98,6 +98,7 @@ const Contact = () => {
                 <Button variant='contained' onClick={handleSubmit(onSubmit)}>
                   {t(i18nKey.send)}
                 </Button>
+                <Box my={2} />
               </FormProvider>
             </CardContent>
           </Card>
