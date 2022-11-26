@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import clsx from 'clsx';
-import variables from 'src/themes/variables';
 import useThemeStyles from 'src/themes/styles';
+import variables from 'src/themes/variables';
 import useStyles from './styles';
 
 const NotFound = () => {

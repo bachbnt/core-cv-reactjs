@@ -1,11 +1,9 @@
+import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
+import { Home as HomeIcon, Mail, Phone } from '@material-ui/icons';
+import clsx from 'clsx';
+import _ from 'lodash';
 import { useCallback, useMemo } from 'react';
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-} from '@material-ui/core';
-import { Home as HomeIcon, Phone, Mail } from '@material-ui/icons';
+import { useTranslation } from 'react-i18next';
 import {
   SiFacebook,
   SiGithub,
@@ -13,9 +11,6 @@ import {
   SiSkype,
   SiZalo,
 } from 'react-icons/si';
-import { useTranslation } from 'react-i18next';
-import _ from 'lodash';
-import clsx from 'clsx';
 import { IconButton, Typography } from 'src/components';
 import { ContactSubtype, ContactType } from 'src/models/contact';
 import useThemeStyles from 'src/themes/styles';
@@ -29,7 +24,7 @@ const ContactItem = (props: Props) => {
   const { t } = useTranslation();
 
   const onClick = useCallback(() => {
-    if (item.enable) {
+    if (item.urlEnable) {
       window.open(item.url);
     }
   }, [item]);
@@ -66,10 +61,7 @@ const ContactItem = (props: Props) => {
 
   const renderContactItem = useMemo(() => {
     return item.visible ? (
-      <Card
-        className={clsx(classes.card, themeClasses.card)}
-        onClick={onClick}
-      >
+      <Card className={clsx(classes.card, themeClasses.card)} onClick={onClick}>
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
             {renderContactIcon}

@@ -1,11 +1,11 @@
 export interface Contact {
-  enable: boolean;
   index: number;
   name: string;
   nameVisible: boolean;
   subtype: string;
   type: string;
   url: string;
+  urlEnable: boolean;
   visible: boolean;
 }
 

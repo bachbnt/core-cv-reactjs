@@ -1,8 +1,8 @@
 import { Grid } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { i18nKey } from 'src/locales/i18n';
+import { useTranslation } from 'react-i18next';
 import { Typography } from 'src/components';
+import { i18nKey } from 'src/locales/i18n';
 import { useAppSelector } from 'src/redux/store';
 import Props from './props';
 import useStyles from './styles';

@@ -33,7 +33,7 @@ const About = () => {
   }, [slide, user]);
 
   const onSkillClick = (item: Skill) => {
-    if (item.enable) {
+    if (item.urlEnable) {
       window.open(item.url);
     }
   };

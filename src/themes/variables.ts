@@ -26,7 +26,8 @@ const variables = {
 
   backgroundUrl:
     'https://raw.githubusercontent.com/bachbnt/assets/main/config/background.webp',
-  logoUrl: 'https://raw.githubusercontent.com/bachbnt/assets/main/config/logo.png',
+  logoUrl:
+    'https://raw.githubusercontent.com/bachbnt/assets/main/config/logo.png',
   error404url:
     'https://raw.githubusercontent.com/bachbnt/assets/main/config/error-404.png',
   comingSoonUrl:

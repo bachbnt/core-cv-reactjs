@@ -1,6 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import {
   EducationItem,
   ExperienceItem,

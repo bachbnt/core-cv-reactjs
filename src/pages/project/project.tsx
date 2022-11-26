@@ -1,7 +1,7 @@
 import { Box, Grid } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import _ from 'lodash';
+import { useTranslation } from 'react-i18next';
 import { Layout, ProjectItem, Typography } from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
 import { ProjectType } from 'src/models/project';
@@ -25,7 +25,9 @@ const Project = () => {
         </Box>
         <Grid className={clsx(themeClasses.container)} container spacing={4}>
           {_.sortBy(
-            _.filter(_.filter(user?.project, { visible: true }), { type: ProjectType.COMPANY }),
+            _.filter(_.filter(user?.project, { visible: true }), {
+              type: ProjectType.COMPANY,
+            }),
             'index'
           )
             .reverse()
@@ -42,7 +44,9 @@ const Project = () => {
         </Box>
         <Grid className={clsx(themeClasses.container)} container spacing={4}>
           {_.sortBy(
-            _.filter(_.filter(user?.project, { visible: true }), { type: ProjectType.PERSONAL }),
+            _.filter(_.filter(user?.project, { visible: true }), {
+              type: ProjectType.PERSONAL,
+            }),
             'index'
           )
             .reverse()

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { showSpinner, hideSpinner } from 'src/redux/spinnerSlice';
+import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
 import { useAppDispatch } from 'src/redux/store';
 import { service } from 'src/services/service';
 

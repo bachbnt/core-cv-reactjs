@@ -1,9 +1,4 @@
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-} from '@material-ui/core';
+import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
 import clsx from 'clsx';
 import { Typography } from 'src/components';
 import useThemeStyles from 'src/themes/styles';
