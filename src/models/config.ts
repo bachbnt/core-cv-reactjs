@@ -19,8 +19,14 @@ export interface Config {
   resumeVisible: boolean;
   serviceEnable: boolean;
   serviceVisible: boolean;
+  image: ConfigImage;
   paymentEnable: boolean;
   paymentVisible: boolean;
+}
+
+interface ConfigImage {
+  comingSoon: string;
+  error404: string;
 }
 
 export function parseConfig(data: any): Config {
@@ -43,6 +49,10 @@ export function parseConfig(data: any): Config {
     resumeVisible: data['resumeVisible'],
     serviceEnable: data['serviceEnable'],
     serviceVisible: data['serviceVisible'],
+    image: data['image'] || {
+      comingSoon: Constant.DEFAULT_COMING_SOON_IMAGE,
+      error404: Constant.DEFAULT_ERROR_404_IMAGE,
+    },
     paymentEnable: data['paymentEnable'],
     paymentVisible: data['paymentVisible'],
   };

@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Typography } from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
+import { User } from 'src/models/user';
 import { useAppSelector } from 'src/redux/store';
 import Props from './props';
 import useStyles from './styles';
@@ -10,7 +11,8 @@ import useStyles from './styles';
 const Footer = (props: Props) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const user = useAppSelector((state: any) => state.userReducer.user);
+
+  const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   return (
     <Grid className={clsx(classes.container)}>

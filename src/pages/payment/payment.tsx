@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core';
 import clsx from 'clsx';
 import _ from 'lodash';
 import { Layout, PaymentItem } from 'src/components';
+import { User } from 'src/models/user';
 import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
@@ -9,7 +10,8 @@ import useStyles from './styles';
 const Payment = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const user = useAppSelector((state: any) => state.userReducer.user);
+
+  const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   return (
     <Layout>

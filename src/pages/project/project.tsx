@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Layout, ProjectItem, Typography } from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
 import { ProjectType } from 'src/models/project';
+import { User } from 'src/models/user';
 import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
@@ -13,7 +14,8 @@ const Project = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
-  const user = useAppSelector((state: any) => state.userReducer.user);
+
+  const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   return (
     <Layout>

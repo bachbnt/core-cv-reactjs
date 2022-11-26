@@ -10,10 +10,11 @@ import { Constant } from 'src/core/constants';
 import { useConfig } from 'src/hooks/useConfig';
 import { useUser } from 'src/hooks/useUser';
 import { i18nKey } from 'src/locales/i18n';
+import { Config } from 'src/models/config';
+import { User } from 'src/models/user';
 import { useAppSelector } from 'src/redux/store';
 import { RoutePath } from 'src/routes/routePath';
 import { routes } from 'src/routes/routes';
-import variables from 'src/themes/variables';
 import Props from './props';
 import useStyles from './styles';
 
@@ -22,11 +23,14 @@ const Header = (props: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
+
   const { getData: getConfig } = useConfig();
   const { getData: getUser } = useUser();
 
-  const config = useAppSelector((state: any) => state.configReducer.config);
-  const user = useAppSelector((state: any) => state.userReducer.user);
+  const config = useAppSelector(
+    (state: any) => state.configReducer.config
+  ) as Config;
+  const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -67,7 +71,7 @@ const Header = (props: Props) => {
     <AppBar color='transparent' position='static'>
       <Toolbar>
         <img
-          src={variables.logoUrl}
+          src={config.appIcon}
           alt='logo'
           width={36}
           height={36}

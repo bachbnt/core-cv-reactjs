@@ -10,9 +10,10 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { IoCopy } from 'react-icons/io5';
 import { Button, Typography } from 'src/components';
+import { Config } from 'src/models/config';
 import { Payment } from 'src/models/payment';
+import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
-import variables from 'src/themes/variables';
 import Props from './props';
 import useStyles from './styles';
 
@@ -20,7 +21,12 @@ const PaymentItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { item } = props;
-  const [openDialog, setOpenDialog] = useState(false);
+
+  const config = useAppSelector(
+    (state: any) => state.configReducer.config
+  ) as Config;
+
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
 
   const onOpenDialog = () => {
     setOpenDialog(true);
@@ -79,7 +85,7 @@ const PaymentItem = (props: Props) => {
         {item.qrCodeVisible && (
           <CardMedia
             component='img'
-            image={item.qrCode ? item.qrCode : variables.comingSoonUrl}
+            image={item.qrCode || config.image.comingSoon}
           />
         )}
       </Dialog>

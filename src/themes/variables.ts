@@ -1,3 +1,5 @@
+import { Constant } from 'src/core/constants';
+
 const variables = {
   buttonMinWidth: 64,
 
@@ -24,14 +26,7 @@ const variables = {
 
   fontFamily: 'Source Code Pro',
 
-  backgroundUrl:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/config/background.webp',
-  logoUrl:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/config/logo.png',
-  error404url:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/config/error-404.png',
-  comingSoonUrl:
-    'https://raw.githubusercontent.com/bachbnt/assets/main/config/coming-soon.png',
+  backgroundUrl: Constant.DEFAULT_BACKGROUND_IMAGE,
 };
 
 export default variables;

@@ -8,6 +8,7 @@ import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 import { Constant } from 'src/core/constants';
+import { Config } from 'src/models/config';
 import { useAppSelector } from 'src/redux/store';
 import { routes } from 'src/routes/routes';
 import Props from './props';
@@ -20,7 +21,9 @@ const Drawer = (props: Props) => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const config = useAppSelector((state: any) => state.configReducer.config);
+  const config = useAppSelector(
+    (state: any) => state.configReducer.config
+  ) as Config;
 
   const onPageClick = async (name: string, path: string) => {
     if (

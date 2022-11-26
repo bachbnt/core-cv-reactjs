@@ -12,7 +12,9 @@ import {
   Typography,
 } from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
+import { Config } from 'src/models/config';
 import { ContactType } from 'src/models/contact';
+import { User } from 'src/models/user';
 import { useAppSelector } from 'src/redux/store';
 import { RoutePath } from 'src/routes/routePath';
 import useThemeStyles from 'src/themes/styles';
@@ -23,8 +25,12 @@ const Home = () => {
   const themeClasses = useThemeStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const config = useAppSelector((state: any) => state.configReducer.config);
-  const user = useAppSelector((state: any) => state.userReducer.user);
+
+  const config = useAppSelector(
+    (state: any) => state.configReducer.config
+  ) as Config;
+  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+
   const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {

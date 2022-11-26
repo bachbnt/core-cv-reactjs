@@ -6,13 +6,18 @@ import {
   CardMedia,
 } from '@material-ui/core';
 import { Typography } from 'src/components';
-import variables from 'src/themes/variables';
+import { Config } from 'src/models/config';
+import { useAppSelector } from 'src/redux/store';
 import Props from './props';
 import useStyles from './styles';
 
 const EducationItem = (props: Props) => {
   const classes = useStyles();
   const { item } = props;
+
+  const config = useAppSelector(
+    (state: any) => state.configReducer.config
+  ) as Config;
 
   return (
     <Card elevation={3}>
@@ -36,7 +41,7 @@ const EducationItem = (props: Props) => {
           <CardMedia
             className={classes.img}
             component='img'
-            image={item.image ? item.image : variables.comingSoonUrl}
+            image={item.image || config.image.comingSoon}
           />
         )}
       </CardActionArea>

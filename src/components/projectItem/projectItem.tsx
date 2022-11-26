@@ -10,8 +10,9 @@ import {
 import clsx from 'clsx';
 import { useState } from 'react';
 import { Typography } from 'src/components';
+import { Config } from 'src/models/config';
+import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
-import variables from 'src/themes/variables';
 import Props from './props';
 import useStyles from './styles';
 
@@ -19,7 +20,12 @@ const ProjectItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { item } = props;
-  const [openDialog, setOpenDialog] = useState(false);
+
+  const config = useAppSelector(
+    (state: any) => state.configReducer.config
+  ) as Config;
+
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
 
   const onOpenDialog = () => {
     setOpenDialog(true);
@@ -36,7 +42,7 @@ const ProjectItem = (props: Props) => {
             <CardMedia
               className={classes.img}
               component='img'
-              image={item.cover ? item.cover : variables.comingSoonUrl}
+              image={item.cover || config.image.comingSoon}
             />
           )}
           <CardContent>
@@ -66,7 +72,7 @@ const ProjectItem = (props: Props) => {
           {item.coverVisible && (
             <CardMedia
               component='img'
-              image={item.cover ? item.cover : variables.comingSoonUrl}
+              image={item.cover || config.image.comingSoon}
             />
           )}
           <CardContent>
