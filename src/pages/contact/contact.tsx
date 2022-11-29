@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
 import clsx from 'clsx';
-import _ from 'lodash';
+import { filter, sortBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ import {
   TextFormField,
   Typography,
 } from 'src/components';
+import { Constant } from 'src/core/constants';
 import { useMessage } from 'src/hooks/useMessage';
 import { useYupResolver } from 'src/hooks/useYupResolver';
 import { i18nKey } from 'src/locales/i18n';
@@ -47,6 +48,16 @@ const Contact = () => {
     reset(initialValue);
   };
 
+  const contacts = useMemo(() => {
+    return sortBy(
+      filter(user.contact, {
+        type: ContactType.CONTACT,
+        visible: true,
+      }),
+      Constant.SORT_KEY
+    );
+  }, [user.contact]);
+
   return (
     <Layout>
       <Grid className={clsx(themeClasses.container)} container xs={12} item>
@@ -58,13 +69,7 @@ const Contact = () => {
           spacing={4}
           item
         >
-          {_.sortBy(
-            _.filter(user?.contact, {
-              type: ContactType.CONTACT,
-              visible: true,
-            }),
-            'index'
-          ).map((item) => (
+          {contacts.map((item) => (
             <Grid key={`${item.name} ${item.index}`} item>
               <ContactItem item={item} />
             </Grid>

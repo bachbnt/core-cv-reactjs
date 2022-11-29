@@ -1,7 +1,7 @@
 import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
 import { Home as HomeIcon, Mail, Phone } from '@material-ui/icons';
 import clsx from 'clsx';
-import _ from 'lodash';
+import { capitalize } from 'lodash';
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -66,7 +66,7 @@ const ContactItem = (props: Props) => {
           <CardContent className={themeClasses.cardContent}>
             {renderContactIcon}
             <Typography color='primary' variant='h6' align='center'>
-              {_.capitalize(t(item.subtype))}
+              {capitalize(t(item.subtype))}
             </Typography>
             <Box mt={2}>
               <Typography variant='body2' align='center'>

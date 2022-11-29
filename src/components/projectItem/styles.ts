@@ -10,6 +10,11 @@ export default makeStyles(
       },
       img: {
         height: 200,
+        objectFit: 'contain',
+      },
+      dialogImg: {
+        maxHeight: 600,
+        objectFit: 'contain',
       },
     }),
   { index: 1 }

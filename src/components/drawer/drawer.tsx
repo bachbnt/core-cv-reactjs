@@ -4,7 +4,7 @@ import {
   ListItem,
   ListItemText,
 } from '@material-ui/core';
-import _ from 'lodash';
+import { lowerCase } from 'lodash';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 import { Constant } from 'src/core/constants';
@@ -27,7 +27,7 @@ const Drawer = (props: Props) => {
 
   const onPageClick = async (name: string, path: string) => {
     if (
-      (config as any)[`${_.lowerCase(name)}Enable`] &&
+      (config as any)[`${lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
@@ -50,7 +50,7 @@ const Drawer = (props: Props) => {
     >
       <List>
         {routes.map((route) =>
-          (config as any)?.[`${_.lowerCase(route.name)}Visible`] ? (
+          (config as any)?.[`${lowerCase(route.name)}Visible`] ? (
             <ListItem
               key={route.name}
               button

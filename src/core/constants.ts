@@ -13,4 +13,5 @@ export class Constant {
     'https://raw.githubusercontent.com/bachbnt/assets/main/config/coming-soon.png';
   static readonly DEFAULT_ERROR_404_IMAGE =
     'https://raw.githubusercontent.com/bachbnt/assets/main/config/error-404.png';
+  static readonly SORT_KEY = 'index';
 }

@@ -28,6 +28,7 @@ const en = {
   name_is_required: 'Name is required',
   message_is_required: 'Message is required',
   company: 'Company',
+  freelance: 'Freelance',
   personal: 'Personal',
 };
 

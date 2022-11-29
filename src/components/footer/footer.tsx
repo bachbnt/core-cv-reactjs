@@ -19,7 +19,7 @@ const Footer = (props: Props) => {
       <Typography variant='subtitle2'>
         {t(i18nKey.copyright_by, {
           time: new Date().getFullYear(),
-          username: user?.profile?.name,
+          username: user.profile.name,
         })}
       </Typography>
     </Grid>

@@ -1,7 +1,9 @@
 import { Grid } from '@material-ui/core';
 import clsx from 'clsx';
-import _ from 'lodash';
+import { filter, sortBy } from 'lodash';
+import { useMemo } from 'react';
 import { Layout, ServiceItem } from 'src/components';
+import { Constant } from 'src/core/constants';
 import { User } from 'src/models/user';
 import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
@@ -13,16 +15,18 @@ const Service = () => {
 
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
+  const services = useMemo(() => {
+    return sortBy(filter(user.service, { visible: true }), Constant.SORT_KEY);
+  }, [user.service]);
+
   return (
     <Layout>
       <Grid className={clsx(themeClasses.container)} container spacing={4}>
-        {_.sortBy(_.filter(user?.service, { visible: true }), 'index').map(
-          (item) => (
-            <Grid key={`${item.name} ${item.index}`} item>
-              <ServiceItem item={item} />
-            </Grid>
-          )
-        )}
+        {services.map((item) => (
+          <Grid key={`${item.name} ${item.index}`} item>
+            <ServiceItem item={item} />
+          </Grid>
+        ))}
       </Grid>
     </Layout>
   );

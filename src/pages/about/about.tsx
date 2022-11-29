@@ -1,10 +1,11 @@
 import { Box, Grid } from '@material-ui/core';
 import clsx from 'clsx';
-import _ from 'lodash';
-import { useCallback, useEffect, useState } from 'react';
+import { filter, sortBy } from 'lodash';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
 import { Button, Layout, Typography } from 'src/components';
+import { Constant } from 'src/core/constants';
 import { i18nKey } from 'src/locales/i18n';
 import { Skill, SkillType } from 'src/models/skill';
 import { User } from 'src/models/user';
@@ -23,7 +24,7 @@ const About = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!(slide === user!.profile.covers.length - 1)) {
+      if (!(slide === user.profile.covers.length - 1)) {
         setSlide(slide + 1);
       } else {
         setSlide(0);
@@ -34,6 +35,40 @@ const About = () => {
       clearInterval(interval);
     };
   }, [slide, user]);
+
+  const frameworkSkills = useMemo(() => {
+    return sortBy(
+      filter(filter(user.skill, { visible: true }), {
+        type: SkillType.FRAMEWORK,
+      }),
+      Constant.SORT_KEY
+    );
+  }, [user.skill]);
+
+  const languageSkills = useMemo(() => {
+    return sortBy(
+      filter(filter(user.skill, { visible: true }), {
+        type: SkillType.LANGUAGE,
+      }),
+      Constant.SORT_KEY
+    );
+  }, [user.skill]);
+
+  const toolSkills = useMemo(() => {
+    return sortBy(
+      filter(filter(user.skill, { visible: true }), {
+        type: SkillType.TOOL,
+      }),
+      Constant.SORT_KEY
+    );
+  }, [user.skill]);
+
+  const covers = useMemo(() => {
+    return sortBy(
+      filter(user.profile.covers, { visible: true }),
+      Constant.SORT_KEY
+    );
+  }, [user.profile.covers]);
 
   const onSkillClick = (item: Skill) => {
     if (item.urlEnable) {
@@ -84,13 +119,13 @@ const About = () => {
           </Typography>
           <Typography color='primary' variant='h4'>
             {t(i18nKey.my_name_is_and_i_am_a, {
-              username: user?.profile.name,
-              specialty: user?.profile.specialties[0].name,
+              username: user.profile.name,
+              specialty: user.profile.specialties[0].name,
             })}
           </Typography>
           <Box mt={2} mb={4}>
             <Typography variant='subtitle1' align='justify'>
-              {user?.profile.summary}
+              {user.profile.summary}
             </Typography>
           </Box>
           <Box my={2}>
@@ -99,30 +134,15 @@ const About = () => {
             </Typography>
           </Box>
           <Grid container xs={12} item>
-            {_.sortBy(
-              _.filter(_.filter(user?.skill, { visible: true }), {
-                type: SkillType.FRAMEWORK,
-              }),
-              'index'
-            ).map((item) => renderSkillItem(item))}
+            {frameworkSkills.map((item) => renderSkillItem(item))}
           </Grid>
           <Box my={2} />
           <Grid container xs={12} item>
-            {_.sortBy(
-              _.filter(_.filter(user?.skill, { visible: true }), {
-                type: SkillType.LANGUAGE,
-              }),
-              'index'
-            ).map((item) => renderSkillItem(item))}
+            {languageSkills.map((item) => renderSkillItem(item))}
           </Grid>
           <Box my={2} />
           <Grid container xs={12} item>
-            {_.sortBy(
-              _.filter(_.filter(user?.skill, { visible: true }), {
-                type: SkillType.TOOL,
-              }),
-              'index'
-            ).map((item) => renderSkillItem(item))}
+            {toolSkills.map((item) => renderSkillItem(item))}
           </Grid>
         </Grid>
         <Grid
@@ -136,12 +156,7 @@ const About = () => {
         >
           <img
             className={clsx(classes.img)}
-            src={
-              _.sortBy(
-                _.filter(user?.profile.covers, { visible: true }),
-                'index'
-              )[slide].url
-            }
+            src={covers[slide].url}
             alt='cover'
           />
         </Grid>

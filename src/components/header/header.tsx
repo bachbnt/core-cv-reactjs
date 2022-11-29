@@ -1,6 +1,6 @@
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
 import clsx from 'clsx';
-import _ from 'lodash';
+import { lowerCase } from 'lodash';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
@@ -42,7 +42,7 @@ const Header = (props: Props) => {
 
   const onPageClick = async (name: string, path: string) => {
     if (
-      (config as any)[`${_.lowerCase(name)}Enable`] &&
+      (config as any)[`${lowerCase(name)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
@@ -57,7 +57,7 @@ const Header = (props: Props) => {
   };
 
   const onCVClick = async () => {
-    const url = user?.profile?.cv;
+    const url = user.profile.cv;
     if (url) {
       window.open(url);
     }
@@ -78,7 +78,7 @@ const Header = (props: Props) => {
           onClick={onLogoClick}
         />
         <Box className={clsx(classes.container)}>
-          {config?.cvVisible && (
+          {config.cvVisible && (
             <Button
               className={classes.cvButton}
               variant='outlined'
@@ -89,7 +89,7 @@ const Header = (props: Props) => {
           )}
           <Box className={clsx(classes.desktop)}>
             {routes.map((route) =>
-              (config as any)?.[`${_.lowerCase(route.name)}Visible`] ? (
+              (config as any)?.[`${lowerCase(route.name)}Visible`] ? (
                 <Button
                   className={classes.button}
                   variant={

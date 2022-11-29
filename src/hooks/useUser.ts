@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { capitalize } from 'lodash';
 import { useCallback } from 'react';
 import { firestoreDocument } from 'src/core/configs';
 import { User } from 'src/models/user';
@@ -28,7 +28,7 @@ export const useUser = () => {
         await Promise.all(
           documents.map((document) => {
             return (
-              (service as any)[`get${_.capitalize(document)}`] as Function
+              (service as any)[`get${capitalize(document)}`] as Function
             ).call(null);
           })
         )

@@ -51,11 +51,8 @@ const ProjectItem = (props: Props) => {
                 {item.name}
               </Typography>
             )}
-            {item.technologyVisible && (
-              <Typography variant='subtitle2'>{item.technology}</Typography>
-            )}
             {item.descriptionVisible && (
-              <Box mt={2} overflow='hidden'>
+              <Box overflow='hidden'>
                 <Typography
                   className={themeClasses.cardDescription}
                   variant='body2'
@@ -64,6 +61,10 @@ const ProjectItem = (props: Props) => {
                 </Typography>
               </Box>
             )}
+            <Box my={2} />
+            {item.technologyVisible && (
+              <Typography variant='subtitle2'>{item.technology}</Typography>
+            )}
           </CardContent>
         </CardActionArea>
       </Card>
@@ -71,6 +72,7 @@ const ProjectItem = (props: Props) => {
         <DialogContent>
           {item.coverVisible && (
             <CardMedia
+              className={classes.dialogImg}
               component='img'
               image={item.cover || config.image.comingSoon}
             />
@@ -81,11 +83,12 @@ const ProjectItem = (props: Props) => {
                 {item.name}
               </Typography>
             )}
-            {item.technologyVisible && (
-              <Typography variant='subtitle2'>{item.technology}</Typography>
-            )}
             {item.descriptionVisible && (
               <Typography variant='body2'>{item.description}</Typography>
+            )}
+            <Box my={2} />
+            {item.technologyVisible && (
+              <Typography variant='subtitle2'>{item.technology}</Typography>
             )}
           </CardContent>
         </DialogContent>

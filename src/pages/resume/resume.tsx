@@ -1,5 +1,7 @@
 import { Box, Grid } from '@material-ui/core';
 import clsx from 'clsx';
+import { filter, sortBy } from 'lodash';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   EducationItem,
@@ -8,6 +10,7 @@ import {
   Timeline,
   Typography,
 } from 'src/components';
+import { Constant } from 'src/core/constants';
 import { i18nKey } from 'src/locales/i18n';
 import { Education } from 'src/models/education';
 import { Experience } from 'src/models/experience';
@@ -23,6 +26,20 @@ const Resume = () => {
 
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
+  const education = useMemo(() => {
+    return sortBy(
+      filter(user.education, { visible: true }),
+      Constant.SORT_KEY
+    ).reverse() as Education[];
+  }, [user.education]);
+
+  const experience = useMemo(() => {
+    return sortBy(
+      filter(user.experience, { visible: true }),
+      Constant.SORT_KEY
+    ).reverse() as Experience[];
+  }, [user.experience]);
+
   return (
     <Layout>
       <Grid className={clsx(themeClasses.container)} container>
@@ -33,7 +50,7 @@ const Resume = () => {
         </Box>
         <Grid container>
           <Timeline
-            data={user!.education}
+            data={education}
             renderItem={(item) => (
               <EducationItem
                 key={`${item.name} ${item.index}`}
@@ -49,7 +66,7 @@ const Resume = () => {
         </Box>
         <Grid container>
           <Timeline
-            data={user!.experience}
+            data={experience}
             renderItem={(item) => (
               <ExperienceItem
                 key={`${item.name} ${item.index}`}

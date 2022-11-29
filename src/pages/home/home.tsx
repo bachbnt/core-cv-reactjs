@@ -1,7 +1,7 @@
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import clsx from 'clsx';
-import _ from 'lodash';
-import { useEffect, useState } from 'react';
+import { filter, sortBy } from 'lodash';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import {
@@ -11,6 +11,7 @@ import {
   Layout,
   Typography,
 } from 'src/components';
+import { Constant } from 'src/core/constants';
 import { i18nKey } from 'src/locales/i18n';
 import { Config } from 'src/models/config';
 import { ContactType } from 'src/models/contact';
@@ -35,7 +36,7 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!(slide === user!.profile.specialties.length - 1)) {
+      if (!(slide === user.profile.specialties.length - 1)) {
         setSlide(slide + 1);
       } else {
         setSlide(0);
@@ -47,13 +48,23 @@ const Home = () => {
     };
   }, [slide, user]);
 
+  const socialContacts = useMemo(() => {
+    return sortBy(
+      filter(user.contact, {
+        type: ContactType.SOCIAL,
+        visible: true,
+      }),
+      Constant.SORT_KEY
+    );
+  }, [user.contact]);
+
   const onAboutClick = () => {
-    if (config?.aboutEnable) {
+    if (config.aboutEnable) {
       navigate(RoutePath.ABOUT);
     }
   };
   const onContactClick = () => {
-    if (config?.contactEnable) {
+    if (config.contactEnable) {
       navigate(RoutePath.CONTACT);
     }
   };
@@ -69,7 +80,7 @@ const Home = () => {
           xs={12}
           md={6}
         >
-          <Avatar src={user?.profile?.avatar} />
+          <Avatar src={user.profile.avatar} />
         </Grid>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
           <Typography className={clsx(classes.greeting)} variant='h6'>
@@ -77,20 +88,14 @@ const Home = () => {
           </Typography>
           <Box my={2} />
           <Typography color='primary' variant='h1'>
-            {user?.profile?.name}
+            {user.profile.name}
           </Typography>
           <Typography color='primary' variant='h4'>
-            {user?.profile?.specialties[slide].name}
+            {user.profile.specialties[slide].name}
           </Typography>
           <Box mt={2} mb={6}>
             <Grid container item>
-              {_.sortBy(
-                _.filter(user?.contact, {
-                  type: ContactType.SOCIAL,
-                  visible: true,
-                }),
-                'index'
-              ).map((item) => (
+              {socialContacts.map((item) => (
                 <Tooltip
                   key={`${item.name} ${item.index}`}
                   title={item.nameVisible ? item.name : ''}
