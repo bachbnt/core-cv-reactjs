@@ -36,7 +36,7 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!(slide === user.profile.specialties.length - 1)) {
+      if (!(slide === user?.profile?.specialties?.length - 1)) {
         setSlide(slide + 1);
       } else {
         setSlide(0);
@@ -50,21 +50,21 @@ const Home = () => {
 
   const socialContacts = useMemo(() => {
     return sortBy(
-      filter(user.contact, {
+      filter(user?.contact, {
         type: ContactType.SOCIAL,
         visible: true,
       }),
       Constant.SORT_KEY
     );
-  }, [user.contact]);
+  }, [user?.contact]);
 
   const onAboutClick = () => {
-    if (config.aboutEnable) {
+    if (config?.aboutEnable) {
       navigate(RoutePath.ABOUT);
     }
   };
   const onContactClick = () => {
-    if (config.contactEnable) {
+    if (config?.contactEnable) {
       navigate(RoutePath.CONTACT);
     }
   };
@@ -80,7 +80,7 @@ const Home = () => {
           xs={12}
           md={6}
         >
-          <Avatar src={user.profile.avatar} />
+          <Avatar src={user?.profile?.avatar} />
         </Grid>
         <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
           <Typography className={clsx(classes.greeting)} variant='h6'>
@@ -88,14 +88,14 @@ const Home = () => {
           </Typography>
           <Box my={2} />
           <Typography color='primary' variant='h1'>
-            {user.profile.name}
+            {user?.profile?.name}
           </Typography>
           <Typography color='primary' variant='h4'>
-            {user.profile.specialties[slide].name}
+            {user?.profile?.specialties?.[slide]?.name}
           </Typography>
           <Box mt={2} mb={6}>
             <Grid container item>
-              {socialContacts.map((item) => (
+              {socialContacts?.map((item) => (
                 <Tooltip
                   key={`${item.name} ${item.index}`}
                   title={item.nameVisible ? item.name : ''}

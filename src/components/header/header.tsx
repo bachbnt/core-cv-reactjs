@@ -36,7 +36,8 @@ const Header = (props: Props) => {
 
   const onLogoClick = async () => {
     navigate(RoutePath.HOME, { replace: true });
-    await Promise.all([getConfig, getUser]);
+    getConfig();
+    getUser();
   };
 
   const onPageClick = async (name: string, path: string) => {
@@ -56,7 +57,7 @@ const Header = (props: Props) => {
   };
 
   const onCVClick = async () => {
-    const url = user.profile.cv;
+    const url = user?.profile?.cv;
     if (url) {
       window.open(url);
     }
@@ -70,14 +71,14 @@ const Header = (props: Props) => {
     <AppBar color='transparent' position='static'>
       <Toolbar>
         <img
-          src={config.appIcon}
+          src={config?.appIcon}
           alt='logo'
           width={36}
           height={36}
           onClick={onLogoClick}
         />
         <Box className={clsx(classes.container)}>
-          {config.cvVisible && (
+          {config?.cvVisible && (
             <Button
               className={classes.cvButton}
               variant='outlined'

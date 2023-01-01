@@ -16,8 +16,8 @@ const Payment = () => {
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   const payments = useMemo(() => {
-    return sortBy(filter(user.payment, { visible: true }), Constant.SORT_KEY);
-  }, [user.payment]);
+    return sortBy(filter(user?.payment, { visible: true }), Constant.SORT_KEY);
+  }, [user?.payment]);
 
   return (
     <Layout>

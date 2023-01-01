@@ -50,13 +50,13 @@ const Contact = () => {
 
   const contacts = useMemo(() => {
     return sortBy(
-      filter(user.contact, {
+      filter(user?.contact, {
         type: ContactType.CONTACT,
         visible: true,
       }),
       Constant.SORT_KEY
     );
-  }, [user.contact]);
+  }, [user?.contact]);
 
   return (
     <Layout>

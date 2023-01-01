@@ -85,7 +85,7 @@ const PaymentItem = (props: Props) => {
         {item.qrCodeVisible && (
           <CardMedia
             component='img'
-            image={item.qrCode || config.image.comingSoon}
+            image={item.qrCode || config?.image?.comingSoon}
           />
         )}
       </Dialog>

@@ -8,9 +8,8 @@ const App = () => {
   const { getData: getUser } = useUser();
 
   useEffect(() => {
-    (async () => {
-      await Promise.all([getConfig, getUser]);
-    })();
+    getConfig();
+    getUser();
   }, [getConfig, getUser]);
 
   return <AppRouter />;

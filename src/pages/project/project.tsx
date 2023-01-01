@@ -21,30 +21,30 @@ const Project = () => {
 
   const companyProjects = useMemo(() => {
     return sortBy(
-      filter(filter(user.project, { visible: true }), {
+      filter(filter(user?.project, { visible: true }), {
         type: ProjectType.COMPANY,
       }),
       Constant.SORT_KEY
     ).reverse();
-  }, [user.project]);
+  }, [user?.project]);
 
   const freelanceProjects = useMemo(() => {
     return sortBy(
-      filter(filter(user.project, { visible: true }), {
+      filter(filter(user?.project, { visible: true }), {
         type: ProjectType.FREELANCE,
       }),
       Constant.SORT_KEY
     ).reverse();
-  }, [user.project]);
+  }, [user?.project]);
 
   const personalProjects = useMemo(() => {
     return sortBy(
-      filter(filter(user.project, { visible: true }), {
+      filter(filter(user?.project, { visible: true }), {
         type: ProjectType.PERSONAL,
       }),
       Constant.SORT_KEY
     ).reverse();
-  }, [user.project]);
+  }, [user?.project]);
 
   const hasCompanyProject = useMemo(() => {
     return companyProjects.length > 0;

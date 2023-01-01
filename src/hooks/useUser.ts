@@ -20,7 +20,7 @@ export const useUser = () => {
           documents.map((document) => {
             return (
               (service as any)[`get${capitalize(document)}`] as Function
-            ).call(null);
+            )?.call(null);
           })
         )
       ).reduce((total, value, index) => {

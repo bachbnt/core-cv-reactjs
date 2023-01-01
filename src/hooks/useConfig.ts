@@ -17,7 +17,7 @@ export const useConfig = () => {
     try {
       dispatch(showSpinner());
       const config: Config = await service.getConfig();
-      updateDocument({ icon: config.appIcon, title: config.appTitle });
+      updateDocument({ icon: config?.appIcon, title: config?.appTitle });
       dispatch(setConfig(config));
     } catch (error) {
       console.log(error);

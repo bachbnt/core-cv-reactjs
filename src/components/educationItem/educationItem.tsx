@@ -41,7 +41,7 @@ const EducationItem = (props: Props) => {
           <CardMedia
             className={classes.img}
             component='img'
-            image={item.image || config.image.comingSoon}
+            image={item.image || config?.image?.comingSoon}
           />
         )}
       </CardActionArea>

@@ -28,17 +28,17 @@ const Resume = () => {
 
   const education = useMemo(() => {
     return sortBy(
-      filter(user.education, { visible: true }),
+      filter(user?.education, { visible: true }),
       Constant.SORT_KEY
     ).reverse() as Education[];
-  }, [user.education]);
+  }, [user?.education]);
 
   const experience = useMemo(() => {
     return sortBy(
-      filter(user.experience, { visible: true }),
+      filter(user?.experience, { visible: true }),
       Constant.SORT_KEY
     ).reverse() as Experience[];
-  }, [user.experience]);
+  }, [user?.experience]);
 
   return (
     <Layout>

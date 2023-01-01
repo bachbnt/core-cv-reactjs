@@ -16,8 +16,8 @@ const Service = () => {
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   const services = useMemo(() => {
-    return sortBy(filter(user.service, { visible: true }), Constant.SORT_KEY);
-  }, [user.service]);
+    return sortBy(filter(user?.service, { visible: true }), Constant.SORT_KEY);
+  }, [user?.service]);
 
   return (
     <Layout>

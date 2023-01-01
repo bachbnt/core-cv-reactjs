@@ -42,7 +42,7 @@ const ProjectItem = (props: Props) => {
             <CardMedia
               className={classes.img}
               component='img'
-              image={item.cover || config.image.comingSoon}
+              image={item.cover || config?.image?.comingSoon}
             />
           )}
           <CardContent>
@@ -74,7 +74,7 @@ const ProjectItem = (props: Props) => {
             <CardMedia
               className={classes.dialogImg}
               component='img'
-              image={item.cover || config.image.comingSoon}
+              image={item.cover || config?.image?.comingSoon}
             />
           )}
           <CardContent>

@@ -24,7 +24,7 @@ const About = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!(slide === user.profile.covers.length - 1)) {
+      if (!(slide === user?.profile?.covers?.length - 1)) {
         setSlide(slide + 1);
       } else {
         setSlide(0);
@@ -38,37 +38,37 @@ const About = () => {
 
   const frameworkSkills = useMemo(() => {
     return sortBy(
-      filter(filter(user.skill, { visible: true }), {
+      filter(filter(user?.skill, { visible: true }), {
         type: SkillType.FRAMEWORK,
       }),
       Constant.SORT_KEY
     );
-  }, [user.skill]);
+  }, [user?.skill]);
 
   const languageSkills = useMemo(() => {
     return sortBy(
-      filter(filter(user.skill, { visible: true }), {
+      filter(filter(user?.skill, { visible: true }), {
         type: SkillType.LANGUAGE,
       }),
       Constant.SORT_KEY
     );
-  }, [user.skill]);
+  }, [user?.skill]);
 
   const toolSkills = useMemo(() => {
     return sortBy(
-      filter(filter(user.skill, { visible: true }), {
+      filter(filter(user?.skill, { visible: true }), {
         type: SkillType.TOOL,
       }),
       Constant.SORT_KEY
     );
-  }, [user.skill]);
+  }, [user?.skill]);
 
   const covers = useMemo(() => {
     return sortBy(
-      filter(user.profile.covers, { visible: true }),
+      filter(user?.profile?.covers, { visible: true }),
       Constant.SORT_KEY
     );
-  }, [user.profile.covers]);
+  }, [user?.profile?.covers]);
 
   const onSkillClick = (item: Skill) => {
     if (item.urlEnable) {
@@ -119,13 +119,13 @@ const About = () => {
           </Typography>
           <Typography color='primary' variant='h4'>
             {t(i18nKey.my_name_is_and_i_am_a, {
-              username: user.profile.name,
-              specialty: user.profile.specialties[0].name,
+              username: user?.profile?.name,
+              specialty: user?.profile?.specialties[0].name,
             })}
           </Typography>
           <Box mt={2} mb={4}>
             <Typography variant='subtitle1' align='justify'>
-              {user.profile.summary}
+              {user?.profile?.summary}
             </Typography>
           </Box>
           <Box my={2}>

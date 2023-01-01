@@ -1,11 +1,13 @@
+import { Constant } from './constants';
+
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBdY9qSJ02fnJXIGEUvjrdI_YPXS9aEq1k',
-  authDomain: 'bachbntdev.firebaseapp.com',
-  projectId: 'bachbntdev',
-  storageBucket: 'bachbntdev.appspot.com',
-  messagingSenderId: '712213019462',
-  appId: '1:712213019462:web:5fd31a784c088100f84347',
-  measurementId: 'G-DF9JQV0P31',
+  apiKey: Constant.FIREBASE_API_KEY,
+  authDomain: Constant.FIREBASE_AUTH_DOMAIN,
+  projectId: Constant.FIREBASE_PROJECT_ID,
+  storageBucket: Constant.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: Constant.FIREBASE_MESSAGING_SENDER_ID,
+  appId: Constant.FIREBASE_APP_ID,
+  measurementId: Constant.FIREBASE_MEASUREMENT_ID,
 };
 
 export enum FirestoreCollection {
