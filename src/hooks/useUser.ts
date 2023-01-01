@@ -1,6 +1,6 @@
 import { capitalize } from 'lodash';
 import { useCallback } from 'react';
-import { firestoreDocument } from 'src/core/configs';
+import { FirestoreDocument } from 'src/core/configs';
 import { User } from 'src/models/user';
 import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
 import { useAppDispatch } from 'src/redux/store';
@@ -11,16 +11,7 @@ export const useUser = () => {
   const dispatch = useAppDispatch();
 
   const getData = useCallback(async () => {
-    const documents = [
-      firestoreDocument.contact,
-      firestoreDocument.education,
-      firestoreDocument.experience,
-      firestoreDocument.profile,
-      firestoreDocument.project,
-      firestoreDocument.service,
-      firestoreDocument.skill,
-      firestoreDocument.payment,
-    ];
+    const documents = Object.values(FirestoreDocument);
 
     try {
       dispatch(showSpinner());

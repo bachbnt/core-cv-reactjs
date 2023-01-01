@@ -1,3 +1,9 @@
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "eslint.validate": ["javascript", "typescript"],
   "cSpell.words": ["clsx", "firestore", "persistor", "zalo"]
 }

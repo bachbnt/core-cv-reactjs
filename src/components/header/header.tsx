@@ -36,8 +36,7 @@ const Header = (props: Props) => {
 
   const onLogoClick = async () => {
     navigate(RoutePath.HOME, { replace: true });
-    await getConfig();
-    await getUser();
+    await Promise.all([getConfig, getUser]);
   };
 
   const onPageClick = async (name: string, path: string) => {

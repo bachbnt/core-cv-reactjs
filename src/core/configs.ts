@@ -8,21 +8,21 @@ export const firebaseConfig = {
   measurementId: 'G-DF9JQV0P31',
 };
 
-export const firestoreCollection = {
-  config: 'config',
-  message: 'message',
-  user: 'user',
-};
+export enum FirestoreCollection {
+  CONFIG = 'config',
+  MESSAGE = 'message',
+  USER = 'user',
+}
 
-export const firestoreDocument = {
-  config: 'config',
-  message: 'message',
-  contact: 'contact',
-  education: 'education',
-  experience: 'experience',
-  profile: 'profile',
-  project: 'project',
-  service: 'service',
-  skill: 'skill',
-  payment: 'payment',
-};
+export enum FirestoreDocument {
+  CONFIG = 'config',
+  MESSAGE = 'message',
+  CONTACT = 'contact',
+  EDUCATION = 'education',
+  EXPERIENCE = 'experience',
+  PROFILE = 'profile',
+  PROJECT = 'project',
+  SERVICE = 'service',
+  SKILL = 'skill',
+  PAYMENT = 'payment',
+}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
+import AppRouter from 'src/routes/appRouter';
 import { useConfig } from './hooks/useConfig';
 import { useUser } from './hooks/useUser';
-import AppRouter from 'src/routes/appRouter';
 
 const App = () => {
   const { getData: getConfig } = useConfig();
@@ -9,8 +9,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      await getConfig();
-      await getUser();
+      await Promise.all([getConfig, getUser]);
     })();
   }, [getConfig, getUser]);
 

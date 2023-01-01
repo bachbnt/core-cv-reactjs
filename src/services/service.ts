@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { firestoreCollection, firestoreDocument } from 'src/core/configs';
+import { FirestoreCollection, FirestoreDocument } from 'src/core/configs';
 import { Config, parseConfig } from 'src/models/config';
 import { Contact } from 'src/models/contact';
 import { Education } from 'src/models/education';
@@ -13,11 +13,20 @@ import { Skill } from 'src/models/skill';
 import { firestore } from './firebase';
 
 class Service {
+  private static instance: Service;
+  private constructor() {}
+  static getInstance(): Service {
+    if (!Service.instance) {
+      Service.instance = new Service();
+    }
+    return Service.instance;
+  }
+
   async getConfig(): Promise<Config | any> {
     const ref = doc(
       firestore,
-      firestoreCollection.config,
-      firestoreDocument.config
+      FirestoreCollection.CONFIG,
+      FirestoreDocument.CONFIG
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -29,7 +38,7 @@ class Service {
   async postMessage(message: Message): Promise<void> {
     const ref = doc(
       firestore,
-      firestoreCollection.message,
+      FirestoreCollection.MESSAGE,
       new Date().toString()
     );
     await setDoc(ref, message);
@@ -38,8 +47,8 @@ class Service {
   async getContact(): Promise<Contact[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.contact
+      FirestoreCollection.USER,
+      FirestoreDocument.CONTACT
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -51,8 +60,8 @@ class Service {
   async getEducation(): Promise<Education[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.education
+      FirestoreCollection.USER,
+      FirestoreDocument.EDUCATION
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -64,8 +73,8 @@ class Service {
   async getExperience(): Promise<Experience[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.experience
+      FirestoreCollection.USER,
+      FirestoreDocument.EXPERIENCE
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -77,8 +86,8 @@ class Service {
   async getProfile(): Promise<Profile | any> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.profile
+      FirestoreCollection.USER,
+      FirestoreDocument.PROFILE
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -90,8 +99,8 @@ class Service {
   async getProject(): Promise<Project[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.project
+      FirestoreCollection.USER,
+      FirestoreDocument.PROJECT
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -103,8 +112,8 @@ class Service {
   async getService(): Promise<ServiceModel[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.service
+      FirestoreCollection.USER,
+      FirestoreDocument.SERVICE
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -116,8 +125,8 @@ class Service {
   async getSkill(): Promise<Skill[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.skill
+      FirestoreCollection.USER,
+      FirestoreDocument.SKILL
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -129,8 +138,8 @@ class Service {
   async getPayment(): Promise<Payment[]> {
     const ref = doc(
       firestore,
-      firestoreCollection.user,
-      firestoreDocument.payment
+      FirestoreCollection.USER,
+      FirestoreDocument.PAYMENT
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
@@ -140,4 +149,4 @@ class Service {
   }
 }
 
-export const service = new Service();
+export const service = Service.getInstance();
