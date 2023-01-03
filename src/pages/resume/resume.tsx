@@ -1,5 +1,4 @@
 import { Box, Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -42,7 +41,7 @@ const Resume = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(themeClasses.container)} container>
+      <Grid className={themeClasses.container} container>
         <Box mb={2}>
           <Typography color='primary' variant='h4'>
             {t(i18nKey.education)}

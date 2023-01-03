@@ -1,5 +1,4 @@
 import { Box, Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -60,7 +59,7 @@ const Project = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(themeClasses.container)} container>
+      <Grid className={themeClasses.container} container>
         {hasCompanyProject && (
           <>
             <Box mb={2}>
@@ -68,11 +67,7 @@ const Project = () => {
                 {t(i18nKey.company)}
               </Typography>
             </Box>
-            <Grid
-              className={clsx(themeClasses.container)}
-              container
-              spacing={4}
-            >
+            <Grid className={themeClasses.container} container spacing={4}>
               {companyProjects.map((item) => (
                 <Grid key={`${item.name} ${item.index}`} item>
                   <ProjectItem item={item} />
@@ -89,11 +84,7 @@ const Project = () => {
                 {t(i18nKey.freelance)}
               </Typography>
             </Box>
-            <Grid
-              className={clsx(themeClasses.container)}
-              container
-              spacing={4}
-            >
+            <Grid className={themeClasses.container} container spacing={4}>
               {freelanceProjects.map((item) => (
                 <Grid key={`${item.name} ${item.index}`} item>
                   <ProjectItem item={item} />
@@ -110,11 +101,7 @@ const Project = () => {
                 {t(i18nKey.personal)}
               </Typography>
             </Box>
-            <Grid
-              className={clsx(themeClasses.container)}
-              container
-              spacing={4}
-            >
+            <Grid className={themeClasses.container} container spacing={4}>
               {personalProjects.map((item) => (
                 <Grid key={`${item.name} ${item.index}`} item>
                   <ProjectItem item={item} />

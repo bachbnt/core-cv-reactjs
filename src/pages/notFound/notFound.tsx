@@ -1,5 +1,4 @@
 import { Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { Config } from 'src/models/config';
 import { useAppSelector } from 'src/redux/store';
 import useThemeStyles from 'src/themes/styles';
@@ -14,7 +13,7 @@ const NotFound = () => {
   ) as Config;
 
   return (
-    <Grid className={clsx(themeClasses.container)} container spacing={4}>
+    <Grid className={themeClasses.container} container spacing={4}>
       <img src={config?.image?.error404} alt='404' />
     </Grid>
   );

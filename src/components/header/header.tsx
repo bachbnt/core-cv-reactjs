@@ -1,11 +1,10 @@
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
-import clsx from 'clsx';
 import { lowerCase } from 'lodash';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
 import { useLocation, useNavigate } from 'react-router';
-import { Button, Drawer } from 'src/components';
+import { Avatar, Button, Drawer } from 'src/components';
 import { Constant } from 'src/core/constants';
 import { useConfig } from 'src/hooks/useConfig';
 import { useUser } from 'src/hooks/useUser';
@@ -70,14 +69,13 @@ const Header = (props: Props) => {
   return (
     <AppBar color='transparent' position='static'>
       <Toolbar>
-        <img
+        <Avatar
           src={config?.appIcon}
-          alt='logo'
-          width={36}
-          height={36}
+          variant='rounded'
+          classes={{ root: classes.logo }}
           onClick={onLogoClick}
         />
-        <Box className={clsx(classes.container)}>
+        <Box className={classes.container}>
           {config?.cvVisible && (
             <Button
               className={classes.cvButton}
@@ -87,7 +85,7 @@ const Header = (props: Props) => {
               {t(i18nKey.my_cv)}
             </Button>
           )}
-          <Box className={clsx(classes.desktop)}>
+          <Box className={classes.desktop}>
             {routes.map((route) =>
               (config as any)?.[`${lowerCase(route.name)}Visible`] ? (
                 <Button
@@ -107,7 +105,7 @@ const Header = (props: Props) => {
               )
             )}
           </Box>
-          <Box className={clsx(classes.mobile)}>
+          <Box className={classes.mobile}>
             <Fragment>
               <IconButton onClick={onHamburgerClick}>
                 <MdMenu />

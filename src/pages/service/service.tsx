@@ -1,5 +1,4 @@
 import { Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { Layout, ServiceItem } from 'src/components';
@@ -21,7 +20,7 @@ const Service = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(themeClasses.container)} container spacing={4}>
+      <Grid className={themeClasses.container} container spacing={4}>
         {services.map((item) => (
           <Grid key={`${item.name} ${item.index}`} item>
             <ServiceItem item={item} />

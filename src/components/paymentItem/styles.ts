@@ -11,6 +11,7 @@ export default makeStyles(
       img: {
         maxWidth: 350,
         maxHeight: 350,
+        width: 'auto',
       },
     }),
   { index: 1 }

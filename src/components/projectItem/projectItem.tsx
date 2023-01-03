@@ -7,7 +7,6 @@ import {
   Dialog,
   DialogContent,
 } from '@material-ui/core';
-import clsx from 'clsx';
 import { useState } from 'react';
 import { Typography } from 'src/components';
 import { Config } from 'src/models/config';
@@ -36,7 +35,7 @@ const ProjectItem = (props: Props) => {
 
   return item.visible ? (
     <div>
-      <Card className={clsx(classes.card)} onClick={onOpenDialog}>
+      <Card className={classes.card} onClick={onOpenDialog}>
         <CardActionArea>
           {item.coverVisible && (
             <CardMedia

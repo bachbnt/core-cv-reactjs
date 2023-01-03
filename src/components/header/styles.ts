@@ -26,6 +26,10 @@ export default makeStyles(
       cvButton: {
         marginRight: theme.spacing(2),
       },
+      logo: {
+        width: theme.spacing(5),
+        height: theme.spacing(5),
+      },
     }),
   { index: 1 }
 );

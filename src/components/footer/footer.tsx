@@ -1,5 +1,4 @@
 import { Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { Typography } from 'src/components';
 import { i18nKey } from 'src/locales/i18n';
@@ -15,7 +14,7 @@ const Footer = (props: Props) => {
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   return (
-    <Grid className={clsx(classes.container)}>
+    <Grid className={classes.container}>
       <Typography variant='subtitle2'>
         {t(i18nKey.copyright_by, {
           time: new Date().getFullYear(),

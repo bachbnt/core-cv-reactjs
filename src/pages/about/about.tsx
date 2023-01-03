@@ -1,5 +1,4 @@
 import { Box, Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { filter, sortBy } from 'lodash';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -94,7 +93,7 @@ const About = () => {
       return item.visible ? (
         <Grid key={`${item.name} ${item.index}`} container item xs={6} md={4}>
           <Button
-            className={clsx(classes.skillText)}
+            className={classes.skillText}
             startIcon={renderSkillIcon(item.type)}
             onClick={() => {
               onSkillClick(item);
@@ -112,8 +111,8 @@ const About = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(themeClasses.container)} container>
-        <Grid className={clsx(classes.infoContainer)} item xs={12} md={6}>
+      <Grid className={themeClasses.container} container>
+        <Grid className={classes.infoContainer} item xs={12} md={6}>
           <Typography color='primary' variant='h5'>
             {t(i18nKey.hello_world)}
           </Typography>
@@ -146,7 +145,7 @@ const About = () => {
           </Grid>
         </Grid>
         <Grid
-          className={clsx(classes.imgContainer)}
+          className={classes.imgContainer}
           container
           justifyContent='center'
           alignItems='center'
@@ -154,11 +153,7 @@ const About = () => {
           md={6}
           item
         >
-          <img
-            className={clsx(classes.img)}
-            src={covers[slide].url}
-            alt='cover'
-          />
+          <img className={classes.img} src={covers[slide].url} alt='cover' />
         </Grid>
       </Grid>
     </Layout>

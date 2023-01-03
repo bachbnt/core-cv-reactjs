@@ -1,5 +1,4 @@
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { filter, sortBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -60,9 +59,9 @@ const Contact = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(themeClasses.container)} container xs={12} item>
+      <Grid className={themeClasses.container} container xs={12} item>
         <Grid
-          className={clsx(classes.contactContainer)}
+          className={classes.contactContainer}
           container
           xs={12}
           md={6}
@@ -75,15 +74,9 @@ const Contact = () => {
             </Grid>
           ))}
         </Grid>
-        <Grid
-          className={clsx(classes.messageContainer)}
-          container
-          xs={12}
-          md={6}
-          item
-        >
-          <Card className={clsx(classes.card)}>
-            <CardContent className={clsx(classes.center)}>
+        <Grid className={classes.messageContainer} xs={12} md={6} item>
+          <Card className={classes.card}>
+            <CardContent className={classes.center}>
               <FormProvider {...methods}>
                 <Typography color='primary' variant='h6'>
                   {t(i18nKey.leave_me_a_message)}

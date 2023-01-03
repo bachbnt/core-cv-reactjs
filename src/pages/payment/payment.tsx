@@ -1,5 +1,4 @@
 import { Grid } from '@material-ui/core';
-import clsx from 'clsx';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { Layout, PaymentItem } from 'src/components';
@@ -21,7 +20,7 @@ const Payment = () => {
 
   return (
     <Layout>
-      <Grid className={clsx(themeClasses.container)} container spacing={4}>
+      <Grid className={themeClasses.container} container spacing={4}>
         {payments.map((item) => (
           <Grid key={`${item.name} ${item.index}`} item>
             <PaymentItem item={item} />

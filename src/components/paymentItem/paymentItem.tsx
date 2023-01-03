@@ -71,10 +71,10 @@ const PaymentItem = (props: Props) => {
               </Box>
             )}
             {item.qrCodeVisible && (
-              <img
-                className={clsx(classes.img)}
-                src={item.qrCode}
-                alt='qrcode'
+              <CardMedia
+                className={classes.img}
+                component='img'
+                image={item.qrCode}
                 onClick={onOpenDialog}
               />
             )}
