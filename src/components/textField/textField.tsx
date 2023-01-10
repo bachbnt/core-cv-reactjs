@@ -8,7 +8,7 @@ const TextField = (props: Props) => {
   return (
     <MuiTextField
       classes={{ root: classes.root }}
-      variant='outlined'
+      variant="outlined"
       fullWidth
       {...props}
     />

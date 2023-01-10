@@ -6,9 +6,10 @@ import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
+import Props from './props';
 import useStyles from './styles';
 
-const Payment = () => {
+const Payment = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
 

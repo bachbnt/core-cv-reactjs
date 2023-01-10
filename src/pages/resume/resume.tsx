@@ -16,9 +16,10 @@ import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import Props from './props';
 import useStyles from './styles';
 
-const Resume = () => {
+const Resume = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();

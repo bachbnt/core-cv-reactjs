@@ -10,9 +10,10 @@ import { filter, sortBy } from 'lodash';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
+import Props from './props';
 import useStyles from './styles';
 
-const About = () => {
+const About = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();

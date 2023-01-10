@@ -18,10 +18,11 @@ import { filter, sortBy } from 'lodash';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import Props from './props';
 import useStyles from './styles';
 import { FormValues, validationSchema } from './validation';
 
-const Contact = () => {
+const Contact = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();

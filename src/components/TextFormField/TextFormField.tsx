@@ -3,8 +3,10 @@ import { useEffect, useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
+import useStyles from './styles';
 
 const TextFormField = (props: Props) => {
+  const classes = useStyles();
   const { name = '' } = props;
   const {
     register,

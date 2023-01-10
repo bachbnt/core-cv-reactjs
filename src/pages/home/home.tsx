@@ -12,9 +12,10 @@ import { filter, sortBy } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import Props from './props';
 import useStyles from './styles';
 
-const Home = () => {
+const Home = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const navigate = useNavigate();

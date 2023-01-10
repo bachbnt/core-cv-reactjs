@@ -1,41 +1,19 @@
-import { default as Avatar } from './avatar/avatar';
-import Button from './button/button';
-import ContactItem from './contactItem/contactItem';
-import Drawer from './drawer/drawer';
-import EducationItem from './educationItem/educationItem';
-import ExperienceItem from './experienceItem/experienceItem';
-import Footer from './footer/footer';
-import Header from './header/header';
-import IconButton from './iconButton/iconButton';
-import Layout from './layout/layout';
-import PaymentItem from './paymentItem/paymentItem';
-import ProjectItem from './projectItem/projectItem';
-import ServiceItem from './serviceItem/serviceItem';
-import Spinner from './spinner/spinner';
-import TextField from './textField/textField';
-import TextFormField from './textField/textFormField/textFormField';
-import Timeline from './timeline/timeline';
-import Typography from './typography/typography';
-import Wrapper from './wrapper/wrapper';
-export * from './avatar/avatar';
-export {
-  Avatar,
-  Button,
-  ContactItem,
-  Drawer,
-  EducationItem,
-  ExperienceItem,
-  Footer,
-  Header,
-  IconButton,
-  Layout,
-  PaymentItem,
-  ProjectItem,
-  ServiceItem,
-  Spinner,
-  TextField,
-  TextFormField,
-  Timeline,
-  Typography,
-  Wrapper,
-};
+export { default as Avatar } from './Avatar';
+export { default as Button } from './Button';
+export { default as ContactItem } from './ContactItem';
+export { default as Drawer } from './Drawer';
+export { default as EducationItem } from './EducationItem';
+export { default as ExperienceItem } from './ExperienceItem';
+export { default as Footer } from './Footer';
+export { default as Header } from './Header';
+export { default as IconButton } from './IconButton';
+export { default as Layout } from './Layout';
+export { default as PaymentItem } from './PaymentItem';
+export { default as ProjectItem } from './ProjectItem';
+export { default as ServiceItem } from './ServiceItem';
+export { default as Spinner } from './Spinner';
+export { default as TextField } from './TextField';
+export { default as TextFormField } from './TextFormField';
+export { default as Timeline } from './Timeline';
+export { default as Typography } from './Typography';
+export { default as Wrapper } from './Wrapper';
