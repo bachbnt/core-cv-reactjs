@@ -1,10 +1,9 @@
 import { Layout, PaymentItem } from '@components';
-import { Constant } from '@core/constants';
 import { Grid } from '@material-ui/core';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter, sortBy } from 'lodash';
+import { filter } from 'lodash';
 import { useMemo } from 'react';
 import Props from './props';
 import useStyles from './styles';
@@ -16,7 +15,7 @@ const Payment = (props: Props) => {
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   const payments = useMemo(() => {
-    return sortBy(filter(user?.payment, { visible: true }), Constant.SORT_KEY);
+    return filter(user?.payment, { visible: true });
   }, [user?.payment]);
 
   return (

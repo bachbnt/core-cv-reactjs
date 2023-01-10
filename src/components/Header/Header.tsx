@@ -1,5 +1,5 @@
 import { Avatar, Button, Drawer } from '@components';
-import { Constant } from '@core/constants';
+import Constant from '@core/constants';
 import useConfig from '@hooks/useConfig';
 import useUser from '@hooks/useUser';
 import { i18nKey } from '@locales/i18n';

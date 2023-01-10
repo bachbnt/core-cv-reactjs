@@ -1,5 +1,4 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
-import { Constant } from '@core/constants';
 import { i18nKey } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import { Config } from '@models/config';
@@ -8,7 +7,7 @@ import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import useThemeStyles from '@themes/styles';
-import { filter, sortBy } from 'lodash';
+import { filter } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
@@ -43,13 +42,10 @@ const Home = (props: Props) => {
   }, [slide, user]);
 
   const socialContacts = useMemo(() => {
-    return sortBy(
-      filter(user?.contact, {
-        type: ContactType.SOCIAL,
-        visible: true,
-      }),
-      Constant.SORT_KEY
-    );
+    return filter(user?.contact, {
+      type: ContactType.SOCIAL,
+      visible: true,
+    });
   }, [user?.contact]);
 
   const onAboutClick = () => {

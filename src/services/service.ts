@@ -1,4 +1,5 @@
 import { FirestoreCollection, FirestoreDocument } from '@core/configs';
+import Constant from '@core/constants';
 import { Config, parseConfig } from '@models/config';
 import { Contact } from '@models/contact';
 import { Education } from '@models/education';
@@ -10,8 +11,8 @@ import { Project } from '@models/project';
 import { Service as ServiceModel } from '@models/service';
 import { Skill } from '@models/skill';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { sortBy } from 'lodash';
 import { firestore } from './firebase';
-
 class Service {
   private static instance: Service;
   private constructor() {}
@@ -53,8 +54,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const contactList: Contact[] = Object.values(data as {});
-    return contactList;
+    const list: Contact[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 
   async getEducation(): Promise<Education[]> {
@@ -66,8 +67,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const educationList: Education[] = Object.values(data as {});
-    return educationList;
+    const list: Education[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 
   async getExperience(): Promise<Experience[]> {
@@ -79,8 +80,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const experienceList: Experience[] = Object.values(data as {});
-    return experienceList;
+    const list: Experience[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 
   async getProfile(): Promise<Profile | any> {
@@ -105,8 +106,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const projectList: Project[] = Object.values(data as {});
-    return projectList;
+    const list: Project[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 
   async getService(): Promise<ServiceModel[]> {
@@ -118,8 +119,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const serviceList: ServiceModel[] = Object.values(data as {});
-    return serviceList;
+    const list: ServiceModel[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 
   async getSkill(): Promise<Skill[]> {
@@ -131,8 +132,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const skillList: Skill[] = Object.values(data as {});
-    return skillList;
+    const list: Skill[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 
   async getPayment(): Promise<Payment[]> {
@@ -144,8 +145,8 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data();
 
-    const paymentList: Payment[] = Object.values(data as {});
-    return paymentList;
+    const list: Payment[] = Object.values(data as {});
+    return sortBy(list, Constant.SORT_KEY);
   }
 }
 

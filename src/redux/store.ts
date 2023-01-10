@@ -1,4 +1,4 @@
-import { Constant } from '@core/constants';
+import Constant from '@core/constants';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import logger from 'redux-logger';

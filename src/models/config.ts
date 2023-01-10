@@ -1,4 +1,4 @@
-import { Constant } from '@core/constants';
+import Constant from '@core/constants';
 
 export interface Config {
   aboutEnable: boolean;

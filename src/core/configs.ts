@@ -1,4 +1,4 @@
-import { Constant } from './constants';
+import Constant from './constants';
 
 export const firebaseConfig = {
   apiKey: Constant.FIREBASE_API_KEY,

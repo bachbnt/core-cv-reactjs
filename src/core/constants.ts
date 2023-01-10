@@ -1,4 +1,4 @@
-export class Constant {
+class Constant {
   static readonly APP_NAME = 'bachbui';
   static readonly LANGUAGE_EN = 'en';
   static readonly DEFAULT_LANGUAGE = Constant.LANGUAGE_EN;
@@ -31,3 +31,5 @@ export class Constant {
   static readonly FIREBASE_MEASUREMENT_ID =
     process.env.REACT_APP_FIREBASE_MEASUREMENT_ID;
 }
+
+export default Constant

@@ -5,7 +5,6 @@ import {
   TextFormField,
   Typography,
 } from '@components';
-import { Constant } from '@core/constants';
 import useMessage from '@hooks/useMessage';
 import useYupResolver from '@hooks/useYupResolver';
 import { i18nKey } from '@locales/i18n';
@@ -14,7 +13,7 @@ import { ContactType } from '@models/contact';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter, sortBy } from 'lodash';
+import { filter } from 'lodash';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -49,13 +48,10 @@ const Contact = (props: Props) => {
   };
 
   const contacts = useMemo(() => {
-    return sortBy(
-      filter(user?.contact, {
-        type: ContactType.CONTACT,
-        visible: true,
-      }),
-      Constant.SORT_KEY
-    );
+    return filter(user?.contact, {
+      type: ContactType.CONTACT,
+      visible: true,
+    });
   }, [user?.contact]);
 
   return (

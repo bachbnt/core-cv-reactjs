@@ -1,12 +1,11 @@
 import { Button, Layout, Typography } from '@components';
-import { Constant } from '@core/constants';
 import { i18nKey } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter, sortBy } from 'lodash';
+import { filter } from 'lodash';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
@@ -37,37 +36,19 @@ const About = (props: Props) => {
   }, [slide, user]);
 
   const frameworkSkills = useMemo(() => {
-    return sortBy(
-      filter(filter(user?.skill, { visible: true }), {
-        type: SkillType.FRAMEWORK,
-      }),
-      Constant.SORT_KEY
-    );
+    return filter(user?.skill, { type: SkillType.FRAMEWORK, visible: true });
   }, [user?.skill]);
 
   const languageSkills = useMemo(() => {
-    return sortBy(
-      filter(filter(user?.skill, { visible: true }), {
-        type: SkillType.LANGUAGE,
-      }),
-      Constant.SORT_KEY
-    );
+    return filter(user?.skill, { type: SkillType.LANGUAGE, visible: true });
   }, [user?.skill]);
 
   const toolSkills = useMemo(() => {
-    return sortBy(
-      filter(filter(user?.skill, { visible: true }), {
-        type: SkillType.TOOL,
-      }),
-      Constant.SORT_KEY
-    );
+    return filter(user?.skill, { type: SkillType.TOOL, visible: true });
   }, [user?.skill]);
 
   const covers = useMemo(() => {
-    return sortBy(
-      filter(user?.profile?.covers, { visible: true }),
-      Constant.SORT_KEY
-    );
+    return filter(user?.profile?.covers, { visible: true });
   }, [user?.profile?.covers]);
 
   const onSkillClick = (item: Skill) => {

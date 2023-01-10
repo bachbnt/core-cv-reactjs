@@ -1,4 +1,4 @@
-import { Constant } from '@core/constants';
+import Constant from '@core/constants';
 
 const variables = {
   buttonMinWidth: 64,

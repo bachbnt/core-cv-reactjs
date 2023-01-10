@@ -5,7 +5,6 @@ import {
   Timeline,
   Typography,
 } from '@components';
-import { Constant } from '@core/constants';
 import { i18nKey } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Education } from '@models/education';
@@ -13,7 +12,7 @@ import { Experience } from '@models/experience';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter, sortBy } from 'lodash';
+import { filter } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
@@ -27,17 +26,13 @@ const Resume = (props: Props) => {
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   const education = useMemo(() => {
-    return sortBy(
-      filter(user?.education, { visible: true }),
-      Constant.SORT_KEY
-    ).reverse() as Education[];
+    return filter(user?.education, { visible: true }).reverse() as Education[];
   }, [user?.education]);
 
   const experience = useMemo(() => {
-    return sortBy(
-      filter(user?.experience, { visible: true }),
-      Constant.SORT_KEY
-    ).reverse() as Experience[];
+    return filter(user?.experience, {
+      visible: true,
+    }).reverse() as Experience[];
   }, [user?.experience]);
 
   return (

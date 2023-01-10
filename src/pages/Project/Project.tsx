@@ -1,12 +1,11 @@
 import { Layout, ProjectItem, Typography } from '@components';
-import { Constant } from '@core/constants';
 import { i18nKey } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { ProjectType } from '@models/project';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter, sortBy } from 'lodash';
+import { filter } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
@@ -20,30 +19,24 @@ const Project = (props: Props) => {
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
 
   const companyProjects = useMemo(() => {
-    return sortBy(
-      filter(filter(user?.project, { visible: true }), {
-        type: ProjectType.COMPANY,
-      }),
-      Constant.SORT_KEY
-    ).reverse();
+    return filter(user?.project, {
+      type: ProjectType.COMPANY,
+      visible: true,
+    }).reverse();
   }, [user?.project]);
 
   const freelanceProjects = useMemo(() => {
-    return sortBy(
-      filter(filter(user?.project, { visible: true }), {
-        type: ProjectType.FREELANCE,
-      }),
-      Constant.SORT_KEY
-    ).reverse();
+    return filter(user?.project, {
+      type: ProjectType.FREELANCE,
+      visible: true,
+    }).reverse();
   }, [user?.project]);
 
   const personalProjects = useMemo(() => {
-    return sortBy(
-      filter(filter(user?.project, { visible: true }), {
-        type: ProjectType.PERSONAL,
-      }),
-      Constant.SORT_KEY
-    ).reverse();
+    return filter(user?.project, {
+      type: ProjectType.PERSONAL,
+      visible: true,
+    }).reverse();
   }, [user?.project]);
 
   const hasCompanyProject = useMemo(() => {

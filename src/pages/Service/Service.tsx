@@ -1,5 +1,5 @@
 import { Layout, ServiceItem } from '@components';
-import { Constant } from '@core/constants';
+import Constant from '@core/constants';
 import { Grid } from '@material-ui/core';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
