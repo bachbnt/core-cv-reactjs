@@ -1,4 +1,4 @@
-import Avatar from './avatar/avatar';
+import { default as Avatar } from './avatar/avatar';
 import Button from './button/button';
 import ContactItem from './contactItem/contactItem';
 import Drawer from './drawer/drawer';
@@ -17,7 +17,7 @@ import TextFormField from './textField/textFormField/textFormField';
 import Timeline from './timeline/timeline';
 import Typography from './typography/typography';
 import Wrapper from './wrapper/wrapper';
-
+export * from './avatar/avatar';
 export {
   Avatar,
   Button,

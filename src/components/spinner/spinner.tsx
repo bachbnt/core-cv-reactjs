@@ -1,5 +1,5 @@
 import { Backdrop, CircularProgress } from '@material-ui/core';
-import { useAppSelector } from 'src/redux/store';
+import { useAppSelector } from '@redux/store';
 import Props from './props';
 import useStyles from './styles';
 

@@ -1,3 +1,4 @@
+import { Typography } from '@components';
 import {
   Box,
   Card,
@@ -5,9 +6,8 @@ import {
   CardContent,
   CardMedia,
 } from '@material-ui/core';
-import { Typography } from 'src/components';
-import { Config } from 'src/models/config';
-import { useAppSelector } from 'src/redux/store';
+import { Config } from '@models/config';
+import { useAppSelector } from '@redux/store';
 import Props from './props';
 import useStyles from './styles';
 
@@ -24,23 +24,23 @@ const EducationItem = (props: Props) => {
       <CardActionArea>
         <CardContent>
           {item.nameVisible && (
-            <Typography color='primary' variant='h6'>
+            <Typography color="primary" variant="h6">
               {item.name.toUpperCase()}
             </Typography>
           )}
           {item.degreeVisible && (
-            <Typography variant='subtitle1'>{item.degree}</Typography>
+            <Typography variant="subtitle1">{item.degree}</Typography>
           )}
           {item.majorVisible && (
             <Box mt={2}>
-              <Typography variant='body2'>{item.major} </Typography>
+              <Typography variant="body2">{item.major} </Typography>
             </Box>
           )}
         </CardContent>
         {item.imageVisible && (
           <CardMedia
             className={classes.img}
-            component='img'
+            component="img"
             image={item.image || config?.image?.comingSoon}
           />
         )}

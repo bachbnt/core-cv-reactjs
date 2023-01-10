@@ -1,5 +1,5 @@
+import { Spinner } from '@components';
 import { lazy, Suspense, useMemo } from 'react';
-import { Spinner } from 'src/components';
 import Props from './props';
 import useStyles from './styles';
 
@@ -8,7 +8,7 @@ const Wrapper = (props: Props) => {
   const classes = useStyles();
 
   const Component = useMemo(() => {
-    return lazy(() => import(`src/pages/${page}`));
+    return lazy(() => import(`@pages/${page}`));
   }, [page]);
 
   return (

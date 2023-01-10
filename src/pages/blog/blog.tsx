@@ -1,6 +1,6 @@
+import { Layout } from '@components';
 import { Grid } from '@material-ui/core';
-import { Layout } from 'src/components';
-import useThemeStyles from 'src/themes/styles';
+import useThemeStyles from '@themes/styles';
 import useStyles from './styles';
 
 const Blog = () => {

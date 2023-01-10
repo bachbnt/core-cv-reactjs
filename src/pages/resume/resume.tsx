@@ -1,21 +1,21 @@
-import { Box, Grid } from '@material-ui/core';
-import { filter, sortBy } from 'lodash';
-import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   EducationItem,
   ExperienceItem,
   Layout,
   Timeline,
   Typography,
-} from 'src/components';
-import { Constant } from 'src/core/constants';
-import { i18nKey } from 'src/locales/i18n';
-import { Education } from 'src/models/education';
-import { Experience } from 'src/models/experience';
-import { User } from 'src/models/user';
-import { useAppSelector } from 'src/redux/store';
-import useThemeStyles from 'src/themes/styles';
+} from '@components';
+import { Constant } from '@core/constants';
+import { i18nKey } from '@locales/i18n';
+import { Box, Grid } from '@material-ui/core';
+import { Education } from '@models/education';
+import { Experience } from '@models/experience';
+import { User } from '@models/user';
+import { useAppSelector } from '@redux/store';
+import useThemeStyles from '@themes/styles';
+import { filter, sortBy } from 'lodash';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import useStyles from './styles';
 
 const Resume = () => {
@@ -43,7 +43,7 @@ const Resume = () => {
     <Layout>
       <Grid className={themeClasses.container} container>
         <Box mb={2}>
-          <Typography color='primary' variant='h4'>
+          <Typography color="primary" variant="h4">
             {t(i18nKey.education)}
           </Typography>
         </Box>
@@ -59,7 +59,7 @@ const Resume = () => {
           />
         </Grid>
         <Box mt={6} mb={2}>
-          <Typography color='primary' variant='h4'>
+          <Typography color="primary" variant="h4">
             {t(i18nKey.experience)}
           </Typography>
         </Box>

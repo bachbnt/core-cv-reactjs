@@ -1,4 +1,4 @@
-import { i18nKey } from 'src/locales/i18n';
+import { i18nKey } from '@locales/i18n';
 import { RouteName } from './routeName';
 import { RoutePath } from './routePath';
 

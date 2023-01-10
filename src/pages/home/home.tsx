@@ -1,23 +1,17 @@
+import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
+import { Constant } from '@core/constants';
+import { i18nKey } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
+import { Config } from '@models/config';
+import { ContactType } from '@models/contact';
+import { User } from '@models/user';
+import { useAppSelector } from '@redux/store';
+import { RoutePath } from '@routes/routePath';
+import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import {
-  Avatar,
-  Button,
-  ContactItem,
-  Layout,
-  Typography,
-} from 'src/components';
-import { Constant } from 'src/core/constants';
-import { i18nKey } from 'src/locales/i18n';
-import { Config } from 'src/models/config';
-import { ContactType } from 'src/models/contact';
-import { User } from 'src/models/user';
-import { useAppSelector } from 'src/redux/store';
-import { RoutePath } from 'src/routes/routePath';
-import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
 const Home = () => {
@@ -74,22 +68,22 @@ const Home = () => {
         <Grid
           container
           item
-          justifyContent='center'
-          alignItems='center'
+          justifyContent="center"
+          alignItems="center"
           xs={12}
           md={6}
         >
           <Avatar src={user?.profile?.avatar} />
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
-          <Typography className={classes.greeting} variant='h6'>
+          <Typography className={classes.greeting} variant="h6">
             {t(i18nKey.welcome_to_my_home).toUpperCase()}
           </Typography>
           <Box my={2} />
-          <Typography color='primary' variant='h1'>
+          <Typography color="primary" variant="h1">
             {user?.profile?.name}
           </Typography>
-          <Typography color='primary' variant='h4'>
+          <Typography color="primary" variant="h4">
             {user?.profile?.specialties?.[slide]?.name}
           </Typography>
           <Box mt={2} mb={6}>
@@ -109,7 +103,7 @@ const Home = () => {
           <Grid container item>
             <Grid item xs={6} md={3}>
               <Button
-                variant='contained'
+                variant="contained"
                 className={classes.leftButton}
                 onClick={onAboutClick}
                 fullWidth
@@ -119,7 +113,7 @@ const Home = () => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Button
-                variant='outlined'
+                variant="outlined"
                 className={classes.rightButton}
                 onClick={onContactClick}
                 fullWidth

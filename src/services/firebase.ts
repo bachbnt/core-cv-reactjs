@@ -1,6 +1,6 @@
+import { firebaseConfig } from '@core/configs';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { firebaseConfig } from 'src/core/configs';
 
 const app = initializeApp(firebaseConfig);
 export const firestore = getFirestore(app);

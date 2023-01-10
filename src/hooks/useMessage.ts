@@ -1,7 +1,7 @@
+import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
+import { useAppDispatch } from '@redux/store';
+import { service } from '@services/service';
 import { useCallback } from 'react';
-import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
-import { useAppDispatch } from 'src/redux/store';
-import { service } from 'src/services/service';
 
 export const useMessage = () => {
   const dispatch = useAppDispatch();

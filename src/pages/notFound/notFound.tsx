@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
-import { Config } from 'src/models/config';
-import { useAppSelector } from 'src/redux/store';
-import useThemeStyles from 'src/themes/styles';
+import { Config } from '@models/config';
+import { useAppSelector } from '@redux/store';
+import useThemeStyles from '@themes/styles';
 import useStyles from './styles';
 
 const NotFound = () => {
@@ -14,7 +14,7 @@ const NotFound = () => {
 
   return (
     <Grid className={themeClasses.container} container spacing={4}>
-      <img src={config?.image?.error404} alt='404' />
+      <img src={config?.image?.error404} alt="404" />
     </Grid>
   );
 };

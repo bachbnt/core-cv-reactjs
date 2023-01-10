@@ -1,4 +1,4 @@
-import { messageSchema, nameSchema } from 'src/core/validations';
+import { messageSchema, nameSchema } from '@core/validations';
 import * as yup from 'yup';
 
 export interface FormValues {

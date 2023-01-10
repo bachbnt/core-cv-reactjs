@@ -1,5 +1,5 @@
 import { CardProps } from '@material-ui/core';
-import { Education } from 'src/models/education';
+import { Education } from '@models/education';
 
 type Props = {
   item: Education;

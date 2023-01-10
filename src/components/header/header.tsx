@@ -1,19 +1,19 @@
+import { Avatar, Button, Drawer } from '@components';
+import { Constant } from '@core/constants';
+import { useConfig } from '@hooks/useConfig';
+import { useUser } from '@hooks/useUser';
+import { i18nKey } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
+import { Config } from '@models/config';
+import { User } from '@models/user';
+import { useAppSelector } from '@redux/store';
+import { RoutePath } from '@routes/routePath';
+import { routes } from '@routes/routes';
 import { lowerCase } from 'lodash';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
 import { useLocation, useNavigate } from 'react-router';
-import { Avatar, Button, Drawer } from 'src/components';
-import { Constant } from 'src/core/constants';
-import { useConfig } from 'src/hooks/useConfig';
-import { useUser } from 'src/hooks/useUser';
-import { i18nKey } from 'src/locales/i18n';
-import { Config } from 'src/models/config';
-import { User } from 'src/models/user';
-import { useAppSelector } from 'src/redux/store';
-import { RoutePath } from 'src/routes/routePath';
-import { routes } from 'src/routes/routes';
 import Props from './props';
 import useStyles from './styles';
 
@@ -67,11 +67,11 @@ const Header = (props: Props) => {
   };
 
   return (
-    <AppBar color='transparent' position='static'>
+    <AppBar color="transparent" position="static">
       <Toolbar>
         <Avatar
           src={config?.appIcon}
-          variant='rounded'
+          variant="rounded"
           classes={{ root: classes.logo }}
           onClick={onLogoClick}
         />
@@ -79,7 +79,7 @@ const Header = (props: Props) => {
           {config?.cvVisible && (
             <Button
               className={classes.cvButton}
-              variant='outlined'
+              variant="outlined"
               onClick={onCVClick}
             >
               {t(i18nKey.my_cv)}

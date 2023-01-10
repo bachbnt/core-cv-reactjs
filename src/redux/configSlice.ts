@@ -1,5 +1,5 @@
+import { Config } from '@models/config';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Config } from 'src/models/config';
 
 export interface ConfigState {
   config: Config | null;

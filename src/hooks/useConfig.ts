@@ -1,9 +1,9 @@
+import { Config } from '@models/config';
+import { setConfig } from '@redux/configSlice';
+import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
+import { useAppDispatch } from '@redux/store';
+import { service } from '@services/service';
 import { useCallback } from 'react';
-import { Config } from 'src/models/config';
-import { setConfig } from 'src/redux/configSlice';
-import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
-import { useAppDispatch } from 'src/redux/store';
-import { service } from 'src/services/service';
 
 export const useConfig = () => {
   const dispatch = useAppDispatch();

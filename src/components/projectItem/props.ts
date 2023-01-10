@@ -1,5 +1,5 @@
 import { CardProps } from '@material-ui/core';
-import { Project } from 'src/models/project';
+import { Project } from '@models/project';
 
 type Props = {
   item: Project;

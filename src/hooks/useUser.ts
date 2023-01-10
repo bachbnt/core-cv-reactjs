@@ -1,11 +1,11 @@
+import { FirestoreDocument } from '@core/configs';
+import { User } from '@models/user';
+import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
+import { useAppDispatch } from '@redux/store';
+import { setUser } from '@redux/userSlice';
+import { service } from '@services/service';
 import { capitalize } from 'lodash';
 import { useCallback } from 'react';
-import { FirestoreDocument } from 'src/core/configs';
-import { User } from 'src/models/user';
-import { hideSpinner, showSpinner } from 'src/redux/spinnerSlice';
-import { useAppDispatch } from 'src/redux/store';
-import { setUser } from 'src/redux/userSlice';
-import { service } from 'src/services/service';
 
 export const useUser = () => {
   const dispatch = useAppDispatch();

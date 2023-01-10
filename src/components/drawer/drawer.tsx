@@ -1,16 +1,16 @@
+import { Constant } from '@core/constants';
 import {
   Drawer as MaterialDrawer,
   List,
   ListItem,
   ListItemText,
 } from '@material-ui/core';
+import { Config } from '@models/config';
+import { useAppSelector } from '@redux/store';
+import { routes } from '@routes/routes';
 import { lowerCase } from 'lodash';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
-import { Constant } from 'src/core/constants';
-import { Config } from 'src/models/config';
-import { useAppSelector } from 'src/redux/store';
-import { routes } from 'src/routes/routes';
 import Props from './props';
 import useStyles from './styles';
 
@@ -44,9 +44,9 @@ const Drawer = (props: Props) => {
   return (
     <MaterialDrawer
       open={open}
-      color='inherit'
+      color="inherit"
       onClose={onClose}
-      anchor='right'
+      anchor="right"
     >
       <List>
         {routes.map((route) =>

@@ -1,11 +1,11 @@
+import { Layout, ServiceItem } from '@components';
+import { Constant } from '@core/constants';
 import { Grid } from '@material-ui/core';
+import { User } from '@models/user';
+import { useAppSelector } from '@redux/store';
+import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
-import { Layout, ServiceItem } from 'src/components';
-import { Constant } from 'src/core/constants';
-import { User } from 'src/models/user';
-import { useAppSelector } from 'src/redux/store';
-import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
 const Service = () => {

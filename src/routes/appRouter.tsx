@@ -1,6 +1,6 @@
+import { Spinner, Wrapper } from '@components';
 import { Routes } from 'react-router';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Spinner, Wrapper } from 'src/components';
 import { routes } from './routes';
 
 const AppRouter = () => {

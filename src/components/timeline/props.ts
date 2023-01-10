@@ -1,5 +1,5 @@
-import { Education } from 'src/models/education';
-import { Experience } from 'src/models/experience';
+import { Education } from '@models/education';
+import { Experience } from '@models/experience';
 
 interface Props {
   data: Education[] | Experience[];

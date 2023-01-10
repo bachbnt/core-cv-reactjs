@@ -1,10 +1,10 @@
+import { Constant } from '@core/constants';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import logger from 'redux-logger';
 import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
-import { Constant } from 'src/core/constants';
 import configReducer from './configSlice';
 import spinnerReducer from './spinnerSlice';
 import userReducer from './userSlice';

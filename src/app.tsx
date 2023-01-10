@@ -1,5 +1,5 @@
+import AppRouter from '@routes/appRouter';
 import { useEffect } from 'react';
-import AppRouter from 'src/routes/appRouter';
 import { useConfig } from './hooks/useConfig';
 import { useUser } from './hooks/useUser';
 

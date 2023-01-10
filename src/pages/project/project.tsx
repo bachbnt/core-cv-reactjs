@@ -1,14 +1,14 @@
+import { Layout, ProjectItem, Typography } from '@components';
+import { Constant } from '@core/constants';
+import { i18nKey } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
+import { ProjectType } from '@models/project';
+import { User } from '@models/user';
+import { useAppSelector } from '@redux/store';
+import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Layout, ProjectItem, Typography } from 'src/components';
-import { Constant } from 'src/core/constants';
-import { i18nKey } from 'src/locales/i18n';
-import { ProjectType } from 'src/models/project';
-import { User } from 'src/models/user';
-import { useAppSelector } from 'src/redux/store';
-import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
 const Project = () => {
@@ -63,7 +63,7 @@ const Project = () => {
         {hasCompanyProject && (
           <>
             <Box mb={2}>
-              <Typography color='primary' variant='h4'>
+              <Typography color="primary" variant="h4">
                 {t(i18nKey.company)}
               </Typography>
             </Box>
@@ -80,7 +80,7 @@ const Project = () => {
         {hasFreelanceProject && (
           <>
             <Box mb={2}>
-              <Typography color='primary' variant='h4'>
+              <Typography color="primary" variant="h4">
                 {t(i18nKey.freelance)}
               </Typography>
             </Box>
@@ -97,7 +97,7 @@ const Project = () => {
         {hasPersonalProject && (
           <>
             <Box mt={6} mb={2}>
-              <Typography color='primary' variant='h4'>
+              <Typography color="primary" variant="h4">
                 {t(i18nKey.personal)}
               </Typography>
             </Box>

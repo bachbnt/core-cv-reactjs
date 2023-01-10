@@ -1,15 +1,15 @@
+import { Button, Layout, Typography } from '@components';
+import { Constant } from '@core/constants';
+import { i18nKey } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
+import { Skill, SkillType } from '@models/skill';
+import { User } from '@models/user';
+import { useAppSelector } from '@redux/store';
+import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
-import { Button, Layout, Typography } from 'src/components';
-import { Constant } from 'src/core/constants';
-import { i18nKey } from 'src/locales/i18n';
-import { Skill, SkillType } from 'src/models/skill';
-import { User } from 'src/models/user';
-import { useAppSelector } from 'src/redux/store';
-import useThemeStyles from 'src/themes/styles';
 import useStyles from './styles';
 
 const About = () => {
@@ -113,22 +113,22 @@ const About = () => {
     <Layout>
       <Grid className={themeClasses.container} container>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
-          <Typography color='primary' variant='h5'>
+          <Typography color="primary" variant="h5">
             {t(i18nKey.hello_world)}
           </Typography>
-          <Typography color='primary' variant='h4'>
+          <Typography color="primary" variant="h4">
             {t(i18nKey.my_name_is_and_i_am_a, {
               username: user?.profile?.name,
               specialty: user?.profile?.specialties[0].name,
             })}
           </Typography>
           <Box mt={2} mb={4}>
-            <Typography variant='subtitle1' align='justify'>
+            <Typography variant="subtitle1" align="justify">
               {user?.profile?.summary}
             </Typography>
           </Box>
           <Box my={2}>
-            <Typography color='primary' variant='h5'>
+            <Typography color="primary" variant="h5">
               {t(i18nKey.i_have_worked_with)}
             </Typography>
           </Box>
@@ -147,13 +147,13 @@ const About = () => {
         <Grid
           className={classes.imgContainer}
           container
-          justifyContent='center'
-          alignItems='center'
+          justifyContent="center"
+          alignItems="center"
           xs={12}
           md={6}
           item
         >
-          <img className={classes.img} src={covers[slide].url} alt='cover' />
+          <img className={classes.img} src={covers[slide].url} alt="cover" />
         </Grid>
       </Grid>
     </Layout>

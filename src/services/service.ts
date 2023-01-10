@@ -1,15 +1,15 @@
+import { FirestoreCollection, FirestoreDocument } from '@core/configs';
+import { Config, parseConfig } from '@models/config';
+import { Contact } from '@models/contact';
+import { Education } from '@models/education';
+import { Experience } from '@models/experience';
+import { Message } from '@models/message';
+import { Payment } from '@models/payment';
+import { parseProfile, Profile } from '@models/profile';
+import { Project } from '@models/project';
+import { Service as ServiceModel } from '@models/service';
+import { Skill } from '@models/skill';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { FirestoreCollection, FirestoreDocument } from 'src/core/configs';
-import { Config, parseConfig } from 'src/models/config';
-import { Contact } from 'src/models/contact';
-import { Education } from 'src/models/education';
-import { Experience } from 'src/models/experience';
-import { Message } from 'src/models/message';
-import { Payment } from 'src/models/payment';
-import { parseProfile, Profile } from 'src/models/profile';
-import { Project } from 'src/models/project';
-import { Service as ServiceModel } from 'src/models/service';
-import { Skill } from 'src/models/skill';
 import { firestore } from './firebase';
 
 class Service {

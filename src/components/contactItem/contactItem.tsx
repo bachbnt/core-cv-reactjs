@@ -1,5 +1,8 @@
+import { IconButton, Typography } from '@components';
 import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
 import { Home as HomeIcon, Mail, Phone } from '@material-ui/icons';
+import { ContactSubtype, ContactType } from '@models/contact';
+import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
 import { capitalize } from 'lodash';
 import { useCallback, useMemo } from 'react';
@@ -11,9 +14,6 @@ import {
   SiSkype,
   SiZalo,
 } from 'react-icons/si';
-import { IconButton, Typography } from 'src/components';
-import { ContactSubtype, ContactType } from 'src/models/contact';
-import useThemeStyles from 'src/themes/styles';
 import Props from './props';
 import useStyles from './styles';
 
@@ -65,11 +65,11 @@ const ContactItem = (props: Props) => {
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
             {renderContactIcon}
-            <Typography color='primary' variant='h6' align='center'>
+            <Typography color="primary" variant="h6" align="center">
               {capitalize(t(item.subtype))}
             </Typography>
             <Box mt={2}>
-              <Typography variant='body2' align='center'>
+              <Typography variant="body2" align="center">
                 {item.name}
               </Typography>
             </Box>
