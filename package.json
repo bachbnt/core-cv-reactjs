@@ -36,6 +36,7 @@
   "scripts": {
     "start": "craco start",
     "build": "GENERATE_SOURCEMAP=false craco build",
+    "deploy": "npm run build && firebase deploy",
     "test": "craco test",
     "eject": "craco eject"
   },
