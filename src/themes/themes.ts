@@ -65,13 +65,13 @@ const themes = {
         },
         '*::-webkit-scrollbar': {
           width: '4px',
+          height: '4px',
         },
         '*::-webkit-scrollbar-track': {
           '-webkit-box-shadow': `inset 4px 4px 4px ${colors.black}`,
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: colors.primary,
-          // outline: `2px solid ${colors.primary}`,
         },
       },
     },

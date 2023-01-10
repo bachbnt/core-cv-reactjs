@@ -1,5 +1,5 @@
 import { Footer, Header } from '@components';
-import { Box } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import Props from './props';
 import useStyles from './styles';
 
@@ -10,7 +10,9 @@ const Layout = (props: Props) => {
   return (
     <Box className={classes.container}>
       <Header />
-      <Box className={classes.content}>{children}</Box>
+      <Box className={classes.content}>
+        <Container maxWidth="xl">{children} </Container>
+      </Box>
       <Footer />
     </Box>
   );
