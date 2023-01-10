@@ -1,6 +1,6 @@
-import { useConfig } from '@hooks/useConfig';
-import { useUser } from '@hooks/useUser';
-import AppRouter from '@routes/appRouter';
+import useConfig from '@hooks/useConfig';
+import useUser from '@hooks/useUser';
+import AppRouter from '@routes/AppRouter';
 import { useEffect } from 'react';
 
 const App = () => {

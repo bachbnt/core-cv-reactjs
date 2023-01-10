@@ -6,8 +6,8 @@ import {
   Typography,
 } from '@components';
 import { Constant } from '@core/constants';
-import { useMessage } from '@hooks/useMessage';
-import { useYupResolver } from '@hooks/useYupResolver';
+import useMessage from '@hooks/useMessage';
+import useYupResolver from '@hooks/useYupResolver';
 import { i18nKey } from '@locales/i18n';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
 import { ContactType } from '@models/contact';
@@ -79,25 +79,25 @@ const Contact = (props: Props) => {
           <Card className={classes.card}>
             <CardContent className={classes.center}>
               <FormProvider {...methods}>
-                <Typography color="primary" variant="h6">
+                <Typography color='primary' variant='h6'>
                   {t(i18nKey.leave_me_a_message)}
                 </Typography>
                 <Box my={1} />
                 <TextFormField
-                  name="name"
+                  name='name'
                   label={t(i18nKey.name)}
                   multiline
                   maxRows={2}
                 />
                 <Box my={1} />
                 <TextFormField
-                  name="message"
+                  name='message'
                   label={t(i18nKey.message)}
                   multiline
                   rows={10}
                 />
                 <Box my={2} />
-                <Button variant="contained" onClick={handleSubmit(onSubmit)}>
+                <Button variant='contained' onClick={handleSubmit(onSubmit)}>
                   {t(i18nKey.send)}
                 </Button>
                 <Box my={2} />

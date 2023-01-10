@@ -3,7 +3,7 @@ import { useAppDispatch } from '@redux/store';
 import { service } from '@services/service';
 import { useCallback } from 'react';
 
-export const useMessage = () => {
+const useMessage = () => {
   const dispatch = useAppDispatch();
 
   const postData = useCallback(
@@ -22,3 +22,5 @@ export const useMessage = () => {
     postData,
   };
 };
+
+export default useMessage;

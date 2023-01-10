@@ -7,7 +7,7 @@ import { service } from '@services/service';
 import { capitalize } from 'lodash';
 import { useCallback } from 'react';
 
-export const useUser = () => {
+const useUser = () => {
   const dispatch = useAppDispatch();
 
   const getData = useCallback(async () => {
@@ -39,3 +39,5 @@ export const useUser = () => {
     getData,
   };
 };
+
+export default useUser;

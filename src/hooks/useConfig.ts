@@ -5,7 +5,7 @@ import { useAppDispatch } from '@redux/store';
 import { service } from '@services/service';
 import { useCallback } from 'react';
 
-export const useConfig = () => {
+const useConfig = () => {
   const dispatch = useAppDispatch();
 
   const updateDocument = useCallback(({ icon, title }: any) => {
@@ -30,3 +30,5 @@ export const useConfig = () => {
     getData,
   };
 };
+
+export default useConfig;

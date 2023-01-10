@@ -1,7 +1,7 @@
 import { Avatar, Button, Drawer } from '@components';
 import { Constant } from '@core/constants';
-import { useConfig } from '@hooks/useConfig';
-import { useUser } from '@hooks/useUser';
+import useConfig from '@hooks/useConfig';
+import useUser from '@hooks/useUser';
 import { i18nKey } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
 import { Config } from '@models/config';
@@ -67,11 +67,11 @@ const Header = (props: Props) => {
   };
 
   return (
-    <AppBar color="transparent" position="static">
+    <AppBar color='transparent' position='static'>
       <Toolbar>
         <Avatar
           src={config?.appIcon}
-          variant="rounded"
+          variant='rounded'
           classes={{ root: classes.logo }}
           onClick={onLogoClick}
         />
@@ -79,7 +79,7 @@ const Header = (props: Props) => {
           {config?.cvVisible && (
             <Button
               className={classes.cvButton}
-              variant="outlined"
+              variant='outlined'
               onClick={onCVClick}
             >
               {t(i18nKey.my_cv)}
