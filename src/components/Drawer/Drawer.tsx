@@ -37,16 +37,16 @@ const Drawer = (props: Props) => {
   };
 
   const copyUrl = async (path: string) => {
-    const url = Constant.BASE_URL + path;
+    const url = Constant.DOMAIN + path;
     await navigator.clipboard.writeText(url);
   };
 
   return (
     <MaterialDrawer
       open={open}
-      color="inherit"
+      color='inherit'
       onClose={onClose}
-      anchor="right"
+      anchor='right'
     >
       <List>
         {routes.map((route) =>

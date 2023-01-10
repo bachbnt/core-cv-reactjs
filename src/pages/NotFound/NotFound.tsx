@@ -15,7 +15,7 @@ const NotFound = (props: Props) => {
 
   return (
     <Grid className={themeClasses.container} container spacing={4}>
-      <img src={config?.image?.error404} alt="404" />
+      <img src={config?.image?.error404} alt='404' />
     </Grid>
   );
 };

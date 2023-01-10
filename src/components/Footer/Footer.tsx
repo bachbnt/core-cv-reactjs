@@ -15,7 +15,7 @@ const Footer = (props: Props) => {
 
   return (
     <Grid className={classes.container}>
-      <Typography variant="subtitle2">
+      <Typography variant='subtitle2'>
         {t(i18nKey.copyright_by, {
           time: new Date().getFullYear(),
           username: user?.profile?.name,

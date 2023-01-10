@@ -69,22 +69,22 @@ const Home = (props: Props) => {
         <Grid
           container
           item
-          justifyContent="center"
-          alignItems="center"
+          justifyContent='center'
+          alignItems='center'
           xs={12}
           md={6}
         >
           <Avatar src={user?.profile?.avatar} />
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
-          <Typography className={classes.greeting} variant="h6">
+          <Typography className={classes.greeting} variant='h6'>
             {t(i18nKey.welcome_to_my_home).toUpperCase()}
           </Typography>
           <Box my={2} />
-          <Typography color="primary" variant="h1">
+          <Typography color='primary' variant='h1'>
             {user?.profile?.name}
           </Typography>
-          <Typography color="primary" variant="h4">
+          <Typography color='primary' variant='h4'>
             {user?.profile?.specialties?.[slide]?.name}
           </Typography>
           <Box mt={2} mb={6}>
@@ -104,7 +104,7 @@ const Home = (props: Props) => {
           <Grid container item>
             <Grid item xs={6} md={3}>
               <Button
-                variant="contained"
+                variant='contained'
                 className={classes.leftButton}
                 onClick={onAboutClick}
                 fullWidth
@@ -114,7 +114,7 @@ const Home = (props: Props) => {
             </Grid>
             <Grid item xs={6} md={3}>
               <Button
-                variant="outlined"
+                variant='outlined'
                 className={classes.rightButton}
                 onClick={onContactClick}
                 fullWidth

@@ -51,7 +51,7 @@ const Header = (props: Props) => {
   };
 
   const copyUrl = async (path: string) => {
-    const url = Constant.BASE_URL + path;
+    const url = Constant.DOMAIN + path;
     await navigator.clipboard.writeText(url);
   };
 

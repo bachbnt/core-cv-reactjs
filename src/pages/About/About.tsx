@@ -114,22 +114,22 @@ const About = (props: Props) => {
     <Layout>
       <Grid className={themeClasses.container} container>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
-          <Typography color="primary" variant="h5">
+          <Typography color='primary' variant='h5'>
             {t(i18nKey.hello_world)}
           </Typography>
-          <Typography color="primary" variant="h4">
+          <Typography color='primary' variant='h4'>
             {t(i18nKey.my_name_is_and_i_am_a, {
               username: user?.profile?.name,
               specialty: user?.profile?.specialties[0].name,
             })}
           </Typography>
           <Box mt={2} mb={4}>
-            <Typography variant="subtitle1" align="justify">
+            <Typography variant='subtitle1' align='justify'>
               {user?.profile?.summary}
             </Typography>
           </Box>
           <Box my={2}>
-            <Typography color="primary" variant="h5">
+            <Typography color='primary' variant='h5'>
               {t(i18nKey.i_have_worked_with)}
             </Typography>
           </Box>
@@ -148,13 +148,13 @@ const About = (props: Props) => {
         <Grid
           className={classes.imgContainer}
           container
-          justifyContent="center"
-          alignItems="center"
+          justifyContent='center'
+          alignItems='center'
           xs={12}
           md={6}
           item
         >
-          <img className={classes.img} src={covers[slide].url} alt="cover" />
+          <img className={classes.img} src={covers[slide].url} alt='cover' />
         </Grid>
       </Grid>
     </Layout>

@@ -11,7 +11,7 @@ const Layout = (props: Props) => {
     <Box className={classes.container}>
       <Header />
       <Box className={classes.content}>
-        <Container maxWidth="xl">{children} </Container>
+        <Container maxWidth='xl'>{children} </Container>
       </Box>
       <Footer />
     </Box>

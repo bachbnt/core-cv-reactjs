@@ -65,11 +65,11 @@ const ContactItem = (props: Props) => {
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
             {renderContactIcon}
-            <Typography color="primary" variant="h6" align="center">
+            <Typography color='primary' variant='h6' align='center'>
               {capitalize(t(item.subtype))}
             </Typography>
             <Box mt={2}>
-              <Typography variant="body2" align="center">
+              <Typography variant='body2' align='center'>
                 {item.name}
               </Typography>
             </Box>

@@ -40,21 +40,21 @@ const ProjectItem = (props: Props) => {
           {item.coverVisible && (
             <CardMedia
               className={classes.img}
-              component="img"
+              component='img'
               image={item.cover || config?.image?.comingSoon}
             />
           )}
           <CardContent>
             {item.nameVisible && (
-              <Typography color="primary" variant="h6">
+              <Typography color='primary' variant='h6'>
                 {item.name}
               </Typography>
             )}
             {item.descriptionVisible && (
-              <Box overflow="hidden">
+              <Box overflow='hidden'>
                 <Typography
                   className={themeClasses.cardDescription}
-                  variant="body2"
+                  variant='body2'
                 >
                   {item.description}
                 </Typography>
@@ -62,32 +62,32 @@ const ProjectItem = (props: Props) => {
             )}
             <Box my={2} />
             {item.technologyVisible && (
-              <Typography variant="subtitle2">{item.technology}</Typography>
+              <Typography variant='subtitle2'>{item.technology}</Typography>
             )}
           </CardContent>
         </CardActionArea>
       </Card>
-      <Dialog fullWidth maxWidth="md" open={openDialog} onClose={onCloseDialog}>
+      <Dialog fullWidth maxWidth='md' open={openDialog} onClose={onCloseDialog}>
         <DialogContent>
           {item.coverVisible && (
             <CardMedia
               className={classes.dialogImg}
-              component="img"
+              component='img'
               image={item.cover || config?.image?.comingSoon}
             />
           )}
           <CardContent>
             {item.nameVisible && (
-              <Typography color="primary" variant="h6">
+              <Typography color='primary' variant='h6'>
                 {item.name}
               </Typography>
             )}
             {item.descriptionVisible && (
-              <Typography variant="body2">{item.description}</Typography>
+              <Typography variant='body2'>{item.description}</Typography>
             )}
             <Box my={2} />
             {item.technologyVisible && (
-              <Typography variant="subtitle2">{item.technology}</Typography>
+              <Typography variant='subtitle2'>{item.technology}</Typography>
             )}
           </CardContent>
         </DialogContent>

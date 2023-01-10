@@ -17,12 +17,12 @@ const Timeline = (props: Props) => {
   const { data, renderItem } = props;
 
   return (
-    <MuiTimeline align="alternate">
+    <MuiTimeline align='alternate'>
       {data.map((item, index) =>
         item.visible ? (
           <TimelineItem key={`${item.name} ${item.index}`}>
             <TimelineOppositeContent>
-              <Typography variant="subtitle1">{item.time}</Typography>
+              <Typography variant='subtitle1'>{item.time}</Typography>
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot></TimelineDot>

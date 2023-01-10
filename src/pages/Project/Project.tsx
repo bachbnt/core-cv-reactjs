@@ -64,7 +64,7 @@ const Project = (props: Props) => {
         {hasCompanyProject && (
           <>
             <Box mb={2}>
-              <Typography color="primary" variant="h4">
+              <Typography color='primary' variant='h4'>
                 {t(i18nKey.company)}
               </Typography>
             </Box>
@@ -81,7 +81,7 @@ const Project = (props: Props) => {
         {hasFreelanceProject && (
           <>
             <Box mb={2}>
-              <Typography color="primary" variant="h4">
+              <Typography color='primary' variant='h4'>
                 {t(i18nKey.freelance)}
               </Typography>
             </Box>
@@ -98,7 +98,7 @@ const Project = (props: Props) => {
         {hasPersonalProject && (
           <>
             <Box mt={6} mb={2}>
-              <Typography color="primary" variant="h4">
+              <Typography color='primary' variant='h4'>
                 {t(i18nKey.personal)}
               </Typography>
             </Box>

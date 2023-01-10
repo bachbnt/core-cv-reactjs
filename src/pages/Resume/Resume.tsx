@@ -44,7 +44,7 @@ const Resume = (props: Props) => {
     <Layout>
       <Grid className={themeClasses.container} container>
         <Box mb={2}>
-          <Typography color="primary" variant="h4">
+          <Typography color='primary' variant='h4'>
             {t(i18nKey.education)}
           </Typography>
         </Box>
@@ -60,7 +60,7 @@ const Resume = (props: Props) => {
           />
         </Grid>
         <Box mt={6} mb={2}>
-          <Typography color="primary" variant="h4">
+          <Typography color='primary' variant='h4'>
             {t(i18nKey.experience)}
           </Typography>
         </Box>

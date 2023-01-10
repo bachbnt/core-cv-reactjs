@@ -15,16 +15,16 @@ const ServiceItem = (props: Props) => {
       <CardActionArea>
         <CardContent className={themeClasses.cardContent}>
           {item.nameVisible && (
-            <Typography color="primary" variant="h6" align="center">
+            <Typography color='primary' variant='h6' align='center'>
               {item.name}
             </Typography>
           )}
           {item.descriptionVisible && (
-            <Box mt={2} overflow="hidden">
+            <Box mt={2} overflow='hidden'>
               <Typography
                 className={themeClasses.cardDescription}
-                variant="body2"
-                align="center"
+                variant='body2'
+                align='center'
               >
                 {item.description}
               </Typography>

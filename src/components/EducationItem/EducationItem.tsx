@@ -24,23 +24,23 @@ const EducationItem = (props: Props) => {
       <CardActionArea>
         <CardContent>
           {item.nameVisible && (
-            <Typography color="primary" variant="h6">
+            <Typography color='primary' variant='h6'>
               {item.name.toUpperCase()}
             </Typography>
           )}
           {item.degreeVisible && (
-            <Typography variant="subtitle1">{item.degree}</Typography>
+            <Typography variant='subtitle1'>{item.degree}</Typography>
           )}
           {item.majorVisible && (
             <Box mt={2}>
-              <Typography variant="body2">{item.major} </Typography>
+              <Typography variant='body2'>{item.major} </Typography>
             </Box>
           )}
         </CardContent>
         {item.imageVisible && (
           <CardMedia
             className={classes.img}
-            component="img"
+            component='img'
             image={item.image || config?.image?.comingSoon}
           />
         )}

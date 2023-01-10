@@ -48,16 +48,16 @@ const PaymentItem = (props: Props) => {
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
             {item.nameVisible && (
-              <Typography color="primary" variant="h6" align="center">
+              <Typography color='primary' variant='h6' align='center'>
                 {item.name}
               </Typography>
             )}
             {item.accountVisible && (
               <Box
-                overflow="hidden"
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
+                overflow='hidden'
+                display='flex'
+                flexDirection='row'
+                alignItems='center'
               >
                 <Button
                   className={themeClasses.cardDescription}
@@ -73,7 +73,7 @@ const PaymentItem = (props: Props) => {
             {item.qrCodeVisible && (
               <CardMedia
                 className={classes.img}
-                component="img"
+                component='img'
                 image={item.qrCode}
                 onClick={onOpenDialog}
               />
@@ -81,10 +81,10 @@ const PaymentItem = (props: Props) => {
           </CardContent>
         </CardActionArea>
       </Card>
-      <Dialog maxWidth="md" open={openDialog} onClose={onCloseDialog}>
+      <Dialog maxWidth='md' open={openDialog} onClose={onCloseDialog}>
         {item.qrCodeVisible && (
           <CardMedia
-            component="img"
+            component='img'
             image={item.qrCode || config?.image?.comingSoon}
           />
         )}

@@ -61,6 +61,8 @@
     "@craco/craco": "^7.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-logger": "^3.0.9",
-    "craco-alias": "^3.0.1"
+    "craco-alias": "^3.0.1",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1"
   }
 }
