@@ -1,6 +1,6 @@
 import Constant from '@core/constants';
 import {
-  Drawer as MaterialDrawer,
+  Drawer as MuiDrawer,
   List,
   ListItem,
   ListItemText,
@@ -42,12 +42,7 @@ const Drawer = (props: Props) => {
   };
 
   return (
-    <MaterialDrawer
-      open={open}
-      color='inherit'
-      onClose={onClose}
-      anchor='right'
-    >
+    <MuiDrawer open={open} color='inherit' onClose={onClose} anchor='right'>
       <List>
         {routes.map((route) =>
           (config as any)?.[`${lowerCase(route.name)}Visible`] ? (
@@ -66,7 +61,7 @@ const Drawer = (props: Props) => {
           )
         )}
       </List>
-    </MaterialDrawer>
+    </MuiDrawer>
   );
 };
 
