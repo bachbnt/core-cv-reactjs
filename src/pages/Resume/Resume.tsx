@@ -5,7 +5,7 @@ import {
   Timeline,
   Typography,
 } from '@components';
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
@@ -40,7 +40,7 @@ const Resume = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Box mb={2}>
           <Typography color='primary' variant='h4'>
-            {t(i18nKey.education)}
+            {t(Localization.education)}
           </Typography>
         </Box>
         <Grid container>
@@ -56,7 +56,7 @@ const Resume = (props: Props) => {
         </Grid>
         <Box mt={6} mb={2}>
           <Typography color='primary' variant='h4'>
-            {t(i18nKey.experience)}
+            {t(Localization.experience)}
           </Typography>
         </Box>
         <Grid container>

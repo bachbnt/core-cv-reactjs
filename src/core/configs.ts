@@ -18,6 +18,7 @@ export enum FirestoreCollection {
 
 export enum FirestoreDocument {
   CONFIG = 'config',
+  LOCALIZATION = 'localization',
   MESSAGE = 'message',
   CONTACT = 'contact',
   EDUCATION = 'education',

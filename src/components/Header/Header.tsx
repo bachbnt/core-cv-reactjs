@@ -2,7 +2,7 @@ import { Avatar, Button, Drawer } from '@components';
 import Constant from '@core/constants';
 import useConfig from '@hooks/useConfig';
 import useUser from '@hooks/useUser';
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
 import { Config } from '@models/config';
 import { User } from '@models/user';
@@ -82,7 +82,7 @@ const Header = (props: Props) => {
               variant='outlined'
               onClick={onCVClick}
             >
-              {t(i18nKey.my_cv)}
+              {t(Localization.my_cv)}
             </Button>
           )}
           <Box className={classes.desktop}>

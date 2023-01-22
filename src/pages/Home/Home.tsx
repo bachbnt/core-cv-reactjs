@@ -1,5 +1,5 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import { Config } from '@models/config';
 import { ContactType } from '@models/contact';
@@ -74,7 +74,7 @@ const Home = (props: Props) => {
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <Typography className={classes.greeting} variant='h6'>
-            {t(i18nKey.welcome_to_my_home).toUpperCase()}
+            {t(Localization.welcome_to_my_home).toUpperCase()}
           </Typography>
           <Box my={2} />
           <Typography color='primary' variant='h1'>
@@ -105,7 +105,7 @@ const Home = (props: Props) => {
                 onClick={onAboutClick}
                 fullWidth
               >
-                {t(i18nKey.about_me)}
+                {t(Localization.about_me)}
               </Button>
             </Grid>
             <Grid item xs={6} md={3}>
@@ -115,7 +115,7 @@ const Home = (props: Props) => {
                 onClick={onContactClick}
                 fullWidth
               >
-                {t(i18nKey.contact_me)}
+                {t(Localization.contact_me)}
               </Button>
             </Grid>
           </Grid>

@@ -1,5 +1,5 @@
 import { Layout, ProjectItem, Typography } from '@components';
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { ProjectType } from '@models/project';
 import { User } from '@models/user';
@@ -58,7 +58,7 @@ const Project = (props: Props) => {
           <>
             <Box mb={2}>
               <Typography color='primary' variant='h4'>
-                {t(i18nKey.company)}
+                {t(Localization.company)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
@@ -75,7 +75,7 @@ const Project = (props: Props) => {
           <>
             <Box mb={2}>
               <Typography color='primary' variant='h4'>
-                {t(i18nKey.freelance)}
+                {t(Localization.freelance)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
@@ -92,7 +92,7 @@ const Project = (props: Props) => {
           <>
             <Box mt={6} mb={2}>
               <Typography color='primary' variant='h4'>
-                {t(i18nKey.personal)}
+                {t(Localization.personal)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>

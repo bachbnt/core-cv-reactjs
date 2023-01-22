@@ -1,5 +1,5 @@
 import { Button, Layout, Typography } from '@components';
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
 import { User } from '@models/user';
@@ -96,10 +96,10 @@ const About = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <Typography color='primary' variant='h5'>
-            {t(i18nKey.hello_world)}
+            {t(Localization.hello_world)}
           </Typography>
           <Typography color='primary' variant='h4'>
-            {t(i18nKey.my_name_is_and_i_am_a, {
+            {t(Localization.my_name_is_and_i_am_a, {
               username: user?.profile?.name,
               specialty: user?.profile?.specialties[0].name,
             })}
@@ -111,7 +111,7 @@ const About = (props: Props) => {
           </Box>
           <Box my={2}>
             <Typography color='primary' variant='h5'>
-              {t(i18nKey.i_have_worked_with)}
+              {t(Localization.i_have_worked_with)}
             </Typography>
           </Box>
           <Grid container xs={12} item>

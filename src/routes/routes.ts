@@ -1,4 +1,4 @@
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { RouteName } from './routeName';
 import { RoutePath } from './routePath';
 
@@ -10,47 +10,47 @@ export interface Route {
 
 export const routes: Route[] = [
   {
-    name: i18nKey.home,
+    name: Localization.home,
     path: RoutePath.HOME,
     component: RouteName.HOME,
   },
   {
-    name: i18nKey.about,
+    name: Localization.about,
     path: RoutePath.ABOUT,
     component: RouteName.ABOUT,
   },
   {
-    name: i18nKey.resume,
+    name: Localization.resume,
     path: RoutePath.RESUME,
     component: RouteName.RESUME,
   },
   {
-    name: i18nKey.project,
+    name: Localization.project,
     path: RoutePath.PROJECT,
     component: RouteName.PROJECT,
   },
   {
-    name: i18nKey.blog,
+    name: Localization.blog,
     path: RoutePath.BLOG,
     component: RouteName.BLOG,
   },
   {
-    name: i18nKey.service,
+    name: Localization.service,
     path: RoutePath.SERVICE,
     component: RouteName.SERVICE,
   },
   {
-    name: i18nKey.contact,
+    name: Localization.contact,
     path: RoutePath.CONTACT,
     component: RouteName.CONTACT,
   },
   {
-    name: i18nKey.payment,
+    name: Localization.payment,
     path: RoutePath.PAYMENT,
     component: RouteName.PAYMENT,
   },
   {
-    name: i18nKey.not_found,
+    name: Localization.not_found,
     path: RoutePath.NOT_FOUND,
     component: RouteName.NOT_FOUND,
   },

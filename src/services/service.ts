@@ -23,6 +23,21 @@ class Service {
     return Service.instance;
   }
 
+  async getLocalization(
+    localization: string = Constant.DEFAULT_LANGUAGE
+  ): Promise<any> {
+    const ref = doc(
+      firestore,
+      FirestoreCollection.CONFIG,
+      FirestoreDocument.LOCALIZATION
+    );
+    const snapshot = await getDoc(ref);
+    const data = snapshot.data() as any;
+
+    const _localization = data[localization];
+    return _localization;
+  }
+
   async getConfig(): Promise<Config | any> {
     const ref = doc(
       firestore,

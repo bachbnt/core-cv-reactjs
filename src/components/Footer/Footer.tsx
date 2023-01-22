@@ -1,5 +1,5 @@
 import { Typography } from '@components';
-import { i18nKey } from '@locales/i18n';
+import { Localization } from '@locales/i18n';
 import { Grid } from '@material-ui/core';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
@@ -16,7 +16,7 @@ const Footer = (props: Props) => {
   return (
     <Grid className={classes.container}>
       <Typography variant='subtitle2'>
-        {t(i18nKey.copyright_by, {
+        {t(Localization.copyright_by, {
           time: new Date().getFullYear(),
           username: user?.profile?.name,
         })}
