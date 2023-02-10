@@ -58,9 +58,10 @@ const PaymentItem = (props: Props) => {
                 display='flex'
                 flexDirection='row'
                 alignItems='center'
+                mb={1}
               >
                 <Button
-                  className={themeClasses.cardDescription}
+                  className={clsx(themeClasses.cardDescription, classes.button)}
                   startIcon={<IoCopy />}
                   onClick={() => {
                     onCopyClick(item);

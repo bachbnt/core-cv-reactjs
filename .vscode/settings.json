@@ -5,5 +5,7 @@
     "source.organizeImports": true
   },
   "eslint.validate": ["javascript", "typescript"],
-  "cSpell.words": ["clsx", "firestore", "persistor", "zalo"]
+  "cSpell.words": ["clsx", "firestore", "persistor", "zalo"],
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true
 }

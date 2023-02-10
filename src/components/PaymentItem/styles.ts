@@ -12,5 +12,8 @@ export default makeStyles((theme: AppTheme) =>
       maxHeight: 350,
       width: 'auto',
     },
+    button: {
+      textTransform: 'none',
+    },
   })
 );
