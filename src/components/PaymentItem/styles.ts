@@ -8,7 +8,7 @@ export default makeStyles((theme: AppTheme) =>
       height: 500,
     },
     img: {
-      maxWidth: 350,
+      maxWidth: 300,
       maxHeight: 350,
       width: 'auto',
     },
