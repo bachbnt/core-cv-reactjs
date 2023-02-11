@@ -10,7 +10,7 @@ const backendOptions = {
   request: async (options: any, url: any, payload: any, callback: any) => {
     try {
       const config = await service.getConfig();
-      const data = await service.getLocalization(config?.localization);
+      const data = await service.getLocalization(config?.language);
       callback(null, {
         data,
         status: 200,

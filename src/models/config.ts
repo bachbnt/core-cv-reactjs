@@ -20,7 +20,7 @@ export interface Config {
   serviceEnable: boolean;
   serviceVisible: boolean;
   image: ConfigImage;
-  localization: string;
+  language: string;
   paymentEnable: boolean;
   paymentVisible: boolean;
 }
@@ -54,7 +54,7 @@ export function parseConfig(data: any): Config {
       comingSoon: Constant.DEFAULT_COMING_SOON_IMAGE,
       error404: Constant.DEFAULT_ERROR_404_IMAGE,
     },
-    localization: data['localization'],
+    language: data['language'],
     paymentEnable: data['paymentEnable'],
     paymentVisible: data['paymentVisible'],
   };
