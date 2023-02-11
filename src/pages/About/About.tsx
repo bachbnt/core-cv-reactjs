@@ -96,10 +96,10 @@ const About = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <Typography color='primary' variant='h5'>
-            {t(Localization.hello_world)}
+            {t(Localization.page2_title1)}
           </Typography>
           <Typography color='primary' variant='h4'>
-            {t(Localization.my_name_is_and_i_am_a, {
+            {t(Localization.page2_title2, {
               username: user?.profile?.name,
               specialty: user?.profile?.specialties[0].name,
             })}
@@ -111,7 +111,7 @@ const About = (props: Props) => {
           </Box>
           <Box my={2}>
             <Typography color='primary' variant='h5'>
-              {t(Localization.i_have_worked_with)}
+              {t(Localization.page2_title3)}
             </Typography>
           </Box>
           <Grid container xs={12} item>

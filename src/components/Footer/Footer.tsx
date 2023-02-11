@@ -16,7 +16,7 @@ const Footer = (props: Props) => {
   return (
     <Grid className={classes.container}>
       <Typography variant='subtitle2'>
-        {t(Localization.copyright_by, {
+        {t(Localization.footer, {
           time: new Date().getFullYear(),
           username: user?.profile?.name,
         })}

@@ -25,9 +25,9 @@ const Drawer = (props: Props) => {
     (state: any) => state.configReducer.config
   ) as Config;
 
-  const onPageClick = async (name: string, path: string) => {
+  const onPageClick = async (component: string, path: string) => {
     if (
-      (config as any)[`${lowerCase(name)}Enable`] &&
+      (config as any)[`${lowerCase(component)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
@@ -45,7 +45,7 @@ const Drawer = (props: Props) => {
     <MuiDrawer open={open} color='inherit' onClose={onClose} anchor='right'>
       <List>
         {routes.map((route) =>
-          (config as any)?.[`${lowerCase(route.name)}Visible`] ? (
+          (config as any)?.[`${lowerCase(route.component)}Visible`] ? (
             <ListItem
               key={route.name}
               button

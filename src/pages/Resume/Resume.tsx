@@ -40,7 +40,7 @@ const Resume = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Box mb={2}>
           <Typography color='primary' variant='h4'>
-            {t(Localization.education)}
+            {t(Localization.page3_title1)}
           </Typography>
         </Box>
         <Grid container>
@@ -56,7 +56,7 @@ const Resume = (props: Props) => {
         </Grid>
         <Box mt={6} mb={2}>
           <Typography color='primary' variant='h4'>
-            {t(Localization.experience)}
+            {t(Localization.page3_title2)}
           </Typography>
         </Box>
         <Grid container>

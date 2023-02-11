@@ -76,25 +76,25 @@ const Contact = (props: Props) => {
             <CardContent className={classes.center}>
               <FormProvider {...methods}>
                 <Typography color='primary' variant='h6'>
-                  {t(Localization.leave_me_a_message)}
+                  {t(Localization.page7_title)}
                 </Typography>
                 <Box my={1} />
                 <TextFormField
                   name='name'
-                  label={t(Localization.name)}
+                  label={t(Localization.page7_field1)}
                   multiline
                   maxRows={2}
                 />
                 <Box my={1} />
                 <TextFormField
                   name='message'
-                  label={t(Localization.message)}
+                  label={t(Localization.page7_field2)}
                   multiline
                   rows={10}
                 />
                 <Box my={2} />
                 <Button variant='contained' onClick={handleSubmit(onSubmit)}>
-                  {t(Localization.send)}
+                  {t(Localization.page7_button)}
                 </Button>
                 <Box my={2} />
               </FormProvider>

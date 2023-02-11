@@ -39,9 +39,9 @@ const Header = (props: Props) => {
     getUser();
   };
 
-  const onPageClick = async (name: string, path: string) => {
+  const onPageClick = async (component: string, path: string) => {
     if (
-      (config as any)[`${lowerCase(name)}Enable`] &&
+      (config as any)[`${lowerCase(component)}Enable`] &&
       location.pathname !== path
     ) {
       navigate(path);
@@ -82,12 +82,12 @@ const Header = (props: Props) => {
               variant='outlined'
               onClick={onCVClick}
             >
-              {t(Localization.my_cv)}
+              {t(Localization.page0)}
             </Button>
           )}
           <Box className={classes.desktop}>
             {routes.map((route) =>
-              (config as any)?.[`${lowerCase(route.name)}Visible`] ? (
+              (config as any)?.[`${lowerCase(route.component)}Visible`] ? (
                 <Button
                   className={classes.button}
                   variant={
@@ -95,7 +95,7 @@ const Header = (props: Props) => {
                   }
                   key={route.name}
                   onClick={() => {
-                    onPageClick(route.name, route.path);
+                    onPageClick(route.component, route.path);
                   }}
                 >
                   {t(route.name)}

@@ -58,7 +58,7 @@ const Project = (props: Props) => {
           <>
             <Box mb={2}>
               <Typography color='primary' variant='h4'>
-                {t(Localization.company)}
+                {t(Localization.page4_title1)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
@@ -75,7 +75,7 @@ const Project = (props: Props) => {
           <>
             <Box mb={2}>
               <Typography color='primary' variant='h4'>
-                {t(Localization.freelance)}
+                {t(Localization.page4_title2)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
@@ -92,7 +92,7 @@ const Project = (props: Props) => {
           <>
             <Box mt={6} mb={2}>
               <Typography color='primary' variant='h4'>
-                {t(Localization.personal)}
+                {t(Localization.page4_title3)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>

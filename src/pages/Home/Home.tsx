@@ -74,7 +74,7 @@ const Home = (props: Props) => {
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <Typography className={classes.greeting} variant='h6'>
-            {t(Localization.welcome_to_my_home).toUpperCase()}
+            {t(Localization.page1_title).toUpperCase()}
           </Typography>
           <Box my={2} />
           <Typography color='primary' variant='h1'>
@@ -105,7 +105,7 @@ const Home = (props: Props) => {
                 onClick={onAboutClick}
                 fullWidth
               >
-                {t(Localization.about_me)}
+                {t(Localization.page1_button1)}
               </Button>
             </Grid>
             <Grid item xs={6} md={3}>
@@ -115,7 +115,7 @@ const Home = (props: Props) => {
                 onClick={onContactClick}
                 fullWidth
               >
-                {t(Localization.contact_me)}
+                {t(Localization.page1_button2)}
               </Button>
             </Grid>
           </Grid>
