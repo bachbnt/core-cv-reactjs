@@ -51,7 +51,7 @@ const Drawer = (props: Props) => {
               button
               selected={location.pathname === route.path}
               onClick={() => {
-                onPageClick(route.name, route.path);
+                onPageClick(route.component, route.path);
               }}
             >
               <ListItemText primary={t(route.name)}></ListItemText>
