@@ -98,7 +98,7 @@ const Home = (props: Props) => {
             </Grid>
           </Box>
           <Grid container item>
-            <Grid item xs={6} md={3}>
+            <Grid item xs={6} md={4}>
               <Button
                 variant='contained'
                 className={classes.leftButton}
@@ -108,7 +108,7 @@ const Home = (props: Props) => {
                 {t(Localization.page1_button1)}
               </Button>
             </Grid>
-            <Grid item xs={6} md={3}>
+            <Grid item xs={6} md={4}>
               <Button
                 variant='outlined'
                 className={classes.rightButton}
