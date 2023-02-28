@@ -8,4 +8,6 @@
   "cSpell.words": ["clsx", "firestore", "persistor", "zalo"],
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true
+  // "javascript.inlayHints.parameterNames.enabled": "all",
+  // "typescript.inlayHints.parameterNames.enabled": "all"
 }
