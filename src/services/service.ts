@@ -14,15 +14,6 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { sortBy } from 'lodash';
 import { firestore } from './firebase';
 class Service {
-  private static instance: Service;
-  private constructor() {}
-  static getInstance(): Service {
-    if (!Service.instance) {
-      Service.instance = new Service();
-    }
-    return Service.instance;
-  }
-
   async getLocalization(
     language: string = Constant.DEFAULT_LANGUAGE
   ): Promise<any> {
@@ -165,4 +156,4 @@ class Service {
   }
 }
 
-export const service = Service.getInstance();
+export default Service;

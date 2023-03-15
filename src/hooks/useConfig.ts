@@ -1,12 +1,14 @@
+import di from '@core/di';
 import { Config } from '@models/config';
 import { setConfig } from '@redux/configSlice';
 import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
-import { service } from '@services/service';
+import Service from '@services/service';
 import { useCallback } from 'react';
 
 const useConfig = () => {
   const dispatch = useAppDispatch();
+  const service = di.getSingleton(Service);
 
   const updateDocument = useCallback(({ icon, title }: any) => {
     (document.querySelector('link[rel="icon"]') as any).href = icon;
@@ -24,7 +26,7 @@ const useConfig = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [dispatch, updateDocument]);
+  }, [dispatch, updateDocument, service]);
 
   return {
     getData,

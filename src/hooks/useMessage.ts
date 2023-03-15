@@ -1,10 +1,12 @@
+import di from '@core/di';
 import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
-import { service } from '@services/service';
+import Service from '@services/service';
 import { useCallback } from 'react';
 
 const useMessage = () => {
   const dispatch = useAppDispatch();
+  const service = di.getSingleton(Service);
 
   const postData = useCallback(
     async (name: string, message: string) => {
@@ -16,7 +18,7 @@ const useMessage = () => {
         dispatch(hideSpinner());
       }
     },
-    [dispatch]
+    [dispatch, service]
   );
   return {
     postData,

@@ -1,14 +1,16 @@
 import { FirestoreDocument } from '@core/configs';
+import di from '@core/di';
 import { User } from '@models/user';
 import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import { setUser } from '@redux/userSlice';
-import { service } from '@services/service';
+import Service from '@services/service';
 import { capitalize } from 'lodash';
 import { useCallback } from 'react';
 
 const useUser = () => {
   const dispatch = useAppDispatch();
+  const service = di.getSingleton(Service);
 
   const getData = useCallback(async () => {
     const documents = Object.values(FirestoreDocument);
@@ -33,7 +35,7 @@ const useUser = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [dispatch]);
+  }, [dispatch, service]);
 
   return {
     getData,

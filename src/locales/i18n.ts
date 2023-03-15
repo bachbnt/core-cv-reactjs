@@ -1,5 +1,6 @@
 import Constant from '@core/constants';
-import { service } from '@services/service';
+import di from '@core/di';
+import Service from '@services/service';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import backend from 'i18next-http-backend';
@@ -9,6 +10,7 @@ import localization from './localization';
 const backendOptions = {
   request: async (options: any, url: any, payload: any, callback: any) => {
     try {
+      const service = di.getSingleton(Service);
       const config = await service.getConfig();
       const data = await service.getLocalization(config?.language);
       callback(null, {
