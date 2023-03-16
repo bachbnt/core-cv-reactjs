@@ -1,6 +1,7 @@
 type DIParams = {
   name?: string;
 };
+
 interface DIContainer {
   getSingleton(classType: new () => any, params?: DIParams | undefined): any;
   registerSingleton(instance: any, params?: DIParams | undefined): void;
