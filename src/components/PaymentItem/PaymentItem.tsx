@@ -1,4 +1,4 @@
-import { Button, Typography } from '@components';
+import { Button, IconButton, Typography } from '@components';
 import {
   Box,
   Card,
@@ -36,10 +36,15 @@ const PaymentItem = (props: Props) => {
   };
 
   const onCopyClick = async (item: Payment) => {
-    await navigator.clipboard.writeText(
-      `${item.name}\n${item.account}\n${item.user}`
-    );
-    alert('Copied');
+    const value = item.account;
+    await navigator.clipboard.writeText(value);
+    alert(`Copied\n${value}`);
+  };
+
+  const onCopyAllClick = async (item: Payment) => {
+    const value = `${item.name}\n${item.account}\n${item.user}`;
+    await navigator.clipboard.writeText(value);
+    alert(`Copied\n${value}`);
   };
 
   return item.visible ? (
@@ -47,6 +52,16 @@ const PaymentItem = (props: Props) => {
       <Card className={clsx(classes.card, themeClasses.card)}>
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
+            {item.nameVisible && item.accountVisible && (
+              <IconButton
+                className={clsx(classes.copyAllButton)}
+                onClick={() => {
+                  onCopyAllClick(item);
+                }}
+              >
+                <IoCopy color='primary' />
+              </IconButton>
+            )}
             {item.nameVisible && (
               <Typography color='primary' variant='h6' align='center'>
                 {item.name}
