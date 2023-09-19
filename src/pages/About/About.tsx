@@ -2,8 +2,7 @@ import { Button, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -17,12 +16,15 @@ const About = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
+      if (!user?.profile?.covers?.length) {
+        return;
+      }
       if (!(slide === user?.profile?.covers?.length - 1)) {
         setSlide(slide + 1);
       } else {

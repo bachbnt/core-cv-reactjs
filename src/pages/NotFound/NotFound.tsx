@@ -1,6 +1,5 @@
 import { Grid } from '@material-ui/core';
-import { Config } from '@models/config';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
 import useStyles from './styles';
@@ -10,8 +9,8 @@ const NotFound = (props: Props) => {
   const themeClasses = useThemeStyles();
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
+    (state: RootState) => state.configReducer.config
+  );
 
   return (
     <Grid className={themeClasses.container} container spacing={4}>

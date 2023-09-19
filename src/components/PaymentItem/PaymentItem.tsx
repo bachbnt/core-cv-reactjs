@@ -7,9 +7,8 @@ import {
   CardMedia,
   Dialog,
 } from '@material-ui/core';
-import { Config } from '@models/config';
 import { Payment } from '@models/payment';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
 import { useState } from 'react';
@@ -23,8 +22,8 @@ const PaymentItem = (props: Props) => {
   const { item } = props;
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
+    (state: RootState) => state.configReducer.config
+  );
 
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 

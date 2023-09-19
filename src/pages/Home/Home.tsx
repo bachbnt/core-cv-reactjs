@@ -1,10 +1,8 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
-import { Config } from '@models/config';
 import { ContactType } from '@models/contact';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
@@ -21,14 +19,17 @@ const Home = (props: Props) => {
   const { t } = useTranslation();
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+    (state: RootState) => state.configReducer.config
+  );
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
+      if (!user?.profile?.specialties?.length) {
+        return;
+      }
       if (!(slide === user?.profile?.specialties?.length - 1)) {
         setSlide(slide + 1);
       } else {

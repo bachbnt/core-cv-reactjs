@@ -6,7 +6,7 @@ import { Education } from '@models/education';
 import { Experience } from '@models/experience';
 import { Message } from '@models/message';
 import { Payment } from '@models/payment';
-import { parseProfile, Profile } from '@models/profile';
+import { Profile, parseProfile } from '@models/profile';
 import { Project } from '@models/project';
 import { Service as ServiceModel } from '@models/service';
 import { Skill } from '@models/skill';
@@ -23,7 +23,7 @@ class Service {
       FirestoreDocument.LOCALIZATION
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data() as any;
+    const data = snapshot.data() || {};
 
     const localization = data[language];
     return localization;
@@ -36,7 +36,7 @@ class Service {
       FirestoreDocument.CONFIG
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
     const config = parseConfig(data);
     return config;
@@ -58,9 +58,9 @@ class Service {
       FirestoreDocument.CONTACT
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: Contact[] = Object.values(data as {});
+    const list: Contact[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -71,9 +71,9 @@ class Service {
       FirestoreDocument.EDUCATION
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: Education[] = Object.values(data as {});
+    const list: Education[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -84,9 +84,9 @@ class Service {
       FirestoreDocument.EXPERIENCE
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: Experience[] = Object.values(data as {});
+    const list: Experience[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -97,7 +97,7 @@ class Service {
       FirestoreDocument.PROFILE
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
     const profile = parseProfile(data);
     return profile;
@@ -110,9 +110,9 @@ class Service {
       FirestoreDocument.PROJECT
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: Project[] = Object.values(data as {});
+    const list: Project[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -123,9 +123,9 @@ class Service {
       FirestoreDocument.SERVICE
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: ServiceModel[] = Object.values(data as {});
+    const list: ServiceModel[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -136,9 +136,9 @@ class Service {
       FirestoreDocument.SKILL
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: Skill[] = Object.values(data as {});
+    const list: Skill[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -149,9 +149,9 @@ class Service {
       FirestoreDocument.PAYMENT
     );
     const snapshot = await getDoc(ref);
-    const data = snapshot.data();
+    const data = snapshot.data() || {};
 
-    const list: Payment[] = Object.values(data as {});
+    const list: Payment[] = Object.values(data);
     return sortBy(list, Constant.SORT_KEY);
   }
 }

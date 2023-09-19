@@ -1,12 +1,11 @@
 import Constant from '@core/constants';
 import {
-  Drawer as MuiDrawer,
   List,
   ListItem,
   ListItemText,
+  Drawer as MuiDrawer,
 } from '@material-ui/core';
-import { Config } from '@models/config';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import { routes } from '@routes/routes';
 import { lowerCase } from 'lodash';
 import { useTranslation } from 'react-i18next';
@@ -22,8 +21,8 @@ const Drawer = (props: Props) => {
   const { t } = useTranslation();
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
+    (state: RootState) => state.configReducer.config
+  );
 
   const onPageClick = async (component: string, path: string) => {
     if (
