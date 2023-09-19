@@ -1,7 +1,8 @@
 import { FirestoreDocument } from '@core/configs';
 import di from '@core/di';
 import { User } from '@models/user';
-import { hideSkeleton, showSkeleton } from '@redux/skeletonSlice';
+import { showSkeleton } from '@redux/skeletonSlice';
+import { hideSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import { setUser } from '@redux/userSlice';
 import Service from '@services/service';
@@ -33,7 +34,7 @@ const useUser = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      dispatch(hideSkeleton());
+      dispatch(hideSpinner());
     }
   }, [dispatch, service]);
 

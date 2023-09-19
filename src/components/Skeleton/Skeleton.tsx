@@ -5,9 +5,7 @@ import useStyles from './styles';
 const Skeleton = (props: Props) => {
   const classes = useStyles();
 
-  return (
-    <MuiSkeleton classes={{ root: classes.root }} animation='wave' {...props} />
-  );
+  return <MuiSkeleton classes={{ root: classes.root }} {...props} />;
 };
 
 export default Skeleton;

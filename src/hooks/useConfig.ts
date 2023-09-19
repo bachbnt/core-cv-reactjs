@@ -1,7 +1,8 @@
 import di from '@core/di';
 import { Config } from '@models/config';
 import { setConfig } from '@redux/configSlice';
-import { hideSkeleton, showSkeleton } from '@redux/skeletonSlice';
+import { showSkeleton } from '@redux/skeletonSlice';
+import { hideSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import Service from '@services/service';
 import { useCallback } from 'react';
@@ -24,7 +25,7 @@ const useConfig = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      dispatch(hideSkeleton());
+      dispatch(hideSpinner());
     }
   }, [dispatch, updateDocument, service]);
 
