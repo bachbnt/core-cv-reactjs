@@ -1,5 +1,6 @@
 export interface Project {
   cover: string;
+  covers: string[];
   coverVisible: boolean;
   description: string;
   descriptionVisible: boolean;

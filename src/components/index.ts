@@ -1,5 +1,6 @@
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
+export { default as Carousel } from './Carousel';
 export { default as ContactItem } from './ContactItem';
 export { default as Drawer } from './Drawer';
 export { default as EducationItem } from './EducationItem';

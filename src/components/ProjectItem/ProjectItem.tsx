@@ -1,4 +1,4 @@
-import { Typography } from '@components';
+import { Carousel, Typography } from '@components';
 import {
   Box,
   Card,
@@ -38,11 +38,21 @@ const ProjectItem = (props: Props) => {
       <Card className={classes.card} onClick={onOpenDialog}>
         <CardActionArea>
           {item.coverVisible && (
-            <CardMedia
-              className={classes.img}
-              component='img'
-              image={item.cover || config?.image?.comingSoon}
-            />
+            <Carousel
+              indicators={item.covers?.length > 1}
+              navButtonsAlwaysInvisible={!(item.covers?.length > 1)}
+            >
+              {[
+                item.cover || config?.image?.comingSoon,
+                ...(item.covers ?? []),
+              ].map((element, index) => (
+                <CardMedia
+                  className={classes.img}
+                  component='img'
+                  image={item.cover || config?.image?.comingSoon}
+                />
+              ))}
+            </Carousel>
           )}
           <CardContent>
             {item.nameVisible && (
@@ -70,11 +80,21 @@ const ProjectItem = (props: Props) => {
       <Dialog fullWidth maxWidth='md' open={openDialog} onClose={onCloseDialog}>
         <DialogContent>
           {item.coverVisible && (
-            <CardMedia
-              className={classes.dialogImg}
-              component='img'
-              image={item.cover || config?.image?.comingSoon}
-            />
+            <Carousel
+              indicators={item.covers?.length > 1}
+              navButtonsAlwaysInvisible={!(item.covers?.length > 1)}
+            >
+              {[
+                item.cover || config?.image?.comingSoon,
+                ...(item.covers ?? []),
+              ].map((element, index) => (
+                <CardMedia
+                  className={classes.dialogImg}
+                  component='img'
+                  image={element}
+                />
+              ))}
+            </Carousel>
           )}
           <CardContent>
             {item.nameVisible && (

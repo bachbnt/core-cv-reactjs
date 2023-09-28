@@ -1,14 +1,15 @@
 import { Button, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
-import { Box, Grid } from '@material-ui/core';
+import { Box, CardMedia, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
 import { User } from '@models/user';
 import { useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
+import Carousel from 'react-material-ui-carousel';
 import Props from './props';
 import useStyles from './styles';
 
@@ -18,22 +19,6 @@ const About = (props: Props) => {
   const { t } = useTranslation();
 
   const user = useAppSelector((state: any) => state.userReducer.user) as User;
-
-  const [slide, setSlide] = useState<number>(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!(slide === user?.profile?.covers?.length - 1)) {
-        setSlide(slide + 1);
-      } else {
-        setSlide(0);
-      }
-    }, 4000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [slide, user]);
 
   const frameworkSkills = useMemo(() => {
     return filter(user?.skill, { type: SkillType.FRAMEWORK, visible: true });
@@ -135,7 +120,15 @@ const About = (props: Props) => {
           md={6}
           item
         >
-          <img className={classes.img} src={covers[slide].url} alt='cover' />
+          <Carousel className={classes.img}>
+            {covers.map((item, index) => (
+              <CardMedia
+                className={classes.img}
+                component='img'
+                image={item.url}
+              />
+            ))}
+          </Carousel>
         </Grid>
       </Grid>
     </Layout>
