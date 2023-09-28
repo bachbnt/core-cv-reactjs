@@ -2,8 +2,7 @@ import { Layout, ProjectItem, Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { ProjectType } from '@models/project';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
 import { useMemo } from 'react';
@@ -16,7 +15,7 @@ const Project = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const companyProjects = useMemo(() => {
     return filter(user?.project, {

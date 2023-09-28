@@ -2,8 +2,7 @@ import { Button, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Box, CardMedia, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
 import { useCallback, useMemo } from 'react';
@@ -18,7 +17,7 @@ const About = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const frameworkSkills = useMemo(() => {
     return filter(user?.skill, { type: SkillType.FRAMEWORK, visible: true });

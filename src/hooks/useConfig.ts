@@ -1,7 +1,8 @@
 import di from '@core/di';
 import { Config } from '@models/config';
 import { setConfig } from '@redux/configSlice';
-import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
+import { showSkeleton } from '@redux/skeletonSlice';
+import { hideSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import Service from '@services/service';
 import { useCallback } from 'react';
@@ -17,7 +18,7 @@ const useConfig = () => {
 
   const getData = useCallback(async () => {
     try {
-      dispatch(showSpinner());
+      dispatch(showSkeleton());
       const config: Config = await service.getConfig();
       updateDocument({ icon: config?.appIcon, title: config?.appTitle });
       dispatch(setConfig(config));

@@ -8,8 +8,7 @@ import {
   Dialog,
   DialogContent,
 } from '@material-ui/core';
-import { Config } from '@models/config';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { useState } from 'react';
 import Props from './props';
@@ -21,8 +20,8 @@ const ProjectItem = (props: Props) => {
   const { item } = props;
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
+    (state: RootState) => state.configReducer.config
+  );
 
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 

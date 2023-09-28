@@ -1,7 +1,8 @@
 import { FirestoreDocument } from '@core/configs';
 import di from '@core/di';
 import { User } from '@models/user';
-import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
+import { showSkeleton } from '@redux/skeletonSlice';
+import { hideSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import { setUser } from '@redux/userSlice';
 import Service from '@services/service';
@@ -16,7 +17,7 @@ const useUser = () => {
     const documents = Object.values(FirestoreDocument);
 
     try {
-      dispatch(showSpinner());
+      dispatch(showSkeleton());
       const user: User = (
         await Promise.all(
           documents.map((document) => {

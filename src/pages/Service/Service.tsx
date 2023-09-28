@@ -1,8 +1,7 @@
 import { Layout, ServiceItem } from '@components';
 import Constant from '@core/constants';
 import { Grid } from '@material-ui/core';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter, sortBy } from 'lodash';
 import { useMemo } from 'react';
@@ -13,7 +12,7 @@ const Service = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const services = useMemo(() => {
     return sortBy(filter(user?.service, { visible: true }), Constant.SORT_KEY);

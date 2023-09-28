@@ -6,8 +6,7 @@ import {
   CardContent,
   CardMedia,
 } from '@material-ui/core';
-import { Config } from '@models/config';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import Props from './props';
 import useStyles from './styles';
 
@@ -16,8 +15,8 @@ const EducationItem = (props: Props) => {
   const { item } = props;
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
+    (state: RootState) => state.configReducer.config
+  );
 
   return (
     <Card elevation={3}>

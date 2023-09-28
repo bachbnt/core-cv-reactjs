@@ -1,8 +1,7 @@
 import { Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Grid } from '@material-ui/core';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
 import useStyles from './styles';
@@ -11,7 +10,7 @@ const Footer = (props: Props) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   return (
     <Grid className={classes.container}>

@@ -9,8 +9,7 @@ import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
 import { useMemo } from 'react';
@@ -23,16 +22,16 @@ const Resume = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const education = useMemo(() => {
-    return filter(user?.education, { visible: true }).reverse() as Education[];
+    return filter(user?.education, { visible: true }).reverse();
   }, [user?.education]);
 
   const experience = useMemo(() => {
     return filter(user?.experience, {
       visible: true,
-    }).reverse() as Experience[];
+    }).reverse();
   }, [user?.experience]);
 
   return (

@@ -10,8 +10,7 @@ import useYupResolver from '@hooks/useYupResolver';
 import { Localization } from '@locales/i18n';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
 import { ContactType } from '@models/contact';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
 import { useEffect, useMemo } from 'react';
@@ -28,7 +27,7 @@ const Contact = (props: Props) => {
 
   const { postData } = useMessage();
 
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const resolver = useYupResolver(validationSchema);
   const methods = useForm({ resolver });

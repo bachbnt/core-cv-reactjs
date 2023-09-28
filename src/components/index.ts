@@ -12,6 +12,7 @@ export { default as Layout } from './Layout';
 export { default as PaymentItem } from './PaymentItem';
 export { default as ProjectItem } from './ProjectItem';
 export { default as ServiceItem } from './ServiceItem';
+export { default as Skeleton } from './Skeleton';
 export { default as Spinner } from './Spinner';
 export { default as TextField } from './TextField';
 export { default as TextFormField } from './TextFormField';

@@ -4,9 +4,7 @@ import useConfig from '@hooks/useConfig';
 import useUser from '@hooks/useUser';
 import { Localization } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
-import { Config } from '@models/config';
-import { User } from '@models/user';
-import { useAppSelector } from '@redux/store';
+import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import { routes } from '@routes/routes';
 import { lowerCase } from 'lodash';
@@ -27,9 +25,9 @@ const Header = (props: Props) => {
   const { getData: getUser } = useUser();
 
   const config = useAppSelector(
-    (state: any) => state.configReducer.config
-  ) as Config;
-  const user = useAppSelector((state: any) => state.userReducer.user) as User;
+    (state: RootState) => state.configReducer.config
+  );
+  const user = useAppSelector((state: RootState) => state.userReducer.user);
 
   const [open, setOpen] = useState<boolean>(false);
 

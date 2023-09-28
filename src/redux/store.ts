@@ -6,6 +6,7 @@ import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import configReducer from './configSlice';
+import skeletonReducer from './skeletonSlice';
 import spinnerReducer from './spinnerSlice';
 import userReducer from './userSlice';
 
@@ -19,8 +20,12 @@ const reducers = combineReducers({
   configReducer,
   spinnerReducer,
   userReducer,
+  skeletonReducer,
 });
-const persistedReducer = persistReducer(persistConfig, reducers);
+
+export type CombinedState = ReturnType<typeof reducers>;
+const persistedReducer = persistReducer<CombinedState>(persistConfig, reducers);
+
 const middleware =
   process.env.NODE_ENV === 'production' ? [thunk] : [thunk, logger];
 
