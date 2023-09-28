@@ -48,7 +48,7 @@ const ProjectItem = (props: Props) => {
                 <CardMedia
                   className={classes.img}
                   component='img'
-                  image={item.cover || config?.image?.comingSoon}
+                  image={element}
                 />
               ))}
             </Carousel>
