@@ -7,6 +7,7 @@ export interface Project {
   index: number;
   name: string;
   nameVisible: boolean;
+  refs: string[];
   technology: string;
   technologyVisible: boolean;
   type: ProjectType;

@@ -47,10 +47,10 @@ const Contact = (props: Props) => {
   };
 
   const contacts = useMemo(() => {
-    return filter(user?.contact, {
-      type: ContactType.CONTACT,
-      visible: true,
-    });
+    return filter(
+      user?.contact,
+      (contact) => contact.type !== ContactType.SOCIAL && contact.visible
+    );
   }, [user?.contact]);
 
   return (

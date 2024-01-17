@@ -7,6 +7,7 @@ import {
   CardMedia,
   Dialog,
   DialogContent,
+  Link,
 } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
@@ -32,10 +33,14 @@ const ProjectItem = (props: Props) => {
     setOpenDialog(false);
   };
 
+  const onClickRef = (url: string) => {
+    window.open(url);
+  };
+
   return item.visible ? (
     <div>
-      <Card className={classes.card} onClick={onOpenDialog}>
-        <CardActionArea>
+      <Card className={classes.card}>
+        <CardActionArea onClick={onOpenDialog}>
           {item.coverVisible && (
             <Carousel
               indicators={item.covers?.length > 1}
@@ -69,9 +74,18 @@ const ProjectItem = (props: Props) => {
                 </Typography>
               </Box>
             )}
-            <Box my={2} />
             {item.technologyVisible && (
               <Typography variant='subtitle2'>{item.technology}</Typography>
+            )}
+            <Box my={2} />
+            {Array.isArray(item.refs) && item.refs.length && (
+              <Link
+                component='button'
+                variant='caption'
+                onClick={() => onClickRef(item.refs[0])}
+              >
+                {item.refs[0]}
+              </Link>
             )}
           </CardContent>
         </CardActionArea>
@@ -107,6 +121,24 @@ const ProjectItem = (props: Props) => {
             <Box my={2} />
             {item.technologyVisible && (
               <Typography variant='subtitle2'>{item.technology}</Typography>
+            )}
+            {Array.isArray(item.refs) && item.refs.length && (
+              <Box
+                my={2}
+                display='flex'
+                flexDirection='column'
+                alignItems='flex-start'
+              >
+                {item.refs.map((ref) => (
+                  <Link
+                    component='button'
+                    variant='caption'
+                    onClick={() => onClickRef(ref)}
+                  >
+                    {ref}
+                  </Link>
+                ))}
+              </Box>
             )}
           </CardContent>
         </DialogContent>
