@@ -75,17 +75,26 @@ const ProjectItem = (props: Props) => {
               </Box>
             )}
             {item.technologyVisible && (
-              <Typography variant='subtitle2'>{item.technology}</Typography>
+              <Box my={2}>
+                <Typography variant='subtitle2'>{item.technology}</Typography>
+              </Box>
             )}
-            <Box my={2} />
             {Array.isArray(item.refs) && item.refs.length && (
-              <Link
-                component='button'
-                variant='caption'
-                onClick={() => onClickRef(item.refs[0])}
+              <Box
+                my={2}
+                display='flex'
+                flexDirection='column'
+                alignItems='flex-start'
               >
-                {item.refs[0]}
-              </Link>
+                <Link
+                  component='button'
+                  variant='caption'
+                  align='left'
+                  onClick={() => onClickRef(item.refs[0])}
+                >
+                  {item.refs[0]}
+                </Link>
+              </Box>
             )}
           </CardContent>
         </CardActionArea>
@@ -118,9 +127,11 @@ const ProjectItem = (props: Props) => {
             {item.descriptionVisible && (
               <Typography variant='body2'>{item.description}</Typography>
             )}
-            <Box my={2} />
+
             {item.technologyVisible && (
-              <Typography variant='subtitle2'>{item.technology}</Typography>
+              <Box my={2}>
+                <Typography variant='subtitle2'>{item.technology}</Typography>
+              </Box>
             )}
             {Array.isArray(item.refs) && item.refs.length && (
               <Box
@@ -133,6 +144,7 @@ const ProjectItem = (props: Props) => {
                   <Link
                     component='button'
                     variant='caption'
+                    align='left'
                     onClick={() => onClickRef(ref)}
                   >
                     {ref}
