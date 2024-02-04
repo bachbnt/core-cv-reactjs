@@ -57,7 +57,7 @@ const About = (props: Props) => {
   const renderSkillItem = useCallback(
     (item: Skill) => {
       return item.visible ? (
-        <Grid key={`${item.name} ${item.index}`} container item xs={6} md={4}>
+        <Grid key={item.id} container item xs={6} md={4}>
           <Button
             className={classes.skillText}
             startIcon={renderSkillIcon(item.type)}
@@ -68,9 +68,7 @@ const About = (props: Props) => {
             {item.name}
           </Button>
         </Grid>
-      ) : (
-        <div key={`${item.name} ${item.index}`} />
-      );
+      ) : null;
     },
     [classes, renderSkillIcon]
   );
@@ -122,6 +120,7 @@ const About = (props: Props) => {
           <Carousel className={classes.img}>
             {covers.map((item, index) => (
               <CardMedia
+                key={item.url}
                 className={classes.img}
                 component='img'
                 image={item.url}

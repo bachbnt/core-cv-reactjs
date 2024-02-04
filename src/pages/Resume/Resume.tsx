@@ -46,10 +46,7 @@ const Resume = (props: Props) => {
           <Timeline
             data={education}
             renderItem={(item) => (
-              <EducationItem
-                key={`${item.name} ${item.index}`}
-                item={item as Education}
-              />
+              <EducationItem key={item.id} item={item as Education} />
             )}
           />
         </Grid>
@@ -62,10 +59,7 @@ const Resume = (props: Props) => {
           <Timeline
             data={experience}
             renderItem={(item) => (
-              <ExperienceItem
-                key={`${item.name} ${item.index}`}
-                item={item as Experience}
-              />
+              <ExperienceItem key={item.id} item={item as Experience} />
             )}
           />
         </Grid>

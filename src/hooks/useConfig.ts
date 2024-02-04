@@ -1,5 +1,4 @@
 import di from '@core/di';
-import { Config } from '@models/config';
 import { setConfig } from '@redux/configSlice';
 import { showSkeleton } from '@redux/skeletonSlice';
 import { hideSpinner } from '@redux/spinnerSlice';
@@ -19,7 +18,7 @@ const useConfig = () => {
   const getData = useCallback(async () => {
     try {
       dispatch(showSkeleton());
-      const config: Config = await service.getConfig();
+      const config = await service.getConfig();
       updateDocument({ icon: config?.appIcon, title: config?.appTitle });
       dispatch(setConfig(config));
     } catch (error) {

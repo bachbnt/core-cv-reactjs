@@ -16,7 +16,7 @@ import { firestore } from './firebase';
 class Service {
   async getLocalization(
     language: string = Constant.DEFAULT_LANGUAGE
-  ): Promise<any> {
+  ): Promise<Record<string, any>> {
     const ref = doc(
       firestore,
       FirestoreCollection.CONFIG,
@@ -29,7 +29,7 @@ class Service {
     return localization;
   }
 
-  async getConfig(): Promise<Config | any> {
+  async getConfig(): Promise<Config> {
     const ref = doc(
       firestore,
       FirestoreCollection.CONFIG,
@@ -60,7 +60,10 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: Contact[] = Object.values(data);
+    const list: Contact[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -73,7 +76,10 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: Education[] = Object.values(data);
+    const list: Education[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -86,11 +92,14 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: Experience[] = Object.values(data);
+    const list: Experience[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 
-  async getProfile(): Promise<Profile | any> {
+  async getProfile(): Promise<Profile> {
     const ref = doc(
       firestore,
       FirestoreCollection.USER,
@@ -112,7 +121,10 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: Project[] = Object.values(data);
+    const list: Project[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -125,7 +137,10 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: ServiceModel[] = Object.values(data);
+    const list: ServiceModel[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -138,7 +153,10 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: Skill[] = Object.values(data);
+    const list: Skill[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 
@@ -151,7 +169,10 @@ class Service {
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
 
-    const list: Payment[] = Object.values(data);
+    const list: Payment[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...value,
+    }));
     return sortBy(list, Constant.SORT_KEY);
   }
 }

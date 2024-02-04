@@ -98,9 +98,7 @@ const Header = (props: Props) => {
                 >
                   {t(route.name)}
                 </Button>
-              ) : (
-                <div key={route.name} />
-              )
+              ) : null
             )}
           </Box>
           <Box className={classes.mobile}>

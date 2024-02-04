@@ -1,7 +1,8 @@
-import { Layout, ProjectItem, Typography } from '@components';
+import { Layout, ProjectDialog, ProjectItem, Typography } from '@components';
+import useDialog from '@hooks/useDialog';
 import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
-import { ProjectType } from '@models/project';
+import { Project as ProjectModel, ProjectType } from '@models/project';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { filter } from 'lodash';
@@ -17,26 +18,30 @@ const Project = (props: Props) => {
 
   const user = useAppSelector((state: RootState) => state.userReducer.user);
 
-  const companyProjects = useMemo(() => {
-    return filter(user?.project, {
-      type: ProjectType.COMPANY,
-      visible: true,
-    }).reverse();
+  const projects = useMemo(() => {
+    return filter(user?.project, { visible: true });
   }, [user?.project]);
+
+  const companyProjects = useMemo(() => {
+    return filter(projects, {
+      type: ProjectType.COMPANY,
+    }).reverse();
+  }, [projects]);
 
   const freelanceProjects = useMemo(() => {
-    return filter(user?.project, {
+    return filter(projects, {
       type: ProjectType.FREELANCE,
-      visible: true,
     }).reverse();
-  }, [user?.project]);
+  }, [projects]);
 
   const personalProjects = useMemo(() => {
-    return filter(user?.project, {
+    return filter(projects, {
       type: ProjectType.PERSONAL,
-      visible: true,
     }).reverse();
-  }, [user?.project]);
+  }, [projects]);
+
+  const { item, openDialog, onOpenDialog, onCloseDialog } =
+    useDialog<ProjectModel>(projects);
 
   const hasCompanyProject = useMemo(() => {
     return companyProjects.length > 0;
@@ -62,8 +67,11 @@ const Project = (props: Props) => {
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
               {companyProjects.map((item) => (
-                <Grid key={`${item.name} ${item.index}`} item>
-                  <ProjectItem item={item} />
+                <Grid key={item.id} item>
+                  <ProjectItem
+                    item={item}
+                    onOpenDialog={() => onOpenDialog(item)}
+                  />
                 </Grid>
               ))}
             </Grid>
@@ -79,8 +87,11 @@ const Project = (props: Props) => {
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
               {freelanceProjects.map((item) => (
-                <Grid key={`${item.name} ${item.index}`} item>
-                  <ProjectItem item={item} />
+                <Grid key={item.id} item>
+                  <ProjectItem
+                    item={item}
+                    onOpenDialog={() => onOpenDialog(item)}
+                  />
                 </Grid>
               ))}
             </Grid>
@@ -96,12 +107,23 @@ const Project = (props: Props) => {
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
               {personalProjects.map((item) => (
-                <Grid key={`${item.name} ${item.index}`} item>
-                  <ProjectItem item={item} />
+                <Grid key={item.id} item>
+                  <ProjectItem
+                    item={item}
+                    onOpenDialog={() => onOpenDialog(item)}
+                  />
                 </Grid>
               ))}
             </Grid>
           </>
+        )}
+
+        {item && (
+          <ProjectDialog
+            item={item}
+            openDialog={openDialog}
+            onCloseDialog={onCloseDialog}
+          />
         )}
       </Grid>
     </Layout>

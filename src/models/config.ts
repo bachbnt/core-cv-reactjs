@@ -30,32 +30,32 @@ interface ConfigImage {
   error404: string;
 }
 
-export function parseConfig(data: any): Config {
+export function parseConfig(data: Record<string, any>): Config {
   return {
-    aboutEnable: data['aboutEnable'],
-    aboutVisible: data['aboutVisible'],
-    appIcon: data['appIcon'] || Constant.DEFAULT_APP_ICON,
-    appTitle: data['appTitle'] || Constant.DEFAULT_APP_TITLE,
-    blogEnable: data['blogEnable'],
-    blogVisible: data['blogVisible'],
-    contactEnable: data['contactEnable'],
-    contactVisible: data['contactVisible'],
-    cvEnable: data['cvEnable'],
-    cvVisible: data['cvVisible'],
-    homeEnable: data['homeEnable'],
-    homeVisible: data['homeVisible'],
-    projectEnable: data['projectEnable'],
-    projectVisible: data['projectVisible'],
-    resumeEnable: data['resumeEnable'],
-    resumeVisible: data['resumeVisible'],
-    serviceEnable: data['serviceEnable'],
-    serviceVisible: data['serviceVisible'],
-    image: data['image'] || {
+    aboutEnable: data.aboutEnable ?? false,
+    aboutVisible: data.aboutVisible ?? false,
+    appIcon: data.appIcon ?? Constant.DEFAULT_APP_ICON,
+    appTitle: data.appTitle ?? Constant.DEFAULT_APP_TITLE,
+    blogEnable: data.blogEnable ?? false,
+    blogVisible: data.blogVisible ?? false,
+    contactEnable: data.contactEnable ?? false,
+    contactVisible: data.contactVisible ?? false,
+    cvEnable: data.cvEnable ?? false,
+    cvVisible: data.cvVisible ?? false,
+    homeEnable: data.homeEnable ?? false,
+    homeVisible: data.homeVisible ?? false,
+    projectEnable: data.projectEnable ?? false,
+    projectVisible: data.projectVisible ?? false,
+    resumeEnable: data.resumeEnable ?? false,
+    resumeVisible: data.resumeVisible ?? false,
+    serviceEnable: data.serviceEnable ?? false,
+    serviceVisible: data.serviceVisible ?? false,
+    image: data.image ?? {
       comingSoon: Constant.DEFAULT_COMING_SOON_IMAGE,
       error404: Constant.DEFAULT_ERROR_404_IMAGE,
     },
-    language: data['language'],
-    paymentEnable: data['paymentEnable'],
-    paymentVisible: data['paymentVisible'],
+    language: data.language ?? Constant.DEFAULT_LANGUAGE,
+    paymentEnable: data.paymentEnable ?? false,
+    paymentVisible: data.paymentVisible ?? false,
   };
 }

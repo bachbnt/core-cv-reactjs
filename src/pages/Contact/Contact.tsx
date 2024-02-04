@@ -65,7 +65,7 @@ const Contact = (props: Props) => {
           item
         >
           {contacts.map((item) => (
-            <Grid key={`${item.name} ${item.index}`} item>
+            <Grid key={item.id} item>
               <ContactItem item={item} />
             </Grid>
           ))}

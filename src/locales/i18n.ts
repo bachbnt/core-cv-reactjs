@@ -8,7 +8,12 @@ import { initReactI18next } from 'react-i18next';
 import localization from './localization';
 
 const backendOptions = {
-  request: async (options: any, url: any, payload: any, callback: any) => {
+  request: async (
+    options: unknown,
+    url: unknown,
+    payload: unknown,
+    callback: Function
+  ) => {
     try {
       const service = di.getSingleton(Service);
       const config = await service.getConfig();
@@ -17,7 +22,7 @@ const backendOptions = {
         data,
         status: 200,
       });
-    } catch (error: any) {
+    } catch (error) {
       callback(null, {
         status: 500,
       });
@@ -43,6 +48,7 @@ i18n
     },
     react: {
       wait: true,
+      useSuspense: false,
     },
   });
 

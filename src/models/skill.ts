@@ -1,4 +1,5 @@
 export interface Skill {
+  id: string;
   index: number;
   name: string;
   nameVisible: boolean;

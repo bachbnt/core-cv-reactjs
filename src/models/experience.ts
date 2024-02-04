@@ -1,4 +1,5 @@
 export interface Experience {
+  id: string;
   image: string;
   imageVisible: boolean;
   index: number;

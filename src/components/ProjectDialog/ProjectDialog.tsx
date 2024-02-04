@@ -1,10 +1,10 @@
 import { Carousel, Typography } from '@components';
 import {
   Box,
-  Card,
-  CardActionArea,
   CardContent,
   CardMedia,
+  Dialog,
+  DialogContent,
   Link,
 } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
@@ -12,10 +12,10 @@ import useThemeStyles from '@themes/styles';
 import Props from './props';
 import useStyles from './styles';
 
-const ProjectItem = (props: Props) => {
+const ProjectDialog = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const { item, onOpenDialog } = props;
+  const { item, openDialog, onCloseDialog } = props;
 
   const config = useAppSelector(
     (state: RootState) => state.configReducer.config
@@ -26,8 +26,14 @@ const ProjectItem = (props: Props) => {
   };
 
   return item.visible ? (
-    <Card key={item.id} className={classes.card}>
-      <CardActionArea component='span' onClick={onOpenDialog}>
+    <Dialog
+      key={item.id}
+      fullWidth
+      maxWidth='md'
+      open={openDialog}
+      onClose={onCloseDialog}
+    >
+      <DialogContent>
         {item.coverVisible && (
           <Carousel
             indicators={item.covers?.length > 1}
@@ -38,8 +44,8 @@ const ProjectItem = (props: Props) => {
               ...(item.covers ?? []),
             ].map((element, index) => (
               <CardMedia
-                key={item.id}
-                className={classes.img}
+                key={element}
+                className={classes.dialogImg}
                 component='img'
                 image={element}
               />
@@ -53,15 +59,9 @@ const ProjectItem = (props: Props) => {
             </Typography>
           )}
           {item.descriptionVisible && (
-            <Box overflow='hidden'>
-              <Typography
-                className={themeClasses.cardDescription}
-                variant='body2'
-              >
-                {item.description}
-              </Typography>
-            </Box>
+            <Typography variant='body2'>{item.description}</Typography>
           )}
+
           {item.technologyVisible && (
             <Box my={2}>
               <Typography variant='subtitle2'>{item.technology}</Typography>
@@ -74,20 +74,23 @@ const ProjectItem = (props: Props) => {
               flexDirection='column'
               alignItems='flex-start'
             >
-              <Link
-                component='button'
-                variant='caption'
-                align='left'
-                onClick={() => onClickRef(item.refs[0])}
-              >
-                {item.refs[0]}
-              </Link>
+              {item.refs.map((ref) => (
+                <Link
+                  key={ref}
+                  component='button'
+                  variant='caption'
+                  align='left'
+                  onClick={() => onClickRef(ref)}
+                >
+                  {ref}
+                </Link>
+              ))}
             </Box>
           )}
         </CardContent>
-      </CardActionArea>
-    </Card>
+      </DialogContent>
+    </Dialog>
   ) : null;
 };
 
-export default ProjectItem;
+export default ProjectDialog;

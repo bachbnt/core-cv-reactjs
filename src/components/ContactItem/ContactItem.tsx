@@ -41,7 +41,11 @@ const ContactItem = (props: Props) => {
 
   const renderContactItem = useMemo(() => {
     return item.visible ? (
-      <Card className={clsx(classes.card, themeClasses.card)} onClick={onClick}>
+      <Card
+        key={item.id}
+        className={clsx(classes.card, themeClasses.card)}
+        onClick={onClick}
+      >
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
             {renderContactIcon}

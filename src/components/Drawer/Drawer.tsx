@@ -55,9 +55,7 @@ const Drawer = (props: Props) => {
             >
               <ListItemText primary={t(route.name)}></ListItemText>
             </ListItem>
-          ) : (
-            <div key={route.name} />
-          )
+          ) : null
         )}
       </List>
     </MuiDrawer>

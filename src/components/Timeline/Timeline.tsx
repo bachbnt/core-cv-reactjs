@@ -20,7 +20,7 @@ const Timeline = (props: Props) => {
     <MuiTimeline align='alternate'>
       {data.map((item, index) =>
         item.visible ? (
-          <TimelineItem key={`${item.name} ${item.index}`}>
+          <TimelineItem key={item.id}>
             <TimelineOppositeContent>
               <Typography variant='subtitle1'>{item.time}</Typography>
             </TimelineOppositeContent>
@@ -32,9 +32,7 @@ const Timeline = (props: Props) => {
             </TimelineSeparator>
             <TimelineContent>{renderItem(item)}</TimelineContent>
           </TimelineItem>
-        ) : (
-          <div key={`${item.name} ${item.index}`} />
-        )
+        ) : null
       )}
     </MuiTimeline>
   );

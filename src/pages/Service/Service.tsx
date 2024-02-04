@@ -22,7 +22,7 @@ const Service = (props: Props) => {
     <Layout>
       <Grid className={themeClasses.container} container spacing={4}>
         {services.map((item) => (
-          <Grid key={`${item.name} ${item.index}`} item>
+          <Grid key={item.id} item>
             <ServiceItem item={item} />
           </Grid>
         ))}

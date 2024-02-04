@@ -11,7 +11,7 @@ const ServiceItem = (props: Props) => {
   const { item } = props;
 
   return item.visible ? (
-    <Card className={clsx(classes.card, themeClasses.card)}>
+    <Card key={item.id} className={clsx(classes.card, themeClasses.card)}>
       <CardActionArea>
         <CardContent className={themeClasses.cardContent}>
           {item.nameVisible && (

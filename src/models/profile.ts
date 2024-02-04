@@ -18,13 +18,13 @@ export interface ProfileSpecialty {
   name: string;
 }
 
-export function parseProfile(data: any): Profile {
+export function parseProfile(data: Record<string, any>): Profile {
   return {
-    avatar: data['avatar'],
-    covers: data['covers'],
-    cv: data['cv'],
-    name: data['name'],
-    specialties: data['specialties'],
-    summary: data['summary'],
+    avatar: data.avatar ?? '',
+    covers: data.covers ?? [],
+    cv: data.cv ?? '',
+    name: data.name ?? '',
+    specialties: data.specialties ?? [],
+    summary: data.summary ?? '',
   };
 }

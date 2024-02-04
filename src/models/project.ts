@@ -1,4 +1,5 @@
 export interface Project {
+  id: string;
   cover: string;
   covers: string[];
   coverVisible: boolean;

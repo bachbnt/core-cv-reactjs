@@ -88,7 +88,7 @@ const Home = (props: Props) => {
             <Grid container item>
               {socialContacts?.map((item) => (
                 <Tooltip
-                  key={`${item.name} ${item.index}`}
+                  key={item.id}
                   title={item.nameVisible ? item.name : ''}
                 >
                   <div>

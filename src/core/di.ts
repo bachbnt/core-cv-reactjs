@@ -2,68 +2,60 @@ type DIParams = {
   name?: string;
 };
 
+interface DIData<T> {
+  instance?: T | null;
+  factoryMethod?: () => T;
+}
+
 interface DIContainer {
-  getSingleton(classType: new () => any, params?: DIParams | undefined): any;
-  registerSingleton(instance: any, params?: DIParams | undefined): void;
-  registerLazySingleton(
-    factoryMethod: () => any,
-    params?: DIParams | undefined
+  getSingleton<T>(classType: { new (): T }, params?: DIParams): T;
+  registerSingleton<T extends { new (...args: any[]): any }>(
+    instance: T,
+    params?: DIParams
   ): void;
-  removeSingleton(
-    classType: new () => any,
-    params?: DIParams | undefined
-  ): void;
+  registerLazySingleton<T>(factoryMethod: () => T, params?: DIParams): void;
+  removeSingleton<T>(classType: { new (): T }, params?: DIParams): void;
   reset(): void;
 }
 
 class DIContainerImpl implements DIContainer {
-  singletons: { [key: string]: any } = {};
+  private singletons: { [key: string]: DIData<any> } = {};
 
-  getSingleton(classType: new () => any, params?: DIParams | undefined): any {
-    const className = classType?.name;
-    const key = params?.name || className || '';
+  getSingleton<T>(classType: { new (): T }, params?: DIParams): T {
+    const className = classType?.name || '';
+    const key = params?.name || className;
     const singleton = this.singletons[key];
-    if (!singleton) {
+
+    if (singleton instanceof classType) {
       throw new Error(`Singleton not registered: ${key}`);
     }
 
     if (
-      typeof singleton?.factoryMethod === 'function' &&
-      singleton?.instance === null
+      typeof singleton.factoryMethod === 'function' &&
+      singleton.instance === null
     ) {
       singleton.instance = singleton.factoryMethod();
     }
 
-    return singleton?.instance;
+    return singleton.instance as T;
   }
 
-  registerSingleton(instance: any, params?: DIParams | undefined): void {
-    const className = instance?.constructor?.name;
-    const key = params?.name || className || '';
-    this.singletons[key] = {
-      instance,
-    };
+  registerSingleton<T>(classType: { new (): T }, params?: DIParams): void {
+    const className = classType?.name || '';
+    const key = params?.name || className;
+    this.singletons[key] = { instance: new classType() };
   }
 
-  registerLazySingleton(
-    factoryMethod: () => any,
-    params?: DIParams | undefined
-  ): void {
-    const regex = /_(\w+)\.default/;
-    const className = regex.exec?.(factoryMethod?.toString())?.[1];
-    const key = params?.name || className || '';
-    this.singletons[key] = {
-      factoryMethod,
-      instance: null,
-    };
+  registerLazySingleton<T>(factoryMethod: () => T, params?: DIParams): void {
+    const className =
+      (factoryMethod?.toString().match(/_(\w+)\.default/) || [])[1] || '';
+    const key = params?.name || className;
+    this.singletons[key] = { factoryMethod, instance: null };
   }
 
-  removeSingleton(
-    classType: new () => any,
-    params?: DIParams | undefined
-  ): void {
-    const className = classType?.name;
-    const key = params?.name || className || '';
+  removeSingleton<T>(classType: { new (): T }, params?: DIParams): void {
+    const className = classType?.name || '';
+    const key = params?.name || className;
     delete this.singletons[key];
   }
 

@@ -19,7 +19,7 @@ const ExperienceItem = (props: Props) => {
   );
 
   return (
-    <Card elevation={3}>
+    <Card key={item.id} elevation={3}>
       <CardActionArea>
         <CardContent>
           {item.nameVisible && (

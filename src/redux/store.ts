@@ -10,12 +10,6 @@ import skeletonReducer from './skeletonSlice';
 import spinnerReducer from './spinnerSlice';
 import userReducer from './userSlice';
 
-const persistConfig: PersistConfig<any> = {
-  key: Constant.APP_NAME,
-  storage,
-  whitelist: ['configReducer', 'userReducer'],
-};
-
 const reducers = combineReducers({
   configReducer,
   spinnerReducer,
@@ -24,6 +18,13 @@ const reducers = combineReducers({
 });
 
 export type CombinedState = ReturnType<typeof reducers>;
+
+const persistConfig: PersistConfig<CombinedState> = {
+  key: Constant.APP_NAME,
+  storage,
+  whitelist: ['configReducer', 'userReducer'],
+};
+
 const persistedReducer = persistReducer<CombinedState>(persistConfig, reducers);
 
 const middleware =

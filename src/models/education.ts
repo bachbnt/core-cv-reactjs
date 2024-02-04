@@ -1,4 +1,5 @@
 export interface Education {
+  id: string;
   degree: string;
   degreeVisible: boolean;
   image: string;

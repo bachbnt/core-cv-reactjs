@@ -16,7 +16,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
 import di from './core/di';
 
-di.registerSingleton(new Service());
+di.registerSingleton(Service);
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'jss',

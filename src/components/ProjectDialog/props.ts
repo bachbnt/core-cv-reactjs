@@ -3,7 +3,8 @@ import { Project } from '@models/project';
 
 type Props = {
   item: Project;
-  onOpenDialog: () => void;
+  openDialog: boolean;
+  onCloseDialog: () => void;
 } & CardProps;
 
 export default Props;
