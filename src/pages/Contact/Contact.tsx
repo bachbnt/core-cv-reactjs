@@ -12,7 +12,7 @@ import { Box, Card, CardContent, Grid } from '@material-ui/core';
 import { ContactType } from '@models/contact';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter } from 'lodash';
+import filter from 'lodash/filter';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,8 @@ const Contact = (props: Props) => {
 
   const { postData } = useMessage();
 
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
+  const { contact = [] } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   const resolver = useYupResolver(validationSchema);
   const methods = useForm({ resolver });
@@ -47,11 +48,8 @@ const Contact = (props: Props) => {
   };
 
   const contacts = useMemo(() => {
-    return filter(
-      user?.contact,
-      (contact) => contact.type !== ContactType.SOCIAL && contact.visible
-    );
-  }, [user?.contact]);
+    return filter(contact, (contact) => contact.type !== ContactType.SOCIAL);
+  }, [contact]);
 
   return (
     <Layout>

@@ -5,7 +5,7 @@ import { ContactType } from '@models/contact';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import useThemeStyles from '@themes/styles';
-import { filter } from 'lodash';
+import filter from 'lodash/filter';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
@@ -18,19 +18,19 @@ const Home = (props: Props) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
-  );
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
+  const { aboutEnable, contactEnable } =
+    useAppSelector((state: RootState) => state.configReducer.config) || {};
+  const { profile, contact = [] } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   const [slide, setSlide] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!user?.profile?.specialties?.length) {
+      if (!profile?.specialties?.length) {
         return;
       }
-      if (!(slide === user?.profile?.specialties?.length - 1)) {
+      if (!(slide === profile?.specialties?.length - 1)) {
         setSlide(slide + 1);
       } else {
         setSlide(0);
@@ -40,22 +40,21 @@ const Home = (props: Props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [slide, user]);
+  }, [slide, profile?.specialties]);
 
   const socialContacts = useMemo(() => {
-    return filter(user?.contact, {
+    return filter(contact, {
       type: ContactType.SOCIAL,
-      visible: true,
     });
-  }, [user?.contact]);
+  }, [contact]);
 
   const onAboutClick = () => {
-    if (config?.aboutEnable) {
+    if (aboutEnable) {
       navigate(RoutePath.ABOUT);
     }
   };
   const onContactClick = () => {
-    if (config?.contactEnable) {
+    if (contactEnable) {
       navigate(RoutePath.CONTACT);
     }
   };
@@ -71,7 +70,7 @@ const Home = (props: Props) => {
           xs={12}
           md={6}
         >
-          <Avatar src={user?.profile?.avatar} />
+          <Avatar src={profile?.avatar} />
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <Typography className={classes.greeting} variant='h6'>
@@ -79,10 +78,10 @@ const Home = (props: Props) => {
           </Typography>
           <Box my={2} />
           <Typography color='primary' variant='h1'>
-            {user?.profile?.name}
+            {profile?.name}
           </Typography>
           <Typography color='primary' variant='h4'>
-            {user?.profile?.specialties?.[slide]?.name}
+            {profile?.specialties?.[slide]?.name}
           </Typography>
           <Box mt={2} mb={6}>
             <Grid container item>

@@ -8,18 +8,15 @@ import {
   Link,
 } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
-import useThemeStyles from '@themes/styles';
 import Props from './props';
 import useStyles from './styles';
 
 const ProjectDialog = (props: Props) => {
   const classes = useStyles();
-  const themeClasses = useThemeStyles();
   const { item, openDialog, onCloseDialog } = props;
 
-  const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
-  );
+  const { image } =
+    useAppSelector((state: RootState) => state.configReducer.config) || {};
 
   const onClickRef = (url: string) => {
     window.open(url);
@@ -39,17 +36,16 @@ const ProjectDialog = (props: Props) => {
             indicators={item.covers?.length > 1}
             navButtonsAlwaysInvisible={!(item.covers?.length > 1)}
           >
-            {[
-              item.cover || config?.image?.comingSoon,
-              ...(item.covers ?? []),
-            ].map((element, index) => (
-              <CardMedia
-                key={element}
-                className={classes.dialogImg}
-                component='img'
-                image={element}
-              />
-            ))}
+            {[item.cover || image?.comingSoon, ...(item.covers ?? [])].map(
+              (element, index) => (
+                <CardMedia
+                  key={element}
+                  className={classes.dialogImg}
+                  component='img'
+                  image={element}
+                />
+              )
+            )}
           </Carousel>
         )}
         <CardContent>

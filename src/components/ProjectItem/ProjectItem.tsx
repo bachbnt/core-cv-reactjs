@@ -17,9 +17,8 @@ const ProjectItem = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { item, onOpenDialog } = props;
 
-  const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
-  );
+  const { image } =
+    useAppSelector((state: RootState) => state.configReducer.config) || {};
 
   const onClickRef = (url: string) => {
     window.open(url);
@@ -33,17 +32,16 @@ const ProjectItem = (props: Props) => {
             indicators={item.covers?.length > 1}
             navButtonsAlwaysInvisible={!(item.covers?.length > 1)}
           >
-            {[
-              item.cover || config?.image?.comingSoon,
-              ...(item.covers ?? []),
-            ].map((element, index) => (
-              <CardMedia
-                key={item.id}
-                className={classes.img}
-                component='img'
-                image={element}
-              />
-            ))}
+            {[item.cover || image?.comingSoon, ...(item.covers ?? [])].map(
+              (element, index) => (
+                <CardMedia
+                  key={item.id}
+                  className={classes.img}
+                  component='img'
+                  image={element}
+                />
+              )
+            )}
           </Carousel>
         )}
         <CardContent>

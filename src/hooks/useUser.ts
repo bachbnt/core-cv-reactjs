@@ -6,7 +6,7 @@ import { hideSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import { setUser } from '@redux/userSlice';
 import Service from '@services/service';
-import { capitalize } from 'lodash';
+import capitalize from 'lodash/capitalize';
 import { useCallback } from 'react';
 
 const useUser = () => {

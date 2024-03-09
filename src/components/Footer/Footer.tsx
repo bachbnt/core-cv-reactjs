@@ -10,14 +10,15 @@ const Footer = (props: Props) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
+  const { profile } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   return (
     <Grid className={classes.container}>
       <Typography variant='subtitle2'>
         {t(Localization.footer, {
           time: new Date().getFullYear(),
-          username: user?.profile?.name,
+          username: profile?.name,
         })}
       </Typography>
     </Grid>

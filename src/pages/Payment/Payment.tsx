@@ -4,23 +4,16 @@ import { Grid } from '@material-ui/core';
 import { Payment as PaymentModel } from '@models/payment';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter } from 'lodash';
-import { useMemo } from 'react';
 import Props from './props';
-import useStyles from './styles';
 
 const Payment = (props: Props) => {
-  const classes = useStyles();
   const themeClasses = useThemeStyles();
 
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
-
-  const payments = useMemo(() => {
-    return filter(user?.payment, { visible: true });
-  }, [user?.payment]);
+  const { payment = [] } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   const { item, openDialog, onOpenDialog, onCloseDialog } =
-    useDialog<PaymentModel>(payments);
+    useDialog<PaymentModel>(payment);
 
   const onCopyClick = async (item: PaymentModel) => {
     const value = item.account;
@@ -37,7 +30,7 @@ const Payment = (props: Props) => {
   return (
     <Layout>
       <Grid className={themeClasses.container} container spacing={4}>
-        {payments.map((item) => (
+        {payment.map((item) => (
           <Grid key={item.id} item>
             <PaymentItem
               item={item}

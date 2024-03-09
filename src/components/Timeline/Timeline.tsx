@@ -8,12 +8,9 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from '@material-ui/lab/';
-import { filter } from 'lodash';
 import Props from './props';
-import useStyles from './styles';
 
 const Timeline = (props: Props) => {
-  const classes = useStyles();
   const { data, renderItem } = props;
 
   return (
@@ -26,9 +23,7 @@ const Timeline = (props: Props) => {
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot></TimelineDot>
-              {index !== filter(data, { visible: true }).length - 1 && (
-                <TimelineConnector />
-              )}
+              {index !== data?.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
             <TimelineContent>{renderItem(item)}</TimelineContent>
           </TimelineItem>

@@ -11,28 +11,15 @@ import { Education } from '@models/education';
 import { Experience } from '@models/experience';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter } from 'lodash';
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
-import useStyles from './styles';
 
 const Resume = (props: Props) => {
-  const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
-
-  const education = useMemo(() => {
-    return filter(user?.education, { visible: true }).reverse();
-  }, [user?.education]);
-
-  const experience = useMemo(() => {
-    return filter(user?.experience, {
-      visible: true,
-    }).reverse();
-  }, [user?.experience]);
+  const { education = [], experience = [] } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   return (
     <Layout>
@@ -44,7 +31,7 @@ const Resume = (props: Props) => {
         </Box>
         <Grid container>
           <Timeline
-            data={education}
+            data={[...education].reverse()}
             renderItem={(item) => (
               <EducationItem key={item.id} item={item as Education} />
             )}
@@ -57,7 +44,7 @@ const Resume = (props: Props) => {
         </Box>
         <Grid container>
           <Timeline
-            data={experience}
+            data={[...experience].reverse()}
             renderItem={(item) => (
               <ExperienceItem key={item.id} item={item as Experience} />
             )}

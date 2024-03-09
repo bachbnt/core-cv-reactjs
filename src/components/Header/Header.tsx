@@ -7,7 +7,7 @@ import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import { routes } from '@routes/routes';
-import { lowerCase } from 'lodash';
+import lowerCase from 'lodash/lowerCase';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
@@ -27,7 +27,8 @@ const Header = (props: Props) => {
   const config = useAppSelector(
     (state: RootState) => state.configReducer.config
   );
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
+  const { profile } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -54,7 +55,7 @@ const Header = (props: Props) => {
   };
 
   const onCVClick = async () => {
-    const url = user?.profile?.cv;
+    const url = profile?.cv;
     if (url) {
       window.open(url);
     }

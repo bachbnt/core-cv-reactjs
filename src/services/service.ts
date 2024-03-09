@@ -11,7 +11,8 @@ import { Project } from '@models/project';
 import { Service as ServiceModel } from '@models/service';
 import { Skill } from '@models/skill';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { sortBy } from 'lodash';
+import filter from 'lodash/filter';
+import sortBy from 'lodash/sortBy';
 import { firestore } from './firebase';
 class Service {
   async getLocalization(
@@ -64,7 +65,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getEducation(): Promise<Education[]> {
@@ -80,7 +81,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getExperience(): Promise<Experience[]> {
@@ -96,7 +97,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getProfile(): Promise<Profile> {
@@ -125,7 +126,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getService(): Promise<ServiceModel[]> {
@@ -141,7 +142,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getSkill(): Promise<Skill[]> {
@@ -157,7 +158,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getPayment(): Promise<Payment[]> {
@@ -173,7 +174,7 @@ class Service {
       id,
       ...value,
     }));
-    return sortBy(list, Constant.SORT_KEY);
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 }
 

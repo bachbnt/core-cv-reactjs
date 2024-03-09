@@ -7,14 +7,12 @@ import {
 } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
 import { routes } from '@routes/routes';
-import { lowerCase } from 'lodash';
+import lowerCase from 'lodash/';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 import Props from './props';
-import useStyles from './styles';
 
 const Drawer = (props: Props) => {
-  const classes = useStyles();
   const { open, onClose } = props;
   const navigate = useNavigate();
   const location = useLocation();

@@ -14,9 +14,8 @@ const EducationItem = (props: Props) => {
   const classes = useStyles();
   const { item } = props;
 
-  const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
-  );
+  const { image } =
+    useAppSelector((state: RootState) => state.configReducer.config) || {};
 
   return (
     <Card key={item.id} elevation={3}>
@@ -40,7 +39,7 @@ const EducationItem = (props: Props) => {
           <CardMedia
             className={classes.img}
             component='img'
-            image={item.image || config?.image?.comingSoon}
+            image={item.image || image?.comingSoon}
           />
         )}
       </CardActionArea>

@@ -4,8 +4,7 @@ import * as Mi from '@material-ui/icons';
 import { ContactType } from '@models/contact';
 import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
-import { capitalize } from 'lodash';
-import { useCallback, useMemo } from 'react';
+import capitalize from 'lodash/capitalize';
 import { useTranslation } from 'react-i18next';
 import * as Si from 'react-icons/si';
 import Props from './props';
@@ -17,29 +16,29 @@ const ContactItem = (props: Props) => {
   const { item } = props;
   const { t } = useTranslation();
 
-  const onClick = useCallback(() => {
+  const onClick = () => {
     if (item.urlEnable) {
       window.open(item.url);
     }
-  }, [item]);
+  };
 
-  const renderContactIcon = useMemo(() => {
+  const renderContactIcon = () => {
     const Component = (Mi as any)[item.icon];
     if (Component) {
       return <Component size={32} />;
     }
     return <div />;
-  }, [item]);
+  };
 
-  const renderSocialIcon = useMemo(() => {
+  const renderSocialIcon = () => {
     const Component = (Si as any)[`Si${item.icon}`];
     if (Component) {
       return <Component size={32} />;
     }
     return <div />;
-  }, [item]);
+  };
 
-  const renderContactItem = useMemo(() => {
+  const renderContactItem = () => {
     return item.visible ? (
       <Card
         key={item.id}
@@ -48,7 +47,7 @@ const ContactItem = (props: Props) => {
       >
         <CardActionArea>
           <CardContent className={themeClasses.cardContent}>
-            {renderContactIcon}
+            {renderContactIcon()}
             <Typography color='primary' variant='h6' align='center'>
               {capitalize(t(item.type))}
             </Typography>
@@ -63,24 +62,20 @@ const ContactItem = (props: Props) => {
     ) : (
       <div />
     );
-  }, [item, classes, themeClasses, renderContactIcon, onClick, t]);
+  };
 
-  const renderSocialItem = useMemo(() => {
+  const renderSocialItem = () => {
     return item.visible ? (
-      <IconButton onClick={onClick}>{renderSocialIcon}</IconButton>
+      <IconButton onClick={onClick}>{renderSocialIcon()}</IconButton>
     ) : (
       <div />
     );
-  }, [item, renderSocialIcon, onClick]);
+  };
 
-  const renderContact = useMemo(() => {
-    if (item.type === ContactType.SOCIAL) {
-      return renderSocialItem;
-    }
-    return renderContactItem;
-  }, [item, renderContactItem, renderSocialItem]);
-
-  return renderContact;
+  if (item.type === ContactType.SOCIAL) {
+    return renderSocialItem();
+  }
+  return renderContactItem();
 };
 
 export default ContactItem;

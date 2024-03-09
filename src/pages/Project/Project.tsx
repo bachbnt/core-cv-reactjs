@@ -5,60 +5,44 @@ import { Box, Grid } from '@material-ui/core';
 import { Project as ProjectModel, ProjectType } from '@models/project';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
-import { filter } from 'lodash';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
-import useStyles from './styles';
 
 const Project = (props: Props) => {
-  const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
 
-  const user = useAppSelector((state: RootState) => state.userReducer.user);
+  const { project = [] } =
+    useAppSelector((state: RootState) => state.userReducer.user) || {};
 
-  const projects = useMemo(() => {
-    return filter(user?.project, { visible: true });
-  }, [user?.project]);
-
-  const companyProjects = useMemo(() => {
-    return filter(projects, {
-      type: ProjectType.COMPANY,
-    }).reverse();
-  }, [projects]);
-
-  const freelanceProjects = useMemo(() => {
-    return filter(projects, {
-      type: ProjectType.FREELANCE,
-    }).reverse();
-  }, [projects]);
-
-  const personalProjects = useMemo(() => {
-    return filter(projects, {
-      type: ProjectType.PERSONAL,
-    }).reverse();
-  }, [projects]);
+  const { company, freelance, personal } = useMemo<{
+    [ProjectType.COMPANY]: ProjectModel[];
+    [ProjectType.FREELANCE]: ProjectModel[];
+    [ProjectType.PERSONAL]: ProjectModel[];
+  }>(() => {
+    return project.reduce(
+      (result, _project) => {
+        if (Object.values(ProjectType).includes(_project.type)) {
+          (result[_project.type] as ProjectModel[]).push(_project);
+        }
+        return result;
+      },
+      {
+        [ProjectType.COMPANY]: [],
+        [ProjectType.FREELANCE]: [],
+        [ProjectType.PERSONAL]: [],
+      }
+    );
+  }, [project]);
 
   const { item, openDialog, onOpenDialog, onCloseDialog } =
-    useDialog<ProjectModel>(projects);
-
-  const hasCompanyProject = useMemo(() => {
-    return companyProjects.length > 0;
-  }, [companyProjects]);
-
-  const hasFreelanceProject = useMemo(() => {
-    return freelanceProjects.length > 0;
-  }, [freelanceProjects]);
-
-  const hasPersonalProject = useMemo(() => {
-    return personalProjects.length > 0;
-  }, [personalProjects]);
+    useDialog<ProjectModel>(project);
 
   return (
     <Layout>
       <Grid className={themeClasses.container} container>
-        {hasCompanyProject && (
+        {company?.length > 0 && (
           <>
             <Box mb={2}>
               <Typography color='primary' variant='h4'>
@@ -66,7 +50,7 @@ const Project = (props: Props) => {
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
-              {companyProjects.map((item) => (
+              {company.map((item) => (
                 <Grid key={item.id} item>
                   <ProjectItem
                     item={item}
@@ -78,7 +62,7 @@ const Project = (props: Props) => {
           </>
         )}
 
-        {hasFreelanceProject && (
+        {freelance?.length > 0 && (
           <>
             <Box mb={2}>
               <Typography color='primary' variant='h4'>
@@ -86,7 +70,7 @@ const Project = (props: Props) => {
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
-              {freelanceProjects.map((item) => (
+              {freelance.map((item) => (
                 <Grid key={item.id} item>
                   <ProjectItem
                     item={item}
@@ -98,7 +82,7 @@ const Project = (props: Props) => {
           </>
         )}
 
-        {hasPersonalProject && (
+        {personal?.length > 0 && (
           <>
             <Box mt={6} mb={2}>
               <Typography color='primary' variant='h4'>
@@ -106,7 +90,7 @@ const Project = (props: Props) => {
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
-              {personalProjects.map((item) => (
+              {personal.map((item) => (
                 <Grid key={item.id} item>
                   <ProjectItem
                     item={item}
