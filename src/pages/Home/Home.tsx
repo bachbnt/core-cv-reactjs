@@ -1,12 +1,14 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
+import useSlide from '@hooks/useSlide';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import { ContactType } from '@models/contact';
+import { ProfileSpecialty } from '@models/profile';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import useThemeStyles from '@themes/styles';
 import filter from 'lodash/filter';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import Props from './props';
@@ -23,24 +25,7 @@ const Home = (props: Props) => {
   const { profile, contact = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
 
-  const [slide, setSlide] = useState<number>(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!profile?.specialties?.length) {
-        return;
-      }
-      if (!(slide === profile?.specialties?.length - 1)) {
-        setSlide(slide + 1);
-      } else {
-        setSlide(0);
-      }
-    }, 4000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [slide, profile?.specialties]);
+  const { slide } = useSlide<ProfileSpecialty>(profile?.specialties);
 
   const socialContacts = useMemo(() => {
     return filter(contact, {
@@ -91,7 +76,7 @@ const Home = (props: Props) => {
                   title={item.nameVisible ? item.name : ''}
                 >
                   <div>
-                    <ContactItem item={item}></ContactItem>
+                    <ContactItem item={item} />
                   </div>
                 </Tooltip>
               ))}
