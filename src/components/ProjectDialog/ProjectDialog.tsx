@@ -43,6 +43,7 @@ const ProjectDialog = (props: Props) => {
                   className={classes.dialogImg}
                   component='img'
                   image={element}
+                  loading='lazy'
                 />
               )
             )}

@@ -39,6 +39,7 @@ const ProjectItem = (props: Props) => {
                   className={classes.img}
                   component='img'
                   image={element}
+                  loading='lazy'
                 />
               )
             )}

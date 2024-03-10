@@ -1,4 +1,4 @@
-import { Button, Layout, Typography } from '@components';
+import { Button, Carousel, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Box, CardMedia, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
@@ -7,7 +7,6 @@ import useThemeStyles from '@themes/styles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
-import Carousel from 'react-material-ui-carousel';
 import Props from './props';
 import useStyles from './styles';
 
@@ -124,6 +123,7 @@ const About = (props: Props) => {
                 className={classes.img}
                 component='img'
                 image={item.url}
+                loading='lazy'
               />
             ))}
           </Carousel>

@@ -40,6 +40,7 @@ const EducationItem = (props: Props) => {
             className={classes.img}
             component='img'
             image={item.image || image?.comingSoon}
+            loading='lazy'
           />
         )}
       </CardActionArea>

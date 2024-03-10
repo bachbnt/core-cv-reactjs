@@ -16,7 +16,11 @@ const PaymentDialog = (props: Props) => {
       onClose={onCloseDialog}
     >
       {item.qrCodeVisible && (
-        <CardMedia component='img' image={item.qrCode || image?.comingSoon} />
+        <CardMedia
+          component='img'
+          image={item.qrCode || image?.comingSoon}
+          loading='lazy'
+        />
       )}
     </Dialog>
   ) : null;

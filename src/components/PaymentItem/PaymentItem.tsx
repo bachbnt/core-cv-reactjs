@@ -61,6 +61,7 @@ const PaymentItem = (props: Props) => {
               component='img'
               image={item.qrCode}
               onClick={onOpenDialog}
+              loading='lazy'
             />
           )}
         </CardContent>

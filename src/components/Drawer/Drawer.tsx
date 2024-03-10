@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
 import { routes } from '@routes/routes';
-import lowerCase from 'lodash/';
+import lowerCase from 'lodash/lowerCase';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 import Props from './props';
