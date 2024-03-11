@@ -1,6 +1,7 @@
 import { Avatar, Button, Drawer } from '@components';
 import Constant from '@core/constants';
 import useConfig from '@hooks/useConfig';
+import useMockData from '@hooks/useMockData';
 import useUser from '@hooks/useUser';
 import { Localization } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
@@ -23,6 +24,7 @@ const Header = (props: Props) => {
 
   const { getData: getConfig } = useConfig();
   const { getData: getUser } = useUser();
+  const { postMockData } = useMockData();
 
   const config = useAppSelector(
     (state: RootState) => state.configReducer.config
@@ -55,6 +57,10 @@ const Header = (props: Props) => {
   };
 
   const onCVClick = async () => {
+    if (Constant.EDIT_MODE === 'true') {
+      await postMockData();
+      return;
+    }
     const url = profile?.cv;
     if (url) {
       window.open(url);

@@ -10,7 +10,7 @@ import { Profile, parseProfile } from '@models/profile';
 import { Project } from '@models/project';
 import { Service as ServiceModel } from '@models/service';
 import { Skill } from '@models/skill';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import filter from 'lodash/filter';
 import sortBy from 'lodash/sortBy';
 import { firestore } from './firebase';
@@ -175,6 +175,18 @@ class Service {
       ...value,
     }));
     return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
+  }
+
+  async postMockData<T>(
+    data: Omit<T, 'id'>,
+    id: string,
+    path: {
+      collection: FirestoreCollection;
+      document: FirestoreDocument;
+    }
+  ): Promise<void> {
+    const ref = doc(firestore, path.collection, path.document);
+    await updateDoc(ref, { [id]: data });
   }
 }
 

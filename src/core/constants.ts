@@ -5,11 +5,11 @@ class Constant {
 
   static readonly DEFAULT_DOMAIN = 'https://bachbntdev.web.app';
   static readonly DOMAIN =
-    process.env.REACT_APP_DOMAIN || Constant.DEFAULT_DOMAIN;
+    process.env.REACT_APP_DOMAIN ?? Constant.DEFAULT_DOMAIN;
   static readonly DEFAULT_ASSETS =
     'https://raw.githubusercontent.com/bachbnt/assets/main/config';
   static readonly ASSETS =
-    process.env.REACT_APP_ASSETS_URL || Constant.DEFAULT_ASSETS;
+    process.env.REACT_APP_ASSETS_URL ?? Constant.DEFAULT_ASSETS;
   static readonly DEFAULT_APP_ICON = `${Constant.ASSETS}/logo.png`;
   static readonly DEFAULT_BACKGROUND_IMAGE = `${Constant.ASSETS}/background.webp`;
   static readonly DEFAULT_COMING_SOON_IMAGE = `${Constant.ASSETS}/coming-soon.png`;
@@ -30,6 +30,7 @@ class Constant {
   static readonly FIREBASE_APP_ID = process.env.REACT_APP_FIREBASE_APP_ID;
   static readonly FIREBASE_MEASUREMENT_ID =
     process.env.REACT_APP_FIREBASE_MEASUREMENT_ID;
+  static readonly EDIT_MODE = process.env.REACT_APP_EDIT_MODE ?? false;
 }
 
-export default Constant
+export default Constant;
