@@ -30,7 +30,7 @@ class Constant {
   static readonly FIREBASE_APP_ID = process.env.REACT_APP_FIREBASE_APP_ID;
   static readonly FIREBASE_MEASUREMENT_ID =
     process.env.REACT_APP_FIREBASE_MEASUREMENT_ID;
-  static readonly EDIT_MODE = process.env.REACT_APP_EDIT_MODE ?? false;
+  static readonly EDIT_MODE = process.env.REACT_APP_EDIT_MODE ?? 'false';
 }
 
 export default Constant;
