@@ -79,12 +79,12 @@ const About = (props: Props) => {
           <Typography color='primary' variant='h5'>
             {t(Localization.page2_title1)}
           </Typography>
-          {/* <Typography color='primary' variant='h4'>
+          <Typography color='primary' variant='h4'>
             {t(Localization.page2_title2, {
               username: profile?.name,
               specialty: profile?.specialties[0].name,
             })}
-          </Typography> */}
+          </Typography>
           <Box mt={2} mb={4}>
             <Typography variant='subtitle1' align='justify'>
               {profile?.summary}
