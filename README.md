@@ -21,6 +21,10 @@ Install Firebase CLI globally.
 
 Log in to Firebase using Firebase CLI.
 
+### `firebase login:ci`
+
+Generate a Firebase token to use for authentication in the CI/CD pipeline
+
 ### `firebase init`
 
 Initialize Firebase for the project.
