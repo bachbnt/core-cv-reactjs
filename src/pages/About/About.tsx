@@ -1,6 +1,6 @@
-import { Button, Carousel, Layout, Typography } from '@components';
+import { Button, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
-import { Box, CardMedia, Grid } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
@@ -107,7 +107,7 @@ const About = (props: Props) => {
             {tool.map((item) => renderSkillItem(item))}
           </Grid>
         </Grid>
-        <Grid
+        {/* <Grid
           className={classes.imgContainer}
           container
           justifyContent='center'
@@ -127,7 +127,7 @@ const About = (props: Props) => {
               />
             ))}
           </Carousel>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Layout>
   );
