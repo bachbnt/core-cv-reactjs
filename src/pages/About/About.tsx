@@ -1,6 +1,6 @@
-import { Button, Layout, Typography } from '@components';
+import { Button, Carousel, Layout, Typography } from '@components';
 import { Localization } from '@locales/i18n';
-import { Box, Grid } from '@material-ui/core';
+import { Box, CardMedia, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
@@ -95,7 +95,7 @@ const About = (props: Props) => {
               {t(Localization.page2_title3)}
             </Typography>
           </Box>
-          {/* <Grid container xs={12} item>
+          <Grid container xs={12} item>
             {framework.map((item) => renderSkillItem(item))}
           </Grid>
           <Box my={2} />
@@ -105,9 +105,9 @@ const About = (props: Props) => {
           <Box my={2} />
           <Grid container xs={12} item>
             {tool.map((item) => renderSkillItem(item))}
-          </Grid> */}
+          </Grid>
         </Grid>
-        {/* <Grid
+        <Grid
           className={classes.imgContainer}
           container
           justifyContent='center'
@@ -127,7 +127,7 @@ const About = (props: Props) => {
               />
             ))}
           </Carousel>
-        </Grid> */}
+        </Grid>
       </Grid>
     </Layout>
   );
