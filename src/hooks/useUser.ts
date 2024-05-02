@@ -8,10 +8,9 @@ import Service from '@services/service';
 import capitalize from 'lodash/capitalize';
 import { useCallback } from 'react';
 
-const service = di.getSingleton(Service);
-
 const useUser = () => {
   const dispatch = useAppDispatch();
+  const service = di.getSingleton(Service);
 
   const getData = useCallback(async () => {
     const documents = Object.values(FirestoreDocument);
@@ -36,7 +35,7 @@ const useUser = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [dispatch]);
+  }, [dispatch, service]);
 
   return {
     getData,
