@@ -30,17 +30,18 @@ jobs:
 
       - name: Generate .env file
         run: |
-          echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.REACT_APP_FIREBASE_API_KEY }}" > .env
-          echo "REACT_APP_FIREBASE_AUTH_DOMAIN=${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}" >> .env
-          echo "REACT_APP_FIREBASE_PROJECT_ID=${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}" >> .env
-          echo "REACT_APP_FIREBASE_STORAGE_BUCKET=${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}" >> .env
-          echo "REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}" >> .env
-          echo "REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }}" >> .env
-          echo "REACT_APP_FIREBASE_MEASUREMENT_ID=${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}" >> .env
-          echo "REACT_APP_DOMAIN=${{ secrets.REACT_APP_DOMAIN }}" >> .env
-          echo "REACT_APP_ASSETS=${{ secrets.REACT_APP_ASSETS }}" >> .env
-          echo "REACT_APP_TITLE=${{ secrets.REACT_APP_TITLE }}" >> .env
-          echo "REACT_APP_EDIT_MODE=${{ secrets.REACT_APP_EDIT_MODE }}" >> .env
+          touch .env
+          echo REACT_APP_FIREBASE_API_KEY=${{ secrets.REACT_APP_FIREBASE_API_KEY }} >> .env
+          echo REACT_APP_FIREBASE_AUTH_DOMAIN=${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }} >> .env
+          echo REACT_APP_FIREBASE_PROJECT_ID=${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }} >> .env
+          echo REACT_APP_FIREBASE_STORAGE_BUCKET=${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }} >> .env
+          echo REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }} >> .env
+          echo REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }} >> .env
+          echo REACT_APP_FIREBASE_MEASUREMENT_ID=${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }} >> .env
+          echo REACT_APP_DOMAIN=${{ secrets.REACT_APP_DOMAIN }} >> .env
+          echo REACT_APP_ASSETS=${{ secrets.REACT_APP_ASSETS }} >> .env
+          echo REACT_APP_TITLE=${{ secrets.REACT_APP_TITLE }} >> .env
+          echo REACT_APP_EDIT_MODE=${{ secrets.REACT_APP_EDIT_MODE }} >> .env
           cat .env
 
       - name: Deploy to Firebase
