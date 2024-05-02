@@ -6,9 +6,10 @@ import { useAppDispatch } from '@redux/store';
 import Service from '@services/service';
 import { useCallback } from 'react';
 
+const service = di.getSingleton(Service);
+
 const useConfig = () => {
   const dispatch = useAppDispatch();
-  const service = di.getSingleton(Service);
 
   const updateDocument = useCallback(({ icon, title }: any) => {
     (document.querySelector('link[rel="icon"]') as any).href = icon;
@@ -26,7 +27,7 @@ const useConfig = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [dispatch, updateDocument, service]);
+  }, [dispatch, updateDocument]);
 
   return {
     getData,

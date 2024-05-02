@@ -6,9 +6,10 @@ import MOCK from '@services/mock';
 import Service from '@services/service';
 import { useCallback } from 'react';
 
+const service = di.getSingleton(Service);
+
 const useMockData = () => {
   const dispatch = useAppDispatch();
-  const service = di.getSingleton(Service);
 
   const postMockData = useCallback(async () => {
     try {
@@ -21,7 +22,7 @@ const useMockData = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [service, dispatch]);
+  }, [dispatch]);
 
   return {
     postMockData,

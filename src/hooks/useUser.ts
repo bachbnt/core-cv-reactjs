@@ -1,23 +1,23 @@
 import { FirestoreDocument } from '@core/configs';
 import di from '@core/di';
 import { User } from '@models/user';
-import { showSkeleton } from '@redux/skeletonSlice';
-import { hideSpinner } from '@redux/spinnerSlice';
+import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import { setUser } from '@redux/userSlice';
 import Service from '@services/service';
 import capitalize from 'lodash/capitalize';
 import { useCallback } from 'react';
 
+const service = di.getSingleton(Service);
+
 const useUser = () => {
   const dispatch = useAppDispatch();
-  const service = di.getSingleton(Service);
 
   const getData = useCallback(async () => {
     const documents = Object.values(FirestoreDocument);
 
     try {
-      dispatch(showSkeleton());
+      dispatch(showSpinner());
       const user: User = (
         await Promise.all(
           documents.map((document) => {
@@ -36,7 +36,7 @@ const useUser = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [dispatch, service]);
+  }, [dispatch]);
 
   return {
     getData,

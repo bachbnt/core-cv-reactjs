@@ -4,9 +4,10 @@ import { useAppDispatch } from '@redux/store';
 import Service from '@services/service';
 import { useCallback } from 'react';
 
+const service = di.getSingleton(Service);
+
 const useMessage = () => {
   const dispatch = useAppDispatch();
-  const service = di.getSingleton(Service);
 
   const postData = useCallback(
     async (name: string, message: string) => {
@@ -18,7 +19,7 @@ const useMessage = () => {
         dispatch(hideSpinner());
       }
     },
-    [dispatch, service]
+    [dispatch]
   );
   return {
     postData,
