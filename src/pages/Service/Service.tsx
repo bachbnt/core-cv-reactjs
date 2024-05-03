@@ -1,4 +1,5 @@
 import { Layout, ServiceItem } from '@components';
+import useTracker from '@hooks/useTracker';
 import { Grid } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
@@ -6,6 +7,7 @@ import Props from './props';
 
 const Service = (props: Props) => {
   const themeClasses = useThemeStyles();
+  useTracker();
 
   const { service = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};

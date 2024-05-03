@@ -6,6 +6,7 @@ import {
   Typography,
 } from '@components';
 import useMessage from '@hooks/useMessage';
+import useTracker from '@hooks/useTracker';
 import useYupResolver from '@hooks/useYupResolver';
 import { Localization } from '@locales/i18n';
 import { Box, Card, CardContent, Grid } from '@material-ui/core';
@@ -24,6 +25,7 @@ const Contact = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
+  useTracker();
 
   const { postData } = useMessage();
 

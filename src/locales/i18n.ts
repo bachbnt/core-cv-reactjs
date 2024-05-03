@@ -23,6 +23,7 @@ const backendOptions = {
         status: 200,
       });
     } catch (error) {
+      console.log(error);
       callback(null, {
         status: 500,
       });

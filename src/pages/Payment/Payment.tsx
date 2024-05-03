@@ -1,5 +1,6 @@
 import { Layout, PaymentDialog, PaymentItem } from '@components';
 import useDialog from '@hooks/useDialog';
+import useTracker from '@hooks/useTracker';
 import { Grid } from '@material-ui/core';
 import { Payment as PaymentModel } from '@models/payment';
 import { RootState, useAppSelector } from '@redux/store';
@@ -8,6 +9,7 @@ import Props from './props';
 
 const Payment = (props: Props) => {
   const themeClasses = useThemeStyles();
+  useTracker();
 
   const { payment = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};

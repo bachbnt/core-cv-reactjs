@@ -1,5 +1,6 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
 import useSlide from '@hooks/useSlide';
+import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import { ContactType } from '@models/contact';
@@ -19,6 +20,7 @@ const Home = (props: Props) => {
   const themeClasses = useThemeStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  useTracker();
 
   const { aboutEnable, contactEnable } =
     useAppSelector((state: RootState) => state.configReducer.config) || {};

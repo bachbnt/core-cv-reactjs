@@ -9,10 +9,14 @@ const useConfig = () => {
   const dispatch = useAppDispatch();
   const service = di.getSingleton(Service);
 
-  const updateDocument = useCallback(({ icon, title }: any) => {
-    (document.querySelector('link[rel="icon"]') as any).href = icon;
-    document.title = title;
-  }, []);
+  const updateDocument = useCallback(
+    ({ icon, title }: { icon: string; title: string }) => {
+      (document.querySelector('link[rel="icon"]') as HTMLLinkElement).href =
+        icon;
+      document.title = title;
+    },
+    []
+  );
 
   const getData = useCallback(async () => {
     try {

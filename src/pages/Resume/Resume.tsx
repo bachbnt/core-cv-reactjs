@@ -5,6 +5,7 @@ import {
   Timeline,
   Typography,
 } from '@components';
+import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Education } from '@models/education';
@@ -17,6 +18,7 @@ import Props from './props';
 const Resume = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
+  useTracker();
 
   const { education = [], experience = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};

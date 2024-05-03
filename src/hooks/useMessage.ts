@@ -14,6 +14,7 @@ const useMessage = () => {
         dispatch(showSpinner());
         await service.postMessage({ name, message });
       } catch (error) {
+        console.log(error);
       } finally {
         dispatch(hideSpinner());
       }

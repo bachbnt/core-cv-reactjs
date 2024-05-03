@@ -1,4 +1,5 @@
 import { Button, Carousel, Layout, Typography } from '@components';
+import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, CardMedia, Grid } from '@material-ui/core';
 import { Skill, SkillType } from '@models/skill';
@@ -14,6 +15,7 @@ const About = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
+  useTracker();
 
   const { skill = [], profile } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
