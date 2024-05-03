@@ -1,18 +1,24 @@
 import { analytics } from '@services/firebase';
 import { logEvent } from 'firebase/analytics';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const useTracker = () => {
+const useTracker = ({
+  trackPageLoaded = true,
+}: { trackPageLoaded?: boolean } = {}) => {
+  const location = useLocation();
+
   useEffect(() => {
-    logEvent(analytics, 'page_view');
-  }, []);
+    trackPageLoaded &&
+      logEvent(analytics, 'page_view', { path: location.pathname });
+  }, [trackPageLoaded, location]);
 
-  const trackAction = (action: string) => {
-    logEvent(analytics, action);
+  const trackEvent = (event: string, params?: any) => {
+    logEvent(analytics, event, params);
   };
 
   return {
-    trackAction,
+    trackEvent,
   };
 };
 

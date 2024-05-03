@@ -1,5 +1,6 @@
 import { Layout, ProjectDialog, ProjectItem, Typography } from '@components';
 import useDialog from '@hooks/useDialog';
+import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@material-ui/core';
 import { Project as ProjectModel, ProjectType } from '@models/project';
@@ -12,6 +13,7 @@ import Props from './props';
 const Project = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
+  useTracker();
 
   const { project = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};

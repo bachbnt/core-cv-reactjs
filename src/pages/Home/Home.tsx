@@ -20,6 +20,7 @@ const Home = (props: Props) => {
   const themeClasses = useThemeStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  useTracker();
 
   const { aboutEnable, contactEnable } =
     useAppSelector((state: RootState) => state.configReducer.config) || {};
@@ -27,8 +28,6 @@ const Home = (props: Props) => {
     useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   const { slide } = useSlide<ProfileSpecialty>(profile?.specialties);
-
-  const { trackAction } = useTracker();
 
   const socialContacts = useMemo(() => {
     return filter(contact, {
