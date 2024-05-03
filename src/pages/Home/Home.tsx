@@ -1,5 +1,6 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
 import useSlide from '@hooks/useSlide';
+import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import { ContactType } from '@models/contact';
@@ -26,6 +27,8 @@ const Home = (props: Props) => {
     useAppSelector((state: RootState) => state.userReducer.user) || {};
 
   const { slide } = useSlide<ProfileSpecialty>(profile?.specialties);
+
+  const { trackAction } = useTracker();
 
   const socialContacts = useMemo(() => {
     return filter(contact, {
