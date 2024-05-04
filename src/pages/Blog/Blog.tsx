@@ -6,7 +6,7 @@ import Props from './props';
 
 const Blog = (props: Props) => {
   const themeClasses = useThemeStyles();
-  useTracker();
+  const _ = useTracker({ page_name: 'page5_blog' });
 
   return (
     <Layout>

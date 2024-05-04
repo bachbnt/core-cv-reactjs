@@ -20,7 +20,9 @@ const Home = (props: Props) => {
   const themeClasses = useThemeStyles();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  useTracker();
+  const { trackEvent } = useTracker({
+    page_name: 'page1_home',
+  });
 
   const { aboutEnable, contactEnable } =
     useAppSelector((state: RootState) => state.configReducer.config) || {};
@@ -37,11 +39,17 @@ const Home = (props: Props) => {
 
   const onAboutClick = () => {
     if (aboutEnable) {
+      trackEvent('component_clicked', {
+        component_name: 'page1_button1_about',
+      });
       navigate(RoutePath.ABOUT);
     }
   };
   const onContactClick = () => {
     if (contactEnable) {
+      trackEvent('component_clicked', {
+        component_name: 'page1_button2_contact',
+      });
       navigate(RoutePath.CONTACT);
     }
   };
@@ -78,7 +86,15 @@ const Home = (props: Props) => {
                   title={item.nameVisible ? item.name : ''}
                 >
                   <div>
-                    <ContactItem item={item} />
+                    <ContactItem
+                      item={item}
+                      onItemClick={(item) =>
+                        trackEvent('component_clicked', {
+                          component_name: 'page1_list_contact',
+                          item_name: item.icon,
+                        })
+                      }
+                    />
                   </div>
                 </Tooltip>
               ))}

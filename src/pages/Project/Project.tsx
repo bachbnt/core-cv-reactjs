@@ -13,7 +13,7 @@ import Props from './props';
 const Project = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
-  useTracker();
+  const { trackEvent } = useTracker({ page_name: 'page4_project' });
 
   const { project = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
@@ -56,6 +56,12 @@ const Project = (props: Props) => {
                 <Grid key={item.id} item>
                   <ProjectItem
                     item={item}
+                    onItemClick={() =>
+                      trackEvent('component_clicked', {
+                        component_name: 'page4_list_project',
+                        item_name: item.name,
+                      })
+                    }
                     onOpenDialog={() => onOpenDialog(item)}
                   />
                 </Grid>

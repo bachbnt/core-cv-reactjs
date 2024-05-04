@@ -2,12 +2,13 @@ import { Avatar, Button, Drawer } from '@components';
 import Constant from '@core/constants';
 import useConfig from '@hooks/useConfig';
 import useMockData from '@hooks/useMockData';
+import useTracker from '@hooks/useTracker';
 import useUser from '@hooks/useUser';
 import { Localization } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
-import { routes } from '@routes/routes';
+import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +22,7 @@ const Header = (props: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
+  const { trackEvent } = useTracker({}, false);
 
   const { getData: getConfig } = useConfig();
   const { getData: getUser } = useUser();
@@ -35,16 +37,25 @@ const Header = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const onLogoClick = async () => {
+    trackEvent('component_clicked', {
+      component_name: 'header',
+      item_name: 'logo',
+    });
     navigate(RoutePath.HOME, { replace: true });
     getConfig();
     getUser();
   };
 
-  const onPageClick = async (component: string, path: string) => {
+  const onPageClick = async (route: Route) => {
+    const { component, path, trackingName } = route;
     if (
       (config as any)[`${lowerCase(component)}Enable`] &&
       location.pathname !== path
     ) {
+      trackEvent('component_clicked', {
+        component_name: 'header',
+        item_name: `${trackingName}_button`,
+      });
       navigate(path);
     } else {
       copyUrl(path);
@@ -63,11 +74,19 @@ const Header = (props: Props) => {
     }
     const url = profile?.cv;
     if (url) {
+      trackEvent('component_clicked', {
+        component_name: 'header',
+        item_name: 'cv',
+      });
       window.open(url);
     }
   };
 
   const onHamburgerClick = () => {
+    trackEvent('component_clicked', {
+      component_name: 'header',
+      item_name: 'hamburger',
+    });
     setOpen(!open);
   };
 
@@ -100,7 +119,7 @@ const Header = (props: Props) => {
                   }
                   key={route.name}
                   onClick={() => {
-                    onPageClick(route.component, route.path);
+                    onPageClick(route);
                   }}
                 >
                   {t(route.name)}

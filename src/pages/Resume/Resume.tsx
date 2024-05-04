@@ -18,7 +18,7 @@ import Props from './props';
 const Resume = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
-  useTracker();
+  const { trackEvent } = useTracker({ page_name: 'page3_resume' });
 
   const { education = [], experience = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
@@ -35,7 +35,16 @@ const Resume = (props: Props) => {
           <Timeline
             data={[...education].reverse()}
             renderItem={(item) => (
-              <EducationItem key={item.id} item={item as Education} />
+              <EducationItem
+                key={item.id}
+                item={item as Education}
+                onItemClick={(item) =>
+                  trackEvent('component_clicked', {
+                    component_name: 'page3_list_education',
+                    item_name: item.name,
+                  })
+                }
+              />
             )}
           />
         </Grid>
@@ -48,7 +57,16 @@ const Resume = (props: Props) => {
           <Timeline
             data={[...experience].reverse()}
             renderItem={(item) => (
-              <ExperienceItem key={item.id} item={item as Experience} />
+              <ExperienceItem
+                key={item.id}
+                item={item as Experience}
+                onItemClick={(item) =>
+                  trackEvent('component_clicked', {
+                    component_name: 'page3_list_experience',
+                    item_name: item.name,
+                  })
+                }
+              />
             )}
           />
         </Grid>

@@ -13,11 +13,12 @@ import useStyles from './styles';
 const ContactItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const { item } = props;
+  const { item, onItemClick } = props;
   const { t } = useTranslation();
 
   const onClick = () => {
     if (item.urlEnable) {
+      onItemClick?.(item);
       window.open(item.url);
     }
   };

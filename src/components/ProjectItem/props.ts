@@ -3,6 +3,7 @@ import { Project } from '@models/project';
 
 type Props = {
   item: Project;
+  onItemClick?: (item: Project) => void;
   onOpenDialog: () => void;
 } & CardProps;
 
