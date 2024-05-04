@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 
 const useTracker = (
   trackingParams: Partial<TrackingParams>,
-  trackDisplayed?: boolean
+  trackDisplayed: boolean = true
 ) => {
   const location = useLocation();
 
