@@ -1,7 +1,7 @@
-import { Avatar, Button, Layout, Typography } from '@components';
+import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid, Tooltip } from '@material-ui/core';
 import { ContactType } from '@models/contact';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
@@ -74,7 +74,7 @@ const Home = (props: Props) => {
           <Typography color='primary' variant='h4'>
             {profile?.specialties?.[0]?.name}
           </Typography>
-          {/* <Box mt={2} mb={6}>
+          <Box mt={2} mb={6}>
             <Grid container item>
               {socialContacts?.map((item) => (
                 <Tooltip
@@ -95,7 +95,7 @@ const Home = (props: Props) => {
                 </Tooltip>
               ))}
             </Grid>
-          </Box> */}
+          </Box>
           <Grid container item>
             <Grid item xs={6} md={4}>
               <Button
