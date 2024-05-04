@@ -76,7 +76,7 @@ const Header = (props: Props) => {
     if (url) {
       trackEvent('component_clicked', {
         component_name: 'header',
-        item_name: 'cv',
+        item_name: 'cv_button',
       });
       window.open(url);
     }
@@ -85,7 +85,7 @@ const Header = (props: Props) => {
   const onHamburgerClick = () => {
     trackEvent('component_clicked', {
       component_name: 'header',
-      item_name: 'hamburger',
+      item_name: 'hamburger_button',
     });
     setOpen(!open);
   };
