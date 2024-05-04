@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+  workflow_run:
+    workflows: ['CI/CD']
+    types:
+      - completed
 
 jobs:
   deploy:
@@ -11,6 +15,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Cancel previous workflow runs
+        if: github.event_name == 'push'
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { context, GitHub } = require('@actions/github');
+
+            const github = new GitHub(process.env.GITHUB_TOKEN);
+
+            const { data: runs } = await github.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              status: 'in_progress'
+            });
+
+            for (const run of runs.workflow_runs) {
+              await github.actions.cancelWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: run.id
+              });
+            }
       - name: Checkout Repository
         uses: actions/checkout@v2
 
