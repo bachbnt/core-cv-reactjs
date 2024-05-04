@@ -22,7 +22,7 @@ const Service = (props: Props) => {
               onItemClick={(item) =>
                 trackEvent('component_clicked', {
                   component_name: 'page5_list_service',
-                  item_name: item.name,
+                  item_name: item.id,
                 })
               }
             />

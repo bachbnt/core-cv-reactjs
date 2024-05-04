@@ -75,7 +75,7 @@ const Contact = (props: Props) => {
                 onItemClick={(item) =>
                   trackEvent('component_clicked', {
                     component_name: 'page7_list_contact',
-                    item_name: item.name,
+                    item_name: item.id,
                   })
                 }
               />

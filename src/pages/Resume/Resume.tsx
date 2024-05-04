@@ -41,7 +41,7 @@ const Resume = (props: Props) => {
                 onItemClick={(item) =>
                   trackEvent('component_clicked', {
                     component_name: 'page3_list_education',
-                    item_name: item.name,
+                    item_name: item.id,
                   })
                 }
               />
@@ -63,7 +63,7 @@ const Resume = (props: Props) => {
                 onItemClick={(item) =>
                   trackEvent('component_clicked', {
                     component_name: 'page3_list_experience',
-                    item_name: item.name,
+                    item_name: item.id,
                   })
                 }
               />
