@@ -20,7 +20,7 @@ const Payment = (props: Props) => {
   const onCopyClick = async (item: PaymentModel) => {
     trackEvent('component_clicked', {
       component_name: 'page8_list_payment',
-      item_name: `${item.name}_copy`,
+      item_name: `${item.id}_copy`,
     });
     const value = item.account;
     await navigator.clipboard.writeText(value);
@@ -30,7 +30,7 @@ const Payment = (props: Props) => {
   const onCopyAllClick = async (item: PaymentModel) => {
     trackEvent('component_clicked', {
       component_name: 'page8_list_payment',
-      item_name: `${item.name}_copy_all`,
+      item_name: `${item.id}_copy_all`,
     });
     const value = `${item.name}\n${item.account}\n${item.user}`;
     await navigator.clipboard.writeText(value);
@@ -47,7 +47,7 @@ const Payment = (props: Props) => {
               onItemClick={(item) =>
                 trackEvent('component_clicked', {
                   component_name: 'page8_list_payment',
-                  item_name: item.name,
+                  item_name: item.id,
                 })
               }
               onCopyClick={onCopyClick}

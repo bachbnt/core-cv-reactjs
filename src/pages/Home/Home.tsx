@@ -1,10 +1,8 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
-import useSlide from '@hooks/useSlide';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@material-ui/core';
 import { ContactType } from '@models/contact';
-import { ProfileSpecialty } from '@models/profile';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import useThemeStyles from '@themes/styles';
@@ -28,8 +26,6 @@ const Home = (props: Props) => {
     useAppSelector((state: RootState) => state.configReducer.config) || {};
   const { profile, contact = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
-
-  const { slide } = useSlide<ProfileSpecialty>(profile?.specialties);
 
   const socialContacts = useMemo(() => {
     return filter(contact, {
@@ -76,7 +72,7 @@ const Home = (props: Props) => {
             {profile?.name}
           </Typography>
           <Typography color='primary' variant='h4'>
-            {profile?.specialties?.[slide]?.name}
+            {profile?.specialties?.[0]?.name}
           </Typography>
           <Box mt={2} mb={6}>
             <Grid container item>
@@ -91,7 +87,7 @@ const Home = (props: Props) => {
                       onItemClick={(item) =>
                         trackEvent('component_clicked', {
                           component_name: 'page1_list_contact',
-                          item_name: item.icon,
+                          item_name: item.id,
                         })
                       }
                     />

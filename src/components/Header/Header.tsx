@@ -39,7 +39,7 @@ const Header = (props: Props) => {
   const onLogoClick = async () => {
     trackEvent('component_clicked', {
       component_name: 'header',
-      item_name: 'logo',
+      item_name: 'logo_button',
     });
     navigate(RoutePath.HOME, { replace: true });
     getConfig();

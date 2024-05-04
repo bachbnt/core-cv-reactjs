@@ -44,7 +44,7 @@ const About = (props: Props) => {
     if (item.urlEnable) {
       trackEvent('component_clicked', {
         component_name: 'page2_list_skill',
-        item_name: item.name,
+        item_name: item.id,
       });
       window.open(item.url);
     }

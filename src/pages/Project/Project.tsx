@@ -59,7 +59,7 @@ const Project = (props: Props) => {
                     onItemClick={() =>
                       trackEvent('component_clicked', {
                         component_name: 'page4_list_project',
-                        item_name: item.name,
+                        item_name: item.id,
                       })
                     }
                     onOpenDialog={() => onOpenDialog(item)}

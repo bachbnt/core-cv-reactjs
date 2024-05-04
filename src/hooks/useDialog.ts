@@ -1,6 +1,6 @@
 import isEmpty from 'lodash/isEmpty';
 import isNil from 'lodash/isNil';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 function useDialog<T extends { id: string }>(items: T[]) {
@@ -8,22 +8,19 @@ function useDialog<T extends { id: string }>(items: T[]) {
   const [searchParams, setSearchParams] = useSearchParams({ id: '' });
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 
-  const onOpenDialog = useCallback(
-    (item: T) => {
-      setOpenDialog(true);
-      const _searchParams = new URLSearchParams(searchParams);
-      _searchParams.set('id', item.id);
-      setSearchParams(_searchParams);
-    },
-    [searchParams, setSearchParams]
-  );
+  const onOpenDialog = (item: T) => {
+    setOpenDialog(true);
+    const _searchParams = new URLSearchParams(searchParams);
+    _searchParams.set('id', item.id);
+    setSearchParams(_searchParams);
+  };
 
-  const onCloseDialog = useCallback(() => {
+  const onCloseDialog = () => {
     setOpenDialog(false);
     const _searchParams = new URLSearchParams(searchParams);
     _searchParams.delete('id');
     setSearchParams(_searchParams);
-  }, [searchParams, setSearchParams]);
+  };
 
   const item = useMemo(() => {
     const _searchParams = new URLSearchParams(location.search);
@@ -40,7 +37,8 @@ function useDialog<T extends { id: string }>(items: T[]) {
     } else {
       onCloseDialog();
     }
-  }, [item, items, onOpenDialog, onCloseDialog]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item, items]);
 
   return {
     item,

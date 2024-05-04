@@ -4,13 +4,12 @@ import { hideSpinner, showSpinner } from '@redux/spinnerSlice';
 import { useAppDispatch } from '@redux/store';
 import MOCK from '@services/mock';
 import Service from '@services/service';
-import { useCallback } from 'react';
 
 const useMockData = () => {
   const dispatch = useAppDispatch();
   const service = di.getSingleton(Service);
 
-  const postMockData = useCallback(async () => {
+  const postMockData = async () => {
     try {
       dispatch(showSpinner());
       await service.postMockData(MOCK.SKILL.data, MOCK.SKILL.id, {
@@ -22,7 +21,7 @@ const useMockData = () => {
     } finally {
       dispatch(hideSpinner());
     }
-  }, [dispatch, service]);
+  };
 
   return {
     postMockData,
