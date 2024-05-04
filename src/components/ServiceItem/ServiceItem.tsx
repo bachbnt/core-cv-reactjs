@@ -8,10 +8,16 @@ import useStyles from './styles';
 const ServiceItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const { item } = props;
+  const { item, onItemClick } = props;
 
   return item.visible ? (
-    <Card key={item.id} className={clsx(classes.card, themeClasses.card)}>
+    <Card
+      key={item.id}
+      className={clsx(classes.card, themeClasses.card)}
+      onClick={() => {
+        onItemClick?.(item);
+      }}
+    >
       <CardActionArea>
         <CardContent className={themeClasses.cardContent}>
           {item.nameVisible && (

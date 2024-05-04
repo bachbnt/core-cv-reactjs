@@ -15,7 +15,7 @@ const About = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
-  useTracker();
+  const { trackEvent } = useTracker({ page_name: 'page2_about' });
 
   const { skill = [], profile } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
@@ -42,6 +42,10 @@ const About = (props: Props) => {
 
   const onSkillClick = (item: Skill) => {
     if (item.urlEnable) {
+      trackEvent('component_clicked', {
+        component_name: 'page2_list_skill',
+        item_name: item.name,
+      });
       window.open(item.url);
     }
   };

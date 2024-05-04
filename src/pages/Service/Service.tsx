@@ -7,7 +7,7 @@ import Props from './props';
 
 const Service = (props: Props) => {
   const themeClasses = useThemeStyles();
-  useTracker();
+  const { trackEvent } = useTracker({ page_name: 'page6_service' });
 
   const { service = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
@@ -17,7 +17,15 @@ const Service = (props: Props) => {
       <Grid className={themeClasses.container} container spacing={4}>
         {service.map((item) => (
           <Grid key={item.id} item>
-            <ServiceItem item={item} />
+            <ServiceItem
+              item={item}
+              onItemClick={(item) =>
+                trackEvent('component_clicked', {
+                  component_name: 'page5_list_service',
+                  item_name: item.name,
+                })
+              }
+            />
           </Grid>
         ))}
       </Grid>

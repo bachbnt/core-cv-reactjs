@@ -25,7 +25,7 @@ const Contact = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
-  useTracker();
+  const { trackEvent } = useTracker({ page_name: 'page7_contact' });
 
   const { postData } = useMessage();
 
@@ -45,6 +45,10 @@ const Contact = (props: Props) => {
   }, [reset, initialValue]);
 
   const onSubmit = async (values: FormValues) => {
+    trackEvent('component_clicked', {
+      component_name: 'page7_button_send',
+      form_values: JSON.stringify(values),
+    });
     await postData(values.name, values.message);
     reset(initialValue);
   };
@@ -66,7 +70,15 @@ const Contact = (props: Props) => {
         >
           {contacts.map((item) => (
             <Grid key={item.id} item>
-              <ContactItem item={item} />
+              <ContactItem
+                item={item}
+                onItemClick={(item) =>
+                  trackEvent('component_clicked', {
+                    component_name: 'page7_list_contact',
+                    item_name: item.name,
+                  })
+                }
+              />
             </Grid>
           ))}
         </Grid>

@@ -9,7 +9,7 @@ import Props from './props';
 
 const Payment = (props: Props) => {
   const themeClasses = useThemeStyles();
-  useTracker();
+  const { trackEvent } = useTracker({ page_name: 'page8_payment' });
 
   const { payment = [] } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
@@ -18,12 +18,20 @@ const Payment = (props: Props) => {
     useDialog<PaymentModel>(payment);
 
   const onCopyClick = async (item: PaymentModel) => {
+    trackEvent('component_clicked', {
+      component_name: 'page8_list_payment',
+      item_name: `${item.name}_copy`,
+    });
     const value = item.account;
     await navigator.clipboard.writeText(value);
     alert(`Copied\n${value}`);
   };
 
   const onCopyAllClick = async (item: PaymentModel) => {
+    trackEvent('component_clicked', {
+      component_name: 'page8_list_payment',
+      item_name: `${item.name}_copy_all`,
+    });
     const value = `${item.name}\n${item.account}\n${item.user}`;
     await navigator.clipboard.writeText(value);
     alert(`Copied\n${value}`);
@@ -36,6 +44,12 @@ const Payment = (props: Props) => {
           <Grid key={item.id} item>
             <PaymentItem
               item={item}
+              onItemClick={(item) =>
+                trackEvent('component_clicked', {
+                  component_name: 'page8_list_payment',
+                  item_name: item.name,
+                })
+              }
               onCopyClick={onCopyClick}
               onCopyAllClick={onCopyAllClick}
               onOpenDialog={() => onOpenDialog(item)}

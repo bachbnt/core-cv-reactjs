@@ -15,7 +15,7 @@ import useStyles from './styles';
 const ProjectItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const { item, onOpenDialog } = props;
+  const { item, onItemClick, onOpenDialog } = props;
 
   const { image } =
     useAppSelector((state: RootState) => state.configReducer.config) || {};
@@ -25,7 +25,11 @@ const ProjectItem = (props: Props) => {
   };
 
   return item.visible ? (
-    <Card key={item.id} className={classes.card}>
+    <Card
+      key={item.id}
+      className={classes.card}
+      onClick={() => onItemClick?.(item)}
+    >
       <CardActionArea component='span' onClick={onOpenDialog}>
         {item.coverVisible && (
           <Carousel

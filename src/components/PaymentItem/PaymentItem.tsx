@@ -15,10 +15,14 @@ import useStyles from './styles';
 const PaymentItem = (props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const { item, onCopyClick, onCopyAllClick, onOpenDialog } = props;
+  const { item, onItemClick, onCopyClick, onCopyAllClick, onOpenDialog } =
+    props;
 
   return item.visible ? (
-    <Card className={clsx(classes.card, themeClasses.card)}>
+    <Card
+      className={clsx(classes.card, themeClasses.card)}
+      onClick={() => onItemClick?.(item)}
+    >
       <CardActionArea component='span'>
         <CardContent className={themeClasses.cardContent}>
           {item.nameVisible && item.accountVisible && (

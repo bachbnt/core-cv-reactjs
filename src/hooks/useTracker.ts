@@ -1,21 +1,29 @@
+import { TrackingEvent, TrackingParams } from '@models/tracking';
 import { analytics } from '@services/firebase';
 import { logEvent } from 'firebase/analytics';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const useTracker = ({
-  trackPageLoaded = true,
-}: { trackPageLoaded?: boolean } = {}) => {
+const useTracker = (
+  trackingParams: Partial<TrackingParams>,
+  trackDisplayed?: boolean
+) => {
   const location = useLocation();
 
-  useEffect(() => {
-    trackPageLoaded &&
-      logEvent(analytics, 'page_view', { path: location.pathname });
-  }, [trackPageLoaded, location]);
+  const trackEvent = useCallback(
+    (event: TrackingEvent, otherParams?: Partial<TrackingParams>) => {
+      logEvent(analytics, event, {
+        ...trackingParams,
+        ...otherParams,
+        page_path: location.pathname,
+      });
+    },
+    [trackingParams, location]
+  );
 
-  const trackEvent = (event: string, params?: any) => {
-    logEvent(analytics, event, params);
-  };
+  useEffect(() => {
+    trackDisplayed && trackEvent('component_displayed');
+  }, [trackDisplayed, location, trackEvent]);
 
   return {
     trackEvent,

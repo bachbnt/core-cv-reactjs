@@ -12,13 +12,13 @@ import useStyles from './styles';
 
 const EducationItem = (props: Props) => {
   const classes = useStyles();
-  const { item } = props;
+  const { item, onItemClick } = props;
 
   const { image } =
     useAppSelector((state: RootState) => state.configReducer.config) || {};
 
   return (
-    <Card key={item.id} elevation={3}>
+    <Card key={item.id} elevation={3} onClick={() => onItemClick?.(item)}>
       <CardActionArea>
         <CardContent>
           {item.nameVisible && (
