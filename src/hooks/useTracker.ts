@@ -23,7 +23,7 @@ const useTracker = (
 
   useEffect(() => {
     trackDisplayed && trackEvent('component_displayed');
-  }, [trackDisplayed, location, trackEvent]);
+  }, [trackDisplayed, trackEvent]);
 
   return {
     trackEvent,
