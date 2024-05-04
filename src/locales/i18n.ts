@@ -48,8 +48,7 @@ i18n
       formatSeparator: ',',
     },
     react: {
-      wait: true,
-      useSuspense: false,
+      useSuspense: true,
     },
   });
 
