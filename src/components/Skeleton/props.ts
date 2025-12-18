@@ -1,4 +1,4 @@
-import { SkeletonProps } from '@material-ui/lab';
+import { SkeletonProps } from '@mui/material';
 
 type Props = {} & SkeletonProps;
 

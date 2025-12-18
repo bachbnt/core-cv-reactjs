@@ -1,6 +1,6 @@
 import { Typography } from '@components';
 import { Localization } from '@locales/i18n';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import { useTranslation } from 'react-i18next';
 import Props from './props';

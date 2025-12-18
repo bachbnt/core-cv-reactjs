@@ -1,20 +1,20 @@
 import { Typography } from '@components';
 import {
-  Timeline as MuiTimeline,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator,
-} from '@material-ui/lab/';
+    Timeline as MuiTimeline,
+    TimelineConnector,
+    TimelineContent,
+    TimelineDot,
+    TimelineItem,
+    TimelineOppositeContent,
+    TimelineSeparator,
+} from '@mui/lab';
 import Props from './props';
 
 const Timeline = (props: Props) => {
   const { data, renderItem } = props;
 
   return (
-    <MuiTimeline align='alternate'>
+    <MuiTimeline position='alternate'>
       {data.map((item, index) =>
         item.visible ? (
           <TimelineItem key={item.id}>

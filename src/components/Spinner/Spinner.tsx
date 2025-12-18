@@ -1,4 +1,4 @@
-import { Backdrop, CircularProgress } from '@material-ui/core';
+import { Backdrop, CircularProgress } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import Props from './props';
 import useStyles from './styles';

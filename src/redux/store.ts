@@ -4,7 +4,6 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import logger from 'redux-logger';
 import { PersistConfig, persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import thunk from 'redux-thunk';
 import configReducer from './configSlice';
 import skeletonReducer from './skeletonSlice';
 import spinnerReducer from './spinnerSlice';
@@ -27,12 +26,17 @@ const persistConfig: PersistConfig<CombinedState> = {
 
 const persistedReducer = persistReducer<CombinedState>(persistConfig, reducers);
 
-const middleware =
-  process.env.NODE_ENV === 'production' ? [thunk] : [thunk, logger];
-
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: middleware,
+  middleware: (getDefaultMiddleware) => {
+    const middleware = getDefaultMiddleware({
+      serializableCheck: false, // redux-persist compatibility
+    });
+    if (import.meta.env.DEV) {
+      return middleware.concat(logger as any);
+    }
+    return middleware;
+  },
 });
 
 export const persistor = persistStore(store);

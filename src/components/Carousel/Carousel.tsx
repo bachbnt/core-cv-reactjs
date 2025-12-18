@@ -10,6 +10,12 @@ const MuiCarousel = (props: Props) => {
       className={classes.root}
       duration={1000}
       animation='slide'
+      activeIndicatorIconButtonProps={{
+        className: classes.activeIndicator,
+      }}
+      indicatorIconButtonProps={{
+        className: classes.indicator,
+      }}
       {...props}
     >
       {props.children}

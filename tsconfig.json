@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "types": ["vite/client"],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -18,16 +19,27 @@
     "baseUrl": "src",
     "paths": {
       "@components": ["components"],
+      "@components/*": ["components/*"],
+      "@core": ["core"],
       "@core/*": ["core/*"],
+      "@hooks": ["hooks"],
       "@hooks/*": ["hooks/*"],
+      "@locales": ["locales"],
       "@locales/*": ["locales/*"],
+      "@models": ["models"],
       "@models/*": ["models/*"],
+      "@pages": ["pages"],
       "@pages/*": ["pages/*"],
+      "@redux": ["redux"],
       "@redux/*": ["redux/*"],
+      "@routes": ["routes"],
       "@routes/*": ["routes/*"],
+      "@services": ["services"],
       "@services/*": ["services/*"],
+      "@themes": ["themes"],
       "@themes/*": ["themes/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

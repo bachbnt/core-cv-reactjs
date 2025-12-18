@@ -1,11 +1,6 @@
 import Constant from '@core/constants';
 import useTracker from '@hooks/useTracker';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Drawer as MuiDrawer,
-} from '@material-ui/core';
+import { List, ListItem, ListItemText, Drawer as MuiDrawer } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';

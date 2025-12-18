@@ -1,6 +1,6 @@
 import { Layout, ServiceItem } from '@components';
 import useTracker from '@hooks/useTracker';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import Props from './props';

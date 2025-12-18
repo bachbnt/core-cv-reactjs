@@ -1,12 +1,5 @@
 import { Carousel, Typography } from '@components';
-import {
-  Box,
-  CardContent,
-  CardMedia,
-  Dialog,
-  DialogContent,
-  Link,
-} from '@material-ui/core';
+import { Box, CardContent, CardMedia, Dialog, DialogContent, Link } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import Props from './props';
 import useStyles from './styles';

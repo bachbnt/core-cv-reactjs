@@ -3,51 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.3",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "@reduxjs/toolkit": "^1.8.2",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.1",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^12.20.1",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.129",
+    "@mui/material": "^5.13.0",
+    "@mui/styles": "^5.13.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "clsx": "^1.1.1",
-    "firebase": "^9.8.3",
-    "i18next": "^20.2.1",
+    "firebase": "^9.22.0",
+    "i18next": "^22.4.15",
     "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.1.1",
+    "i18next-http-backend": "^2.2.1",
     "lodash": "^4.17.21",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-hook-form": "^6.14.2",
-    "react-i18next": "^11.17.1",
-    "react-icons": "^4.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-i18next": "^12.2.2",
+    "react-icons": "^4.8.0",
     "react-material-ui-carousel": "^3.4.2",
-    "react-redux": "^7.2.8",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.11.1",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.4.1",
-    "typescript": "^4.1.5",
-    "web-vitals": "^1.1.0",
-    "yup": "^0.32.11"
+    "redux-thunk": "^2.4.2",
+    "web-vitals": "^3.3.1",
+    "yup": "^1.1.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "GENERATE_SOURCEMAP=false craco build",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "all": "firebase login && npm run build && firebase deploy",
-    "test": "craco test",
-    "eject": "craco eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "browserslist": {
     "production": [
@@ -62,11 +50,15 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^7.0.0",
-    "@types/react-router-dom": "^5.1.7",
+    "@types/lodash": "^4.17.21",
+    "@types/node": "^18.16.3",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
     "@types/redux-logger": "^3.0.9",
-    "craco-alias": "^3.0.1",
-    "dotenv": "^16.0.3",
-    "dotenv-webpack": "^8.0.1"
+    "@vitejs/plugin-react": "^4.0.0",
+    "sass": "^1.97.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.5",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }

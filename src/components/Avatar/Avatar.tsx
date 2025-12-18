@@ -1,4 +1,4 @@
-import { Avatar as MuiAvatar } from '@material-ui/core';
+import { Avatar as MuiAvatar } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';
 

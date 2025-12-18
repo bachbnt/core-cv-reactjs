@@ -1,7 +1,7 @@
 import { Layout, PaymentDialog, PaymentItem } from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { Payment as PaymentModel } from '@models/payment';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';

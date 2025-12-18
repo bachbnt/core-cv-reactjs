@@ -1,7 +1,7 @@
 import { Button, Carousel, Layout, Typography } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
-import { Box, CardMedia, Grid } from '@material-ui/core';
+import { Box, CardMedia, Grid } from '@mui/material';
 import { Skill, SkillType } from '@models/skill';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';

@@ -1,4 +1,4 @@
-import { AvatarProps } from '@material-ui/core';
+import { AvatarProps } from '@mui/material';
 
 type Props = {} & AvatarProps;
 

@@ -1,11 +1,5 @@
 import { Button, IconButton, Typography } from '@components';
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-} from '@material-ui/core';
+import { Box, Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
 import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
 import { IoCopy } from 'react-icons/io5';

@@ -1,5 +1,5 @@
 import { Footer, Header } from '@components';
-import { Box, Container } from '@material-ui/core';
+import { Box, Container } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';
 

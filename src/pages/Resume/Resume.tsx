@@ -7,7 +7,7 @@ import {
 } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
 import { RootState, useAppSelector } from '@redux/store';

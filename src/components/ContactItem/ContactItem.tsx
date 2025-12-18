@@ -1,7 +1,7 @@
 import { IconButton, Typography } from '@components';
-import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
-import * as Mi from '@material-ui/icons';
 import { ContactType } from '@models/contact';
+import * as Mi from '@mui/icons-material';
+import { Box, Card, CardActionArea, CardContent } from '@mui/material';
 import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
 import capitalize from 'lodash/capitalize';
@@ -50,7 +50,7 @@ const ContactItem = (props: Props) => {
           <CardContent className={themeClasses.cardContent}>
             {renderContactIcon()}
             <Typography color='primary' variant='h6' align='center'>
-              {capitalize(t(item.type))}
+              {capitalize(t(item.type) || '')}
             </Typography>
             <Box mt={2}>
               <Typography variant='body2' align='center'>

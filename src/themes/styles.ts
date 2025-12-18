@@ -1,8 +1,7 @@
-import { createStyles, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
 import { AppTheme } from './themes';
 
-const styles = makeStyles((theme: AppTheme) =>
-  createStyles({
+const styles = makeStyles((theme: AppTheme) => ({
     card: {
       display: 'flex',
       justifyContent: 'center',

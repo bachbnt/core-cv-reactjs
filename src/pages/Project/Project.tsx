@@ -2,7 +2,7 @@ import { Layout, ProjectDialog, ProjectItem, Typography } from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import { Project as ProjectModel, ProjectType } from '@models/project';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';

@@ -1,4 +1,4 @@
-import { CardProps } from '@material-ui/core';
+import { CardProps } from '@mui/material';
 import { Experience } from '@models/experience';
 
 type Props = {

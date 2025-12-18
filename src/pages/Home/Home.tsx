@@ -1,7 +1,7 @@
 import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
-import { Box, Grid, Tooltip } from '@material-ui/core';
+import { Box, Grid, Tooltip } from '@mui/material';
 import { ContactType } from '@models/contact';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';

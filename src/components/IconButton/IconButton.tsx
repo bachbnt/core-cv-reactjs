@@ -1,4 +1,4 @@
-import { IconButton as MuiIconButton } from '@material-ui/core';
+import { IconButton as MuiIconButton } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';
 

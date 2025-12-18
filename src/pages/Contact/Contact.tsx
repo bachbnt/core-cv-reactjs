@@ -9,7 +9,7 @@ import useMessage from '@hooks/useMessage';
 import useTracker from '@hooks/useTracker';
 import useYupResolver from '@hooks/useYupResolver';
 import { Localization } from '@locales/i18n';
-import { Box, Card, CardContent, Grid } from '@material-ui/core';
+import { Box, Card, CardContent, Grid } from '@mui/material';
 import { ContactType } from '@models/contact';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';

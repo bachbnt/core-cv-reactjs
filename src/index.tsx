@@ -1,16 +1,11 @@
-import {
-  createGenerateClassName,
-  CssBaseline,
-  StylesProvider,
-  ThemeProvider,
-} from '@material-ui/core';
+import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import { persistor, store } from '@redux/store';
 import Service from '@services/service';
 import colors from '@themes/colors';
 import styles from '@themes/styles';
 import themes from '@themes/themes';
 import variables from '@themes/variables';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
@@ -18,12 +13,11 @@ import di from './core/di';
 
 di.registerSingleton(Service);
 
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'jss',
-});
+const container = document.getElementById('root');
+const root = createRoot(container!);
 
-render(
-  <StylesProvider generateClassName={generateClassName}>
+root.render(
+  <StyledEngineProvider injectFirst>
     <ThemeProvider theme={{ ...themes, colors, styles, variables }}>
       <CssBaseline />
       <Provider store={store}>
@@ -32,6 +26,6 @@ render(
         </PersistGate>
       </Provider>
     </ThemeProvider>
-  </StylesProvider>,
-  document.getElementById('root')
+  </StyledEngineProvider>
 );
+

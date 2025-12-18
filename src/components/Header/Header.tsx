@@ -5,7 +5,7 @@ import useMockData from '@hooks/useMockData';
 import useTracker from '@hooks/useTracker';
 import useUser from '@hooks/useUser';
 import { Localization } from '@locales/i18n';
-import { AppBar, Box, IconButton, Toolbar } from '@material-ui/core';
+import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import { RoutePath } from '@routes/routePath';
 import { Route, routes } from '@routes/routes';

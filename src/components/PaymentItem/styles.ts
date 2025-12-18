@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from '@material-ui/core';
+import { createStyles, makeStyles } from '@mui/styles';
 import colors from '@themes/colors';
 import { AppTheme } from '@themes/themes';
 

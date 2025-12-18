@@ -1,4 +1,4 @@
-import { CardMedia, Dialog } from '@material-ui/core';
+import { CardMedia, Dialog } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import Props from './props';
 

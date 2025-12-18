@@ -52,52 +52,39 @@ class Service {
     await setDoc(ref, message);
   }
 
+  private async fetchArrayData<T extends { visible?: boolean }>(
+    collection: FirestoreCollection,
+    document: FirestoreDocument
+  ): Promise<T[]> {
+    const ref = doc(firestore, collection, document);
+    const snapshot = await getDoc(ref);
+    const data = snapshot.data() || {};
+    const list: T[] = Object.entries(data).map(([id, value]) => ({
+      id,
+      ...(value as any),
+    }));
+    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY) as T[];
+  }
+
   async getContact(): Promise<Contact[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<Contact>(
       FirestoreCollection.USER,
       FirestoreDocument.CONTACT
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: Contact[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getEducation(): Promise<Education[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<Education>(
       FirestoreCollection.USER,
       FirestoreDocument.EDUCATION
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: Education[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getExperience(): Promise<Experience[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<Experience>(
       FirestoreCollection.USER,
       FirestoreDocument.EXPERIENCE
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: Experience[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getProfile(): Promise<Profile> {
@@ -114,67 +101,31 @@ class Service {
   }
 
   async getProject(): Promise<Project[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<Project>(
       FirestoreCollection.USER,
       FirestoreDocument.PROJECT
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: Project[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getService(): Promise<ServiceModel[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<ServiceModel>(
       FirestoreCollection.USER,
       FirestoreDocument.SERVICE
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: ServiceModel[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getSkill(): Promise<Skill[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<Skill>(
       FirestoreCollection.USER,
       FirestoreDocument.SKILL
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: Skill[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async getPayment(): Promise<Payment[]> {
-    const ref = doc(
-      firestore,
+    return this.fetchArrayData<Payment>(
       FirestoreCollection.USER,
       FirestoreDocument.PAYMENT
     );
-    const snapshot = await getDoc(ref);
-    const data = snapshot.data() || {};
-
-    const list: Payment[] = Object.entries(data).map(([id, value]) => ({
-      id,
-      ...value,
-    }));
-    return sortBy(filter(list, { visible: true }), Constant.SORT_KEY);
   }
 
   async postMockData<T>(

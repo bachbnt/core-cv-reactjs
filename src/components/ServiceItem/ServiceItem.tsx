@@ -1,5 +1,5 @@
 import { Typography } from '@components';
-import { Box, Card, CardActionArea, CardContent } from '@material-ui/core';
+import { Box, Card, CardActionArea, CardContent } from '@mui/material';
 import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
 import Props from './props';
