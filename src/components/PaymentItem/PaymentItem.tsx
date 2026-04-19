@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from '@components';
+import { IconButton, Typography } from '@components';
 import { Box, Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
 import useThemeStyles from '@themes/styles';
 import clsx from 'clsx';
@@ -36,21 +36,25 @@ const PaymentItem = (props: Props) => {
           )}
           {item.accountVisible && (
             <Box
-              overflow='hidden'
               display='flex'
               flexDirection='row'
               alignItems='center'
               mb={1}
+              gap={1}
             >
-              <Button
-                className={clsx(themeClasses.cardDescription, classes.button)}
-                startIcon={<IoCopy />}
-                onClick={() => {
-                  onCopyClick(item);
-                }}
+              <Typography
+                className={clsx(themeClasses.cardDescription, classes.account)}
+                variant='body2'
               >
                 {item.account}
-              </Button>
+              </Typography>
+              <IconButton
+                className={classes.copyButton}
+                size='small'
+                onClick={() => onCopyClick(item)}
+              >
+                <IoCopy size={14} />
+              </IconButton>
             </Box>
           )}
           {item.qrCodeVisible && (

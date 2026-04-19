@@ -1,4 +1,4 @@
-import { Button, Carousel, Layout, Typography } from '@components';
+import { AnimateIn, Button, Carousel, Layout, Typography } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, CardMedia, Grid } from '@mui/material';
@@ -82,6 +82,7 @@ const About = (props: Props) => {
     <Layout>
       <Grid className={themeClasses.container} container>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
+          <AnimateIn delay={0}>
           <Typography color='primary' variant='h5'>
             {t(Localization.page2_title1)}
           </Typography>
@@ -112,6 +113,7 @@ const About = (props: Props) => {
           <Grid container xs={12} item>
             {tool.map((item) => renderSkillItem(item))}
           </Grid>
+          </AnimateIn>
         </Grid>
         <Grid
           className={classes.imgContainer}
@@ -122,6 +124,7 @@ const About = (props: Props) => {
           md={6}
           item
         >
+          <AnimateIn delay={200}>
           <Carousel className={classes.img}>
             {profile?.covers.map((item, index) => (
               <CardMedia
@@ -133,6 +136,7 @@ const About = (props: Props) => {
               />
             ))}
           </Carousel>
+          </AnimateIn>
         </Grid>
       </Grid>
     </Layout>

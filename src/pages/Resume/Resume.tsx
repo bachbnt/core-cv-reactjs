@@ -1,4 +1,5 @@
 import {
+  AnimateIn,
   EducationItem,
   ExperienceItem,
   Layout,
@@ -26,7 +27,8 @@ const Resume = (props: Props) => {
   return (
     <Layout>
       <Grid className={themeClasses.container} container>
-        <Box mb={2}>
+        <AnimateIn delay={0} width='100%'>
+        <Box mb={2} width='100%' textAlign='center'>
           <Typography color='primary' variant='h4'>
             {t(Localization.page3_title1)}
           </Typography>
@@ -48,7 +50,9 @@ const Resume = (props: Props) => {
             )}
           />
         </Grid>
-        <Box mt={6} mb={2}>
+        </AnimateIn>
+        <AnimateIn delay={150} width='100%'>
+        <Box mt={6} mb={2} width='100%' textAlign='center'>
           <Typography color='primary' variant='h4'>
             {t(Localization.page3_title2)}
           </Typography>
@@ -70,6 +74,7 @@ const Resume = (props: Props) => {
             )}
           />
         </Grid>
+        </AnimateIn>
       </Grid>
     </Layout>
   );

@@ -1,4 +1,4 @@
-import { Avatar, Button, ContactItem, Layout, Typography } from '@components';
+import { AnimateIn, Avatar, Button, ContactItem, Layout, Typography } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@mui/material';
@@ -61,9 +61,12 @@ const Home = (props: Props) => {
           xs={12}
           md={6}
         >
-          <Avatar src={profile?.avatar} />
+          <AnimateIn delay={0}>
+            <Avatar src={profile?.avatar} />
+          </AnimateIn>
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
+          <AnimateIn delay={150}>
           <Typography className={classes.greeting} variant='h6'>
             {t(Localization.page1_title).toUpperCase()}
           </Typography>
@@ -118,6 +121,7 @@ const Home = (props: Props) => {
               </Button>
             </Grid>
           </Grid>
+          </AnimateIn>
         </Grid>
       </Grid>
     </Layout>

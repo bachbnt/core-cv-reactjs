@@ -13,8 +13,14 @@ export default makeStyles((theme: AppTheme) =>
       maxHeight: 350,
       width: 'auto',
     },
-    button: {
-      textTransform: 'none',
+    account: {
+      flex: 1,
+      overflow: 'hidden',
+      wordBreak: 'break-all',
+    },
+    copyButton: {
+      flexShrink: 0,
+      color: colors.primary,
     },
     copyAllButton: {
       alignSelf: 'flex-end',

@@ -1,4 +1,4 @@
-import { Layout, PaymentDialog, PaymentItem } from '@components';
+import { AnimateIn, Layout, PaymentDialog, PaymentItem } from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
@@ -40,8 +40,9 @@ const Payment = (props: Props) => {
   return (
     <Layout>
       <Grid className={themeClasses.container} container spacing={4}>
-        {payment.map((item) => (
+        {payment.map((item, index) => (
           <Grid key={item.id} item>
+            <AnimateIn delay={index * 80}>
             <PaymentItem
               item={item}
               onItemClick={(item) =>
@@ -54,6 +55,7 @@ const Payment = (props: Props) => {
               onCopyAllClick={onCopyAllClick}
               onOpenDialog={() => onOpenDialog(item)}
             />
+            </AnimateIn>
           </Grid>
         ))}
         {item && (

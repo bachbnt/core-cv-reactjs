@@ -1,4 +1,4 @@
-import { Layout, ServiceItem } from '@components';
+import { AnimateIn, Layout, ServiceItem } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
@@ -15,17 +15,19 @@ const Service = (props: Props) => {
   return (
     <Layout>
       <Grid className={themeClasses.container} container spacing={4}>
-        {service.map((item) => (
+        {service.map((item, index) => (
           <Grid key={item.id} item>
-            <ServiceItem
-              item={item}
-              onItemClick={(item) =>
-                trackEvent('component_clicked', {
-                  component_name: 'page5_list_service',
-                  item_name: item.id,
-                })
-              }
-            />
+            <AnimateIn delay={index * 80}>
+              <ServiceItem
+                item={item}
+                onItemClick={(item) =>
+                  trackEvent('component_clicked', {
+                    component_name: 'page5_list_service',
+                    item_name: item.id,
+                  })
+                }
+              />
+            </AnimateIn>
           </Grid>
         ))}
       </Grid>

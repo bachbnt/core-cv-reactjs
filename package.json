@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "all": "firebase login && npm run build && firebase deploy",
+    "all": "npm run build && firebase deploy",
     "preview": "vite preview",
     "test": "vitest"
   },
@@ -56,6 +56,7 @@
     "@types/react-dom": "^18.2.4",
     "@types/redux-logger": "^3.0.9",
     "@vitejs/plugin-react": "^4.0.0",
+    "firebase-tools": "^15.15.0",
     "sass": "^1.97.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.5",

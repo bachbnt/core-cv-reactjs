@@ -1,4 +1,5 @@
 import {
+  AnimateIn,
   Button,
   ContactItem,
   Layout,
@@ -68,21 +69,24 @@ const Contact = (props: Props) => {
           spacing={4}
           item
         >
-          {contacts.map((item) => (
+          {contacts.map((item, index) => (
             <Grid key={item.id} item>
-              <ContactItem
-                item={item}
-                onItemClick={(item) =>
-                  trackEvent('component_clicked', {
-                    component_name: 'page7_list_contact',
-                    item_name: item.id,
-                  })
-                }
-              />
+              <AnimateIn delay={index * 80}>
+                <ContactItem
+                  item={item}
+                  onItemClick={(item) =>
+                    trackEvent('component_clicked', {
+                      component_name: 'page7_list_contact',
+                      item_name: item.id,
+                    })
+                  }
+                />
+              </AnimateIn>
             </Grid>
           ))}
         </Grid>
         <Grid className={classes.messageContainer} xs={12} md={6} item>
+          <AnimateIn delay={200}>
           <Card className={classes.card}>
             <CardContent className={classes.center}>
               <FormProvider {...methods}>
@@ -111,6 +115,7 @@ const Contact = (props: Props) => {
               </FormProvider>
             </CardContent>
           </Card>
+          </AnimateIn>
         </Grid>
       </Grid>
     </Layout>

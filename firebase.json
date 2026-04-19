@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "bachbntdev",
     "headers": [
       {
         "source": "/service-worker.js",

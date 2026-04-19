@@ -1,4 +1,4 @@
-import { Layout, ProjectDialog, ProjectItem, Typography } from '@components';
+import { AnimateIn, Layout, ProjectDialog, ProjectItem, Typography } from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
@@ -52,8 +52,9 @@ const Project = (props: Props) => {
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
-              {company.map((item) => (
+              {company.map((item, index) => (
                 <Grid key={item.id} item>
+                  <AnimateIn delay={index * 80}>
                   <ProjectItem
                     item={item}
                     onItemClick={() =>
@@ -64,6 +65,7 @@ const Project = (props: Props) => {
                     }
                     onOpenDialog={() => onOpenDialog(item)}
                   />
+                  </AnimateIn>
                 </Grid>
               ))}
             </Grid>
@@ -78,12 +80,14 @@ const Project = (props: Props) => {
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
-              {freelance.map((item) => (
+              {freelance.map((item, index) => (
                 <Grid key={item.id} item>
+                  <AnimateIn delay={index * 80}>
                   <ProjectItem
                     item={item}
                     onOpenDialog={() => onOpenDialog(item)}
                   />
+                  </AnimateIn>
                 </Grid>
               ))}
             </Grid>
@@ -98,12 +102,14 @@ const Project = (props: Props) => {
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
-              {personal.map((item) => (
+              {personal.map((item, index) => (
                 <Grid key={item.id} item>
+                  <AnimateIn delay={index * 80}>
                   <ProjectItem
                     item={item}
                     onOpenDialog={() => onOpenDialog(item)}
                   />
+                  </AnimateIn>
                 </Grid>
               ))}
             </Grid>
