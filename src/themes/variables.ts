@@ -1,5 +1,3 @@
-import Constant from '@core/constants';
-
 const variables = {
   buttonMinWidth: 64,
 
@@ -26,8 +24,10 @@ const variables = {
 
   fontFamily: 'Source Code Pro',
 
-  backgroundUrl: Constant.DEFAULT_BACKGROUND_IMAGE,
-};
+  // backgroundUrl: Constant.DEFAULT_BACKGROUND_IMAGE,
 
-export default variables;
-export type AppVariable = typeof variables;
+  backgroundUrl: '/background.webp',
+}
+
+export default variables
+export type AppVariable = typeof variables

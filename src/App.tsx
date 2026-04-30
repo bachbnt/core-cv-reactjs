@@ -1,3 +1,4 @@
+import Constant from '@core/constants';
 import useConfig from '@hooks/useConfig';
 import useUser from '@hooks/useUser';
 import AppRouter from '@routes/AppRouter';
@@ -11,6 +12,14 @@ const App = () => {
     getConfig();
     getUser();
   }, [getConfig, getUser]);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      document.body.style.backgroundImage = `url('${Constant.DEFAULT_BACKGROUND_IMAGE}')`;
+    };
+    img.src = Constant.DEFAULT_BACKGROUND_IMAGE;
+  }, []);
 
   return <AppRouter />;
 };
