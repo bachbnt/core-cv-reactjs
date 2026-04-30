@@ -1,6 +1,11 @@
 import Constant from '@core/constants';
 import useTracker from '@hooks/useTracker';
-import { List, ListItem, ListItemText, Drawer as MuiDrawer } from '@mui/material';
+import {
+  List,
+  ListItem,
+  ListItemText,
+  Drawer as MuiDrawer,
+} from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
@@ -16,7 +21,7 @@ const Drawer = (props: Props) => {
   const { trackEvent } = useTracker({}, false);
 
   const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
+    (state: RootState) => state.configReducer.config,
   );
 
   const onPageClick = async (route: Route) => {
@@ -55,7 +60,7 @@ const Drawer = (props: Props) => {
             >
               <ListItemText primary={t(route.name)}></ListItemText>
             </ListItem>
-          ) : null
+          ) : null,
         )}
       </List>
     </MuiDrawer>

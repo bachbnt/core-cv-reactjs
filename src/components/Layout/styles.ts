@@ -47,5 +47,5 @@ export default makeStyles((theme: AppTheme) =>
       from: { transform: 'translateX(0)', opacity: 1 },
       to: { transform: 'translateX(80px)', opacity: 0 },
     },
-  })
+  }),
 );

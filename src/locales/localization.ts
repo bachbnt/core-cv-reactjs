@@ -33,6 +33,6 @@ const localization = {
   chatbot_placeholder: 'chatbot_placeholder',
   chatbot_limit_reached: 'chatbot_limit_reached',
   chatbot_error_generic: 'chatbot_error_generic',
-}
+};
 
-export default localization
+export default localization;

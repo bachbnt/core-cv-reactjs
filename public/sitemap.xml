@@ -21,9 +21,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bachbntdev.web.app/certificate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://bachbntdev.web.app/service</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bachbntdev.web.app/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://bachbntdev.web.app/contact</loc>

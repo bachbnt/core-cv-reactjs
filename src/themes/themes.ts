@@ -1,4 +1,8 @@
-import { createTheme, Theme as MUITheme, responsiveFontSizes } from '@mui/material/styles';
+import {
+  createTheme,
+  Theme as MUITheme,
+  responsiveFontSizes,
+} from '@mui/material/styles';
 import colors, { AppColor } from './colors';
 import { AppStyle } from './styles';
 import variables, { AppVariable } from './variables';
@@ -191,7 +195,8 @@ const themes = {
         },
         MuiListItem: {
           styleOverrides: {
-            button: { // Note: MuiListItem no longer has 'button' class in v5 default usually, but if using ListItemButton it's different. Assuming ListItems are used as buttons
+            button: {
+              // Note: MuiListItem no longer has 'button' class in v5 default usually, but if using ListItemButton it's different. Assuming ListItems are used as buttons
               '&:hover': {
                 backgroundColor: colors.secondary,
               },
@@ -234,7 +239,7 @@ const themes = {
           },
         },
       },
-    })
+    }),
   ),
 };
 

@@ -1,12 +1,12 @@
 import { messageSchema, nameSchema } from '@core/validations';
-import * as yup from 'yup';
+import { object } from 'yup';
 
 export interface FormValues {
   name: string;
   message: string;
 }
 
-export const validationSchema = yup.object().shape({
+export const validationSchema = object().shape({
   name: nameSchema,
   message: messageSchema,
 });

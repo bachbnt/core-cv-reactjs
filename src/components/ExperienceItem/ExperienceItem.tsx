@@ -1,5 +1,11 @@
 import { Typography } from '@components';
-import { Box, Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+} from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import Props from './props';
 import useStyles from './styles';

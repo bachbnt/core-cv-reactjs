@@ -1,6 +1,39 @@
 import { Spinner } from '@components';
-import { lazy, Suspense, useMemo } from 'react';
+import {
+  Component,
+  ErrorInfo,
+  lazy,
+  ReactNode,
+  Suspense,
+  useMemo,
+} from 'react';
 import Props from './props';
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<
+  { children: ReactNode },
+  ErrorBoundaryState
+> {
+  state: ErrorBoundaryState = { hasError: false };
+
+  static getDerivedStateFromError(): ErrorBoundaryState {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error('Page load error:', error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null;
+    }
+    return this.props.children;
+  }
+}
 
 const files = import.meta.glob('../../pages/*/index.ts');
 
@@ -16,9 +49,11 @@ const Wrapper = (props: Props) => {
   }, [page]);
 
   return (
-    <Suspense fallback={<Spinner visible />}>
-      <Component />
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense fallback={<Spinner visible />}>
+        <Component />
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 

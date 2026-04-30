@@ -11,7 +11,7 @@ interface DIContainer {
   getSingleton<T>(classType: { new (): T }, params?: DIParams): T;
   registerSingleton<T extends { new (...args: any[]): any }>(
     instance: T,
-    params?: DIParams
+    params?: DIParams,
   ): void;
   registerLazySingleton<T>(factoryMethod: () => T, params?: DIParams): void;
   removeSingleton<T>(classType: { new (): T }, params?: DIParams): void;

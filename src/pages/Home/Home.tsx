@@ -1,4 +1,11 @@
-import { AnimateIn, Avatar, Button, ContactItem, Layout, Typography } from '@components';
+import {
+  AnimateIn,
+  Avatar,
+  Button,
+  ContactItem,
+  Layout,
+  Typography,
+} from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@mui/material';
@@ -67,60 +74,60 @@ const Home = (props: Props) => {
         </Grid>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <AnimateIn delay={150}>
-          <Typography className={classes.greeting} variant='h6'>
-            {t(Localization.page1_title).toUpperCase()}
-          </Typography>
-          <Box my={2} />
-          <Typography color='primary' variant='h1'>
-            {profile?.name}
-          </Typography>
-          <Typography color='primary' variant='h4'>
-            {profile?.specialties?.[0]?.name}
-          </Typography>
-          <Box mt={2} mb={6}>
+            <Typography className={classes.greeting} variant='h6'>
+              {t(Localization.page1_title).toUpperCase()}
+            </Typography>
+            <Box my={2} />
+            <Typography color='primary' variant='h1'>
+              {profile?.name}
+            </Typography>
+            <Typography color='primary' variant='h4'>
+              {profile?.specialties?.[0]?.name}
+            </Typography>
+            <Box mt={2} mb={6}>
+              <Grid container item>
+                {socialContacts?.map((item) => (
+                  <Tooltip
+                    key={item.id}
+                    title={item.nameVisible ? item.name : ''}
+                  >
+                    <div>
+                      <ContactItem
+                        item={item}
+                        onItemClick={(item) =>
+                          trackEvent('component_clicked', {
+                            component_name: 'page1_list_contact',
+                            item_name: item.id,
+                          })
+                        }
+                      />
+                    </div>
+                  </Tooltip>
+                ))}
+              </Grid>
+            </Box>
             <Grid container item>
-              {socialContacts?.map((item) => (
-                <Tooltip
-                  key={item.id}
-                  title={item.nameVisible ? item.name : ''}
+              <Grid item xs={6} md={4}>
+                <Button
+                  variant='contained'
+                  className={classes.leftButton}
+                  onClick={onAboutClick}
+                  fullWidth
                 >
-                  <div>
-                    <ContactItem
-                      item={item}
-                      onItemClick={(item) =>
-                        trackEvent('component_clicked', {
-                          component_name: 'page1_list_contact',
-                          item_name: item.id,
-                        })
-                      }
-                    />
-                  </div>
-                </Tooltip>
-              ))}
+                  {t(Localization.page1_button1)}
+                </Button>
+              </Grid>
+              <Grid item xs={6} md={4}>
+                <Button
+                  variant='outlined'
+                  className={classes.rightButton}
+                  onClick={onContactClick}
+                  fullWidth
+                >
+                  {t(Localization.page1_button2)}
+                </Button>
+              </Grid>
             </Grid>
-          </Box>
-          <Grid container item>
-            <Grid item xs={6} md={4}>
-              <Button
-                variant='contained'
-                className={classes.leftButton}
-                onClick={onAboutClick}
-                fullWidth
-              >
-                {t(Localization.page1_button1)}
-              </Button>
-            </Grid>
-            <Grid item xs={6} md={4}>
-              <Button
-                variant='outlined'
-                className={classes.rightButton}
-                onClick={onContactClick}
-                fullWidth
-              >
-                {t(Localization.page1_button2)}
-              </Button>
-            </Grid>
-          </Grid>
           </AnimateIn>
         </Grid>
       </Grid>

@@ -25,12 +25,12 @@ const useYupResolver = (validationSchema: ObjectSchema<any>) =>
                 message: currentError.message,
               },
             }),
-            {}
+            {},
           ),
         };
       }
     },
-    [validationSchema]
+    [validationSchema],
   );
 
 export default useYupResolver;

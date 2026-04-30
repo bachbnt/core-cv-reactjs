@@ -19,26 +19,27 @@ class Constant {
   static readonly SORT_KEY = 'index';
 
   static readonly FIREBASE_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
-  static readonly FIREBASE_AUTH_DOMAIN =
-    import.meta.env.VITE_FIREBASE_AUTH_DOMAIN;
-  static readonly FIREBASE_PROJECT_ID =
-    import.meta.env.VITE_FIREBASE_PROJECT_ID;
-  static readonly FIREBASE_STORAGE_BUCKET =
-    import.meta.env.VITE_FIREBASE_STORAGE_BUCKET;
-  static readonly FIREBASE_MESSAGING_SENDER_ID =
-    import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID;
+  static readonly FIREBASE_AUTH_DOMAIN = import.meta.env
+    .VITE_FIREBASE_AUTH_DOMAIN;
+  static readonly FIREBASE_PROJECT_ID = import.meta.env
+    .VITE_FIREBASE_PROJECT_ID;
+  static readonly FIREBASE_STORAGE_BUCKET = import.meta.env
+    .VITE_FIREBASE_STORAGE_BUCKET;
+  static readonly FIREBASE_MESSAGING_SENDER_ID = import.meta.env
+    .VITE_FIREBASE_MESSAGING_SENDER_ID;
   static readonly FIREBASE_APP_ID = import.meta.env.VITE_FIREBASE_APP_ID;
-  static readonly FIREBASE_MEASUREMENT_ID =
-    import.meta.env.VITE_FIREBASE_MEASUREMENT_ID;
+  static readonly FIREBASE_MEASUREMENT_ID = import.meta.env
+    .VITE_FIREBASE_MEASUREMENT_ID;
   static readonly EDIT_MODE = import.meta.env.VITE_EDIT_MODE ?? 'false';
+
   static readonly GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY ?? '';
   static readonly GEMINI_API_URL =
     'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
   static readonly OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY ?? '';
   static readonly OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
   static readonly OPENAI_MODEL = 'gpt-4o-mini';
-
-  static readonly ANTHROPIC_API_KEY = import.meta.env.VITE_ANTHROPIC_API_KEY ?? '';
+  static readonly ANTHROPIC_API_KEY =
+    import.meta.env.VITE_ANTHROPIC_API_KEY ?? '';
   static readonly ANTHROPIC_API_URL = 'https://api.anthropic.com/v1/messages';
   static readonly ANTHROPIC_MODEL = 'claude-haiku-4-5-20251001';
   static readonly ANTHROPIC_VERSION = '2023-06-01';

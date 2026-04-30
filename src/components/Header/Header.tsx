@@ -29,7 +29,7 @@ const Header = (props: Props) => {
   const { postMockData } = useMockData();
 
   const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
+    (state: RootState) => state.configReducer.config,
   );
   const { profile } =
     useAppSelector((state: RootState) => state.userReducer.user) || {};
@@ -124,7 +124,7 @@ const Header = (props: Props) => {
                 >
                   {t(route.name)}
                 </Button>
-              ) : null
+              ) : null,
             )}
           </Box>
           <Box className={classes.mobile}>

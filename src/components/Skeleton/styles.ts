@@ -6,5 +6,5 @@ export default makeStyles((theme: AppTheme) =>
     root: {
       backgroundColor: theme.colors.white,
     },
-  })
+  }),
 );

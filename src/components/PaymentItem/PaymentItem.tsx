@@ -1,21 +1,22 @@
-import { IconButton, Typography } from '@components'
+import { IconButton, Typography } from '@components';
 import {
   Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-} from '@mui/material'
-import useThemeStyles from '@themes/styles'
-import clsx from 'clsx'
-import { IoCopy } from 'react-icons/io5'
-import Props from './props'
-import useStyles from './styles'
+} from '@mui/material';
+import useThemeStyles from '@themes/styles';
+import clsx from 'clsx';
+import { IoCopy } from 'react-icons/io5';
+import Props from './props';
+import useStyles from './styles';
 
 const PaymentItem = (props: Props) => {
-  const classes = useStyles()
-  const themeClasses = useThemeStyles()
-  const { item, onItemClick, onCopyClick, onCopyAllClick, onOpenDialog } = props
+  const classes = useStyles();
+  const themeClasses = useThemeStyles();
+  const { item, onItemClick, onCopyClick, onCopyAllClick, onOpenDialog } =
+    props;
 
   return item.visible ? (
     <Card
@@ -28,7 +29,7 @@ const PaymentItem = (props: Props) => {
             <IconButton
               className={clsx(classes.copyAllButton)}
               onClick={() => {
-                onCopyAllClick(item)
+                onCopyAllClick(item);
               }}
             >
               <IoCopy color='primary' />
@@ -76,7 +77,7 @@ const PaymentItem = (props: Props) => {
         </CardContent>
       </CardActionArea>
     </Card>
-  ) : null
-}
+  ) : null;
+};
 
-export default PaymentItem
+export default PaymentItem;

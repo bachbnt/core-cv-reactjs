@@ -1,9 +1,15 @@
-import { AnimateIn, Layout, ProjectDialog, ProjectItem, Typography } from '@components';
+import {
+  AnimateIn,
+  Layout,
+  ProjectDialog,
+  ProjectItem,
+  Typography,
+} from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
-import { Box, Grid } from '@mui/material';
 import { Project as ProjectModel, ProjectType } from '@models/project';
+import { Box, Grid } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import { useMemo } from 'react';
@@ -34,7 +40,7 @@ const Project = (props: Props) => {
         [ProjectType.COMPANY]: [],
         [ProjectType.FREELANCE]: [],
         [ProjectType.PERSONAL]: [],
-      }
+      },
     );
   }, [project]);
 
@@ -46,7 +52,7 @@ const Project = (props: Props) => {
       <Grid className={themeClasses.container} container>
         {company?.length > 0 && (
           <>
-            <Box mb={2}>
+            <Box mb={1}>
               <Typography color='primary' variant='h4'>
                 {t(Localization.page4_title1)}
               </Typography>
@@ -55,16 +61,16 @@ const Project = (props: Props) => {
               {company.map((item, index) => (
                 <Grid key={item.id} item>
                   <AnimateIn delay={index * 80}>
-                  <ProjectItem
-                    item={item}
-                    onItemClick={() =>
-                      trackEvent('component_clicked', {
-                        component_name: 'page4_list_project',
-                        item_name: item.id,
-                      })
-                    }
-                    onOpenDialog={() => onOpenDialog(item)}
-                  />
+                    <ProjectItem
+                      item={item}
+                      onItemClick={() =>
+                        trackEvent('component_clicked', {
+                          component_name: 'page4_list_project',
+                          item_name: item.id,
+                        })
+                      }
+                      onOpenDialog={() => onOpenDialog(item)}
+                    />
                   </AnimateIn>
                 </Grid>
               ))}
@@ -74,7 +80,7 @@ const Project = (props: Props) => {
 
         {freelance?.length > 0 && (
           <>
-            <Box mb={2}>
+            <Box mb={1}>
               <Typography color='primary' variant='h4'>
                 {t(Localization.page4_title2)}
               </Typography>
@@ -83,10 +89,10 @@ const Project = (props: Props) => {
               {freelance.map((item, index) => (
                 <Grid key={item.id} item>
                   <AnimateIn delay={index * 80}>
-                  <ProjectItem
-                    item={item}
-                    onOpenDialog={() => onOpenDialog(item)}
-                  />
+                    <ProjectItem
+                      item={item}
+                      onOpenDialog={() => onOpenDialog(item)}
+                    />
                   </AnimateIn>
                 </Grid>
               ))}
@@ -96,7 +102,7 @@ const Project = (props: Props) => {
 
         {personal?.length > 0 && (
           <>
-            <Box mt={6} mb={2}>
+            <Box mb={1}>
               <Typography color='primary' variant='h4'>
                 {t(Localization.page4_title3)}
               </Typography>
@@ -105,10 +111,10 @@ const Project = (props: Props) => {
               {personal.map((item, index) => (
                 <Grid key={item.id} item>
                   <AnimateIn delay={index * 80}>
-                  <ProjectItem
-                    item={item}
-                    onOpenDialog={() => onOpenDialog(item)}
-                  />
+                    <ProjectItem
+                      item={item}
+                      onOpenDialog={() => onOpenDialog(item)}
+                    />
                   </AnimateIn>
                 </Grid>
               ))}

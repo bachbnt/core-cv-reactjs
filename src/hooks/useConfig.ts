@@ -15,21 +15,24 @@ const useConfig = () => {
         icon;
       document.title = title;
     },
-    []
+    [],
   );
 
-  const getData = useCallback(async () => {
-    try {
-      dispatch(showSpinner());
-      const config = await service.getConfig();
-      updateDocument({ icon: config?.appIcon, title: config?.appTitle });
-      dispatch(setConfig(config));
-    } catch (error) {
-      console.log(error);
-    } finally {
-      dispatch(hideSpinner());
-    }
-  }, [dispatch, updateDocument, service]);
+  const getData = useCallback(
+    async (silent = false) => {
+      try {
+        if (!silent) dispatch(showSpinner());
+        const config = await service.getConfig();
+        updateDocument({ icon: config?.appIcon, title: config?.appTitle });
+        dispatch(setConfig(config));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        if (!silent) dispatch(hideSpinner());
+      }
+    },
+    [dispatch, updateDocument, service],
+  );
 
   return {
     getData,

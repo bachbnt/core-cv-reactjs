@@ -14,7 +14,7 @@ const Layout = (props: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const config = useAppSelector(
-    (state: RootState) => state.configReducer.config
+    (state: RootState) => state.configReducer.config,
   );
 
   const [isExiting, setIsExiting] = useState(false);
@@ -34,10 +34,10 @@ const Layout = (props: Props) => {
 
   useEffect(() => {
     const visibleRoutes = routes.filter(
-      (route) => (config as any)?.[`${lowerCase(route.component)}Visible`]
+      (route) => (config as any)?.[`${lowerCase(route.component)}Visible`],
     );
     const currentIndex = visibleRoutes.findIndex(
-      (route) => route.path === location.pathname
+      (route) => route.path === location.pathname,
     );
 
     if (currentIndex === -1) return;
@@ -50,7 +50,9 @@ const Layout = (props: Props) => {
       if (hasNavigated) return;
       const route = visibleRoutes[index];
       if (!route) return;
-      const isEnabled = (config as any)?.[`${lowerCase(route.component)}Enable`];
+      const isEnabled = (config as any)?.[
+        `${lowerCase(route.component)}Enable`
+      ];
       if (!isEnabled) return;
       hasNavigated = true;
       navDirectionRef.current = direction;
@@ -68,12 +70,18 @@ const Layout = (props: Props) => {
       if (hasNavigated) return;
       if (e.deltaY > 0) {
         if (currentIndex >= visibleRoutes.length - 1) return;
-        if (isPageScrollable() && !isAtPageBottom()) { wheelDelta = 0; return; }
+        if (isPageScrollable() && !isAtPageBottom()) {
+          wheelDelta = 0;
+          return;
+        }
         wheelDelta += e.deltaY;
         if (wheelDelta >= 150) triggerNavigate(currentIndex + 1, 'next');
       } else {
         if (currentIndex <= 0) return;
-        if (isPageScrollable() && !isAtPageTop()) { wheelDelta = 0; return; }
+        if (isPageScrollable() && !isAtPageTop()) {
+          wheelDelta = 0;
+          return;
+        }
         wheelDelta += e.deltaY;
         if (wheelDelta <= -150) triggerNavigate(currentIndex - 1, 'prev');
       }
@@ -109,12 +117,14 @@ const Layout = (props: Props) => {
   }, [location.pathname, config]);
 
   const contentAnimClass = isExiting
-    ? (navDirectionRef.current === 'next' ? classes.exitNext : classes.exitPrev)
+    ? navDirectionRef.current === 'next'
+      ? classes.exitNext
+      : classes.exitPrev
     : navDirectionRef.current === 'next'
-    ? classes.enterNext
-    : navDirectionRef.current === 'prev'
-    ? classes.enterPrev
-    : '';
+      ? classes.enterNext
+      : navDirectionRef.current === 'prev'
+        ? classes.enterPrev
+        : '';
 
   return (
     <Box className={classes.container}>

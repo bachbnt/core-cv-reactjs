@@ -1,10 +1,6 @@
 import { Localization } from '@locales/i18n';
-import * as yup from 'yup';
+import { string } from 'yup';
 
-export const nameSchema = yup
-  .string()
-  .required(Localization.page7_field1_error);
+export const nameSchema = string().required(Localization.page7_field1_error);
 
-export const messageSchema = yup
-  .string()
-  .required(Localization.page7_field2_error);
+export const messageSchema = string().required(Localization.page7_field2_error);

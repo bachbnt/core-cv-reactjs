@@ -31,5 +31,5 @@ export default makeStyles((theme: AppTheme) =>
         color: theme.colors.secondary,
       },
     },
-  })
+  }),
 );

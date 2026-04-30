@@ -9,5 +9,5 @@ export default makeStyles((theme: AppTheme) =>
     spinner: {
       color: theme.colors.primary,
     },
-  })
+  }),
 );

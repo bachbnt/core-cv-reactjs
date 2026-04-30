@@ -87,34 +87,34 @@ const Contact = (props: Props) => {
         </Grid>
         <Grid className={classes.messageContainer} xs={12} md={6} item>
           <AnimateIn delay={200}>
-          <Card className={classes.card}>
-            <CardContent className={classes.center}>
-              <FormProvider {...methods}>
-                <Typography color='primary' variant='h6'>
-                  {t(Localization.page7_title)}
-                </Typography>
-                <Box my={1} />
-                <TextFormField
-                  name='name'
-                  label={t(Localization.page7_field1)}
-                  multiline
-                  maxRows={2}
-                />
-                <Box my={1} />
-                <TextFormField
-                  name='message'
-                  label={t(Localization.page7_field2)}
-                  multiline
-                  rows={10}
-                />
-                <Box my={2} />
-                <Button variant='contained' onClick={handleSubmit(onSubmit)}>
-                  {t(Localization.page7_button)}
-                </Button>
-                <Box my={2} />
-              </FormProvider>
-            </CardContent>
-          </Card>
+            <Card className={classes.card}>
+              <CardContent className={classes.center}>
+                <FormProvider {...methods}>
+                  <Typography color='primary' variant='h6'>
+                    {t(Localization.page7_title)}
+                  </Typography>
+                  <Box my={1} />
+                  <TextFormField
+                    name='name'
+                    label={t(Localization.page7_field1)}
+                    multiline
+                    maxRows={2}
+                  />
+                  <Box my={1} />
+                  <TextFormField
+                    name='message'
+                    label={t(Localization.page7_field2)}
+                    multiline
+                    rows={10}
+                  />
+                  <Box my={2} />
+                  <Button variant='contained' onClick={handleSubmit(onSubmit)}>
+                    {t(Localization.page7_button)}
+                  </Button>
+                  <Box my={2} />
+                </FormProvider>
+              </CardContent>
+            </Card>
           </AnimateIn>
         </Grid>
       </Grid>

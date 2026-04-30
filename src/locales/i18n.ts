@@ -12,7 +12,7 @@ const backendOptions = {
     options: unknown,
     url: unknown,
     payload: unknown,
-    callback: Function
+    callback: Function,
   ) => {
     try {
       const service = di.getSingleton(Service);

@@ -6,5 +6,5 @@ export default makeStyles((theme: AppTheme) =>
     img: {
       width: '100%',
     },
-  })
+  }),
 );

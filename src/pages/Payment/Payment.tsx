@@ -1,8 +1,8 @@
 import { AnimateIn, Layout, PaymentDialog, PaymentItem } from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
-import { Grid } from '@mui/material';
 import { Payment as PaymentModel } from '@models/payment';
+import { Grid } from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
@@ -39,25 +39,27 @@ const Payment = (props: Props) => {
 
   return (
     <Layout>
-      <Grid className={themeClasses.container} container spacing={4}>
-        {payment.map((item, index) => (
-          <Grid key={item.id} item>
-            <AnimateIn delay={index * 80}>
-            <PaymentItem
-              item={item}
-              onItemClick={(item) =>
-                trackEvent('component_clicked', {
-                  component_name: 'page8_list_payment',
-                  item_name: item.id,
-                })
-              }
-              onCopyClick={onCopyClick}
-              onCopyAllClick={onCopyAllClick}
-              onOpenDialog={() => onOpenDialog(item)}
-            />
-            </AnimateIn>
-          </Grid>
-        ))}
+      <Grid className={themeClasses.container} container>
+        <Grid className={themeClasses.container} container spacing={4}>
+          {payment.map((item, index) => (
+            <Grid key={item.id} item>
+              <AnimateIn delay={index * 80}>
+                <PaymentItem
+                  item={item}
+                  onItemClick={(item) =>
+                    trackEvent('component_clicked', {
+                      component_name: 'page8_list_payment',
+                      item_name: item.id,
+                    })
+                  }
+                  onCopyClick={onCopyClick}
+                  onCopyAllClick={onCopyAllClick}
+                  onOpenDialog={() => onOpenDialog(item)}
+                />
+              </AnimateIn>
+            </Grid>
+          ))}
+        </Grid>
         {item && (
           <PaymentDialog
             item={item}

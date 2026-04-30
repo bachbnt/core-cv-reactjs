@@ -1,6 +1,6 @@
-import { createStyles, makeStyles } from '@mui/styles'
-import colors from '@themes/colors'
-import { AppTheme } from '@themes/themes'
+import { createStyles, makeStyles } from '@mui/styles';
+import colors from '@themes/colors';
+import { AppTheme } from '@themes/themes';
 
 export default makeStyles((theme: AppTheme) =>
   createStyles({
@@ -30,4 +30,4 @@ export default makeStyles((theme: AppTheme) =>
       color: colors.primary,
     },
   }),
-)
+);

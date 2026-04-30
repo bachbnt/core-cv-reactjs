@@ -11,5 +11,5 @@ export default makeStyles((theme: AppTheme) =>
         height: theme.spacing(48),
       },
     },
-  })
+  }),
 );

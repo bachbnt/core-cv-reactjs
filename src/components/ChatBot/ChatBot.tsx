@@ -1,19 +1,19 @@
-import { IconButton, TextField, Typography } from '@components'
-import Constant from '@core/constants'
-import { Localization } from '@locales/i18n'
-import { Box, Fab, Paper } from '@mui/material'
-import { RootState, useAppSelector } from '@redux/store'
-import { useTranslation } from 'react-i18next'
-import { MdChat, MdClose, MdSend } from 'react-icons/md'
-import useStyles from './styles'
-import useChatBot from './useChatBot'
+import { IconButton, TextField, Typography } from '@components';
+import Constant from '@core/constants';
+import { Localization } from '@locales/i18n';
+import { Box, Fab, Paper } from '@mui/material';
+import { RootState, useAppSelector } from '@redux/store';
+import { useTranslation } from 'react-i18next';
+import { MdChat, MdClose, MdSend } from 'react-icons/md';
+import useStyles from './styles';
+import useChatBot from './useChatBot';
 
 const ChatBot = () => {
-  const { t } = useTranslation()
-  const classes = useStyles()
+  const { t } = useTranslation();
+  const classes = useStyles();
   const config = useAppSelector(
     (state: RootState) => state.configReducer.config,
-  )
+  );
 
   const {
     isOpen,
@@ -28,9 +28,9 @@ const ChatBot = () => {
     inputRef,
     userMessageCount,
     isLimitReached,
-  } = useChatBot()
+  } = useChatBot();
 
-  if (!config?.chatVisible) return null
+  if (!config?.chatVisible) return null;
 
   return (
     <Box className={classes.container}>
@@ -114,7 +114,7 @@ const ChatBot = () => {
         </Box>
       </Fab>
     </Box>
-  )
-}
+  );
+};
 
-export default ChatBot
+export default ChatBot;

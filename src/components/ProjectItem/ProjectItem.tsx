@@ -1,5 +1,12 @@
 import { Carousel, Typography } from '@components';
-import { Box, Card, CardActionArea, CardContent, CardMedia, Link } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Link,
+} from '@mui/material';
 import { RootState, useAppSelector } from '@redux/store';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
@@ -38,7 +45,7 @@ const ProjectItem = (props: Props) => {
                   image={element}
                   loading='lazy'
                 />
-              )
+              ),
             )}
           </Carousel>
         )}

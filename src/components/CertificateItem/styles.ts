@@ -18,13 +18,5 @@ export default makeStyles((theme: AppTheme) =>
         objectFit: 'contain',
       },
     },
-    skeleton: {
-      width: '100%',
-      aspectRatio: '1.41',
-      [theme.breakpoints.up('md')]: {
-        height: 520,
-        aspectRatio: 'unset',
-      },
-    },
-  })
+  }),
 );

@@ -9,5 +9,5 @@ export default makeStyles((theme: AppTheme) =>
       justifyContent: 'center',
       alignItems: 'center',
     },
-  })
+  }),
 );

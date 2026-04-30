@@ -6,7 +6,7 @@ import Props from './props';
 
 const NotFound = (props: Props) => {
   const themeClasses = useThemeStyles();
-  const _ = useTracker({ page_name: 'page_404_not_found' });
+  useTracker({ page_name: 'page_404_not_found' });
 
   const { image } =
     useAppSelector((state: RootState) => state.configReducer.config) || {};

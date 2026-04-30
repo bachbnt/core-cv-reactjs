@@ -36,7 +36,7 @@ const About = (props: Props) => {
         [SkillType.FRAMEWORK]: [],
         [SkillType.LANGUAGE]: [],
         [SkillType.TOOL]: [],
-      }
+      },
     );
   }, [skill]);
 
@@ -83,36 +83,36 @@ const About = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid className={classes.infoContainer} item xs={12} md={6}>
           <AnimateIn delay={0}>
-          <Typography color='primary' variant='h5'>
-            {t(Localization.page2_title1)}
-          </Typography>
-          <Typography color='primary' variant='h4'>
-            {t(Localization.page2_title2, {
-              username: profile?.name,
-              specialty: profile?.specialties[0].name,
-            })}
-          </Typography>
-          <Box mt={2} mb={4}>
-            <Typography variant='subtitle1' align='justify'>
-              {profile?.summary}
-            </Typography>
-          </Box>
-          <Box my={2}>
             <Typography color='primary' variant='h5'>
-              {t(Localization.page2_title3)}
+              {t(Localization.page2_title1)}
             </Typography>
-          </Box>
-          <Grid container xs={12} item>
-            {framework.map((item) => renderSkillItem(item))}
-          </Grid>
-          <Box my={2} />
-          <Grid container xs={12} item>
-            {language.map((item) => renderSkillItem(item))}
-          </Grid>
-          <Box my={2} />
-          <Grid container xs={12} item>
-            {tool.map((item) => renderSkillItem(item))}
-          </Grid>
+            <Typography color='primary' variant='h4'>
+              {t(Localization.page2_title2, {
+                username: profile?.name,
+                specialty: profile?.specialties[0].name,
+              })}
+            </Typography>
+            <Box mt={2} mb={4}>
+              <Typography variant='subtitle1' align='justify'>
+                {profile?.summary}
+              </Typography>
+            </Box>
+            <Box my={2}>
+              <Typography color='primary' variant='h5'>
+                {t(Localization.page2_title3)}
+              </Typography>
+            </Box>
+            <Grid container xs={12} item>
+              {framework.map((item) => renderSkillItem(item))}
+            </Grid>
+            <Box my={2} />
+            <Grid container xs={12} item>
+              {language.map((item) => renderSkillItem(item))}
+            </Grid>
+            <Box my={2} />
+            <Grid container xs={12} item>
+              {tool.map((item) => renderSkillItem(item))}
+            </Grid>
           </AnimateIn>
         </Grid>
         <Grid
@@ -125,17 +125,17 @@ const About = (props: Props) => {
           item
         >
           <AnimateIn delay={200}>
-          <Carousel className={classes.img}>
-            {profile?.covers.map((item, index) => (
-              <CardMedia
-                key={item.url}
-                className={classes.img}
-                component='img'
-                image={item.url}
-                loading='lazy'
-              />
-            ))}
-          </Carousel>
+            <Carousel className={classes.img}>
+              {profile?.covers.map((item, index) => (
+                <CardMedia
+                  key={item.url}
+                  className={classes.img}
+                  component='img'
+                  image={item.url}
+                  loading='lazy'
+                />
+              ))}
+            </Carousel>
           </AnimateIn>
         </Grid>
       </Grid>

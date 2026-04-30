@@ -18,12 +18,12 @@ import sortBy from 'lodash/sortBy';
 import { firestore } from './firebase';
 class Service {
   async getLocalization(
-    language: string = Constant.DEFAULT_LANGUAGE
+    language: string = Constant.DEFAULT_LANGUAGE,
   ): Promise<Record<string, any>> {
     const ref = doc(
       firestore,
       FirestoreCollection.CONFIG,
-      FirestoreDocument.LOCALIZATION
+      FirestoreDocument.LOCALIZATION,
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
@@ -36,7 +36,7 @@ class Service {
     const ref = doc(
       firestore,
       FirestoreCollection.CONFIG,
-      FirestoreDocument.CONFIG
+      FirestoreDocument.CONFIG,
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
@@ -49,14 +49,14 @@ class Service {
     const ref = doc(
       firestore,
       FirestoreCollection.MESSAGE,
-      new Date().toString()
+      new Date().toString(),
     );
     await setDoc(ref, message);
   }
 
   private async fetchArrayData<T extends { visible?: boolean }>(
     collection: FirestoreCollection,
-    document: FirestoreDocument
+    document: FirestoreDocument,
   ): Promise<T[]> {
     const ref = doc(firestore, collection, document);
     const snapshot = await getDoc(ref);
@@ -71,28 +71,28 @@ class Service {
   async getCertificate(): Promise<Certificate[]> {
     return this.fetchArrayData<Certificate>(
       FirestoreCollection.USER,
-      FirestoreDocument.CERTIFICATE
+      FirestoreDocument.CERTIFICATE,
     );
   }
 
   async getContact(): Promise<Contact[]> {
     return this.fetchArrayData<Contact>(
       FirestoreCollection.USER,
-      FirestoreDocument.CONTACT
+      FirestoreDocument.CONTACT,
     );
   }
 
   async getEducation(): Promise<Education[]> {
     return this.fetchArrayData<Education>(
       FirestoreCollection.USER,
-      FirestoreDocument.EDUCATION
+      FirestoreDocument.EDUCATION,
     );
   }
 
   async getExperience(): Promise<Experience[]> {
     return this.fetchArrayData<Experience>(
       FirestoreCollection.USER,
-      FirestoreDocument.EXPERIENCE
+      FirestoreDocument.EXPERIENCE,
     );
   }
 
@@ -100,7 +100,7 @@ class Service {
     const ref = doc(
       firestore,
       FirestoreCollection.USER,
-      FirestoreDocument.PROFILE
+      FirestoreDocument.PROFILE,
     );
     const snapshot = await getDoc(ref);
     const data = snapshot.data() || {};
@@ -112,28 +112,28 @@ class Service {
   async getProject(): Promise<Project[]> {
     return this.fetchArrayData<Project>(
       FirestoreCollection.USER,
-      FirestoreDocument.PROJECT
+      FirestoreDocument.PROJECT,
     );
   }
 
   async getService(): Promise<ServiceModel[]> {
     return this.fetchArrayData<ServiceModel>(
       FirestoreCollection.USER,
-      FirestoreDocument.SERVICE
+      FirestoreDocument.SERVICE,
     );
   }
 
   async getSkill(): Promise<Skill[]> {
     return this.fetchArrayData<Skill>(
       FirestoreCollection.USER,
-      FirestoreDocument.SKILL
+      FirestoreDocument.SKILL,
     );
   }
 
   async getPayment(): Promise<Payment[]> {
     return this.fetchArrayData<Payment>(
       FirestoreCollection.USER,
-      FirestoreDocument.PAYMENT
+      FirestoreDocument.PAYMENT,
     );
   }
 
@@ -143,19 +143,17 @@ class Service {
   ): Promise<string> {
     const apiKey = Constant.GEMINI_API_KEY;
     if (!apiKey) throw new Error('Missing Gemini API key');
-
     const response = await fetch(`${Constant.GEMINI_API_URL}?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         system_instruction: { parts: [{ text: systemPrompt }] },
-        contents: messages.map((message) => ({
-          role: message.role,
-          parts: [{ text: message.content }],
+        contents: messages.map((m) => ({
+          role: m.role,
+          parts: [{ text: m.content }],
         })),
       }),
     });
-
     if (response.status === 429) throw new Error('rate_limit');
     if (!response.ok) throw new Error(`Gemini error: ${response.status}`);
     const data = await response.json();
@@ -168,7 +166,6 @@ class Service {
   ): Promise<string> {
     const apiKey = Constant.OPENAI_API_KEY;
     if (!apiKey) throw new Error('Missing OpenAI API key');
-
     const response = await fetch(Constant.OPENAI_API_URL, {
       method: 'POST',
       headers: {
@@ -179,14 +176,13 @@ class Service {
         model: Constant.OPENAI_MODEL,
         messages: [
           { role: 'system', content: systemPrompt },
-          ...messages.map((message) => ({
-            role: message.role === 'model' ? 'assistant' : 'user',
-            content: message.content,
+          ...messages.map((m) => ({
+            role: m.role === 'model' ? 'assistant' : 'user',
+            content: m.content,
           })),
         ],
       }),
     });
-
     if (response.status === 429) throw new Error('rate_limit');
     if (!response.ok) throw new Error(`OpenAI error: ${response.status}`);
     const data = await response.json();
@@ -199,7 +195,6 @@ class Service {
   ): Promise<string> {
     const apiKey = Constant.ANTHROPIC_API_KEY;
     if (!apiKey) throw new Error('Missing Anthropic API key');
-
     const response = await fetch(Constant.ANTHROPIC_API_URL, {
       method: 'POST',
       headers: {
@@ -211,13 +206,12 @@ class Service {
         model: Constant.ANTHROPIC_MODEL,
         max_tokens: 1024,
         system: systemPrompt,
-        messages: messages.map((message) => ({
-          role: message.role === 'model' ? 'assistant' : 'user',
-          content: message.content,
+        messages: messages.map((m) => ({
+          role: m.role === 'model' ? 'assistant' : 'user',
+          content: m.content,
         })),
       }),
     });
-
     if (response.status === 429) throw new Error('rate_limit');
     if (!response.ok) throw new Error(`Anthropic error: ${response.status}`);
     const data = await response.json();
@@ -240,7 +234,7 @@ class Service {
     path: {
       collection: FirestoreCollection;
       document: FirestoreDocument;
-    }
+    },
   ): Promise<void> {
     const ref = doc(firestore, path.collection, path.document);
     await updateDoc(ref, { [id]: data });

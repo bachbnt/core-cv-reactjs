@@ -7,5 +7,5 @@ export default makeStyles((theme: AppTheme) =>
       width: 300,
       height: 150,
     },
-  })
+  }),
 );

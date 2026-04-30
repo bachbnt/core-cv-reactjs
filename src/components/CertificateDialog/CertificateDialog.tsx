@@ -1,23 +1,23 @@
-import { IconButton, Typography } from '@components'
+import { IconButton, Typography } from '@components';
 import {
   Box,
   CardMedia,
   Dialog,
   DialogContent,
   DialogTitle,
-} from '@mui/material'
-import colors from '@themes/colors'
-import { MdFileDownload } from 'react-icons/md'
-import Props from './props'
-import useStyles from './styles'
+} from '@mui/material';
+import colors from '@themes/colors';
+import { MdFileDownload } from 'react-icons/md';
+import Props from './props';
+import useStyles from './styles';
 
 const CertificateDialog = (props: Props) => {
-  const classes = useStyles()
-  const { item, openDialog, onCloseDialog } = props
+  const classes = useStyles();
+  const { item, openDialog, onCloseDialog } = props;
 
   const onDownloadClick = () => {
-    window.open(item.url)
-  }
+    window.open(item.url);
+  };
 
   return item.visible ? (
     <Dialog
@@ -50,7 +50,7 @@ const CertificateDialog = (props: Props) => {
         )}
       </DialogContent>
     </Dialog>
-  ) : null
-}
+  ) : null;
+};
 
-export default CertificateDialog
+export default CertificateDialog;

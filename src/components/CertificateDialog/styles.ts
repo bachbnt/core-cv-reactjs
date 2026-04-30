@@ -12,5 +12,5 @@ export default makeStyles((theme: AppTheme) =>
       width: '100%',
       objectFit: 'contain',
     },
-  })
+  }),
 );

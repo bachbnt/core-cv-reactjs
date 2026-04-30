@@ -6,20 +6,20 @@ import { useLocation } from 'react-router-dom';
 
 const useTracker = (
   trackingParams: Partial<TrackingParams> = {},
-  trackDisplayed: boolean = true
+  trackDisplayed: boolean = true,
 ) => {
   const location = useLocation();
 
   const trackEvent = (
     event: TrackingEvent,
-    otherParams?: Partial<TrackingParams>
+    otherParams?: Partial<TrackingParams>,
   ) => {
     console.log(
       JSON.stringify({
         ...trackingParams,
         ...otherParams,
         page_path: location.pathname,
-      })
+      }),
     );
     logEvent(analytics, event, {
       ...trackingParams,

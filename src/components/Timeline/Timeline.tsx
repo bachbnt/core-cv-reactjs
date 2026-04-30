@@ -1,12 +1,12 @@
 import { Typography } from '@components';
 import {
-    Timeline as MuiTimeline,
-    TimelineConnector,
-    TimelineContent,
-    TimelineDot,
-    TimelineItem,
-    TimelineOppositeContent,
-    TimelineSeparator,
+  Timeline as MuiTimeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineItem,
+  TimelineOppositeContent,
+  TimelineSeparator,
 } from '@mui/lab';
 import Props from './props';
 
@@ -27,7 +27,7 @@ const Timeline = (props: Props) => {
             </TimelineSeparator>
             <TimelineContent>{renderItem(item)}</TimelineContent>
           </TimelineItem>
-        ) : null
+        ) : null,
       )}
     </MuiTimeline>
   );

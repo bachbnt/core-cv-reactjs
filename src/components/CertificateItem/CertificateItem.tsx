@@ -1,25 +1,21 @@
-import { Typography } from '@components'
+import { Typography } from '@components';
 import {
   Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material'
-import { RootState, useAppSelector } from '@redux/store'
-import Props from './props'
-import useStyles from './styles'
+} from '@mui/material';
+import { RootState, useAppSelector } from '@redux/store';
+import Props from './props';
+import useStyles from './styles';
 
 const CertificateItem = (props: Props) => {
-  const classes = useStyles()
-  const theme = useTheme()
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
-  const { item, onOpenDialog } = props
+  const classes = useStyles();
+  const { item, onOpenDialog } = props;
 
   const { image } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {}
+    useAppSelector((state: RootState) => state.configReducer.config) || {};
 
   return item.visible ? (
     <Card className={classes.card}>
@@ -49,7 +45,7 @@ const CertificateItem = (props: Props) => {
         </CardContent>
       </CardActionArea>
     </Card>
-  ) : null
-}
+  ) : null;
+};
 
-export default CertificateItem
+export default CertificateItem;

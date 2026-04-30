@@ -18,5 +18,5 @@ export default makeStyles((theme: AppTheme) =>
       },
       opacity: '1 !important',
     },
-  })
+  }),
 );

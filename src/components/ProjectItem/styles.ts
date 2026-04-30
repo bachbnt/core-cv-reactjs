@@ -11,5 +11,5 @@ export default makeStyles((theme: AppTheme) =>
       height: 200,
       objectFit: 'contain',
     },
-  })
+  }),
 );

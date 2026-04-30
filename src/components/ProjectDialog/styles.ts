@@ -7,5 +7,5 @@ export default makeStyles((theme: AppTheme) =>
       maxHeight: 600,
       objectFit: 'contain',
     },
-  })
+  }),
 );

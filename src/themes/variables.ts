@@ -27,7 +27,7 @@ const variables = {
   // backgroundUrl: Constant.DEFAULT_BACKGROUND_IMAGE,
 
   backgroundUrl: '/background.webp',
-}
+};
 
-export default variables
-export type AppVariable = typeof variables
+export default variables;
+export type AppVariable = typeof variables;
