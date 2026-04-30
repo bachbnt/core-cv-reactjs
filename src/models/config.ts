@@ -3,6 +3,8 @@ import Constant from '@core/constants';
 export interface Config {
   aboutEnable: boolean;
   aboutVisible: boolean;
+  certificateEnable: boolean;
+  certificateVisible: boolean;
   appIcon: string;
   appTitle: string;
   blogEnable: boolean;
@@ -34,6 +36,8 @@ export function parseConfig(data: Record<string, any>): Config {
   return {
     aboutEnable: data.aboutEnable ?? false,
     aboutVisible: data.aboutVisible ?? false,
+    certificateEnable: data.certificateEnable ?? false,
+    certificateVisible: data.certificateVisible ?? false,
     appIcon: data.appIcon ?? Constant.DEFAULT_APP_ICON,
     appTitle: data.appTitle ?? Constant.DEFAULT_APP_TITLE,
     blogEnable: data.blogEnable ?? false,

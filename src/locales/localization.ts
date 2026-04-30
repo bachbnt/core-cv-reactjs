@@ -26,6 +26,7 @@ const localization = {
   page7_field2_error: 'page7_field2_error',
   page7_title: 'page7_title',
   page8: 'page8',
+  page9: 'page9',
   page_error: 'page_error',
 };
 

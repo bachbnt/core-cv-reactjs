@@ -17,6 +17,7 @@ export enum FirestoreCollection {
 }
 
 export enum FirestoreDocument {
+  CERTIFICATE = 'certificate',
   CONFIG = 'config',
   LOCALIZATION = 'localization',
   MESSAGE = 'message',

@@ -1,5 +1,6 @@
 import { FirestoreCollection, FirestoreDocument } from '@core/configs';
 import Constant from '@core/constants';
+import { Certificate } from '@models/certificate';
 import { Config, parseConfig } from '@models/config';
 import { Contact } from '@models/contact';
 import { Education } from '@models/education';
@@ -64,6 +65,13 @@ class Service {
       ...(value as any),
     }));
     return sortBy(filter(list, { visible: true }), Constant.SORT_KEY) as T[];
+  }
+
+  async getCertificate(): Promise<Certificate[]> {
+    return this.fetchArrayData<Certificate>(
+      FirestoreCollection.USER,
+      FirestoreDocument.CERTIFICATE
+    );
   }
 
   async getContact(): Promise<Contact[]> {

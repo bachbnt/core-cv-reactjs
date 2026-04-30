@@ -22,6 +22,7 @@ const useUser = () => {
         serviceResult,
         contact,
         payment,
+        certificate,
       ] = await Promise.all([
         service.getProfile(),
         service.getEducation(),
@@ -31,9 +32,11 @@ const useUser = () => {
         service.getService(),
         service.getContact(),
         service.getPayment(),
+        service.getCertificate(),
       ]);
 
       const user: User = {
+        certificate,
         profile,
         education,
         experience,

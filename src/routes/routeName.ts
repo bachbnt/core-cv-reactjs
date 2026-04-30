@@ -7,5 +7,6 @@ export enum RouteName {
   SERVICE = 'Service',
   CONTACT = 'Contact',
   PAYMENT = 'Payment',
+  CERTIFICATE = 'Certificate',
   NOT_FOUND = 'NotFound',
 }

@@ -1,3 +1,4 @@
+import { Certificate } from './certificate';
 import { Contact } from './contact';
 import { Education } from './education';
 import { Experience } from './experience';
@@ -8,6 +9,7 @@ import { Service } from './service';
 import { Skill } from './skill';
 
 export interface User {
+  certificate: Certificate[];
   contact: Contact[];
   education: Education[];
   experience: Experience[];

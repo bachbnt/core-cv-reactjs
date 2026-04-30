@@ -42,6 +42,12 @@ export const routes: Route[] = [
     trackingName: 'page5_blog',
   },
   {
+    name: Localization.page9,
+    path: RoutePath.CERTIFICATE,
+    component: RouteName.CERTIFICATE,
+    trackingName: 'page9_certificate',
+  },
+  {
     name: Localization.page6,
     path: RoutePath.SERVICE,
     component: RouteName.SERVICE,

@@ -9,6 +9,7 @@ export type TrackingPageName =
   | 'page6_service'
   | 'page7_contact'
   | 'page8_payment'
+  | 'page9_certificate'
   | 'page_404_not_found';
 
 export interface TrackingParams {
