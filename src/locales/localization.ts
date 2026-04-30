@@ -28,6 +28,11 @@ const localization = {
   page8: 'page8',
   page9: 'page9',
   page_error: 'page_error',
-};
+  chatbot_title: 'chatbot_title',
+  chatbot_welcome: 'chatbot_welcome',
+  chatbot_placeholder: 'chatbot_placeholder',
+  chatbot_limit_reached: 'chatbot_limit_reached',
+  chatbot_error_generic: 'chatbot_error_generic',
+}
 
-export default localization;
+export default localization

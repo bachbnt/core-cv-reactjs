@@ -25,6 +25,9 @@ export interface Config {
   language: string;
   paymentEnable: boolean;
   paymentVisible: boolean;
+  chatEnable: boolean;
+  chatVisible: boolean;
+  chatProvider: string;
 }
 
 interface ConfigImage {
@@ -61,5 +64,8 @@ export function parseConfig(data: Record<string, any>): Config {
     language: data.language ?? Constant.DEFAULT_LANGUAGE,
     paymentEnable: data.paymentEnable ?? false,
     paymentVisible: data.paymentVisible ?? false,
+    chatEnable: data.chatEnable ?? false,
+    chatVisible: data.chatVisible ?? false,
+    chatProvider: data.chatProvider ?? 'gemini',
   };
 }

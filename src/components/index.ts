@@ -1,3 +1,4 @@
+export { default as ChatBot } from './ChatBot'
 export { default as AnimateIn } from './AnimateIn'
 export { default as Avatar } from './Avatar'
 export { default as Button } from './Button'

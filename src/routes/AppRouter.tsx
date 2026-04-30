@@ -1,4 +1,5 @@
-import { Spinner, Wrapper } from '@components';
+import { ChatBot, Spinner, Wrapper } from '@components';
+import { Suspense } from 'react';
 import { Routes } from 'react-router';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { routes } from './routes';
@@ -16,6 +17,9 @@ const AppRouter = () => {
         ))}
       </Routes>
       <Spinner />
+      <Suspense fallback={null}>
+        <ChatBot />
+      </Suspense>
     </BrowserRouter>
   );
 };

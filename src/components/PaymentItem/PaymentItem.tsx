@@ -1,16 +1,21 @@
-import { IconButton, Typography } from '@components';
-import { Box, Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
-import useThemeStyles from '@themes/styles';
-import clsx from 'clsx';
-import { IoCopy } from 'react-icons/io5';
-import Props from './props';
-import useStyles from './styles';
+import { IconButton, Typography } from '@components'
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+} from '@mui/material'
+import useThemeStyles from '@themes/styles'
+import clsx from 'clsx'
+import { IoCopy } from 'react-icons/io5'
+import Props from './props'
+import useStyles from './styles'
 
 const PaymentItem = (props: Props) => {
-  const classes = useStyles();
-  const themeClasses = useThemeStyles();
-  const { item, onItemClick, onCopyClick, onCopyAllClick, onOpenDialog } =
-    props;
+  const classes = useStyles()
+  const themeClasses = useThemeStyles()
+  const { item, onItemClick, onCopyClick, onCopyAllClick, onOpenDialog } = props
 
   return item.visible ? (
     <Card
@@ -23,7 +28,7 @@ const PaymentItem = (props: Props) => {
             <IconButton
               className={clsx(classes.copyAllButton)}
               onClick={() => {
-                onCopyAllClick(item);
+                onCopyAllClick(item)
               }}
             >
               <IoCopy color='primary' />
@@ -53,23 +58,25 @@ const PaymentItem = (props: Props) => {
                 size='small'
                 onClick={() => onCopyClick(item)}
               >
-                <IoCopy size={14} />
+                <IoCopy size={18} />
               </IconButton>
             </Box>
           )}
           {item.qrCodeVisible && (
-            <CardMedia
-              className={classes.img}
-              component='img'
-              image={item.qrCode}
-              onClick={onOpenDialog}
-              loading='lazy'
-            />
+            <Box mt={2} width='100%' display='flex' justifyContent='center'>
+              <CardMedia
+                className={classes.img}
+                component='img'
+                image={item.qrCode}
+                onClick={onOpenDialog}
+                loading='lazy'
+              />
+            </Box>
           )}
         </CardContent>
       </CardActionArea>
     </Card>
-  ) : null;
-};
+  ) : null
+}
 
-export default PaymentItem;
+export default PaymentItem

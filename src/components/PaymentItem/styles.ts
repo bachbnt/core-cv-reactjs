@@ -1,12 +1,13 @@
-import { createStyles, makeStyles } from '@mui/styles';
-import colors from '@themes/colors';
-import { AppTheme } from '@themes/themes';
+import { createStyles, makeStyles } from '@mui/styles'
+import colors from '@themes/colors'
+import { AppTheme } from '@themes/themes'
 
 export default makeStyles((theme: AppTheme) =>
   createStyles({
     card: {
       width: 350,
       height: 500,
+      position: 'relative',
     },
     img: {
       maxWidth: 300,
@@ -23,8 +24,10 @@ export default makeStyles((theme: AppTheme) =>
       color: colors.primary,
     },
     copyAllButton: {
-      alignSelf: 'flex-end',
+      position: 'absolute',
+      top: 4,
+      right: 4,
       color: colors.primary,
     },
-  })
-);
+  }),
+)

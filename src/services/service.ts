@@ -1,6 +1,7 @@
 import { FirestoreCollection, FirestoreDocument } from '@core/configs';
 import Constant from '@core/constants';
 import { Certificate } from '@models/certificate';
+import { ChatMessage, ChatProvider } from '@models/chat';
 import { Config, parseConfig } from '@models/config';
 import { Contact } from '@models/contact';
 import { Education } from '@models/education';
@@ -134,6 +135,103 @@ class Service {
       FirestoreCollection.USER,
       FirestoreDocument.PAYMENT
     );
+  }
+
+  private async callGemini(
+    messages: ChatMessage[],
+    systemPrompt: string,
+  ): Promise<string> {
+    const apiKey = Constant.GEMINI_API_KEY;
+    if (!apiKey) throw new Error('Missing Gemini API key');
+
+    const response = await fetch(`${Constant.GEMINI_API_URL}?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents: messages.map((message) => ({
+          role: message.role,
+          parts: [{ text: message.content }],
+        })),
+      }),
+    });
+
+    if (response.status === 429) throw new Error('rate_limit');
+    if (!response.ok) throw new Error(`Gemini error: ${response.status}`);
+    const data = await response.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text ?? '...';
+  }
+
+  private async callOpenAI(
+    messages: ChatMessage[],
+    systemPrompt: string,
+  ): Promise<string> {
+    const apiKey = Constant.OPENAI_API_KEY;
+    if (!apiKey) throw new Error('Missing OpenAI API key');
+
+    const response = await fetch(Constant.OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: Constant.OPENAI_MODEL,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          ...messages.map((message) => ({
+            role: message.role === 'model' ? 'assistant' : 'user',
+            content: message.content,
+          })),
+        ],
+      }),
+    });
+
+    if (response.status === 429) throw new Error('rate_limit');
+    if (!response.ok) throw new Error(`OpenAI error: ${response.status}`);
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content ?? '...';
+  }
+
+  private async callClaude(
+    messages: ChatMessage[],
+    systemPrompt: string,
+  ): Promise<string> {
+    const apiKey = Constant.ANTHROPIC_API_KEY;
+    if (!apiKey) throw new Error('Missing Anthropic API key');
+
+    const response = await fetch(Constant.ANTHROPIC_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': Constant.ANTHROPIC_VERSION,
+      },
+      body: JSON.stringify({
+        model: Constant.ANTHROPIC_MODEL,
+        max_tokens: 1024,
+        system: systemPrompt,
+        messages: messages.map((message) => ({
+          role: message.role === 'model' ? 'assistant' : 'user',
+          content: message.content,
+        })),
+      }),
+    });
+
+    if (response.status === 429) throw new Error('rate_limit');
+    if (!response.ok) throw new Error(`Anthropic error: ${response.status}`);
+    const data = await response.json();
+    return data.content?.[0]?.text ?? '...';
+  }
+
+  async sendChatMessage(
+    provider: ChatProvider,
+    messages: ChatMessage[],
+    systemPrompt: string,
+  ): Promise<string> {
+    if (provider === 'openai') return this.callOpenAI(messages, systemPrompt);
+    if (provider === 'claude') return this.callClaude(messages, systemPrompt);
+    return this.callGemini(messages, systemPrompt);
   }
 
   async postMockData<T>(

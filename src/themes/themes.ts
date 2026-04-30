@@ -66,7 +66,7 @@ const themes = {
               height: '4px',
             },
             '*::-webkit-scrollbar-track': {
-              '-webkit-box-shadow': `inset 4px 4px 4px ${colors.black}`,
+              WebkitBoxShadow: `inset 4px 4px 4px ${colors.black}`,
             },
             '*::-webkit-scrollbar-thumb': {
               backgroundColor: colors.primary,
