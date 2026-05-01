@@ -12,6 +12,9 @@ export default defineConfig({
     outDir: 'build',
     sourcemap: false,
     cssCodeSplit: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
@@ -21,48 +24,7 @@ export default defineConfig({
           if (id.includes('node_modules/firebase')) {
             return 'firebase';
           }
-          if (id.includes('node_modules/@mui/icons-material')) {
-            return 'mui-icons';
-          }
-          if (
-            id.includes('node_modules/@mui') ||
-            id.includes('node_modules/@emotion')
-          ) {
-            return 'mui';
-          }
-          if (
-            id.includes('node_modules/@reduxjs') ||
-            id.includes('node_modules/redux') ||
-            id.includes('node_modules/react-redux') ||
-            id.includes('node_modules/redux-persist') ||
-            id.includes('node_modules/redux-logger') ||
-            id.includes('node_modules/redux-thunk')
-          ) {
-            return 'redux';
-          }
-          if (
-            id.includes('node_modules/i18next') ||
-            id.includes('node_modules/react-i18next')
-          ) {
-            return 'i18n';
-          }
-          if (
-            id.includes('node_modules/react-hook-form') ||
-            id.includes('node_modules/yup') ||
-            id.includes('node_modules/@hookform')
-          ) {
-            return 'forms';
-          }
-          if (id.includes('node_modules/react-material-ui-carousel')) {
-            return 'carousel';
-          }
-          if (
-            id.includes('node_modules/react-dom') ||
-            id.includes('node_modules/react-router') ||
-            id.includes('node_modules/react/')
-          ) {
-            return 'vendor';
-          }
+
         },
       },
     },

@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import { AppTheme } from './themes';
+import type { AppTheme } from './themes';
 
 const styles = makeStyles((theme: AppTheme) => ({
   card: {

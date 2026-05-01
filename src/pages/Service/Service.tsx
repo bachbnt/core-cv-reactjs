@@ -14,22 +14,24 @@ const Service = (props: Props) => {
 
   return (
     <Layout>
-      <Grid className={themeClasses.container} container spacing={4}>
-        {service.map((item, index) => (
-          <Grid key={item.id} item>
-            <AnimateIn delay={index * 80}>
-              <ServiceItem
-                item={item}
-                onItemClick={(item) =>
-                  trackEvent('component_clicked', {
-                    component_name: 'page5_list_service',
-                    item_name: item.id,
-                  })
-                }
-              />
-            </AnimateIn>
-          </Grid>
-        ))}
+      <Grid className={themeClasses.container} container>
+        <Grid className={themeClasses.container} container spacing={4}>
+          {service.map((item, index) => (
+            <Grid key={item.id} item>
+              <AnimateIn delay={index * 80}>
+                <ServiceItem
+                  item={item}
+                  onItemClick={(item) =>
+                    trackEvent('component_clicked', {
+                      component_name: 'page5_list_service',
+                      item_name: item.id,
+                    })
+                  }
+                />
+              </AnimateIn>
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
     </Layout>
   );

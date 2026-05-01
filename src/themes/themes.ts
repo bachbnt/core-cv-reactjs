@@ -4,7 +4,7 @@ import {
   responsiveFontSizes,
 } from '@mui/material/styles';
 import colors, { AppColor } from './colors';
-import { AppStyle } from './styles';
+import type { AppStyle } from './styles';
 import variables, { AppVariable } from './variables';
 
 const themes = {
