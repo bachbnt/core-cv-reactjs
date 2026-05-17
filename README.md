@@ -78,6 +78,81 @@ npm run lint
 npm run test:all
 ```
 
+## Chat Proxy Worker
+
+The chatbot uses a Cloudflare Worker in `worker/` as a proxy for Gemini,
+OpenAI, and Anthropic. API keys must live in the Worker, not in the frontend.
+
+### Worker local setup
+
+```bash
+cd worker
+npm install
+cp ../.env.example .dev.vars
+```
+
+Fill `.dev.vars` with the Worker secrets you need:
+
+```bash
+GEMINI_API_KEY=""
+OPENAI_API_KEY=""
+ANTHROPIC_API_KEY=""
+ALLOWED_ORIGINS="http://localhost:3000"
+RATE_LIMIT_PER_MINUTE="10"
+RATE_LIMIT_PER_DAY="200"
+```
+
+### Worker local dev
+
+```bash
+cd worker
+npm run dev
+```
+
+The Worker runs at [http://localhost:8787](http://localhost:8787). To connect
+the frontend to it, set this in the app `.env`:
+
+```bash
+VITE_CHAT_PROXY_URL="http://localhost:8787"
+```
+
+### Worker checks
+
+```bash
+cd worker
+npm run typecheck
+```
+
+The main app test suite also includes unit tests for Worker schema, provider,
+and rate-limit logic under `tests/unit/worker`.
+
+### Worker deploy
+
+```bash
+cd worker
+npx wrangler login
+npx wrangler secret put GEMINI_API_KEY
+npx wrangler secret put OPENAI_API_KEY
+npx wrangler secret put ANTHROPIC_API_KEY
+npm run deploy
+```
+
+After deploy, copy the Worker URL into the frontend environment:
+
+```bash
+VITE_CHAT_PROXY_URL="https://<worker-url>"
+```
+
+Optional per-IP rate limiting uses the `CHAT_RATE_LIMIT` KV binding. Create it
+with:
+
+```bash
+cd worker
+npx wrangler kv:namespace create CHAT_RATE_LIMIT
+```
+
+Then paste the returned namespace id into `worker/wrangler.toml`.
+
 ## Deployment
 
 ### `npm run all`

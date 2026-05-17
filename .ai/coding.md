@@ -1,0 +1,55 @@
+# Coding Conventions
+
+## TypeScript
+
+- New `.ts` and `.tsx` source/test/config files should start with the existing
+  copyright header:
+
+  ```ts
+  /**
+   * Copyright (c) 2026 bachbnt. All rights reserved.
+   */
+  ```
+
+- Keep `strict` compatibility. Do not silence type errors with broad casts
+  unless the boundary is genuinely dynamic.
+- Prefer explicit domain types from `src/models` over ad hoc object shapes.
+- Use Zod schemas for data parsed from Firestore, APIs, or unknown payloads.
+- Keep nullable/optional access deliberate; avoid chains that hide real missing
+  data bugs.
+
+## Imports
+
+- Use repo aliases from `tsconfig.json` for app code:
+  `@components`, `@core`, `@hooks`, `@locales`, `@models`, `@pages`,
+  `@queries`, `@routes`, `@services`, `@stores`, `@themes`.
+- Prefer barrel imports only where the repo already exposes them cleanly.
+- Keep Worker tests importing Worker files by relative path from `tests` unless
+  a Worker alias is added.
+
+## React
+
+- Keep pages thin: read query data, derive view models with `useMemo` when
+  useful, and delegate repeated UI to components.
+- Do not call service functions directly from components when a query/mutation
+  hook already exists or should exist.
+- Keep event tracking names consistent with existing `pageX_*` and
+  `component_*` patterns.
+- Add accessible names to icon-only buttons (`aria-label`) so Playwright and
+  assistive tech can target them.
+
+## Styling
+
+- Prefer the existing MUI theme overrides in `src/themes/themes.ts` for global
+  component behavior.
+- Use page/component `styles.ts` for local layout only.
+- Keep button heights stable across variants and hover states; account for
+  border width with `boxSizing` or equivalent.
+- Avoid layout shifts from hover states, dynamic labels, loading states, and
+  icons.
+
+## Env
+
+- Add new frontend variables to `.env.example` with `VITE_` prefix.
+- Add Worker-only secrets to `.env.example` under the Worker section, but do not
+  expose them to frontend code.
