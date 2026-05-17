@@ -110,6 +110,7 @@ const themes = {
               },
             },
             outlined: {
+              padding: '4px 6px',
               borderWidth: 2,
               borderColor: colors.primary,
               color: colors.white,
