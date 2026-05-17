@@ -91,7 +91,9 @@ const themes = {
         MuiButton: {
           styleOverrides: {
             root: {
-              padding: '6px 8px',
+              padding: '4px 6px',
+              border: `2px solid ${colors.transparent}`,
+              boxSizing: 'border-box',
               borderRadius: variables.borderRadius,
               lineHeight: variables.lineHeight,
               color: colors.white,
@@ -111,8 +113,7 @@ const themes = {
             },
             outlined: {
               padding: '4px 6px',
-              borderWidth: 2,
-              borderColor: colors.primary,
+              border: `2px solid ${colors.primary}`,
               color: colors.white,
               '&.Mui-disabled': {
                 borderColor: colors.grey,
@@ -120,18 +121,22 @@ const themes = {
               },
               '&:hover': {
                 backgroundColor: colors.secondary,
+                border: `2px solid ${colors.secondary}`,
                 color: colors.white,
               },
             },
             contained: {
               backgroundColor: colors.primary,
+              borderColor: colors.primary,
               color: colors.white,
               '&.Mui-disabled': {
                 backgroundColor: colors.grey,
+                borderColor: colors.grey,
                 color: colors.white,
               },
               '&:hover': {
                 backgroundColor: colors.secondary,
+                borderColor: colors.secondary,
                 color: colors.white,
               },
             },

@@ -2,7 +2,13 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator } from '@playwright/test';
+
+const getBox = async (locator: Locator) => {
+  const box = await locator.boundingBox();
+  if (!box) throw new Error('Expected locator to have a bounding box');
+  return box;
+};
 
 test.describe('portfolio app', () => {
   test.beforeEach(async ({ page }) => {
@@ -27,6 +33,31 @@ test.describe('portfolio app', () => {
       page.getByRole('button', { name: 'Contact me' }),
     ).toBeVisible();
     await expect(page.getByRole('button', { name: 'Open chat' })).toBeVisible();
+  });
+
+  test('keeps home CTA button heights stable on outlined hover', async ({
+    page,
+  }) => {
+    await page.goto('/');
+
+    const filledButton = page.getByRole('button', { name: 'About me' });
+    const outlinedButton = page.getByRole('button', { name: 'Contact me' });
+    const filledBox = await getBox(filledButton);
+    const outlinedBoxBefore = await getBox(outlinedButton);
+
+    expect(Math.abs(filledBox.height - outlinedBoxBefore.height)).toBeLessThan(
+      1,
+    );
+
+    await outlinedButton.hover();
+    const outlinedBoxAfter = await getBox(outlinedButton);
+
+    expect(
+      Math.abs(outlinedBoxBefore.height - outlinedBoxAfter.height),
+    ).toBeLessThan(1);
+    expect(Math.abs(filledBox.height - outlinedBoxAfter.height)).toBeLessThan(
+      1,
+    );
   });
 
   test('navigates between desktop pages from the header', async ({ page }) => {
