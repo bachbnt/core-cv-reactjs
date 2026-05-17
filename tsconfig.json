@@ -22,8 +22,6 @@
       "@components/*": ["components/*"],
       "@core": ["core"],
       "@core/*": ["core/*"],
-      "@features": ["features"],
-      "@features/*": ["features/*"],
       "@hooks": ["hooks"],
       "@hooks/*": ["hooks/*"],
       "@locales": ["locales"],

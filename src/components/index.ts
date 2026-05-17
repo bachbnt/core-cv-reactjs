@@ -2,13 +2,13 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-export { default as ChatBot } from '@features/chat';
 export { default as AnimateIn } from './AnimateIn';
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
 export { default as Carousel } from './Carousel';
 export { default as CertificateDialog } from './CertificateDialog';
 export { default as CertificateItem } from './CertificateItem';
+export { default as ChatBot } from './ChatBot';
 export { default as ContactItem } from './ContactItem';
 export { default as Drawer } from './Drawer';
 export { default as EducationItem } from './EducationItem';
