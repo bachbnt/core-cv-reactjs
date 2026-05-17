@@ -33,6 +33,11 @@ const MOCK = {
       page2_title3: 'I have worked with',
       page7_field1_error: 'Name is required',
       page1_button1: 'About me',
+      chatbot_title: 'Portfolio assistant',
+      chatbot_welcome: 'Hi, how can I help?',
+      chatbot_placeholder: 'Ask me anything',
+      chatbot_limit_reached: 'Message limit reached',
+      chatbot_error_generic: 'Something went wrong',
     },
     vi: {
       page0: ' CV của tôi',
@@ -63,6 +68,11 @@ const MOCK = {
       page2_title1: 'Xin chào!',
       page7_button: 'Gửi',
       page3: 'Hồ sơ',
+      chatbot_title: 'Trợ lý hồ sơ',
+      chatbot_welcome: 'Xin chào, tôi có thể giúp gì?',
+      chatbot_placeholder: 'Hỏi tôi bất cứ điều gì',
+      chatbot_limit_reached: 'Đã đạt giới hạn tin nhắn',
+      chatbot_error_generic: 'Đã xảy ra lỗi',
     },
   },
   CONFIG: {
@@ -94,6 +104,9 @@ const MOCK = {
     serviceVisible: true,
     resumeVisible: true,
     aboutVisible: true,
+    chatEnable: true,
+    chatVisible: true,
+    chatProvider: 'openai',
   },
   CONTACT: {
     id: 'test',

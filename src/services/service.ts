@@ -20,11 +20,44 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import filter from 'lodash/filter';
 import sortBy from 'lodash/sortBy';
 import { firestore } from './firebase';
+import MOCK from './mock';
+
+type MockArrayDocument<T> = {
+  id: string;
+  data: Omit<T, 'id'>;
+};
+
+const mockArrayDocuments: Partial<
+  Record<FirestoreDocument, MockArrayDocument<any>>
+> = {
+  [FirestoreDocument.CONTACT]: MOCK.CONTACT,
+  [FirestoreDocument.EDUCATION]: MOCK.EDUCATION,
+  [FirestoreDocument.EXPERIENCE]: MOCK.EXPERIENCE,
+  [FirestoreDocument.PROJECT]: MOCK.PROJECT,
+  [FirestoreDocument.SERVICE]: MOCK.SERVICE,
+  [FirestoreDocument.SKILL]: MOCK.SKILL,
+  [FirestoreDocument.PAYMENT]: MOCK.PAYMENT,
+};
+
+const getMockArrayData = <T extends { visible?: boolean }>(
+  document: FirestoreDocument,
+): T[] => {
+  const entry = mockArrayDocuments[document];
+  if (!entry) return [];
+  return sortBy(
+    filter([{ id: entry.id, ...entry.data }], { visible: true }),
+    Constant.SORT_KEY,
+  ) as T[];
+};
 
 const fetchArrayData = async <T extends { visible?: boolean }>(
   collection: FirestoreCollection,
   document: FirestoreDocument,
 ): Promise<T[]> => {
+  if (Constant.USE_MOCK_DATA) {
+    return getMockArrayData<T>(document);
+  }
+
   const ref = doc(firestore, collection, document);
   const snapshot = await getDoc(ref);
   const data = snapshot.data() || {};
@@ -38,6 +71,10 @@ const fetchArrayData = async <T extends { visible?: boolean }>(
 export const getLocalization = async (
   language: string = Constant.DEFAULT_LANGUAGE,
 ): Promise<Record<string, any>> => {
+  if (Constant.USE_MOCK_DATA) {
+    return (MOCK.LOCALIZATION as Record<string, any>)[language];
+  }
+
   const ref = doc(
     firestore,
     FirestoreCollection.CONFIG,
@@ -49,6 +86,10 @@ export const getLocalization = async (
 };
 
 export const getConfig = async (): Promise<Config> => {
+  if (Constant.USE_MOCK_DATA) {
+    return parseConfig(MOCK.CONFIG);
+  }
+
   const ref = doc(
     firestore,
     FirestoreCollection.CONFIG,
@@ -59,6 +100,8 @@ export const getConfig = async (): Promise<Config> => {
 };
 
 export const postMessage = async (message: Message): Promise<void> => {
+  if (Constant.USE_MOCK_DATA) return;
+
   const ref = doc(
     firestore,
     FirestoreCollection.MESSAGE,
@@ -89,6 +132,10 @@ export const getExperience = (): Promise<Experience[]> =>
   );
 
 export const getProfile = async (): Promise<Profile> => {
+  if (Constant.USE_MOCK_DATA) {
+    return parseProfile(MOCK.PROFILE);
+  }
+
   const ref = doc(
     firestore,
     FirestoreCollection.USER,
@@ -143,6 +190,8 @@ export const postMockData = async <T>(
     document: FirestoreDocument;
   },
 ): Promise<void> => {
+  if (Constant.USE_MOCK_DATA) return;
+
   const ref = doc(firestore, path.collection, path.document);
   await updateDoc(ref, { [id]: data });
 };

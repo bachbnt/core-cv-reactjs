@@ -4,7 +4,7 @@
 
 import { renderHook, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { createQueryWrapper } from '../../test/queryWrapper';
+import { createQueryWrapper } from '../helpers/queryWrapper';
 
 const postMessageMock = vi.fn();
 
@@ -12,7 +12,7 @@ vi.mock('@services/service', () => ({
   postMessage: (...args: any[]) => postMessageMock(...args),
 }));
 
-import useSendMessage from '../useSendMessage';
+import useSendMessage from '@queries/useSendMessage';
 
 describe('useSendMessage', () => {
   beforeEach(() => {

@@ -4,7 +4,7 @@
 
 import { Localization } from '@locales/i18n';
 import { describe, expect, it } from 'vitest';
-import { contactSchema } from '../validation';
+import { contactSchema } from '@pages/Contact/validation';
 
 describe('contactSchema', () => {
   it('passes for fully populated input', () => {

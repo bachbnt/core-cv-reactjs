@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
@@ -30,17 +29,6 @@ export default defineConfig({
           }
         },
       },
-    },
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/test/setup.ts',
-    css: false,
-    coverage: {
-      provider: 'v8',
-      reporter: ['text', 'html'],
-      exclude: ['**/*.config.*', 'build/**', 'src/test/**', 'src/**/index.ts'],
     },
   },
 });

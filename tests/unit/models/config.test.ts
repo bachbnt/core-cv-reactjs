@@ -4,7 +4,7 @@
 
 import Constant from '@core/constants';
 import { describe, expect, it } from 'vitest';
-import { configSchema, parseConfig } from '../config';
+import { configSchema, parseConfig } from '@models/config';
 
 describe('configSchema', () => {
   it('fills sensible defaults when Firestore returns an empty document', () => {

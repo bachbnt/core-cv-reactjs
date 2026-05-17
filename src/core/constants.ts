@@ -39,6 +39,7 @@ class Constant {
   static readonly CHAT_PROXY_URL = import.meta.env.VITE_CHAT_PROXY_URL ?? '';
   static readonly CHAT_MAX_USER_MESSAGES = 20;
   static readonly CHAT_MAX_INPUT_LENGTH = 500;
+  static readonly USE_MOCK_DATA = import.meta.env.VITE_USE_MOCK_DATA === 'true';
 }
 
 export default Constant;

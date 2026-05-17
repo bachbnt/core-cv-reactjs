@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
-    "types": ["vite/client"],
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@playwright/test",
+      "@cloudflare/workers-types"
+    ],
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -42,6 +47,6 @@
       "@themes/*": ["themes/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "tests", "worker/src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

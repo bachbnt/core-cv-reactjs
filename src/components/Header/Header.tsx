@@ -131,7 +131,7 @@ const Header = (_props: Props) => {
           </Box>
           <Box className={classes.mobile}>
             <Fragment>
-              <IconButton onClick={onHamburgerClick}>
+              <IconButton aria-label='Open menu' onClick={onHamburgerClick}>
                 <MdMenu />
               </IconButton>
               <Drawer open={open} onClose={onHamburgerClick} />

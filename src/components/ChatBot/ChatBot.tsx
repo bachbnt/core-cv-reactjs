@@ -42,7 +42,11 @@ const ChatBot = () => {
             <Typography className={classes.headerTitle} variant='body2'>
               {t(Localization.chatbot_title)}
             </Typography>
-            <IconButton size='small' onClick={() => setIsOpen(false)}>
+            <IconButton
+              aria-label='Close chat'
+              size='small'
+              onClick={() => setIsOpen(false)}
+            >
               <MdClose size={18} />
             </IconButton>
           </Box>
@@ -91,6 +95,7 @@ const ChatBot = () => {
                   />
                 </Box>
                 <IconButton
+                  aria-label='Send chat message'
                   className={classes.sendButton}
                   size='small'
                   onClick={sendMessage}
@@ -105,6 +110,7 @@ const ChatBot = () => {
       )}
 
       <Fab
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
         color='primary'
         size='medium'
         onClick={() => setIsOpen((previous) => !previous)}
