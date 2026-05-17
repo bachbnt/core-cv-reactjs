@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 export type TrackingEvent = 'component_displayed' | 'component_clicked';
 export type TrackingPageName =
   | 'page0_cv'

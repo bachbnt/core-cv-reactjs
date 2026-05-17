@@ -1,17 +1,21 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Typography } from '@components';
 import { Localization } from '@locales/i18n';
 import { Grid } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
 import useStyles from './styles';
 
-const Footer = (props: Props) => {
+const Footer = (_props: Props) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { profile } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const profile = user?.profile;
 
   return (
     <Grid className={classes.container}>

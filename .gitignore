@@ -1,28 +1,61 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
+# Dependencies
+node_modules
 /.pnp
 .pnp.js
 
-# testing
-/coverage
-
-# production
+# Build output
 /build
+/dist
 
-# misc
-.DS_Store
+# Testing & coverage
+/coverage
+.vitest-cache
+*.lcov
+
+# Vite
+.vite
+vite.config.*.timestamp-*
+
+# TypeScript
+*.tsbuildinfo
+
+# ESLint / Prettier caches
+.eslintcache
+.prettiercache
+
+# Husky internals (auto-generated)
+.husky/_
+
+# Cloudflare Worker
+worker/.wrangler
+worker/.dev.vars
+worker/.dev.vars.*
+
+# Firebase
+.firebase
+firebase-debug.log*
+firestore-debug.log*
+
+# Environment variables
+.env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
+.env.staging
+.env.production
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# env
-.env
-.env.staging
-.env.production
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea
+*.swp
+*.swo

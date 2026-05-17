@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Spinner } from '@components';
 import {
   Component,

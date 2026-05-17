@@ -1,7 +1,11 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { AnimateIn, Layout, ServiceItem } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
 
@@ -9,8 +13,8 @@ const Service = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { trackEvent } = useTracker({ page_name: 'page6_service' });
 
-  const { service = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { service = [] } = user ?? {};
 
   return (
     <Layout>

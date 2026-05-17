@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Typography } from '@components';
 import { Box, Card, CardActionArea, CardContent } from '@mui/material';
 import useThemeStyles from '@themes/styles';

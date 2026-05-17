@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   AnimateIn,
   CertificateDialog,
@@ -8,7 +12,7 @@ import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
 import { Certificate as CertificateModel } from '@models/certificate';
 import { Grid } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
 
@@ -16,8 +20,8 @@ const Certificate = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { trackEvent } = useTracker({ page_name: 'page9_certificate' });
 
-  const { certificate = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { certificate = [] } = user ?? {};
 
   const { item, openDialog, onOpenDialog, onCloseDialog } =
     useDialog<CertificateModel>(certificate);

@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 const MOCK = {
   LOCALIZATION: {
     en: {

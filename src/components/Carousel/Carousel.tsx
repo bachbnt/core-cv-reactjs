@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import Carousel from 'react-material-ui-carousel';
 import Props from './props';
 import useStyles from './styles';

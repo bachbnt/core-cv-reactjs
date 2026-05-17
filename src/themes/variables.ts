@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 const variables = {
   buttonMinWidth: 64,
 
@@ -23,8 +27,6 @@ const variables = {
   borderRadiusCircle: '50%',
 
   fontFamily: 'Source Code Pro',
-
-  // backgroundUrl: Constant.DEFAULT_BACKGROUND_IMAGE,
 
   backgroundUrl: '/background.webp',
 };

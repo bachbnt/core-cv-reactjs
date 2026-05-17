@@ -1,9 +1,13 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { AnimateIn, Button, Carousel, Layout, Typography } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, CardMedia, Grid } from '@mui/material';
 import { Skill, SkillType } from '@models/skill';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -17,8 +21,8 @@ const About = (props: Props) => {
   const { t } = useTranslation();
   const { trackEvent } = useTracker({ page_name: 'page2_about' });
 
-  const { skill = [], profile } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { skill = [], profile } = user ?? {};
 
   const { framework, language, tool } = useMemo<{
     [SkillType.FRAMEWORK]: Skill[];

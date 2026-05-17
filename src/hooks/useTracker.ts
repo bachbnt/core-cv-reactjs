@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { TrackingEvent, TrackingParams } from '@models/tracking';
 import { analytics } from '@services/firebase';
 import { logEvent } from 'firebase/analytics';
@@ -31,7 +35,6 @@ const useTracker = (
     if (trackDisplayed) {
       trackEvent('component_displayed');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackDisplayed]);
 
   return {

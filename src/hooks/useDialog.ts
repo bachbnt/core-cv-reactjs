@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import isEmpty from 'lodash/isEmpty';
 import isNil from 'lodash/isNil';
 import { useEffect, useMemo, useState } from 'react';
@@ -37,7 +41,6 @@ function useDialog<T extends { id: string }>(items: T[]) {
     } else {
       onCloseDialog();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [item, items]);
 
   return {

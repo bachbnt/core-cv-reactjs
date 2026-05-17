@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Typography as MuiTypography } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';

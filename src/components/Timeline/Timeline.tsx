@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Typography } from '@components';
 import {
   Timeline as MuiTimeline,

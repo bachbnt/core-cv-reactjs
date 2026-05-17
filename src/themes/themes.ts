@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   createTheme,
   Theme as MUITheme,
@@ -196,7 +200,6 @@ const themes = {
         MuiListItem: {
           styleOverrides: {
             button: {
-              // Note: MuiListItem no longer has 'button' class in v5 default usually, but if using ListItemButton it's different. Assuming ListItems are used as buttons
               '&:hover': {
                 backgroundColor: colors.secondary,
               },

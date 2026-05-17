@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Button as MuiButton } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';

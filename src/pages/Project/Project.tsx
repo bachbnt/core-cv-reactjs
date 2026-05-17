@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   AnimateIn,
   Layout,
@@ -10,7 +14,7 @@ import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Project as ProjectModel, ProjectType } from '@models/project';
 import { Box, Grid } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,8 +25,8 @@ const Project = (props: Props) => {
   const { t } = useTranslation();
   const { trackEvent } = useTracker({ page_name: 'page4_project' });
 
-  const { project = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { project = [] } = user ?? {};
 
   const { company, freelance, personal } = useMemo<{
     [ProjectType.COMPANY]: ProjectModel[];

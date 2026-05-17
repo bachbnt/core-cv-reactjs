@@ -1,15 +1,19 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
 
-const NotFound = (props: Props) => {
+const NotFound = (_props: Props) => {
   const themeClasses = useThemeStyles();
   useTracker({ page_name: 'page_404_not_found' });
 
-  const { image } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {};
+  const { data: config } = useConfigQuery();
+  const image = config?.image;
 
   return (
     <Grid className={themeClasses.container} container spacing={4}>

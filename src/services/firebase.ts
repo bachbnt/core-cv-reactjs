@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { firebaseConfig } from '@core/configs';
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';

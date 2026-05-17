@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { ChatBot, Spinner, Wrapper } from '@components';
 import { Suspense } from 'react';
 import { Routes } from 'react-router';

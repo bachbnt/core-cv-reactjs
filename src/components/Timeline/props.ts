@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
 

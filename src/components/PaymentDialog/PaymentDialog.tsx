@@ -1,12 +1,16 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { CardMedia, Dialog } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery } from '@queries';
 import Props from './props';
 
 const PaymentDialog = (props: Props) => {
   const { item, openDialog, onCloseDialog } = props;
 
-  const { image } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {};
+  const { data: config } = useConfigQuery();
+  const image = config?.image;
 
   return item.visible ? (
     <Dialog

@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   AnimateIn,
   Button,
@@ -6,13 +10,13 @@ import {
   TextFormField,
   Typography,
 } from '@components';
-import useMessage from '@hooks/useMessage';
 import useTracker from '@hooks/useTracker';
-import useYupResolver from '@hooks/useYupResolver';
 import { Localization } from '@locales/i18n';
 import { Box, Card, CardContent, Grid } from '@mui/material';
 import { ContactType } from '@models/contact';
-import { RootState, useAppSelector } from '@redux/store';
+import { useSendMessage, useUserQuery } from '@queries';
+import { useUiStore } from '@stores/uiStore';
+import { zodResolver } from '@hookform/resolvers/zod';
 import useThemeStyles from '@themes/styles';
 import filter from 'lodash/filter';
 import { useEffect, useMemo } from 'react';
@@ -20,21 +24,25 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
 import useStyles from './styles';
-import { FormValues, validationSchema } from './validation';
+import { FormValues, contactSchema } from './validation';
 
-const Contact = (props: Props) => {
+const Contact = (_props: Props) => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({ page_name: 'page7_contact' });
 
-  const { postData } = useMessage();
+  const sendMessage = useSendMessage();
+  const showSpinner = useUiStore((state) => state.showSpinner);
+  const hideSpinner = useUiStore((state) => state.hideSpinner);
 
-  const { contact = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { contact = [] } = user ?? {};
 
-  const resolver = useYupResolver(validationSchema);
-  const methods = useForm({ resolver });
+  const methods = useForm<FormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: '', message: '' },
+  });
   const { handleSubmit, reset } = methods;
 
   const initialValue: FormValues = useMemo(() => {
@@ -50,8 +58,13 @@ const Contact = (props: Props) => {
       component_name: 'page7_button_send',
       form_values: JSON.stringify(values),
     });
-    await postData(values.name, values.message);
-    reset(initialValue);
+    try {
+      showSpinner();
+      await sendMessage.mutateAsync(values);
+      reset(initialValue);
+    } finally {
+      hideSpinner();
+    }
   };
 
   const contacts = useMemo(() => {

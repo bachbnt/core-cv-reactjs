@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Layout } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';

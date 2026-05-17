@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { TextField } from '@components';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';

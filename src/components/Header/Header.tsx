@@ -1,12 +1,19 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Avatar, Button, Drawer } from '@components';
 import Constant from '@core/constants';
-import useConfig from '@hooks/useConfig';
-import useMockData from '@hooks/useMockData';
 import useTracker from '@hooks/useTracker';
-import useUser from '@hooks/useUser';
 import { Localization } from '@locales/i18n';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import {
+  queryKeys,
+  queryClient,
+  useConfigQuery,
+  usePostMockData,
+  useUserQuery,
+} from '@queries';
 import { RoutePath } from '@routes/routePath';
 import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
@@ -17,22 +24,17 @@ import { useLocation, useNavigate } from 'react-router';
 import Props from './props';
 import useStyles from './styles';
 
-const Header = (props: Props) => {
+const Header = (_props: Props) => {
   const classes = useStyles();
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({}, false);
 
-  const { getData: getConfig } = useConfig();
-  const { getData: getUser } = useUser();
-  const { postMockData } = useMockData();
-
-  const config = useAppSelector(
-    (state: RootState) => state.configReducer.config,
-  );
-  const { profile } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: config } = useConfigQuery();
+  const { data: user } = useUserQuery();
+  const profile = user?.profile;
+  const postMockDataMutation = usePostMockData();
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -42,14 +44,14 @@ const Header = (props: Props) => {
       item_name: 'logo_button',
     });
     navigate(RoutePath.HOME, { replace: true });
-    getConfig();
-    getUser();
+    queryClient.invalidateQueries({ queryKey: queryKeys.config });
+    queryClient.invalidateQueries({ queryKey: queryKeys.user });
   };
 
   const onPageClick = async (route: Route) => {
     const { component, path, trackingName } = route;
     if (
-      (config as any)[`${lowerCase(component)}Enable`] &&
+      (config as any)?.[`${lowerCase(component)}Enable`] &&
       location.pathname !== path
     ) {
       trackEvent('component_clicked', {
@@ -69,7 +71,7 @@ const Header = (props: Props) => {
 
   const onCVClick = async () => {
     if (Constant.EDIT_MODE === 'true') {
-      await postMockData();
+      await postMockDataMutation.mutateAsync();
       return;
     }
     const url = profile?.cv;

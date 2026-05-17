@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Localization } from '@locales/i18n';
 import { TrackingPageName } from '@models/tracking';
 import { RouteName } from './routeName';

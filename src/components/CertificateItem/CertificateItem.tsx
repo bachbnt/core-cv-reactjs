@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Typography } from '@components';
 import {
   Box,
@@ -6,7 +10,7 @@ import {
   CardContent,
   CardMedia,
 } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery } from '@queries';
 import Props from './props';
 import useStyles from './styles';
 
@@ -14,8 +18,8 @@ const CertificateItem = (props: Props) => {
   const classes = useStyles();
   const { item, onOpenDialog } = props;
 
-  const { image } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {};
+  const { data: config } = useConfigQuery();
+  const image = config?.image;
 
   return item.visible ? (
     <Card className={classes.card}>

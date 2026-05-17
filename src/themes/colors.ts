@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 const colors = {
   black: '#000000',
   grey: '#222222',

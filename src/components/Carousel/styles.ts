@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { createStyles, makeStyles } from '@mui/styles';
 import { AppTheme } from '@themes/themes';
 
@@ -5,9 +9,9 @@ export default makeStyles((theme: AppTheme) =>
   createStyles({
     root: {},
     indicator: {
-      color: `${theme.colors.grey} !important`, // Using grey for inactive
+      color: `${theme.colors.grey} !important`,
       '& .MuiSvgIcon-root': {
-        color: '#9E9E9E !important', // Hardcoded grey to match requested
+        color: '#9E9E9E !important',
       },
       opacity: '0.6 !important',
     },

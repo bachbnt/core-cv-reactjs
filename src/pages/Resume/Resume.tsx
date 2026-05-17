@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   AnimateIn,
   EducationItem,
@@ -11,7 +15,7 @@ import { Localization } from '@locales/i18n';
 import { Box, Grid } from '@mui/material';
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import { useTranslation } from 'react-i18next';
 import Props from './props';
@@ -21,8 +25,8 @@ const Resume = (props: Props) => {
   const { t } = useTranslation();
   const { trackEvent } = useTracker({ page_name: 'page3_resume' });
 
-  const { education = [], experience = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { education = [], experience = [] } = user ?? {};
 
   return (
     <Layout>

@@ -1,14 +1,16 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Backdrop, CircularProgress } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useSpinnerVisible } from '@stores/uiStore';
 import Props from './props';
 import useStyles from './styles';
 
 const Spinner = (props: Props) => {
   const { visible = false } = props;
   const classes = useStyles();
-  const spinnerVisible = useAppSelector(
-    (state: RootState) => state.spinnerReducer.visible,
-  );
+  const spinnerVisible = useSpinnerVisible();
   if (!visible && !spinnerVisible) {
     return null;
   }

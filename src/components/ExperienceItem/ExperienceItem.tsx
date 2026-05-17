@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Typography } from '@components';
 import {
   Box,
@@ -6,7 +10,7 @@ import {
   CardContent,
   CardMedia,
 } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery } from '@queries';
 import Props from './props';
 import useStyles from './styles';
 
@@ -14,8 +18,8 @@ const ExperienceItem = (props: Props) => {
   const classes = useStyles();
   const { item, onItemClick } = props;
 
-  const { image } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {};
+  const { data: config } = useConfigQuery();
+  const image = config?.image;
 
   return (
     <Card key={item.id} elevation={3} onClick={() => onItemClick?.(item)}>

@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Certificate } from './certificate';
 import { Contact } from './contact';
 import { Education } from './education';

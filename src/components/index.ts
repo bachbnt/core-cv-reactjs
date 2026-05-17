@@ -1,4 +1,8 @@
-export { default as ChatBot } from './ChatBot';
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
+export { default as ChatBot } from '@features/chat';
 export { default as AnimateIn } from './AnimateIn';
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
@@ -18,7 +22,6 @@ export { default as PaymentItem } from './PaymentItem';
 export { default as ProjectDialog } from './ProjectDialog';
 export { default as ProjectItem } from './ProjectItem';
 export { default as ServiceItem } from './ServiceItem';
-export { default as Skeleton } from './Skeleton';
 export { default as Spinner } from './Spinner';
 export { default as TextField } from './TextField';
 export { default as TextFormField } from './TextFormField';

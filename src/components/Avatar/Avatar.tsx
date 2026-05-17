@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Avatar as MuiAvatar } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';

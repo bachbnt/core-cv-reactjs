@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { TextField as MuiTextField } from '@mui/material';
 import Props from './props';
 import useStyles from './styles';

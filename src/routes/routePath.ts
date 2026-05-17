@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 export enum RoutePath {
   HOME = '/',
   ABOUT = '/about',

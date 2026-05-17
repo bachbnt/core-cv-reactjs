@@ -1,0 +1,26 @@
+name = "chat-proxy"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# Production allow-list — extend for staging/preview as needed.
+[vars]
+ALLOWED_ORIGINS = "https://bachbntdev.web.app,https://bachbntdev.firebaseapp.com,http://localhost:3000"
+RATE_LIMIT_PER_DAY = "200"
+RATE_LIMIT_PER_MINUTE = "10"
+
+# Secrets (set via `wrangler secret put <NAME>`):
+#   GEMINI_API_KEY
+#   OPENAI_API_KEY
+#   ANTHROPIC_API_KEY
+
+# Per-IP rate limiting. KV is sufficient for free-tier traffic (~100K req/day).
+# Create with: wrangler kv:namespace create CHAT_RATE_LIMIT
+# Then paste the returned id below.
+# [[kv_namespaces]]
+# binding = "CHAT_RATE_LIMIT"
+# id = "PASTE_KV_NAMESPACE_ID_HERE"
+
+[observability]
+enabled = true

@@ -1,9 +1,13 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { AnimateIn, Layout, PaymentDialog, PaymentItem } from '@components';
 import useDialog from '@hooks/useDialog';
 import useTracker from '@hooks/useTracker';
 import { Payment as PaymentModel } from '@models/payment';
 import { Grid } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import Props from './props';
 
@@ -11,8 +15,8 @@ const Payment = (props: Props) => {
   const themeClasses = useThemeStyles();
   const { trackEvent } = useTracker({ page_name: 'page8_payment' });
 
-  const { payment = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: user } = useUserQuery();
+  const { payment = [] } = user ?? {};
 
   const { item, openDialog, onOpenDialog, onCloseDialog } =
     useDialog<PaymentModel>(payment);

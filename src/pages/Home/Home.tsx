@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   AnimateIn,
   Avatar,
@@ -10,7 +14,7 @@ import useTracker from '@hooks/useTracker';
 import { Localization } from '@locales/i18n';
 import { Box, Grid, Tooltip } from '@mui/material';
 import { ContactType } from '@models/contact';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery, useUserQuery } from '@queries';
 import { RoutePath } from '@routes/routePath';
 import useThemeStyles from '@themes/styles';
 import filter from 'lodash/filter';
@@ -29,10 +33,10 @@ const Home = (props: Props) => {
     page_name: 'page1_home',
   });
 
-  const { aboutEnable, contactEnable } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {};
-  const { profile, contact = [] } =
-    useAppSelector((state: RootState) => state.userReducer.user) || {};
+  const { data: config } = useConfigQuery();
+  const { aboutEnable, contactEnable } = config ?? {};
+  const { data: user } = useUserQuery();
+  const { profile, contact = [] } = user ?? {};
 
   const socialContacts = useMemo(() => {
     return filter(contact, {

@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 export enum RouteName {
   HOME = 'Home',
   ABOUT = 'About',

@@ -1,60 +1,38 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import {
   CssBaseline,
   StyledEngineProvider,
   ThemeProvider,
 } from '@mui/material';
-import { persistor, store } from '@redux/store';
-import Service from '@services/service';
+import { persister, queryClient } from '@queries';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import colors from '@themes/colors';
 import styles from '@themes/styles';
 import themes from '@themes/themes';
 import variables from '@themes/variables';
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import App from './App';
-import di from './core/di';
-import { analytics } from './services/firebase';
-import { onCLS, onFCP, onINP, onLCP, onTTFB } from 'web-vitals';
 import { logEvent } from 'firebase/analytics';
+import { createRoot } from 'react-dom/client';
+import { onCLS, onFCP, onINP, onLCP, onTTFB } from 'web-vitals';
+import { analytics } from './services/firebase';
+import App from './App';
 
-di.registerSingleton(Service);
+const reportWebVital =
+  (metricValueMultiplier = 1) =>
+  (m: { name: string; value: number; rating?: string }) =>
+    logEvent(analytics, 'web_vitals', {
+      metric_name: m.name,
+      metric_value: Math.round(m.value * metricValueMultiplier),
+      metric_rating: m.rating,
+    });
 
-onCLS((m) =>
-  logEvent(analytics, 'web_vitals', {
-    metric_name: m.name,
-    metric_value: Math.round(m.value * 1000),
-    metric_rating: m.rating,
-  }),
-);
-onFCP((m) =>
-  logEvent(analytics, 'web_vitals', {
-    metric_name: m.name,
-    metric_value: Math.round(m.value),
-    metric_rating: m.rating,
-  }),
-);
-onINP((m) =>
-  logEvent(analytics, 'web_vitals', {
-    metric_name: m.name,
-    metric_value: Math.round(m.value),
-    metric_rating: m.rating,
-  }),
-);
-onLCP((m) =>
-  logEvent(analytics, 'web_vitals', {
-    metric_name: m.name,
-    metric_value: Math.round(m.value),
-    metric_rating: m.rating,
-  }),
-);
-onTTFB((m) =>
-  logEvent(analytics, 'web_vitals', {
-    metric_name: m.name,
-    metric_value: Math.round(m.value),
-    metric_rating: m.rating,
-  }),
-);
+onCLS(reportWebVital(1000));
+onFCP(reportWebVital());
+onINP(reportWebVital());
+onLCP(reportWebVital());
+onTTFB(reportWebVital());
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
@@ -63,11 +41,12 @@ root.render(
   <StyledEngineProvider injectFirst>
     <ThemeProvider theme={{ ...themes, colors, styles, variables }}>
       <CssBaseline />
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Provider>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{ persister, maxAge: 24 * 60 * 60 * 1000 }}
+      >
+        <App />
+      </PersistQueryClientProvider>
     </ThemeProvider>
   </StyledEngineProvider>,
 );

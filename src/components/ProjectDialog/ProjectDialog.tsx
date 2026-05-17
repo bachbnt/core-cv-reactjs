@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Carousel, Typography } from '@components';
 import {
   Box,
@@ -7,7 +11,7 @@ import {
   DialogContent,
   Link,
 } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery } from '@queries';
 import Props from './props';
 import useStyles from './styles';
 
@@ -15,8 +19,8 @@ const ProjectDialog = (props: Props) => {
   const classes = useStyles();
   const { item, openDialog, onCloseDialog } = props;
 
-  const { image } =
-    useAppSelector((state: RootState) => state.configReducer.config) || {};
+  const { data: config } = useConfigQuery();
+  const image = config?.image;
 
   const onClickRef = (url: string) => {
     window.open(url);

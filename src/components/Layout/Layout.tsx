@@ -1,6 +1,10 @@
+/**
+ * Copyright (c) 2026 bachbnt. All rights reserved.
+ */
+
 import { Footer, Header } from '@components';
 import { Box, Container } from '@mui/material';
-import { RootState, useAppSelector } from '@redux/store';
+import { useConfigQuery } from '@queries';
 import { routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
 import { useEffect, useRef, useState } from 'react';
@@ -13,9 +17,7 @@ const Layout = (props: Props) => {
   const { children } = props;
   const navigate = useNavigate();
   const location = useLocation();
-  const config = useAppSelector(
-    (state: RootState) => state.configReducer.config,
-  );
+  const { data: config } = useConfigQuery();
 
   const [isExiting, setIsExiting] = useState(false);
   const navDirectionRef = useRef<'next' | 'prev' | null>(null);
