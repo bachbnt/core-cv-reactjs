@@ -173,7 +173,7 @@ test.describe('portfolio app', () => {
 
     await page.getByRole('button', { name: 'My CV' }).click();
 
-    await expect(page.getByText('CV Preview')).toBeVisible();
+    await expect(page.getByText('Bui Ngo Ton Bach CV')).toBeVisible();
     const downloadLink = page.getByRole('link', { name: /Download|Preparing/ });
     await expect(downloadLink).toBeVisible();
     await expect(downloadLink).toHaveAttribute(

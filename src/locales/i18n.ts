@@ -44,6 +44,10 @@ const localization = {
   chatbot_placeholder: 'chatbot_placeholder',
   chatbot_limit_reached: 'chatbot_limit_reached',
   chatbot_error_generic: 'chatbot_error_generic',
+  cv_dialog_title: 'cv_dialog_title',
+  cv_dialog_download: 'cv_dialog_download',
+  cv_dialog_preparing: 'cv_dialog_preparing',
+  cv_dialog_close: 'cv_dialog_close',
 };
 
 const backendOptions = {

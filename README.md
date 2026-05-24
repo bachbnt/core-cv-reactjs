@@ -166,6 +166,15 @@ Dry-run the script without writing to Firestore:
 npm run upload:cv -- --dry-run
 ```
 
+### `npm run update:localization`
+
+Merges `src/data/localization-patch.json` into Firestore at
+`config/localization`. Use this after adding new UI translation keys.
+
+```bash
+npm run update:localization -- --dry-run
+```
+
 ## Testing
 
 Unit tests are separated under `tests/unit` and run with Vitest using

@@ -38,6 +38,20 @@
 - Add accessible names to icon-only buttons (`aria-label`) so Playwright and
   assistive tech can target them.
 
+## Localization
+
+- Do not hardcode user-facing UI text in components, including dialog titles,
+  button labels, loading labels, placeholders, form errors, tooltips, and
+  `aria-label` values.
+- Use `Localization` keys with `t(...)` for reusable interface copy. When adding
+  keys, update `src/locales/i18n.ts`, `src/services/mock.ts`, and provide or
+  update a Firestore localization patch script/data file.
+- Use Firestore/domain documents for content owned by that document, such as CV
+  candidate data, PDF metadata, and CV preview titles. Keep UI action labels in
+  localization.
+- Tests should assert localized/mock data or explicit remote-domain data, not
+  newly hardcoded English strings.
+
 ## Styling
 
 - Prefer the existing MUI theme overrides in `src/themes/themes.ts` for global

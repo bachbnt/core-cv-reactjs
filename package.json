@@ -53,6 +53,7 @@
     "test:automation:install": "playwright install",
     "test:all": "npm run test:unit:run && npm run test:automation",
     "upload:cv": "node scripts/upload-cv.mjs",
+    "update:localization": "node scripts/update-localization.mjs",
     "prepare": "husky install"
   },
   "browserslist": {

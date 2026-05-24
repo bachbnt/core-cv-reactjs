@@ -38,6 +38,10 @@ const MOCK = {
       chatbot_placeholder: 'Ask me anything',
       chatbot_limit_reached: 'Message limit reached',
       chatbot_error_generic: 'Something went wrong',
+      cv_dialog_title: 'CV Preview',
+      cv_dialog_download: 'Download',
+      cv_dialog_preparing: 'Preparing',
+      cv_dialog_close: 'Close CV preview',
     },
     vi: {
       page0: ' CV của tôi',
@@ -73,6 +77,10 @@ const MOCK = {
       chatbot_placeholder: 'Hỏi tôi bất cứ điều gì',
       chatbot_limit_reached: 'Đã đạt giới hạn tin nhắn',
       chatbot_error_generic: 'Đã xảy ra lỗi',
+      cv_dialog_title: 'Xem trước CV',
+      cv_dialog_download: 'Tải xuống',
+      cv_dialog_preparing: 'Đang chuẩn bị',
+      cv_dialog_close: 'Đóng xem trước CV',
     },
   },
   CONFIG: {
