@@ -23,6 +23,7 @@ export enum FirestoreCollection {
 export enum FirestoreDocument {
   CERTIFICATE = 'certificate',
   CONFIG = 'config',
+  CV = 'cv',
   LOCALIZATION = 'localization',
   MESSAGE = 'message',
   CONTACT = 'contact',

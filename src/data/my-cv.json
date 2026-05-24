@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "previewTitle": "Bui Ngo Ton Bach CV",
+    "downloadFileName": "bui-ngo-ton-bach-cv.pdf"
+  },
+  "source": {
+    "file": "firestore:user/cv",
+    "pageCount": 3,
+    "createdAt": "2026-05-24",
+    "updatedAt": "2026-05-24",
+    "purpose": "Structured CV backup used as the Firestore seed and local fallback for dynamic PDF preview/download."
+  },
+  "candidate": {
+    "name": "Bùi Ngô Tôn Bách",
+    "headline": "Mobile Software Engineer",
+    "contacts": [
+      {
+        "type": "phone",
+        "value": "(+84) 384560623"
+      },
+      {
+        "type": "email",
+        "value": "bachbnt@gmail.com"
+      },
+      {
+        "type": "location",
+        "value": "Ho Chi Minh City, Vietnam"
+      }
+    ]
+  },
+  "sections": {
+    "summaryAndObjective": {
+      "summary": [
+        "Senior Mobile Engineer with 5+ years of experience building and scaling production-grade mobile applications used by tens of millions of users.",
+        "Strong expertise in React Native and Kotlin Multiplatform Mobile (KMM), specializing in payment systems, real-time transaction flows, and wearable platforms (WearOS, watchOS).",
+        "Proven ability to lead critical modules, design clean and modular architectures, and collaborate cross-functionally to deliver secure, high-performance features in large-scale Super App ecosystems."
+      ],
+      "objective": [
+        "To grow into a Mobile Tech Lead or Project Manager role, focusing on mobile architecture, cross-platform solutions, and high-impact payment systems, while contributing to scalable products and mentoring junior engineers in a collaborative, innovation-driven environment."
+      ]
+    },
+    "workExperience": [
+      {
+        "company": "FPT Software",
+        "period": {
+          "start": "Jan 2026",
+          "end": "Present"
+        },
+        "title": "Mobile Developer",
+        "projects": [
+          {
+            "name": "9PP"
+          }
+        ],
+        "roleDetails": ["Position: Function Leader"],
+        "technologies": [
+          "Android",
+          "MVVM",
+          "Clean Architecture",
+          "Jetpack Compose"
+        ],
+        "responsibilities": []
+      },
+      {
+        "company": "MoMo (M_Service)",
+        "period": {
+          "start": "May 2022",
+          "end": "Jan 2026"
+        },
+        "title": "Senior Mobile App Developer",
+        "projects": [
+          {
+            "name": "MoMo Super App",
+            "technologies": ["React Native", "KMM"]
+          }
+        ],
+        "team": "App Payment / App Platform Team",
+        "technologies": [
+          "React Native",
+          "Kotlin",
+          "KMM",
+          "Clean Architecture",
+          "WearOS",
+          "watchOS"
+        ],
+        "responsibilities": [
+          "Architected and developed a cross-platform payment solution for wearable devices (Apple Watch, WearOS, Huawei, Garmin), enabling QR-based transactions and secure authentication using native payment APIs (Apple Pay, Google Pay).",
+          "Led the Transaction Result module, improving reliability and user experience by implementing real-time transaction status updates via MQTT.",
+          "Led development of the FinancialHub mini-app, a centralized entry point for personal finance features including bank linking, insurance, and investments.",
+          "PayX: Migrated multiple payment mini-apps from React Native to native Android/iOS using Kotlin Multiplatform Mobile (KMM), unifying business logic and reducing feature inconsistency across platforms.",
+          "Enhanced and maintained core mini-apps: Payment, Cash In/Out, Bank Linking, Account Management, and Transaction Result.",
+          "Established real-time performance monitoring with Grafana dashboards, tracking startup time, error rate, and JS thread performance to proactively improve app stability.",
+          "Collaborated closely with backend, product, QA, and UI/UX teams in an Agile environment to deliver high-impact features for millions of users."
+        ]
+      },
+      {
+        "company": "Devblock Vietnam",
+        "period": {
+          "start": "Mar 2020",
+          "end": "Apr 2022"
+        },
+        "title": "Junior Mobile Developer",
+        "technologies": ["React Native", "Flutter", "Android"],
+        "projects": [
+          {
+            "name": "AppZocial",
+            "description": "Social networking app - implemented media uploads and real-time chat using React Native."
+          },
+          {
+            "name": "Evolve1",
+            "description": "Fitness and communication app for coaches and athletes - developed core features with Flutter and Firebase backend."
+          },
+          {
+            "name": "HydroAssist",
+            "description": "Medical tracking app - handled notifications and data synchronization."
+          },
+          {
+            "name": "Zera",
+            "description": "IoT application for body temperature tracking via NFC."
+          }
+        ],
+        "responsibilities": [
+          "Implemented UI components, integrated REST APIs, and delivered features end-to-end.",
+          "Followed Agile practices using Git, Jira, and Trello."
+        ]
+      },
+      {
+        "company": "TMA Solutions",
+        "period": {
+          "start": "Jul 2019",
+          "end": "Sep 2019"
+        },
+        "title": "Mobile Developer Intern",
+        "team": "Mitel Team",
+        "responsibilities": [
+          "Built core features for a VoIP application, including authentication, call interface, and SIP integration on Android."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "period": {
+          "start": "Dec 2020",
+          "end": "Jun 2023"
+        },
+        "degree": "Master of Science",
+        "major": "Physics and Informatics",
+        "school": "University of Science - Vietnam National University Ho Chi Minh City",
+        "thesis": "Stock Price Trend Prediction using Machine Learning",
+        "technologies": ["Python", "Keras", "LSTM", "Matplotlib"],
+        "references": [
+          {
+            "label": "Reference",
+            "url": "http://ir.vnulib.edu.vn/handle/VNUHCM/31347"
+          }
+        ]
+      },
+      {
+        "period": {
+          "start": "Sep 2016",
+          "end": "Sep 2020"
+        },
+        "degree": "Bachelor of Science",
+        "major": "Physics and Informatics",
+        "school": "University of Science - Vietnam National University Ho Chi Minh City",
+        "thesis": "Internal Social Network Application",
+        "technologies": ["Flutter", "React Native"]
+      }
+    ],
+    "certifications": [
+      {
+        "time": "Apr 2026",
+        "name": "Google AI Professional Certificate"
+      },
+      {
+        "time": "May 2026",
+        "name": "Google Project Management Professional Certificate"
+      }
+    ],
+    "skills": [
+      {
+        "group": "Mobile",
+        "items": [
+          "React Native, Flutter, Kotlin, Swift",
+          "Kotlin Multiplatform Mobile (KMM)",
+          "WearOS, watchOS",
+          "MVVM, Clean Architecture"
+        ]
+      },
+      {
+        "group": "AI",
+        "items": ["Prompt and Context Engineering", "LLM, RAG, Fine-tuning"]
+      },
+      {
+        "group": "Frontend",
+        "items": ["ReactJS, VueJS, NextJS"]
+      },
+      {
+        "group": "Backend",
+        "items": ["NodeJS, ExpressJS, NestJS"]
+      },
+      {
+        "group": "DevOps",
+        "items": ["CI/CD", "Docker"]
+      },
+      {
+        "group": "Analytics & Monitoring",
+        "items": ["Firebase Analytics, Firebase Crashlytics, Grafana"]
+      },
+      {
+        "group": "Tools",
+        "items": ["Git, Jira, Confluence"]
+      }
+    ],
+    "projectsAndResearch": [
+      {
+        "name": "Stock Prices Prediction - MSc Thesis",
+        "period": {
+          "start": "Jan 2022",
+          "end": "Mar 2023"
+        },
+        "role": "Researcher / Developer",
+        "description": "Built an LSTM-based model to predict VN-Index trends.",
+        "technologies": ["Python", "Keras", "Matplotlib"],
+        "links": [
+          {
+            "label": "Source",
+            "url": "https://github.com/bachbnt/learn-stock_prices_prediction-python"
+          }
+        ]
+      },
+      {
+        "name": "Personal Portfolio Website",
+        "period": {
+          "start": "Apr 2021",
+          "end": "Apr 2021"
+        },
+        "role": "Developer",
+        "description": "Designed and developed a personal portfolio website.",
+        "technologies": ["ReactJS", "Material UI", "Firebase Hosting", "CI/CD"],
+        "links": [
+          {
+            "label": "Live",
+            "url": "https://bachbntdev.web.app"
+          }
+        ]
+      },
+      {
+        "name": "Internal Social Network - BSc Thesis",
+        "period": {
+          "start": "Dec 2019",
+          "end": "Feb 2020"
+        },
+        "role": "Developer",
+        "description": "Developed an internal social networking platform.",
+        "technologies": ["Flutter", "BLoC", "React Native", "Redux"],
+        "links": [
+          {
+            "label": "Source",
+            "url": "https://github.com/bachbnt/learn-pc_dashboard-flutter_reactnative"
+          }
+        ]
+      }
+    ]
+  },
+  "rawPages": [
+    {
+      "page": 1,
+      "text": "Bùi Ngô Tôn Bách\nMobile Software Engineer\n(+84) 384560623\nbachbnt@gmail.com\nHo Chi Minh City, Vietnam\nSUMMARY & OBJECTIVE\nSUMMARY\nSenior Mobile Engineer with 5+ years of experience building and scaling production-grade mobile applications used by tens of millions of users.\nStrong expertise in React Native and Kotlin Multiplatform Mobile (KMM), specializing in payment systems, real-time transaction flows, and wearable platforms (WearOS, watchOS).\nProven ability to lead critical modules, design clean and modular architectures, and collaborate cross-functionally to deliver secure, high-performance features in large-scale Super App ecosystems.\nOBJECTIVE\nTo grow into a Mobile Tech Lead or Project Manager role, focusing on mobile architecture, cross-platform solutions, and high-impact payment systems, while contributing to scalable products and mentoring junior engineers in a collaborative, innovation-driven environment.\nWORK EXPERIENCE\nFPT SOFTWARE\nJan 2026 - Present\nMOBILE DEVELOPER\nProjects: 9PP\nPosition: Function Leader\nTechnologies: Android, MVVM, Clean Architecture, Jetpack Compose\nResponsibilities:\nMOMO (M_SERVICE)\nMay 2022 - Jan 2026\nSENIOR MOBILE APP DEVELOPER\nMoMo Super App: React Native, KMM\nApp Payment/ App Platform Team\nTechnologies: React Native, Kotlin, KMM, Clean Architecture, WearOS, watchOS\nResponsibilities:\nArchitected and developed a cross-platform payment solution for wearable devices (Apple Watch, WearOS, Huawei, Garmin), enabling QR-based transactions and secure authentication using native payment APIs (Apple Pay, Google Pay).\nLed the Transaction Result module, improving reliability and user experience by implementing real-time transaction status updates via MQTT.\nLed development of the FinancialHub mini-app, a centralized entry point for personal finance features including bank linking, insurance, and investments.\nPayX: Migrated multiple payment mini-apps from React Native to native Android/iOS using Kotlin Multiplatform Mobile (KMM), unifying business logic and reducing feature inconsistency across platforms.\nEnhanced and maintained core mini-apps: Payment, Cash In/Out, Bank Linking, Account Management, and Transaction Result.\nEstablished real-time performance monitoring with Grafana dashboards, tracking startup time, error rate, and JS thread performance to proactively improve app stability.\nCollaborated closely with backend, product, QA, and UI/UX teams in an Agile environment to deliver high-impact features for millions of users.\nDEVBLOCK VIETNAM\nMar 2020 - Apr 2022\nJUNIOR MOBILE DEVELOPER\nTechnologies: React Native, Flutter, Android"
+    },
+    {
+      "page": 2,
+      "text": "Projects:\nAppZocial: Social networking app - implemented media uploads and real-time chat using React Native.\nEvolve1: Fitness and communication app for coaches and athletes - developed core features with Flutter and Firebase backend.\nHydroAssist: Medical tracking app - handled notifications and data synchronization.\nZera: IoT application for body temperature tracking via NFC.\nResponsibilities:\nImplemented UI components, integrated REST APIs, and delivered features end-to-end.\nFollowed Agile practices using Git, Jira, and Trello.\nTMA SOLUTIONS\nJul 2019 - Sep 2019\nMOBILE DEVELOPER INTERN\nMitel Team\nBuilt core features for a VoIP application, including authentication, call interface, and SIP integration on Android.\nEDUCATION\nDec 2020 - Jun 2023\nMASTER OF SCIENCE - PHYSICS AND INFORMATICS\nUNIVERSITY OF SCIENCE - VIETNAM NATIONAL UNIVERSITY HO CHI MINH CITY\nThesis: Stock Price Trend Prediction using Machine Learning\nTechnologies: Python, Keras, LSTM, Matplotlib\nReference: http://ir.vnulib.edu.vn/handle/VNUHCM/31347\nSep 2016 - Sep 2020\nBACHELOR OF SCIENCE - PHYSICS AND INFORMATICS\nUNIVERSITY OF SCIENCE - VIETNAM NATIONAL UNIVERSITY HO CHI MINH CITY\nThesis: Internal Social Network Application\nTechnologies: Flutter, React Native\nCERTIFICATIONS\nApr 2026\nGoogle AI Professional Certificate\nMay 2026\nGoogle Project Management Professional Certificate\nSKILLS\nMobile\nReact Native, Flutter, Kotlin, Swift\nKotlin Multiplatform Mobile (KMM)\nWearOS, watchOS\nMVVM, Clean Architecture\nAI\nPrompt and Context Engineering\nLLM, RAG, Fine-tuning\nFrontend\nReactJS, VueJS. NextJS\nBackend\nNodeJS, ExpressJS, NestJS\nDevOps\nCI/CD\nDocker\nAnalytics & Monitoring\nFirebase Analytics, Firebase Crashlytics, Grafana\nTools\nGit, Jira, Confluence\nPROJECTS & RESEARCH\nStock Prices Prediction - MSc Thesis\nJan 2022 - Mar 2023\nResearcher / Developer\nBuilt an LSTM-based model to predict VN-Index trends.\nTechnologies: Python, Keras, Matplotlib"
+    },
+    {
+      "page": 3,
+      "text": "Jan 2022 Mar 2023 Technologies: Python, Keras, Matplotlib\nSource: https://github.com/bachbnt/learn-stock_prices_prediction-python\nPersonal Portfolio Website\nApr 2021 - Apr 2021\nDeveloper\nDesigned and developed a personal portfolio website.\nTechnologies: ReactJS, Material UI, Firebase Hosting, CI/CD\nLive: https://bachbntdev.web.app\nInternal Social Network - BSc Thesis\nDec 2019 - Feb 2020\nDeveloper\nDeveloped an internal social networking platform.\nTechnologies: Flutter, BLoC, React Native, Redux\nSource: https://github.com/bachbnt/learn-pc_dashboard-flutter_reactnative"
+    }
+  ]
+}

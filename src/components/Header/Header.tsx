@@ -11,18 +11,20 @@ import {
   queryKeys,
   queryClient,
   useConfigQuery,
+  useCvQuery,
   usePostMockData,
-  useUserQuery,
 } from '@queries';
 import { RoutePath } from '@routes/routePath';
 import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
-import { Fragment, useState } from 'react';
+import { Fragment, lazy, Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
 import { useLocation, useNavigate } from 'react-router';
 import Props from './props';
 import useStyles from './styles';
+
+const CvPreviewDialog = lazy(() => import('@components/CvPreviewDialog'));
 
 const Header = (_props: Props) => {
   const classes = useStyles();
@@ -32,11 +34,11 @@ const Header = (_props: Props) => {
   const { trackEvent } = useTracker({}, false);
 
   const { data: config } = useConfigQuery();
-  const { data: user } = useUserQuery();
-  const profile = user?.profile;
+  const { data: cv } = useCvQuery();
   const postMockDataMutation = usePostMockData();
 
   const [open, setOpen] = useState<boolean>(false);
+  const [openCvPreview, setOpenCvPreview] = useState<boolean>(false);
 
   const onLogoClick = async () => {
     trackEvent('component_clicked', {
@@ -74,14 +76,11 @@ const Header = (_props: Props) => {
       await postMockDataMutation.mutateAsync();
       return;
     }
-    const url = profile?.cv;
-    if (url) {
-      trackEvent('component_clicked', {
-        component_name: 'header',
-        item_name: 'cv_button',
-      });
-      window.open(url);
-    }
+    trackEvent('component_clicked', {
+      component_name: 'header',
+      item_name: 'cv_button',
+    });
+    setOpenCvPreview(true);
   };
 
   const onHamburgerClick = () => {
@@ -139,6 +138,15 @@ const Header = (_props: Props) => {
           </Box>
         </Box>
       </Toolbar>
+      {openCvPreview && (
+        <Suspense fallback={null}>
+          <CvPreviewDialog
+            cv={cv}
+            open={openCvPreview}
+            onClose={() => setOpenCvPreview(false)}
+          />
+        </Suspense>
+      )}
     </AppBar>
   );
 };

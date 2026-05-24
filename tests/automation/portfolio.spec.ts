@@ -153,6 +153,22 @@ test.describe('portfolio app', () => {
     await expect(page.getByText('Mock assistant reply')).toBeVisible();
   });
 
+  test('opens the CV preview from the header', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByRole('button', { name: 'My CV' }).click();
+
+    await expect(page.getByText('CV Preview')).toBeVisible();
+    const downloadLink = page.getByRole('link', { name: /Download|Preparing/ });
+    await expect(downloadLink).toBeVisible();
+    await expect(downloadLink).toHaveAttribute(
+      'download',
+      'bui-ngo-ton-bach-cv.pdf',
+    );
+    await expect(page.locator('iframe')).toBeVisible();
+    await expect(page.locator('iframe')).toHaveAttribute('src', /^blob:/);
+  });
+
   test('renders the not-found page for unknown routes', async ({ page }) => {
     await page.goto('/unknown-route');
 

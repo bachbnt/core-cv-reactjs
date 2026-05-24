@@ -5,6 +5,7 @@
 export { queryClient, persister } from './queryClient';
 export { queryKeys } from './keys';
 export { default as useConfigQuery } from './useConfigQuery';
+export { default as useCvQuery } from './useCvQuery';
 export { default as useUserQuery } from './useUserQuery';
 export { default as useSendMessage } from './useSendMessage';
 export { default as useChatMutation } from './useChatMutation';

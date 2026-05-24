@@ -11,7 +11,8 @@ Production URL: [https://bachbntdev.web.app/](https://bachbntdev.web.app/)
 
 - Config-driven navigation with independent `Visible` and `Enable` flags for
   each route.
-- Responsive header and drawer navigation with active page state and CV link.
+- Responsive header and drawer navigation with active page state and dynamic CV
+  preview/download.
 - Wheel and touch navigation between visible pages, including page enter/exit
   animations.
 - Dynamic profile content loaded from Firebase Firestore, with deterministic
@@ -32,6 +33,8 @@ Production URL: [https://bachbntdev.web.app/](https://bachbntdev.web.app/)
 - Blog route placeholder controlled by config visibility.
 - Floating portfolio chatbot that answers from the loaded profile, resume,
   project, certificate, and contact data.
+- Firestore-backed CV document rendered to PDF in the browser, with a local JSON
+  backup for mock mode and recovery.
 - Chat provider selection through config for Gemini, OpenAI, or Claude via the
   Cloudflare Worker proxy.
 - Firestore-backed localization through i18next with English and Vietnamese
@@ -64,8 +67,14 @@ The app preloads config and user data in `src/App.tsx`.
   and preloads the background image.
 - `src/queries/useUserQuery.ts` loads profile, education, experience, skills,
   projects, services, contacts, payments, and certificates in parallel.
+- `src/queries/useCvQuery.ts` loads the CV document used by the header preview
+  dialog and PDF download action.
 - `src/services/service.ts` reads from Firestore unless
   `VITE_USE_MOCK_DATA=true`, in which case it uses `src/services/mock.ts`.
+- CV mock/fallback data is stored in `src/data/my-cv.json` and can be uploaded
+  to Firestore with `npm run upload:cv`.
+- CV preview/download naming is configured in `user/cv.metadata` with
+  `previewTitle` and `downloadFileName`.
 - List documents are filtered by `visible: true` and sorted by `index`.
 - Contact form submissions write to the `message` collection when mock mode is
   disabled.
@@ -76,7 +85,8 @@ Firestore data is organized around these collections and documents:
 | ---------- | --------------------- | ------------------------------------------------------------------ |
 | `config`   | `config`              | App title, icon, language, image defaults, page flags, chat flags. |
 | `config`   | `localization`        | Translation dictionaries by language key.                          |
-| `user`     | `profile`             | Name, avatar, CV URL, summary, covers, specialties.                |
+| `user`     | `profile`             | Name, avatar, summary, covers, specialties.                        |
+| `user`     | `cv`                  | Structured CV data for dynamic PDF preview and download.           |
 | `user`     | `education`           | Education timeline entries keyed by id.                            |
 | `user`     | `experience`          | Experience timeline entries keyed by id.                           |
 | `user`     | `skill`               | Skills grouped as framework, language, or tool.                    |
@@ -112,6 +122,15 @@ Firebase web app config is also read from `VITE_FIREBASE_*` variables in
 Use `VITE_USE_MOCK_DATA=true` for deterministic local development and tests
 without Firestore reads or writes.
 
+Backend scripts that write to Firestore use a Firebase service account. Set one
+of these in `.env` before running upload scripts:
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS="/absolute/path/to/firebase-service-account.json"
+FIREBASE_SERVICE_ACCOUNT_BASE64=""
+FIREBASE_SERVICE_ACCOUNT=""
+```
+
 ## Development
 
 ### `npm run dev`
@@ -134,6 +153,18 @@ Runs ESLint for app and test source.
 ### `npm run preview`
 
 Serves the production build locally after running `npm run build`.
+
+### `npm run upload:cv`
+
+Uploads `src/data/my-cv.json` to Firestore at `user/cv` using the configured
+Firebase service account. Use this after editing the JSON backup so the live app
+can render the updated CV remotely.
+
+Dry-run the script without writing to Firestore:
+
+```bash
+npm run upload:cv -- --dry-run
+```
 
 ## Testing
 

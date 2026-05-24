@@ -8,6 +8,7 @@ import { Certificate } from '@models/certificate';
 import { ChatMessage, ChatProvider } from '@models/chat';
 import { Config, parseConfig } from '@models/config';
 import { Contact } from '@models/contact';
+import { Cv, parseCv } from '@models/cv';
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
 import { Message } from '@models/message';
@@ -21,6 +22,7 @@ import filter from 'lodash/filter';
 import sortBy from 'lodash/sortBy';
 import { firestore } from './firebase';
 import MOCK from './mock';
+import cvBackup from '../data/my-cv.json';
 
 type MockArrayDocument<T> = {
   id: string;
@@ -97,6 +99,16 @@ export const getConfig = async (): Promise<Config> => {
   );
   const snapshot = await getDoc(ref);
   return parseConfig(snapshot.data() ?? {});
+};
+
+export const getCv = async (): Promise<Cv> => {
+  if (Constant.USE_MOCK_DATA) {
+    return parseCv(cvBackup);
+  }
+
+  const ref = doc(firestore, FirestoreCollection.USER, FirestoreDocument.CV);
+  const snapshot = await getDoc(ref);
+  return parseCv(snapshot.data() ?? cvBackup);
 };
 
 export const postMessage = async (message: Message): Promise<void> => {
