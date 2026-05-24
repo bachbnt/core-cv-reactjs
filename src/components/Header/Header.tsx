@@ -93,7 +93,7 @@ const Header = (_props: Props) => {
 
   return (
     <AppBar color='transparent' position='static'>
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <Avatar
           src={config?.appIcon}
           variant='rounded'

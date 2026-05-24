@@ -135,7 +135,9 @@ const Layout = (props: Props) => {
         key={location.pathname}
         className={`${classes.content} ${contentAnimClass}`}
       >
-        <Container maxWidth='xl'>{children} </Container>
+        <Container className={classes.contentContainer} maxWidth={false}>
+          {children}
+        </Container>
       </Box>
       <Footer />
     </Box>

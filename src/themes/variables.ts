@@ -7,6 +7,7 @@ const variables = {
 
   headerHeight: 64,
   footerHeight: 48,
+  desktopContentMaxWidth: 1440,
 
   fontSize: 14,
   fontSizeHeading1: 30,

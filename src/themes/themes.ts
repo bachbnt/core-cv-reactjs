@@ -61,6 +61,7 @@ const themes = {
               margin: 0,
             },
             body: {
+              backgroundColor: colors.black,
               backgroundImage: `url('${variables.backgroundUrl}')`,
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center center',

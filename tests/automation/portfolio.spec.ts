@@ -60,6 +60,21 @@ test.describe('portfolio app', () => {
     );
   });
 
+  test('constrains the layout frame on wide desktop screens', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 2560, height: 1440 });
+    await page.goto('/');
+
+    const contentBox = await getBox(page.locator('.MuiContainer-root').first());
+    const toolbarBox = await getBox(page.locator('.MuiToolbar-root').first());
+
+    expect(contentBox.width).toBeLessThanOrEqual(1441);
+    expect(toolbarBox.width).toBeLessThanOrEqual(1441);
+    expect(contentBox.x).toBeGreaterThan(500);
+    expect(toolbarBox.x).toBeGreaterThan(500);
+  });
+
   test('navigates between desktop pages from the header', async ({ page }) => {
     await page.goto('/');
 

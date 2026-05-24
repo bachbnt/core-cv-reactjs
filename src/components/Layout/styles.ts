@@ -19,6 +19,12 @@ export default makeStyles((theme: AppTheme) =>
       justifyContent: 'center',
       alignItems: 'center',
     },
+    contentContainer: {
+      width: '100%',
+      [theme.breakpoints.up('xl')]: {
+        maxWidth: theme.variables.desktopContentMaxWidth,
+      },
+    },
     enterNext: {
       animation: '$enterFromRight 350ms cubic-bezier(0.4, 0, 0.2, 1)',
     },

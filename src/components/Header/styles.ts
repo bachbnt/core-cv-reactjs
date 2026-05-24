@@ -7,6 +7,15 @@ import { AppTheme } from '@themes/themes';
 
 export default makeStyles((theme: AppTheme) =>
   createStyles({
+    toolbar: {
+      width: '100%',
+      boxSizing: 'border-box',
+      [theme.breakpoints.up('xl')]: {
+        maxWidth: theme.variables.desktopContentMaxWidth,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      },
+    },
     container: {
       display: 'flex',
     },
