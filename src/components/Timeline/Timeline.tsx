@@ -12,7 +12,14 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from '@mui/lab';
-import Props from './props';
+import { Education } from '@models/education';
+import { Experience } from '@models/experience';
+import type { ReactElement } from 'react';
+
+type Props = {
+  data: Education[] | Experience[];
+  renderItem: (item: Education | Experience) => ReactElement;
+};
 
 const Timeline = (props: Props) => {
   const { data, renderItem } = props;

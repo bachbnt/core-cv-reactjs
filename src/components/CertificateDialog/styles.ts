@@ -2,19 +2,17 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { createStyles, makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) =>
-  createStyles({
-    titleBox: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    img: {
-      width: '100%',
-      objectFit: 'contain',
-    },
-  }),
-);
+export default createStyleHook((theme: AppTheme) => ({
+  titleBox: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  img: {
+    width: '100%',
+    objectFit: 'contain',
+  },
+}));

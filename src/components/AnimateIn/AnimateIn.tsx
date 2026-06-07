@@ -2,7 +2,8 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { Box, BoxProps } from '@mui/material';
+import { Box } from '@mui/material';
+import type { BoxProps } from '@mui/material';
 
 interface Props extends BoxProps {
   delay?: number;

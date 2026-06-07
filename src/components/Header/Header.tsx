@@ -14,21 +14,20 @@ import {
   useCvQuery,
   usePostMockData,
 } from '@queries';
+import isRouteActive from '@routes/isRouteActive';
 import { RoutePath } from '@routes/routePath';
 import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
 import { Fragment, lazy, Suspense, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdMenu } from 'react-icons/md';
-import { useLocation, useNavigate } from 'react-router';
-import Props from './props';
+import { useLocation } from 'react-router-dom';
 import useStyles from './styles';
 
 const CvPreviewDialog = lazy(() => import('@components/CvPreviewDialog'));
 
-const Header = (_props: Props) => {
+const Header = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({}, false);
@@ -45,22 +44,22 @@ const Header = (_props: Props) => {
       component_name: 'header',
       item_name: 'logo_button',
     });
-    navigate(RoutePath.HOME, { replace: true });
     queryClient.invalidateQueries({ queryKey: queryKeys.config });
     queryClient.invalidateQueries({ queryKey: queryKeys.user });
+    window.location.replace(RoutePath.HOME);
   };
 
   const onPageClick = async (route: Route) => {
     const { component, path, trackingName } = route;
     if (
       (config as any)?.[`${lowerCase(component)}Enable`] &&
-      location.pathname !== path
+      !isRouteActive(location.pathname, path)
     ) {
       trackEvent('component_clicked', {
         component_name: 'header',
         item_name: `${trackingName}_button`,
       });
-      navigate(path);
+      window.location.assign(path);
     } else {
       copyUrl(path);
     }
@@ -114,9 +113,16 @@ const Header = (_props: Props) => {
             {routes.map((route) =>
               (config as any)?.[`${lowerCase(route.component)}Visible`] ? (
                 <Button
+                  aria-current={
+                    isRouteActive(location.pathname, route.path)
+                      ? 'page'
+                      : undefined
+                  }
                   className={classes.button}
                   variant={
-                    location.pathname === route.path ? 'contained' : 'text'
+                    isRouteActive(location.pathname, route.path)
+                      ? 'contained'
+                      : 'text'
                   }
                   key={route.name}
                   onClick={() => {

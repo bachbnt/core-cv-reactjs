@@ -2,13 +2,11 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { createStyles, makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) =>
-  createStyles({
-    img: {
-      width: '100%',
-    },
-  }),
-);
+export default createStyleHook((theme: AppTheme) => ({
+  img: {
+    width: '100%',
+  },
+}));

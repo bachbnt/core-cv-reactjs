@@ -42,7 +42,7 @@ const CertificateItem = (props: Props) => {
             <Typography variant='body2'>{item.issuer}</Typography>
           )}
           {item.timeVisible && (
-            <Box mt={1}>
+            <Box sx={{ mt: 1 }}>
               <Typography variant='caption'>{item.time}</Typography>
             </Box>
           )}

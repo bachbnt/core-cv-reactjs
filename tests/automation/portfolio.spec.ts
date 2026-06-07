@@ -80,11 +80,17 @@ test.describe('portfolio app', () => {
 
     await page.getByRole('button', { name: 'About', exact: true }).click();
     await expect(page).toHaveURL(/\/about$/);
+    await expect(
+      page.getByRole('button', { name: 'About', exact: true }),
+    ).toHaveAttribute('aria-current', 'page');
     await expect(page.getByText('Hello World!')).toBeVisible();
     await expect(page.getByText(/My name is Bach Bui/)).toBeVisible();
 
     await page.getByRole('button', { name: 'Resume', exact: true }).click();
     await expect(page).toHaveURL(/\/resume$/);
+    await expect(
+      page.getByRole('button', { name: 'Resume', exact: true }),
+    ).toHaveAttribute('aria-current', 'page');
     await expect(
       page.getByRole('heading', { name: 'Education' }),
     ).toBeVisible();
@@ -94,6 +100,9 @@ test.describe('portfolio app', () => {
 
     await page.getByRole('button', { name: 'Project', exact: true }).click();
     await expect(page).toHaveURL(/\/project$/);
+    await expect(
+      page.getByRole('button', { name: 'Project', exact: true }),
+    ).toHaveAttribute('aria-current', 'page');
     await expect(page.getByText('VenusAI')).toBeVisible();
   });
 
@@ -102,13 +111,16 @@ test.describe('portfolio app', () => {
     await page.goto('/');
 
     await page.getByRole('button', { name: 'Open menu' }).click();
-    await page
+    const contactDrawerButton = page
       .getByRole('button', { name: 'Contact', exact: true })
-      .last()
-      .click();
+      .last();
+
+    await contactDrawerButton.click();
 
     await expect(page).toHaveURL(/\/contact$/);
     await expect(page.getByText('Leave me a message')).toBeVisible();
+    await page.getByRole('button', { name: 'Open menu' }).click();
+    await expect(contactDrawerButton).toHaveAttribute('aria-current', 'page');
   });
 
   test('validates the contact message form', async ({ page }) => {

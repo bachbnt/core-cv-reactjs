@@ -7,10 +7,9 @@ import { Localization } from '@locales/i18n';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
 import { useTranslation } from 'react-i18next';
-import Props from './props';
 import useStyles from './styles';
 
-const Footer = (_props: Props) => {
+const Footer = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 

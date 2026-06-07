@@ -204,9 +204,9 @@ const themes = {
             },
           },
         },
-        MuiListItem: {
+        MuiListItemButton: {
           styleOverrides: {
-            button: {
+            root: {
               '&:hover': {
                 backgroundColor: colors.secondary,
               },

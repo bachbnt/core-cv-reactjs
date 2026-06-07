@@ -79,7 +79,7 @@ const ChatBot = () => {
               </Typography>
             ) : (
               <>
-                <Box flex={1}>
+                <Box sx={{ flex: 1 }}>
                   <TextField
                     inputRef={inputRef}
                     multiline
@@ -90,7 +90,7 @@ const ChatBot = () => {
                     onChange={(event) =>
                       setInputValue(event.target.value.slice(0, 500))
                     }
-                    inputProps={{ onKeyDown: handleKeyDown }}
+                    onKeyDown={handleKeyDown}
                     disabled={isLoading}
                   />
                 </Box>

@@ -2,10 +2,10 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { makeStyles } from '@mui/styles';
+import createStyleHook from '@themes/createStyleHook';
 import type { AppTheme } from './themes';
 
-const styles = makeStyles((theme: AppTheme) => ({
+const styles = createStyleHook((theme: AppTheme) => ({
   card: {
     display: 'flex',
     justifyContent: 'center',

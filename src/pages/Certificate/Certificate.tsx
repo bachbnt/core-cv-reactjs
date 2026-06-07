@@ -14,9 +14,8 @@ import { Certificate as CertificateModel } from '@models/certificate';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
-import Props from './props';
 
-const Certificate = (props: Props) => {
+const Certificate = () => {
   const themeClasses = useThemeStyles();
   const { trackEvent } = useTracker({ page_name: 'page9_certificate' });
 
@@ -31,7 +30,7 @@ const Certificate = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid className={themeClasses.container} container spacing={4}>
           {certificate.map((cert, index) => (
-            <Grid key={cert.id} item xs={12} md='auto'>
+            <Grid key={cert.id} size={{ xs: 12, md: 'auto' }}>
               <AnimateIn delay={index * 80}>
                 <CertificateItem
                   item={cert}

@@ -1,9 +1,11 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import viteTsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [react(), viteTsconfigPaths()],
+  plugins: [react()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   server: {
     open: true,
     port: 3000,
@@ -12,6 +14,7 @@ export default defineConfig({
     outDir: 'build',
     sourcemap: false,
     cssCodeSplit: true,
+    chunkSizeWarningLimit: 1600,
     commonjsOptions: {
       transformMixedEsModules: true,
     },

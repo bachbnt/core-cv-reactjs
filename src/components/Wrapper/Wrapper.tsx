@@ -11,7 +11,10 @@ import {
   Suspense,
   useMemo,
 } from 'react';
-import Props from './props';
+
+type Props = {
+  page: string;
+};
 
 interface ErrorBoundaryState {
   hasError: boolean;

@@ -3,13 +3,16 @@
  */
 
 import { Button as MuiButton } from '@mui/material';
-import Props from './props';
-import useStyles from './styles';
+import type { ButtonProps } from '@mui/material';
+import type { ElementType } from 'react';
+
+type Props = ButtonProps & {
+  component?: ElementType;
+  to?: string;
+};
 
 const Button = (props: Props) => {
-  const classes = useStyles();
-
-  return <MuiButton classes={{ root: classes.root }} {...props} />;
+  return <MuiButton {...props} />;
 };
 
 export default Button;

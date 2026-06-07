@@ -23,7 +23,7 @@ export default defineConfig({
     video: 'retain-on-failure',
   },
   webServer: {
-    command: `VITE_USE_MOCK_DATA=true VITE_CHAT_PROXY_URL=${baseURL}/__chat-proxy npm run dev -- --host 127.0.0.1 --port ${port} --strictPort`,
+    command: `VITE_USE_MOCK_DATA=true VITE_CHAT_PROXY_URL=${baseURL}/__chat-proxy npm run build && npm run preview -- --host 127.0.0.1 --port ${port} --strictPort`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

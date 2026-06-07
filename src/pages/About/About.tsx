@@ -12,10 +12,9 @@ import useThemeStyles from '@themes/styles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';
-import Props from './props';
 import useStyles from './styles';
 
-const About = (props: Props) => {
+const About = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
@@ -69,7 +68,7 @@ const About = (props: Props) => {
 
   const renderSkillItem = (item: Skill) => {
     return item.visible ? (
-      <Grid key={item.id} container item xs={6} md={4}>
+      <Grid key={item.id} container size={{ xs: 6, md: 4 }}>
         <Button
           className={classes.skillText}
           startIcon={renderSkillIcon(item.type)}
@@ -85,7 +84,7 @@ const About = (props: Props) => {
   return (
     <Layout>
       <Grid className={themeClasses.container} container>
-        <Grid className={classes.infoContainer} item xs={12} md={6}>
+        <Grid className={classes.infoContainer} size={{ xs: 12, md: 6 }}>
           <AnimateIn delay={0}>
             <Typography color='primary' variant='h5'>
               {t(Localization.page2_title1)}
@@ -96,25 +95,25 @@ const About = (props: Props) => {
                 specialty: profile?.specialties[0].name,
               })}
             </Typography>
-            <Box mt={2} mb={4}>
+            <Box sx={{ mt: 2, mb: 4 }}>
               <Typography variant='subtitle1' align='justify'>
                 {profile?.summary}
               </Typography>
             </Box>
-            <Box my={2}>
+            <Box sx={{ my: 2 }}>
               <Typography color='primary' variant='h5'>
                 {t(Localization.page2_title3)}
               </Typography>
             </Box>
-            <Grid container xs={12} item>
+            <Grid container size={{ xs: 12 }}>
               {framework.map((item) => renderSkillItem(item))}
             </Grid>
-            <Box my={2} />
-            <Grid container xs={12} item>
+            <Box sx={{ my: 2 }} />
+            <Grid container size={{ xs: 12 }}>
               {language.map((item) => renderSkillItem(item))}
             </Grid>
-            <Box my={2} />
-            <Grid container xs={12} item>
+            <Box sx={{ my: 2 }} />
+            <Grid container size={{ xs: 12 }}>
               {tool.map((item) => renderSkillItem(item))}
             </Grid>
           </AnimateIn>
@@ -122,11 +121,8 @@ const About = (props: Props) => {
         <Grid
           className={classes.imgContainer}
           container
-          justifyContent='center'
-          alignItems='center'
-          xs={12}
-          md={6}
-          item
+          size={{ xs: 12, md: 6 }}
+          sx={{ justifyContent: 'center', alignItems: 'center' }}
         >
           <AnimateIn delay={200}>
             <Carousel className={classes.img}>

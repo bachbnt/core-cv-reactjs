@@ -56,7 +56,10 @@
 
 - Prefer the existing MUI theme overrides in `src/themes/themes.ts` for global
   component behavior.
-- Use page/component `styles.ts` for local layout only.
+- Prefer `sx` for small one-off local styles.
+- Use page/component `styles.ts` only for meaningful local layout, responsive
+  rules, animation styles, or shared class names inside that component/page.
+- Do not keep empty `styles.ts` files.
 - Keep button heights stable across variants and hover states; account for
   border width with `boxSizing` or equivalent.
 - Avoid layout shifts from hover states, dynamic labels, loading states, and

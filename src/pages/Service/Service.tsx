@@ -7,9 +7,8 @@ import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
-import Props from './props';
 
-const Service = (props: Props) => {
+const Service = () => {
   const themeClasses = useThemeStyles();
   const { trackEvent } = useTracker({ page_name: 'page6_service' });
 
@@ -21,7 +20,7 @@ const Service = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid className={themeClasses.container} container spacing={4}>
           {service.map((item, index) => (
-            <Grid key={item.id} item>
+            <Grid key={item.id}>
               <AnimateIn delay={index * 80}>
                 <ServiceItem
                   item={item}

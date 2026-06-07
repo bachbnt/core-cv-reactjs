@@ -3,8 +3,10 @@
  */
 
 import { TextField as MuiTextField } from '@mui/material';
-import Props from './props';
+import type { TextFieldProps } from '@mui/material';
 import useStyles from './styles';
+
+type Props = TextFieldProps;
 
 const TextField = (props: Props) => {
   const classes = useStyles();

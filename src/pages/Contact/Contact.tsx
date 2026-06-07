@@ -22,11 +22,10 @@ import filter from 'lodash/filter';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import Props from './props';
 import useStyles from './styles';
 import { FormValues, contactSchema } from './validation';
 
-const Contact = (_props: Props) => {
+const Contact = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
@@ -73,17 +72,15 @@ const Contact = (_props: Props) => {
 
   return (
     <Layout>
-      <Grid className={themeClasses.container} container xs={12} item>
+      <Grid className={themeClasses.container} container size={{ xs: 12 }}>
         <Grid
           className={classes.contactContainer}
           container
-          xs={12}
-          md={6}
           spacing={4}
-          item
+          size={{ xs: 12, md: 6 }}
         >
           {contacts.map((item, index) => (
-            <Grid key={item.id} item>
+            <Grid key={item.id}>
               <AnimateIn delay={index * 80}>
                 <ContactItem
                   item={item}
@@ -98,7 +95,7 @@ const Contact = (_props: Props) => {
             </Grid>
           ))}
         </Grid>
-        <Grid className={classes.messageContainer} xs={12} md={6} item>
+        <Grid className={classes.messageContainer} size={{ xs: 12, md: 6 }}>
           <AnimateIn delay={200}>
             <Card className={classes.card}>
               <CardContent className={classes.center}>
@@ -106,25 +103,25 @@ const Contact = (_props: Props) => {
                   <Typography color='primary' variant='h6'>
                     {t(Localization.page7_title)}
                   </Typography>
-                  <Box my={1} />
+                  <Box sx={{ my: 1 }} />
                   <TextFormField
                     name='name'
                     label={t(Localization.page7_field1)}
                     multiline
                     maxRows={2}
                   />
-                  <Box my={1} />
+                  <Box sx={{ my: 1 }} />
                   <TextFormField
                     name='message'
                     label={t(Localization.page7_field2)}
                     multiline
                     rows={10}
                   />
-                  <Box my={2} />
+                  <Box sx={{ my: 2 }} />
                   <Button variant='contained' onClick={handleSubmit(onSubmit)}>
                     {t(Localization.page7_button)}
                   </Button>
-                  <Box my={2} />
+                  <Box sx={{ my: 2 }} />
                 </FormProvider>
               </CardContent>
             </Card>

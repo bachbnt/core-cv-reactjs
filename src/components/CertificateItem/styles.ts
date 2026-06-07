@@ -2,25 +2,23 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { createStyles, makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) =>
-  createStyles({
-    card: {
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: 680,
-      },
+export default createStyleHook((theme: AppTheme) => ({
+  card: {
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: 680,
     },
-    img: {
-      width: '100%',
-      height: 'auto',
-      display: 'block',
-      [theme.breakpoints.up('md')]: {
-        height: 520,
-        objectFit: 'contain',
-      },
+  },
+  img: {
+    width: '100%',
+    height: 'auto',
+    display: 'block',
+    [theme.breakpoints.up('md')]: {
+      height: 520,
+      objectFit: 'contain',
     },
-  }),
-);
+  },
+}));

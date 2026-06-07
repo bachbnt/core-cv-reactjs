@@ -6,9 +6,8 @@ import { Layout } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
 import useThemeStyles from '@themes/styles';
-import Props from './props';
 
-const Blog = (props: Props) => {
+const Blog = () => {
   const themeClasses = useThemeStyles();
   useTracker({ page_name: 'page5_blog' });
 

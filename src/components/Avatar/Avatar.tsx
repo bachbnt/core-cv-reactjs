@@ -3,8 +3,10 @@
  */
 
 import { Avatar as MuiAvatar } from '@mui/material';
-import Props from './props';
+import type { AvatarProps } from '@mui/material';
 import useStyles from './styles';
+
+type Props = AvatarProps;
 
 const Avatar = (props: Props) => {
   const classes = useStyles();

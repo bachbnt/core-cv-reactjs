@@ -60,7 +60,7 @@ const ProjectItem = (props: Props) => {
             </Typography>
           )}
           {item.descriptionVisible && (
-            <Box overflow='hidden'>
+            <Box sx={{ overflow: 'hidden' }}>
               <Typography
                 className={themeClasses.cardDescription}
                 variant='body2'
@@ -70,16 +70,18 @@ const ProjectItem = (props: Props) => {
             </Box>
           )}
           {item.technologyVisible && (
-            <Box my={2}>
+            <Box sx={{ my: 2 }}>
               <Typography variant='subtitle2'>{item.technology}</Typography>
             </Box>
           )}
           {Array.isArray(item.refs) && item.refs.length && (
             <Box
-              my={2}
-              display='flex'
-              flexDirection='column'
-              alignItems='flex-start'
+              sx={{
+                my: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+              }}
             >
               <Link
                 component='button'

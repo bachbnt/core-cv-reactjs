@@ -36,10 +36,11 @@ onTTFB(reportWebVital());
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
+const appTheme = { ...themes, colors, styles, variables };
 
 root.render(
   <StyledEngineProvider injectFirst>
-    <ThemeProvider theme={{ ...themes, colors, styles, variables }}>
+    <ThemeProvider theme={appTheme}>
       <CssBaseline />
       <PersistQueryClientProvider
         client={queryClient}

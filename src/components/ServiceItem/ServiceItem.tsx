@@ -30,7 +30,7 @@ const ServiceItem = (props: Props) => {
             </Typography>
           )}
           {item.descriptionVisible && (
-            <Box mt={2} overflow='hidden'>
+            <Box sx={{ mt: 2, overflow: 'hidden' }}>
               <Typography
                 className={themeClasses.cardDescription}
                 variant='body2'

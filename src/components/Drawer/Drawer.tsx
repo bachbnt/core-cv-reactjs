@@ -6,20 +6,24 @@ import Constant from '@core/constants';
 import useTracker from '@hooks/useTracker';
 import {
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
   Drawer as MuiDrawer,
 } from '@mui/material';
 import { useConfigQuery } from '@queries';
+import isRouteActive from '@routes/isRouteActive';
 import { Route, routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router';
-import Props from './props';
+import { useLocation } from 'react-router-dom';
+
+type Props = {
+  open: boolean;
+  onClose: () => void;
+};
 
 const Drawer = (props: Props) => {
   const { open, onClose } = props;
-  const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({}, false);
@@ -30,13 +34,13 @@ const Drawer = (props: Props) => {
     const { component, path, trackingName } = route;
     if (
       (config as any)?.[`${lowerCase(component)}Enable`] &&
-      location.pathname !== path
+      !isRouteActive(location.pathname, path)
     ) {
       trackEvent('component_clicked', {
         component_name: 'drawer',
         item_name: `${trackingName}_button`,
       });
-      navigate(path);
+      window.location.assign(path);
     } else {
       copyUrl(path);
     }
@@ -52,16 +56,21 @@ const Drawer = (props: Props) => {
       <List>
         {routes.map((route) =>
           (config as any)?.[`${lowerCase(route.component)}Visible`] ? (
-            <ListItem
+            <ListItemButton
+              aria-current={
+                isRouteActive(location.pathname, route.path)
+                  ? 'page'
+                  : undefined
+              }
               key={route.name}
-              button
-              selected={location.pathname === route.path}
+              selected={isRouteActive(location.pathname, route.path)}
               onClick={() => {
                 onPageClick(route);
+                onClose();
               }}
             >
               <ListItemText primary={t(route.name)}></ListItemText>
-            </ListItem>
+            </ListItemButton>
           ) : null,
         )}
       </List>

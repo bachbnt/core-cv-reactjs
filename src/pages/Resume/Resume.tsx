@@ -18,9 +18,8 @@ import { Experience } from '@models/experience';
 import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import { useTranslation } from 'react-i18next';
-import Props from './props';
 
-const Resume = (props: Props) => {
+const Resume = () => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({ page_name: 'page3_resume' });
@@ -31,8 +30,8 @@ const Resume = (props: Props) => {
   return (
     <Layout>
       <Grid className={themeClasses.container} container>
-        <AnimateIn delay={0} width='100%'>
-          <Box mb={2} width='100%' textAlign='center'>
+        <AnimateIn delay={0} sx={{ width: '100%' }}>
+          <Box sx={{ mb: 2, width: '100%', textAlign: 'center' }}>
             <Typography color='primary' variant='h4'>
               {t(Localization.page3_title1)}
             </Typography>
@@ -55,8 +54,8 @@ const Resume = (props: Props) => {
             />
           </Grid>
         </AnimateIn>
-        <AnimateIn delay={150} width='100%'>
-          <Box mt={6} mb={2} width='100%' textAlign='center'>
+        <AnimateIn delay={150} sx={{ width: '100%' }}>
+          <Box sx={{ mt: 6, mb: 2, width: '100%', textAlign: 'center' }}>
             <Typography color='primary' variant='h4'>
               {t(Localization.page3_title2)}
             </Typography>

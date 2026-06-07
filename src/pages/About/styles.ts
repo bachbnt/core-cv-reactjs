@@ -2,10 +2,10 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) => ({
+export default createStyleHook((theme: AppTheme) => ({
   infoContainer: {
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
@@ -29,5 +29,8 @@ export default makeStyles((theme: AppTheme) => ({
   skillText: {
     textTransform: 'capitalize',
     textAlign: 'start',
+    '& svg': {
+      color: theme.colors.primary,
+    },
   },
 }));

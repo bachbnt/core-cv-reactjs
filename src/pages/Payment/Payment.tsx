@@ -9,9 +9,8 @@ import { Payment as PaymentModel } from '@models/payment';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
-import Props from './props';
 
-const Payment = (props: Props) => {
+const Payment = () => {
   const themeClasses = useThemeStyles();
   const { trackEvent } = useTracker({ page_name: 'page8_payment' });
 
@@ -46,7 +45,7 @@ const Payment = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid className={themeClasses.container} container spacing={4}>
           {payment.map((item, index) => (
-            <Grid key={item.id} item>
+            <Grid key={item.id}>
               <AnimateIn delay={index * 80}>
                 <PaymentItem
                   item={item}

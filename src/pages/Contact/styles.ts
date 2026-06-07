@@ -2,10 +2,10 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) => ({
+export default createStyleHook((theme: AppTheme) => ({
   contactContainer: {
     paddingLeft: 0,
     [theme.breakpoints.up('md')]: {

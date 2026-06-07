@@ -34,7 +34,7 @@ const EducationItem = (props: Props) => {
             <Typography variant='subtitle1'>{item.degree}</Typography>
           )}
           {item.majorVisible && (
-            <Box mt={2}>
+            <Box sx={{ mt: 2 }}>
               <Typography variant='body2'>{item.major} </Typography>
             </Box>
           )}

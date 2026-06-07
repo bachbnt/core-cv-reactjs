@@ -3,13 +3,12 @@
  */
 
 import { IconButton as MuiIconButton } from '@mui/material';
-import Props from './props';
-import useStyles from './styles';
+import type { IconButtonProps } from '@mui/material';
+
+type Props = IconButtonProps;
 
 const IconButton = (props: Props) => {
-  const classes = useStyles();
-
-  return <MuiIconButton classes={{ root: classes.root }} {...props} />;
+  return <MuiIconButton {...props} />;
 };
 
 export default IconButton;

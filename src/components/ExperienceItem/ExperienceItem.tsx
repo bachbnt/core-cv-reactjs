@@ -34,7 +34,7 @@ const ExperienceItem = (props: Props) => {
             <Typography variant='subtitle1'>{item.position}</Typography>
           )}
           {item.responsibilityVisible && (
-            <Box mt={2}>
+            <Box sx={{ mt: 2 }}>
               <Typography variant='body2'>{item.responsibility} </Typography>
             </Box>
           )}

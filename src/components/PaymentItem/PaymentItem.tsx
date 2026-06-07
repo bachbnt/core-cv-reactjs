@@ -46,11 +46,13 @@ const PaymentItem = (props: Props) => {
           )}
           {item.accountVisible && (
             <Box
-              display='flex'
-              flexDirection='row'
-              alignItems='center'
-              mb={1}
-              gap={1}
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                mb: 1,
+                gap: 1,
+              }}
             >
               <Typography
                 className={clsx(themeClasses.cardDescription, classes.account)}
@@ -68,7 +70,14 @@ const PaymentItem = (props: Props) => {
             </Box>
           )}
           {item.qrCodeVisible && (
-            <Box mt={2} width='100%' display='flex' justifyContent='center'>
+            <Box
+              sx={{
+                mt: 2,
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
               <CardMedia
                 className={classes.img}
                 component='img'

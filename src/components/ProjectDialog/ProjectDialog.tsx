@@ -64,16 +64,18 @@ const ProjectDialog = (props: Props) => {
           )}
 
           {item.technologyVisible && (
-            <Box my={2}>
+            <Box sx={{ my: 2 }}>
               <Typography variant='subtitle2'>{item.technology}</Typography>
             </Box>
           )}
           {Array.isArray(item.refs) && item.refs.length && (
             <Box
-              my={2}
-              display='flex'
-              flexDirection='column'
-              alignItems='flex-start'
+              sx={{
+                my: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+              }}
             >
               {item.refs.map((ref) => (
                 <Link

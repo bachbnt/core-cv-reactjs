@@ -10,7 +10,6 @@ export { default as CertificateDialog } from './CertificateDialog';
 export { default as CertificateItem } from './CertificateItem';
 export { default as ChatBot } from './ChatBot';
 export { default as ContactItem } from './ContactItem';
-export { default as CvPreviewDialog } from './CvPreviewDialog';
 export { default as Drawer } from './Drawer';
 export { default as EducationItem } from './EducationItem';
 export { default as ExperienceItem } from './ExperienceItem';

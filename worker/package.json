@@ -10,11 +10,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "^3.23.0"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240725.0",
-    "typescript": "^5.4.0",
-    "wrangler": "^4.92.0"
+    "@cloudflare/workers-types": "^4.20260606.1",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.98.0"
   }
 }

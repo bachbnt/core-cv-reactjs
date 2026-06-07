@@ -5,7 +5,7 @@
 import { TrackingEvent, TrackingParams } from '@models/tracking';
 import { analytics } from '@services/firebase';
 import { logEvent } from 'firebase/analytics';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const useTracker = (
@@ -14,28 +14,22 @@ const useTracker = (
 ) => {
   const location = useLocation();
 
-  const trackEvent = (
-    event: TrackingEvent,
-    otherParams?: Partial<TrackingParams>,
-  ) => {
-    console.log(
-      JSON.stringify({
+  const trackEvent = useCallback(
+    (event: TrackingEvent, otherParams?: Partial<TrackingParams>) => {
+      logEvent(analytics, event, {
         ...trackingParams,
         ...otherParams,
         page_path: location.pathname,
-      }),
-    );
-    logEvent(analytics, event, {
-      ...trackingParams,
-      ...otherParams,
-      page_path: location.pathname,
-    });
-  };
+      });
+    },
+    [location.pathname, trackingParams],
+  );
+
   useEffect(() => {
     if (trackDisplayed) {
       trackEvent('component_displayed');
     }
-  }, [trackDisplayed]);
+  }, [trackDisplayed, trackEvent]);
 
   return {
     trackEvent,

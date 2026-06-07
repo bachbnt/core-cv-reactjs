@@ -4,27 +4,25 @@
 
 import { ChatBot, Spinner, Wrapper } from '@components';
 import { Suspense } from 'react';
-import { Routes } from 'react-router';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './routes';
+
+const router = createBrowserRouter(
+  routes.map((route) => ({
+    path: route.path,
+    element: <Wrapper page={route.component} />,
+  })),
+);
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        {routes.map((route) => (
-          <Route
-            key={route.name}
-            path={route.path}
-            element={<Wrapper page={route.component} />}
-          />
-        ))}
-      </Routes>
+    <>
+      <RouterProvider router={router} />
       <Spinner />
       <Suspense fallback={null}>
         <ChatBot />
       </Suspense>
-    </BrowserRouter>
+    </>
   );
 };
 

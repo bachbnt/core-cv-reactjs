@@ -6,9 +6,8 @@ import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
 import { useConfigQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
-import Props from './props';
 
-const NotFound = (_props: Props) => {
+const NotFound = () => {
   const themeClasses = useThemeStyles();
   useTracker({ page_name: 'page_404_not_found' });
 

@@ -14,7 +14,7 @@ import {
   View,
 } from '@react-pdf/renderer';
 import { Cv, CvEducation, CvExperience, CvProject } from '@models/cv';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 Font.register({
   family: 'NotoSans',

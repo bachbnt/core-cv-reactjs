@@ -8,14 +8,17 @@ import { useConfigQuery } from '@queries';
 import { routes } from '@routes/routes';
 import lowerCase from 'lodash/lowerCase';
 import { useEffect, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
-import Props from './props';
+import type { ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 import useStyles from './styles';
+
+type Props = {
+  children?: ReactNode;
+};
 
 const Layout = (props: Props) => {
   const classes = useStyles();
   const { children } = props;
-  const navigate = useNavigate();
   const location = useLocation();
   const { data: config } = useConfigQuery();
 
@@ -29,10 +32,10 @@ const Layout = (props: Props) => {
       const path = pendingPathRef.current!;
       pendingPathRef.current = null;
       setIsExiting(false);
-      navigate(path);
+      window.location.assign(path);
     }, 280);
     return () => clearTimeout(timer);
-  }, [isExiting, navigate]);
+  }, [isExiting]);
 
   useEffect(() => {
     const visibleRoutes = routes.filter(

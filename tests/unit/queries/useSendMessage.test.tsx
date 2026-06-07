@@ -2,7 +2,7 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { renderHook, waitFor } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { createQueryWrapper } from '../helpers/queryWrapper';
 
@@ -30,7 +30,7 @@ describe('useSendMessage', () => {
       name: 'Bach',
       message: 'Hello',
     });
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+    await vi.waitFor(() => expect(result.current.isSuccess).toBe(true));
   });
 
   it('surfaces errors back to the caller', async () => {

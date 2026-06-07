@@ -2,18 +2,16 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { createStyles, makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) =>
-  createStyles({
-    card: {
-      width: 350,
-      height: 400,
-    },
-    img: {
-      height: 200,
-      objectFit: 'contain',
-    },
-  }),
-);
+export default createStyleHook((theme: AppTheme) => ({
+  card: {
+    width: 350,
+    height: 400,
+  },
+  img: {
+    height: 200,
+    objectFit: 'contain',
+  },
+}));

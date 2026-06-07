@@ -18,9 +18,8 @@ import { useUserQuery } from '@queries';
 import useThemeStyles from '@themes/styles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Props from './props';
 
-const Project = (props: Props) => {
+const Project = () => {
   const themeClasses = useThemeStyles();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({ page_name: 'page4_project' });
@@ -56,14 +55,14 @@ const Project = (props: Props) => {
       <Grid className={themeClasses.container} container>
         {company?.length > 0 && (
           <>
-            <Box mb={1}>
+            <Box sx={{ mb: 1 }}>
               <Typography color='primary' variant='h4'>
                 {t(Localization.page4_title1)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
               {company.map((item, index) => (
-                <Grid key={item.id} item>
+                <Grid key={item.id}>
                   <AnimateIn delay={index * 80}>
                     <ProjectItem
                       item={item}
@@ -84,14 +83,14 @@ const Project = (props: Props) => {
 
         {freelance?.length > 0 && (
           <>
-            <Box mb={1}>
+            <Box sx={{ mb: 1 }}>
               <Typography color='primary' variant='h4'>
                 {t(Localization.page4_title2)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
               {freelance.map((item, index) => (
-                <Grid key={item.id} item>
+                <Grid key={item.id}>
                   <AnimateIn delay={index * 80}>
                     <ProjectItem
                       item={item}
@@ -106,14 +105,14 @@ const Project = (props: Props) => {
 
         {personal?.length > 0 && (
           <>
-            <Box mb={1}>
+            <Box sx={{ mb: 1 }}>
               <Typography color='primary' variant='h4'>
                 {t(Localization.page4_title3)}
               </Typography>
             </Box>
             <Grid className={themeClasses.container} container spacing={4}>
               {personal.map((item, index) => (
-                <Grid key={item.id} item>
+                <Grid key={item.id}>
                   <AnimateIn delay={index * 80}>
                     <ProjectItem
                       item={item}

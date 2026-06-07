@@ -20,14 +20,11 @@ import useThemeStyles from '@themes/styles';
 import filter from 'lodash/filter';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
-import Props from './props';
 import useStyles from './styles';
 
-const Home = (props: Props) => {
+const Home = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({
     page_name: 'page1_home',
@@ -49,7 +46,7 @@ const Home = (props: Props) => {
       trackEvent('component_clicked', {
         component_name: 'page1_button1_about',
       });
-      navigate(RoutePath.ABOUT);
+      window.location.assign(RoutePath.ABOUT);
     }
   };
   const onContactClick = () => {
@@ -57,7 +54,7 @@ const Home = (props: Props) => {
       trackEvent('component_clicked', {
         component_name: 'page1_button2_contact',
       });
-      navigate(RoutePath.CONTACT);
+      window.location.assign(RoutePath.CONTACT);
     }
   };
 
@@ -66,30 +63,27 @@ const Home = (props: Props) => {
       <Grid className={themeClasses.container} container>
         <Grid
           container
-          item
-          justifyContent='center'
-          alignItems='center'
-          xs={12}
-          md={6}
+          size={{ xs: 12, md: 6 }}
+          sx={{ justifyContent: 'center', alignItems: 'center' }}
         >
           <AnimateIn delay={0}>
             <Avatar src={profile?.avatar} />
           </AnimateIn>
         </Grid>
-        <Grid className={classes.infoContainer} item xs={12} md={6}>
+        <Grid className={classes.infoContainer} size={{ xs: 12, md: 6 }}>
           <AnimateIn delay={150}>
             <Typography className={classes.greeting} variant='h6'>
               {t(Localization.page1_title).toUpperCase()}
             </Typography>
-            <Box my={2} />
+            <Box sx={{ my: 2 }} />
             <Typography color='primary' variant='h1'>
               {profile?.name}
             </Typography>
             <Typography color='primary' variant='h4'>
               {profile?.specialties?.[0]?.name}
             </Typography>
-            <Box mt={2} mb={6}>
-              <Grid container item>
+            <Box sx={{ mt: 2, mb: 6 }}>
+              <Grid container>
                 {socialContacts?.map((item) => (
                   <Tooltip
                     key={item.id}
@@ -110,8 +104,8 @@ const Home = (props: Props) => {
                 ))}
               </Grid>
             </Box>
-            <Grid container item>
-              <Grid item xs={6} md={4}>
+            <Grid container>
+              <Grid size={{ xs: 6, md: 4 }}>
                 <Button
                   variant='contained'
                   className={classes.leftButton}
@@ -121,7 +115,7 @@ const Home = (props: Props) => {
                   {t(Localization.page1_button1)}
                 </Button>
               </Grid>
-              <Grid item xs={6} md={4}>
+              <Grid size={{ xs: 6, md: 4 }}>
                 <Button
                   variant='outlined'
                   className={classes.rightButton}

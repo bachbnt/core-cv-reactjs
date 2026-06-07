@@ -2,25 +2,57 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { createStyles, makeStyles } from '@mui/styles';
-import { AppTheme } from '@themes/themes';
+import createStyleHook from '@themes/createStyleHook';
+import type { AppTheme } from '@themes/themes';
 
-export default makeStyles((theme: AppTheme) =>
-  createStyles({
-    root: {},
-    indicator: {
-      color: `${theme.colors.grey} !important`,
-      '& .MuiSvgIcon-root': {
-        color: '#9E9E9E !important',
-      },
-      opacity: '0.6 !important',
+export default createStyleHook((theme: AppTheme) => ({
+  root: {
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  stage: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  indicator: {
+    width: 10,
+    height: 10,
+    padding: 0,
+    border: 0,
+    borderRadius: '50%',
+    backgroundColor: '#9E9E9E',
+    cursor: 'pointer',
+    opacity: 0.6,
+  },
+  activeIndicator: {
+    backgroundColor: theme.palette.primary.main,
+    opacity: 1,
+  },
+  indicators: {
+    position: 'absolute',
+    right: 0,
+    bottom: theme.spacing(1),
+    left: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    gap: theme.spacing(1),
+  },
+  navButton: {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    backgroundColor: 'rgba(0, 0, 0, 0.35) !important',
+    '&:hover': {
+      backgroundColor: `${theme.colors.secondary} !important`,
     },
-    activeIndicator: {
-      color: `${theme.palette.primary.main} !important`,
-      '& .MuiSvgIcon-root': {
-        color: `${theme.palette.primary.main} !important`,
-      },
-      opacity: '1 !important',
-    },
-  }),
-);
+  },
+  prevButton: {
+    left: theme.spacing(1),
+  },
+  nextButton: {
+    right: theme.spacing(1),
+  },
+}));

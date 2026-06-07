@@ -33,9 +33,17 @@ Avoid importing page code into components, services, models, or stores.
    */
   ```
 
-- Existing component/page folders usually contain:
-  `Component.tsx`, `styles.ts`, `props.ts`, `index.ts`.
-- Preserve this shape when adding similar modules.
+- Component/page folders should keep `index.ts` as the public export and the
+  main implementation in `Component.tsx` or `Page.tsx`.
+- Do not create empty `props.ts` or `styles.ts` files just to preserve folder
+  shape.
+- Keep props/types inline in the component file when they are short, used by one
+  component only, or represent an empty object.
+- Split props/types into `props.ts` only when they are large, reused by multiple
+  files, or carry domain-heavy callback contracts.
+- Keep styles inline with `sx` for small local rules. Use `styles.ts` only when
+  the component/page has meaningful reusable local layout, responsive rules, or
+  animation styles.
 - Keep `index.ts` files as exports only.
 - Keep tests out of `src`; unit tests belong in `tests/unit`, automation tests
   in `tests/automation`.
