@@ -5,7 +5,7 @@
 import { css, keyframes } from '@emotion/css';
 import { useTheme } from '@mui/material/styles';
 import { useMemo } from 'react';
-import type { AppTheme } from './themes';
+import type { AppTheme } from './theme';
 
 type StyleMap = Record<string, any>;
 type Classes<T extends StyleMap> = {

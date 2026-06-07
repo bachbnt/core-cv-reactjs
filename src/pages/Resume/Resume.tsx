@@ -16,7 +16,7 @@ import { Box, Grid } from '@mui/material';
 import { Education } from '@models/education';
 import { Experience } from '@models/experience';
 import { useUserQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 import { useTranslation } from 'react-i18next';
 
 const Resume = () => {

@@ -5,7 +5,7 @@
 import { Layout } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 
 const Blog = () => {
   const themeClasses = useThemeStyles();

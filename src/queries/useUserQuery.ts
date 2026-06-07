@@ -15,7 +15,7 @@ import {
   getService,
   getSkill,
 } from '@services/service';
-import { queryKeys } from './keys';
+import { queryKeys } from './queryKeys';
 
 const useUserQuery = () =>
   useQuery<User>({

@@ -6,10 +6,10 @@
 - `services`: external I/O and data transformation for Firebase/API calls.
 - `queries`: TanStack Query hooks wrapping service calls.
 - `stores`: client-only state shared across components.
-- `components`: reusable visual and interaction components.
+- `components`: reusable visual and interaction components, grouped by role.
 - `pages`: route-level composition.
 - `routes`: paths, route metadata, and router wiring.
-- `themes`: colors, variables, typography, MUI overrides.
+- `themes`: colors, variables, shared styles, typography, MUI overrides.
 
 Keep dependencies flowing downward:
 
@@ -23,6 +23,14 @@ models -> core only when defaults are needed
 
 Avoid importing page code into components, services, models, or stores.
 
+Keep infrastructure names specific:
+
+- `core/firebaseConfig.ts` owns Firebase app config from env/constants.
+- `core/firestore.ts` owns Firestore collection/document identifiers.
+- `queries/queryKeys.ts` owns TanStack Query keys.
+- `themes/theme.ts` owns the app MUI theme.
+- `themes/sharedStyles.ts` owns reusable theme-level style hooks.
+
 ## File Conventions
 
 - New `.ts` and `.tsx` files should include the repo copyright header:
@@ -35,6 +43,12 @@ Avoid importing page code into components, services, models, or stores.
 
 - Component/page folders should keep `index.ts` as the public export and the
   main implementation in `Component.tsx` or `Page.tsx`.
+- Keep shared components grouped by role:
+  - `components/ui`: reusable primitives and small shared interaction pieces.
+  - `components/layout`: layout, frame, navigation, and route wrapper pieces.
+  - `components/portfolio`: portfolio/profile-specific cards, items, and dialogs.
+  - `components/cv`: CV preview/PDF rendering components.
+  - `components/chat`: chatbot UI and local chatbot hooks.
 - Do not create empty `props.ts` or `styles.ts` files just to preserve folder
   shape.
 - Keep props/types inline in the component file when they are short, used by one

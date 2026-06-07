@@ -3,7 +3,7 @@
  */
 
 import createStyleHook from '@themes/createStyleHook';
-import type { AppTheme } from '@themes/themes';
+import type { AppTheme } from '@themes/theme';
 
 export default createStyleHook((theme: AppTheme) => ({
   contactContainer: {

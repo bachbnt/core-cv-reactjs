@@ -10,8 +10,8 @@ import {
 import { persister, queryClient } from '@queries';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import colors from '@themes/colors';
-import styles from '@themes/styles';
-import themes from '@themes/themes';
+import styles from '@themes/sharedStyles';
+import theme from '@themes/theme';
 import variables from '@themes/variables';
 import { logEvent } from 'firebase/analytics';
 import { createRoot } from 'react-dom/client';
@@ -36,7 +36,7 @@ onTTFB(reportWebVital());
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
-const appTheme = { ...themes, colors, styles, variables };
+const appTheme = { ...theme, colors, styles, variables };
 
 root.render(
   <StyledEngineProvider injectFirst>

@@ -4,7 +4,7 @@
 
 import { getCv } from '@services/service';
 import { useQuery } from '@tanstack/react-query';
-import { queryKeys } from './keys';
+import { queryKeys } from './queryKeys';
 
 const useCvQuery = () =>
   useQuery({

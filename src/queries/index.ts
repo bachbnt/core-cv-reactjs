@@ -3,7 +3,7 @@
  */
 
 export { queryClient, persister } from './queryClient';
-export { queryKeys } from './keys';
+export { queryKeys } from './queryKeys';
 export { default as useConfigQuery } from './useConfigQuery';
 export { default as useCvQuery } from './useCvQuery';
 export { default as useUserQuery } from './useUserQuery';

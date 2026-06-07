@@ -8,7 +8,7 @@ import { Localization } from '@locales/i18n';
 import { Box, CardMedia, Grid } from '@mui/material';
 import { Skill, SkillType } from '@models/skill';
 import { useUserQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoCodeSlash, IoLanguage, IoSettings } from 'react-icons/io5';

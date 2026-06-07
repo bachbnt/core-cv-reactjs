@@ -6,7 +6,7 @@ import Constant from '@core/constants';
 import { useQuery } from '@tanstack/react-query';
 import { getConfig } from '@services/service';
 import { useEffect } from 'react';
-import { queryKeys } from './keys';
+import { queryKeys } from './queryKeys';
 
 const applyToDocument = (
   config: { appIcon?: string; appTitle?: string } | undefined,

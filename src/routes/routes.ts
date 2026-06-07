@@ -4,8 +4,32 @@
 
 import { Localization } from '@locales/i18n';
 import { TrackingPageName } from '@models/tracking';
-import { RouteName } from './routeName';
-import { RoutePath } from './routePath';
+
+export enum RoutePath {
+  HOME = '/',
+  ABOUT = '/about',
+  RESUME = '/resume',
+  PROJECT = '/project',
+  BLOG = '/blog',
+  SERVICE = '/service',
+  CONTACT = '/contact',
+  PAYMENT = '/payment',
+  CERTIFICATE = '/certificate',
+  NOT_FOUND = '/*',
+}
+
+export enum RouteName {
+  HOME = 'Home',
+  ABOUT = 'About',
+  RESUME = 'Resume',
+  PROJECT = 'Project',
+  BLOG = 'Blog',
+  SERVICE = 'Service',
+  CONTACT = 'Contact',
+  PAYMENT = 'Payment',
+  CERTIFICATE = 'Certificate',
+  NOT_FOUND = 'NotFound',
+}
 
 export type RouteConfigKey =
   | 'home'

@@ -2,7 +2,7 @@
  * Copyright (c) 2026 bachbnt. All rights reserved.
  */
 
-import { FirestoreCollection, FirestoreDocument } from '@core/configs';
+import { FirestoreCollection, FirestoreDocument } from '@core/firestore';
 import Constant from '@core/constants';
 import { Certificate } from '@models/certificate';
 import { ChatMessage, ChatProvider } from '@models/chat';

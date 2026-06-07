@@ -15,7 +15,7 @@ import { Localization } from '@locales/i18n';
 import { Project as ProjectModel, ProjectType } from '@models/project';
 import { Box, Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 

@@ -17,7 +17,7 @@ import { ContactType } from '@models/contact';
 import { useSendMessage, useUserQuery } from '@queries';
 import { useUiStore } from '@stores/uiStore';
 import { zodResolver } from '@hookform/resolvers/zod';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 import filter from 'lodash/filter';
 import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';

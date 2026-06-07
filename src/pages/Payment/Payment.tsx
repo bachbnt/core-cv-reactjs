@@ -8,7 +8,7 @@ import useTracker from '@hooks/useTracker';
 import { Payment as PaymentModel } from '@models/payment';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 
 const Payment = () => {
   const themeClasses = useThemeStyles();

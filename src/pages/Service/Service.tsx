@@ -6,7 +6,7 @@ import { AnimateIn, Layout, ServiceItem } from '@components';
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 
 const Service = () => {
   const themeClasses = useThemeStyles();

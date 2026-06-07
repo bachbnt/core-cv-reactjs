@@ -5,7 +5,7 @@
 import useTracker from '@hooks/useTracker';
 import { Grid } from '@mui/material';
 import { useConfigQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 
 const NotFound = () => {
   const themeClasses = useThemeStyles();

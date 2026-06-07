@@ -13,7 +13,7 @@ import useTracker from '@hooks/useTracker';
 import { Certificate as CertificateModel } from '@models/certificate';
 import { Grid } from '@mui/material';
 import { useUserQuery } from '@queries';
-import useThemeStyles from '@themes/styles';
+import useThemeStyles from '@themes/sharedStyles';
 
 const Certificate = () => {
   const themeClasses = useThemeStyles();
