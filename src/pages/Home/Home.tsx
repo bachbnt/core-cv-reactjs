@@ -20,11 +20,13 @@ import useThemeStyles from '@themes/styles';
 import filter from 'lodash/filter';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import useStyles from './styles';
 
 const Home = () => {
   const classes = useStyles();
   const themeClasses = useThemeStyles();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({
     page_name: 'page1_home',
@@ -46,7 +48,7 @@ const Home = () => {
       trackEvent('component_clicked', {
         component_name: 'page1_button1_about',
       });
-      window.location.assign(RoutePath.ABOUT);
+      navigate(RoutePath.ABOUT);
     }
   };
   const onContactClick = () => {
@@ -54,7 +56,7 @@ const Home = () => {
       trackEvent('component_clicked', {
         component_name: 'page1_button2_contact',
       });
-      window.location.assign(RoutePath.CONTACT);
+      navigate(RoutePath.CONTACT);
     }
   };
 

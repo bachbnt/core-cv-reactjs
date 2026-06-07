@@ -10,7 +10,7 @@ import { routes } from './routes';
 const router = createBrowserRouter(
   routes.map((route) => ({
     path: route.path,
-    element: <Wrapper page={route.component} />,
+    element: <Wrapper key={route.path} page={route.component} />,
   })),
 );
 

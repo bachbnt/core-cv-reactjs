@@ -8,6 +8,7 @@ import {
   ErrorInfo,
   lazy,
   ReactNode,
+  type ComponentType,
   Suspense,
   useMemo,
 } from 'react';
@@ -19,6 +20,10 @@ type Props = {
 interface ErrorBoundaryState {
   hasError: boolean;
 }
+
+type PageModule = {
+  default: ComponentType;
+};
 
 class ErrorBoundary extends Component<
   { children: ReactNode },
@@ -42,7 +47,7 @@ class ErrorBoundary extends Component<
   }
 }
 
-const files = import.meta.glob('../../pages/*/index.ts');
+const files = import.meta.glob<PageModule>('../../pages/*/index.ts');
 
 const Wrapper = (props: Props) => {
   const { page } = props;
@@ -52,7 +57,7 @@ const Wrapper = (props: Props) => {
     if (!loader) {
       return () => <div>Page not found</div>;
     }
-    return lazy(loader as any);
+    return lazy(loader);
   }, [page]);
 
   return (

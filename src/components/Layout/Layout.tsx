@@ -5,11 +5,12 @@
 import { Footer, Header } from '@components';
 import { Box, Container } from '@mui/material';
 import { useConfigQuery } from '@queries';
+import { isRouteEnabled, isRouteVisible } from '@routes/routeConfig';
+import { RoutePath } from '@routes/routePath';
 import { routes } from '@routes/routes';
-import lowerCase from 'lodash/lowerCase';
 import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useStyles from './styles';
 
 type Props = {
@@ -20,11 +21,12 @@ const Layout = (props: Props) => {
   const classes = useStyles();
   const { children } = props;
   const location = useLocation();
+  const navigate = useNavigate();
   const { data: config } = useConfigQuery();
 
   const [isExiting, setIsExiting] = useState(false);
   const navDirectionRef = useRef<'next' | 'prev' | null>(null);
-  const pendingPathRef = useRef<string | null>(null);
+  const pendingPathRef = useRef<RoutePath | null>(null);
 
   useEffect(() => {
     if (!isExiting || !pendingPathRef.current) return;
@@ -32,14 +34,14 @@ const Layout = (props: Props) => {
       const path = pendingPathRef.current!;
       pendingPathRef.current = null;
       setIsExiting(false);
-      window.location.assign(path);
+      navigate(path);
     }, 280);
     return () => clearTimeout(timer);
-  }, [isExiting]);
+  }, [isExiting, navigate]);
 
   useEffect(() => {
-    const visibleRoutes = routes.filter(
-      (route) => (config as any)?.[`${lowerCase(route.component)}Visible`],
+    const visibleRoutes = routes.filter((route) =>
+      isRouteVisible(config, route),
     );
     const currentIndex = visibleRoutes.findIndex(
       (route) => route.path === location.pathname,
@@ -55,10 +57,7 @@ const Layout = (props: Props) => {
       if (hasNavigated) return;
       const route = visibleRoutes[index];
       if (!route) return;
-      const isEnabled = (config as any)?.[
-        `${lowerCase(route.component)}Enable`
-      ];
-      if (!isEnabled) return;
+      if (!isRouteEnabled(config, route)) return;
       hasNavigated = true;
       navDirectionRef.current = direction;
       pendingPathRef.current = route.path;

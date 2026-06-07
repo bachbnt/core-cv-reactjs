@@ -77,9 +77,19 @@ test.describe('portfolio app', () => {
 
   test('navigates between desktop pages from the header', async ({ page }) => {
     await page.goto('/');
+    await page.evaluate(() => {
+      (window as Window & { __routeMarker?: string }).__routeMarker = 'alive';
+    });
 
     await page.getByRole('button', { name: 'About', exact: true }).click();
     await expect(page).toHaveURL(/\/about$/);
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => (window as Window & { __routeMarker?: string }).__routeMarker,
+        ),
+      )
+      .toBe('alive');
     await expect(
       page.getByRole('button', { name: 'About', exact: true }),
     ).toHaveAttribute('aria-current', 'page');

@@ -12,10 +12,10 @@ import {
 } from '@mui/material';
 import { useConfigQuery } from '@queries';
 import isRouteActive from '@routes/isRouteActive';
+import { isRouteEnabled, isRouteVisible } from '@routes/routeConfig';
 import { Route, routes } from '@routes/routes';
-import lowerCase from 'lodash/lowerCase';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 type Props = {
   open: boolean;
@@ -25,22 +25,23 @@ type Props = {
 const Drawer = (props: Props) => {
   const { open, onClose } = props;
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { trackEvent } = useTracker({}, false);
 
   const { data: config } = useConfigQuery();
 
   const onPageClick = async (route: Route) => {
-    const { component, path, trackingName } = route;
+    const { path, trackingName } = route;
     if (
-      (config as any)?.[`${lowerCase(component)}Enable`] &&
+      isRouteEnabled(config, route) &&
       !isRouteActive(location.pathname, path)
     ) {
       trackEvent('component_clicked', {
         component_name: 'drawer',
         item_name: `${trackingName}_button`,
       });
-      window.location.assign(path);
+      navigate(path);
     } else {
       copyUrl(path);
     }
@@ -55,7 +56,7 @@ const Drawer = (props: Props) => {
     <MuiDrawer open={open} color='inherit' onClose={onClose} anchor='right'>
       <List>
         {routes.map((route) =>
-          (config as any)?.[`${lowerCase(route.component)}Visible`] ? (
+          isRouteVisible(config, route) ? (
             <ListItemButton
               aria-current={
                 isRouteActive(location.pathname, route.path)
