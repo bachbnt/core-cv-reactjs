@@ -1,4 +1,4 @@
-# Bach CV
+# BachCV
 
 A configurable portfolio and CV web app built with React 18, Vite, TypeScript,
 MUI, Firebase, TanStack Query, Zustand, i18next, Vitest, Playwright, and a
