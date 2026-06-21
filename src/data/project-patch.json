@@ -36,11 +36,11 @@
     "index": 2
   },
   "finhub": {
-    "name": "FinHub",
+    "name": "FinHub MCP",
     "type": "personal",
     "description": "Local MCP server for financial market data. Covers Vietnam stocks (price, intraday, OHLCV history, market indices), company financials, crypto spot and futures (funding rate, open interest), SJC gold price, Vietcombank forex rates, and price alerts with Telegram notifications. Automatic provider fallback across multiple data sources.",
     "technology": "Python, MCP, vnstock, ccxt",
-    "refs": ["https://github.com/bachbnt/finhub"],
+    "refs": ["https://github.com/bachbnt/finhub-mcp"],
     "cover": "",
     "covers": [],
     "coverVisible": false,
