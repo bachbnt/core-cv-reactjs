@@ -51,6 +51,14 @@
     "test:all": "npm run test:unit:run && npm run test:automation",
     "upload:cv": "node scripts/upload-cv.mjs",
     "update:localization": "node scripts/update-localization.mjs",
+    "upload:project": "node scripts/upload-user-data.mjs --doc=project",
+    "upload:payment": "node scripts/upload-user-data.mjs --doc=payment",
+    "upload:certificate": "node scripts/upload-user-data.mjs --doc=certificate",
+    "upload:education": "node scripts/upload-user-data.mjs --doc=education",
+    "upload:experience": "node scripts/upload-user-data.mjs --doc=experience",
+    "upload:skill": "node scripts/upload-user-data.mjs --doc=skill",
+    "upload:contact": "node scripts/upload-user-data.mjs --doc=contact",
+    "upload:service": "node scripts/upload-user-data.mjs --doc=service",
     "prepare": "husky install"
   },
   "browserslist": {

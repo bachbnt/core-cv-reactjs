@@ -1,0 +1,16 @@
+{
+  "example_experience_id": {
+    "name": "MoMo (M_Service)",
+    "nameVisible": true,
+    "position": "Senior Mobile App Developer",
+    "positionVisible": true,
+    "responsibility": "Led development of payment features for millions of users.",
+    "responsibilityVisible": true,
+    "time": "May 2022 - Jan 2026",
+    "timeVisible": true,
+    "image": "",
+    "imageVisible": false,
+    "visible": true,
+    "index": 1
+  }
+}

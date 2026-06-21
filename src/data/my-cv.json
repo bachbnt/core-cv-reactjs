@@ -214,6 +214,62 @@
     ],
     "projectsAndResearch": [
       {
+        "name": "DevCmd",
+        "period": {
+          "start": "Feb 2024",
+          "end": "Present"
+        },
+        "role": "Developer",
+        "description": "Interactive development CLI for scaffolding JavaScript, mobile, and Python projects with framework-appropriate defaults. Supports lifecycle commands (install, run, test, build, check, clean, reset), Android emulator and iOS simulator management, custom framework recipes, MCP server for AI agent integration, and shell completion.",
+        "technologies": ["Node.js", "MCP"],
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/bachbnt/dev-cmd"
+          },
+          {
+            "label": "Releases",
+            "url": "https://github.com/bachbnt/dev-cmd/releases"
+          }
+        ]
+      },
+      {
+        "name": "DevPad",
+        "period": {
+          "start": "May 2026",
+          "end": "Present"
+        },
+        "role": "Developer",
+        "description": "Native macOS menu bar utility for developers. Includes JSON/XML/SQL formatter, URL parser, QR generator and scanner, JWT decoder/signer/verifier, Regex tester, Hash generator (8 algorithms), Diff compare, Clipboard history with Pure Paste, and Drop Shelf for batching file drag-and-drop. Supports English and Vietnamese.",
+        "technologies": ["Swift", "SwiftUI", "AppKit", "macOS"],
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/bachbnt/dev-pad"
+          },
+          {
+            "label": "Releases",
+            "url": "https://github.com/bachbnt/dev-pad/releases"
+          }
+        ]
+      },
+      {
+        "name": "FinHub",
+        "period": {
+          "start": "May 2026",
+          "end": "Present"
+        },
+        "role": "Developer",
+        "description": "Local MCP server for financial market data. Covers Vietnam stocks (price, intraday, OHLCV history, market indices), company financials, crypto spot and futures (funding rate, open interest), SJC gold price, Vietcombank forex rates, and price alerts with Telegram notifications. Automatic provider fallback across multiple data sources.",
+        "technologies": ["Python", "MCP", "vnstock", "ccxt"],
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/bachbnt/finhub"
+          }
+        ]
+      },
+      {
         "name": "Stock Prices Prediction - MSc Thesis",
         "period": {
           "start": "Jan 2022",
@@ -274,7 +330,7 @@
     },
     {
       "page": 3,
-      "text": "Jan 2022 Mar 2023 Technologies: Python, Keras, Matplotlib\nSource: https://github.com/bachbnt/learn-stock_prices_prediction-python\nPersonal Portfolio Website\nApr 2021 - Apr 2021\nDeveloper\nDesigned and developed a personal portfolio website.\nTechnologies: ReactJS, Material UI, Firebase Hosting, CI/CD\nLive: https://bachbntdev.web.app\nInternal Social Network - BSc Thesis\nDec 2019 - Feb 2020\nDeveloper\nDeveloped an internal social networking platform.\nTechnologies: Flutter, BLoC, React Native, Redux\nSource: https://github.com/bachbnt/learn-pc_dashboard-flutter_reactnative"
+      "text": "DevCmd\nFeb 2024 - Present\nDeveloper\nInteractive development CLI for scaffolding JavaScript, mobile, and Python projects with framework-appropriate defaults. Supports lifecycle commands (install, run, test, build, check, clean, reset), Android emulator and iOS simulator management, custom framework recipes, MCP server for AI agent integration, and shell completion.\nTechnologies: Node.js, MCP\nGitHub: https://github.com/bachbnt/dev-cmd\nReleases: https://github.com/bachbnt/dev-cmd/releases\nDevPad\nMay 2026 - Present\nDeveloper\nNative macOS menu bar utility for developers. Includes JSON/XML/SQL formatter, URL parser, QR generator and scanner, JWT decoder/signer/verifier, Regex tester, Hash generator (8 algorithms), Diff compare, Clipboard history with Pure Paste, and Drop Shelf for batching file drag-and-drop. Supports English and Vietnamese.\nTechnologies: Swift, SwiftUI, AppKit, macOS\nGitHub: https://github.com/bachbnt/dev-pad\nReleases: https://github.com/bachbnt/dev-pad/releases\nFinHub\nMay 2026 - Present\nDeveloper\nLocal MCP server for financial market data. Covers Vietnam stocks (price, intraday, OHLCV history, market indices), company financials, crypto spot and futures (funding rate, open interest), SJC gold price, Vietcombank forex rates, and price alerts with Telegram notifications. Automatic provider fallback across multiple data sources.\nTechnologies: Python, MCP, vnstock, ccxt\nGitHub: https://github.com/bachbnt/finhub\nJan 2022 Mar 2023 Technologies: Python, Keras, Matplotlib\nSource: https://github.com/bachbnt/learn-stock_prices_prediction-python\nPersonal Portfolio Website\nApr 2021 - Apr 2021\nDeveloper\nDesigned and developed a personal portfolio website.\nTechnologies: ReactJS, Material UI, Firebase Hosting, CI/CD\nLive: https://bachbntdev.web.app\nInternal Social Network - BSc Thesis\nDec 2019 - Feb 2020\nDeveloper\nDeveloped an internal social networking platform.\nTechnologies: Flutter, BLoC, React Native, Redux\nSource: https://github.com/bachbnt/learn-pc_dashboard-flutter_reactnative"
     }
   ]
 }
